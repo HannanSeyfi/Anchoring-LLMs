@@ -1,0 +1,297 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage[table]{xcolor}
+\usepackage[authoryear,round]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+
+\setlist{itemsep=2pt,topsep=4pt}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcommand{\RQ}[1]{\textbf{RQ#1}}
+\newcommand{\Hyp}[1]{\textbf{H#1}}
+
+\title{\textbf{Adjusting or Retrieving?}\\[4pt]
+\large Testing the Mechanisms of Anchoring in Large Language Models\\[2pt]
+\normalsize Research Proposal}
+\author{Hannan Seyfi}
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+Large language models (LLMs) are increasingly asked for numerical estimates in settings where an irrelevant number in the context can pull their answer towards itself. This anchoring effect is now well documented in LLMs, but existing work asks \emph{whether} models anchor, how strongly, and through which input channels. It does not ask \emph{why}. In human judgment, two classic accounts compete: insufficient adjustment away from a starting value \citep{tversky1974judgment,epley2006anchoring}, and selective accessibility of anchor-consistent knowledge \citep{strack1997explaining,mussweiler1999hypothesis}. The two accounts make different predictions about where anchored estimates land, how they respond to anchor distance and precision, and whether extra deliberation helps. Reasoning models now expose their intermediate reasoning, which lets us observe the anchoring process directly rather than only its outcome. This project tests which mechanism operates in LLMs in two studies. Study~1 uses experimenter-provided anchors placed relative to each model's own plausible range. Study~2 adapts \citet{epley2001putting} to contrast self-generated and provided anchors under different amounts of reasoning. The project will produce a theory-driven account of LLM anchoring, an explanation for the recent finding that more reasoning does not reduce anchoring \citep{kraishan2026long}, and guidance on which mitigation should work for which kind of anchor.
+\end{abstract}
+
+% =====================================================================
+\section{Introduction}
+% =====================================================================
+
+When people estimate an uncertain quantity after seeing a number, their estimate moves towards that number, even when the number is plainly irrelevant. \citet{tversky1974judgment} called this \emph{anchoring and adjustment}, and it became one of the central examples in Kahneman's account of fast, intuitive System~1 thinking \citep{kahneman2011thinking}.
+
+LLMs show the same effect. Early work found anchoring in GPT-3-era models \citep{jones2022capturing,binz2023using}, and a fast-growing literature has since shown that the effect is common across model families, survives standard prompting fixes, and reaches models through many channels: the prompt, the conversation history, retrieved documents and tool outputs \citep{lou2026anchoring,huang2025understanding,borjigin2026anchorbench}. Anchoring also distorts LLM-as-a-judge evaluations \citep{kapetanovic2026anchoring}. Because LLMs are now used for forecasting, pricing, medical dosing and evaluation, this is a practical problem as well as a scientific one.
+
+What the literature has not settled is the \emph{mechanism}. This matters for two reasons. Theoretically, LLMs are a new kind of judge, and whether they reproduce the human mechanism or only its outcome tells us how far human cognitive theory can be applied to them. Practically, the two human mechanisms call for different remedies. If anchoring comes from insufficient adjustment, more deliberation and accuracy incentives should help. If it comes from selective accessibility, deliberation can make things worse by retrieving more anchor-consistent evidence, and the effective remedy is to make anchor-\emph{inconsistent} knowledge accessible, for example by ``considering the opposite'' \citep{mussweiler2000overcoming}.
+
+Two recent developments make the mechanism question answerable now. First, reasoning models such as DeepSeek-R1 and Qwen3 produce an explicit reasoning trace before they answer \citep{guo2025deepseek,yang2025qwen3}. This plays the role that verbal protocols played in the human anchoring literature \citep{epley2001putting}: we can see whether a model starts at the anchor and steps away from it, or whether it builds a case for it. Second, \citet{kraishan2026long} found that larger reasoning budgets do \emph{not} reduce anchoring, contrary to the simple dual-process expectation. That study used only experimenter-provided anchors. In humans, manipulations that promote effortful adjustment, such as forewarnings and accuracy incentives, reduce anchoring for self-generated anchors but not for provided ones \citep{epley2001putting,epley2005effortful}. The human mechanism literature therefore predicts exactly the null result Kraishan observed, and it predicts that the result should reverse for self-generated anchors. This proposal tests that prediction.
+
+\paragraph{Contributions.} The project aims to:
+\begin{enumerate}
+  \item provide the first direct test of insufficient adjustment versus selective accessibility in LLMs, using behavioural signatures that the two accounts predict differently;
+  \item introduce trace-based process tracing for anchoring, using reasoning traces as the analogue of human verbal protocols;
+  \item test whether LLMs reproduce the human dissociation between self-generated and provided anchors, and thereby explain when extra reasoning does and does not reduce anchoring;
+  \item derive mechanism-matched mitigation advice, and release items, prompts, model outputs and analysis code.
+\end{enumerate}
+
+% =====================================================================
+\section{Background}
+% =====================================================================
+
+\subsection{Two accounts of anchoring in human judgment}
+
+\paragraph{Insufficient adjustment.} In the original account, people start from the anchor and adjust towards a better estimate, but they stop too early \citep{tversky1974judgment}. \citet{epley2006anchoring} showed that adjustment tends to stop once the estimate reaches the nearest edge of the range of values a person finds plausible, and that it goes further when people are able and motivated to keep searching. \citet{lieder2018anchoring} formalised this as a resource-rational process in which each adjustment step costs effort, so the bias shrinks as more computation is invested. \citet{janiszewski2008precision} found that people adjust less from precise anchors (e.g.\ 4{,}988) than from round ones (e.g.\ 5{,}000), which they attributed to adjustment proceeding in steps whose size matches the precision of the anchor.
+
+\paragraph{Selective accessibility.} \citet{strack1997explaining} and \citet{mussweiler1999hypothesis} argued instead that, when asked whether a quantity is higher or lower than an anchor, people test the hypothesis that the quantity equals the anchor. This makes anchor-consistent knowledge more accessible, and that knowledge then shapes the final estimate. On this account there is no starting point to adjust from. The anchor changes \emph{what information is used}. Consistent with this, asking people to consider reasons why the anchor might be wrong reduces anchoring \citep{mussweiler2000overcoming}. A related ``basic anchoring'' account holds that mere exposure to a number can prime estimates without any comparison \citep{wilson1996new}.
+
+\paragraph{A dissociation by anchor source.} \citet{epley2001putting} reconciled the two accounts by distinguishing anchor sources. For \emph{self-generated} anchors, values people retrieve themselves (e.g.\ starting from 100$^\circ$C when estimating the boiling point of water on Mount Everest), participants described adjusting in their verbal reports, and manipulations that encourage further adjustment changed their estimates. For \emph{experimenter-provided} anchors, participants rarely described adjustment and the same manipulations had little effect. \citet{epley2005effortful} found the same pattern for forewarnings and accuracy incentives. Reviews describe a literature in which both mechanisms operate under different conditions, and in which moderator effects are not always consistent \citep{furnham2011literature}.
+
+\subsection{Anchoring in language models}
+
+Table~\ref{tab:related} summarises the most relevant recent work. Three points stand out. First, anchoring in LLMs is robust: it appears across model families and sizes, and prompt-based mitigations such as chain-of-thought, reflection and ``ignore the hint'' instructions reduce but do not remove it \citep{lou2026anchoring,huang2025understanding}. Second, recent work has mapped \emph{where} anchoring enters (input pathways; \citealp{borjigin2026anchorbench}), \emph{which models} are susceptible (low-confidence models; \citealp{owusu2026anchoring}), and \emph{which internal components} carry it \citep{owusu2026localizing,huang2025understanding,valencia2025anchors}. Third, mechanism language from psychology is used only by analogy. \citet{huang2025understanding} discuss selective accessibility as ``a partial analogy'' in an appendix, and \citet{borjigin2026anchorbench} map their pathways loosely onto the human accounts, but neither tests between the accounts.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Recent work on anchoring in LLMs and what it leaves open.}
+\label{tab:related}
+\begin{tabularx}{\textwidth}{@{}p{3.3cm}LL@{}}
+\toprule
+\textbf{Study} & \textbf{What it tests} & \textbf{Main finding} \\
+\midrule
+\citet{lou2026anchoring} & GPT-3.5, GPT-4, GPT-4o on items from human studies; four prompting mitigations & Strong anchoring; chain-of-thought, reflection and ``ignore'' instructions are insufficient. \\
+\addlinespace
+\citet{huang2025understanding} (SynAnchors) & Synthetic items; comparative two-step and numerical-priming paradigms; 11 models; causal tracing; anchor mentions in R1 traces & 22--61\% of questions anchored; effect sits in early layers; reasoning models least affected; selective accessibility discussed only as an analogy. \\
+\addlinespace
+\citet{owusu2026anchoring} & Base, instruction-tuned and distilled Llama and Qwen models & Susceptibility falls as confidence rises, regardless of accuracy; high anchors pull more than low ones. \\
+\addlinespace
+\citet{owusu2026localizing} & Circuit attribution in 7--8B Qwen and Llama models & Anchoring runs through shared pathways; post-training changes which pathways matter. \\
+\addlinespace
+\citet{borjigin2026anchorbench} (AnchorBench) & 14 models; anchors via prompt, history, demonstrations, retrieval and tools; irrelevant vs plausible anchors & Strongly pathway-dependent; influence weakens with distance from the evidence-supported answer. ``Self-generated'' here means the model's own earlier answer in a chat. \\
+\addlinespace
+\citet{kapetanovic2026anchoring} & 8 LLM judges with prior scores in the input & Prior scores bias judgments; the response is threshold-like rather than proportional. \\
+\addlinespace
+\citet{kraishan2026long} & 7 models in 4 families; thinking budgets 0--8{,}192 tokens; 5 provided-anchor vignettes & More reasoning does not reduce anchoring; restating the anchor helps slightly ($p=.057$). \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Reasoning traces as process data}
+
+Reasoning traces are not a transparent window on computation. Chain-of-thought explanations can omit cues that drove the answer \citep{turpin2023language}, and reasoning models often fail to mention hints that influenced them \citep{chen2025reasoning}. We therefore treat traces as one source of evidence alongside behavioural signatures, in the same way that the human literature treats verbal protocols. The behavioural tests in Section~\ref{sec:predictions} do not depend on trace faithfulness.
+
+% =====================================================================
+\section{Research gap and questions}
+% =====================================================================
+
+No study has tested which mechanism produces anchoring in LLMs, and no study has used the self-generated versus provided anchor distinction of \citet{epley2001putting}. The reasoning-budget evidence \citep{kraishan2026long} rests on five provided-anchor items, so it cannot speak to self-generated anchors. The project asks:
+
+\begin{description}[leftmargin=1.2cm,labelwidth=1cm]
+  \item[\RQ{1}] When an LLM receives a provided anchor, do its estimates show the signatures of insufficient adjustment or of selective accessibility?
+  \item[\RQ{2}] Do LLMs process self-generated and provided anchors differently, as humans do?
+  \item[\RQ{3}] Does extra reasoning reduce anchoring for self-generated anchors but not for provided ones?
+  \item[\RQ{4}] Which mitigation works for which anchor source: more reasoning, accuracy instructions, or considering the opposite?
+\end{description}
+
+% =====================================================================
+\section{Methods}
+% =====================================================================
+
+The project consists of a pilot and two main studies. All studies query models through APIs or run open-weight models locally; no model training is involved.
+
+\subsection{Models}
+
+We will use about five models chosen to make reasoning a manipulable factor:
+\begin{itemize}
+  \item open-weight models whose thinking can be switched on and off at constant weights (e.g.\ hybrid Qwen3 checkpoints);
+  \item matched reasoning and non-reasoning siblings where a switch is not available (e.g.\ DeepSeek-R1 and DeepSeek-V3);
+  \item an open-weight model with graded reasoning effort (e.g.\ gpt-oss at low, medium and high effort);
+  \item one closed frontier model for behavioural results only, since its full traces are not available.
+\end{itemize}
+\citet{kraishan2026long} found that requested thinking budgets were ignored or converted by some providers. We will therefore log the reasoning tokens each call actually used and treat realised tokens as the measure of deliberation. The final panel will be fixed after the pilot.
+
+\subsection{Stimuli}
+
+\paragraph{Study~1 items (provided anchors).} About 80 numerical estimation questions with verifiable answers, written to be unfamiliar to current models (e.g.\ obscure geographical, historical and physical quantities). Following \citet{huang2025understanding}, items are drafted with LLM assistance, then curated and fact-checked by hand. Items that a model answers precisely without an anchor are excluded for that model, since there is nothing to anchor.
+
+\paragraph{Study~2 items (self-generated anchors).} About 60 questions in the style of \citet{epley2001putting}, each with a well-known reference value that a solver naturally starts from and must adjust away from. The classic items (e.g.\ boiling point on Everest from 100$^\circ$C) are likely memorised, so we will write new items with obscure targets but familiar reference values. Each item exists in two versions: \emph{self-generated} (no number in the prompt) and \emph{provided} (the same reference value given as a comparative ``higher or lower than $X$?'' question). The two versions share the same anchor value and differ only in its source.
+
+\subsection{Design}
+
+\paragraph{Baseline phase.} For each model and item we first collect 30 unanchored answers at temperature~1. Their 5th and 95th percentiles define the model's \emph{plausible range} $[L, U]$, and their spread serves as the confidence covariate identified by \citet{owusu2026anchoring}.
+
+\paragraph{Study~1.} Provided anchors follow the two-step paradigm of \citet{jacowitz1995measures}: a comparative question followed by an absolute estimate. Anchors are placed relative to each model's own plausible range, crossing three factors:
+\begin{itemize}
+  \item \emph{direction}: low ($A < L$) or high ($A > U$);
+  \item \emph{distance}: near (just outside the range) or far (well outside it);
+  \item \emph{precision}: round or precise anchor of similar magnitude.
+\end{itemize}
+Each of the 8 anchor conditions is run at three reasoning levels (off, low, high) with 10 samples per cell.
+
+\paragraph{Study~2.} Each self-anchor item is crossed with \emph{anchor source} (self-generated vs provided), \emph{reasoning level} (off, low, high) and \emph{instruction} (none; accuracy instruction; consider-the-opposite instruction adapted from \citealp{mussweiler2000overcoming}), with 10 samples per cell.
+
+\paragraph{Scale.} With five models this amounts to roughly 130{,}000 calls for Study~1 and 55{,}000 for Study~2. The exact budget will be set from the cost per call measured in the pilot.
+
+\subsection{Measures}
+
+\begin{itemize}
+  \item \textbf{Anchoring index} for provided anchors, following \citet{jacowitz1995measures}:
+  \begin{equation}
+    \mathrm{AI} = \frac{\operatorname{median}(y_{\text{high}}) - \operatorname{median}(y_{\text{low}})}{A_{\text{high}} - A_{\text{low}}}.
+  \end{equation}
+  Human values typically lie between 0.4 and 0.6.
+  \item \textbf{Proportional adjustment}: how far an estimate moves from the anchor towards the truth, $(y - A)/(T - A)$, where $T$ is the true value. This is defined for both anchor sources.
+  \item \textbf{Boundary proximity}: the distance between each anchored estimate and the edge of the model's plausible range nearest to the anchor.
+  \item \textbf{Trace coding}: each reasoning trace is coded as (a) \emph{adjusting} (starts at the anchor and moves away in steps), (b) \emph{retrieving} (collects facts consistent with the anchor, then answers), (c) \emph{dismissing} the anchor, or (d) not engaging with it. We also extract the sequence of candidate values that appear in the trace. Coding is done by an LLM coder validated against about 200 traces coded by hand (target Cohen's $\kappa \geq 0.7$).
+  \item \textbf{Realised reasoning tokens} per call.
+\end{itemize}
+
+\subsection{Predictions}
+\label{sec:predictions}
+
+The core of the design is that the two accounts make different predictions on several independent signatures (Table~\ref{tab:predictions}).
+
+\begin{table}[t]
+\centering
+\small
+\caption{Behavioural and trace signatures that distinguish the two accounts.}
+\label{tab:predictions}
+\begin{tabularx}{\textwidth}{@{}p{3.2cm}LL@{}}
+\toprule
+\textbf{Signature} & \textbf{Insufficient adjustment} & \textbf{Selective accessibility} \\
+\midrule
+Where anchored estimates land & Pile up near the edge of the plausible range closest to the anchor & The whole baseline distribution shifts towards the anchor \\
+\addlinespace
+Near vs far anchor & Little extra effect once the anchor is outside the range, since adjustment stops at the edge & Larger effect for the more extreme anchor \\
+\addlinespace
+Precise vs round anchor & Precise anchors produce less adjustment & No systematic difference \\
+\addlinespace
+More reasoning or accuracy instruction & Further adjustment, so less bias & No reduction, possibly more bias as more anchor-consistent evidence is retrieved \\
+\addlinespace
+Consider-the-opposite instruction & Little effect & Reduces bias \\
+\addlinespace
+Reasoning trace & Candidate values move step by step away from the anchor & Trace lists facts that fit the anchor, then answers \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The first two signatures can be stated as competing models of the anchored estimate $y$ for a high anchor $A > U$. Under boundary-stopping adjustment, $y \approx U + \varepsilon$, so $\partial y / \partial A \approx 0$ once the anchor is outside the range. Under a distributional shift, $y = b + \lambda\,(A - \tilde{b})$, where $b$ is a baseline draw and $\tilde{b}$ the baseline median, so $\partial y / \partial A = \lambda > 0$. The near/far manipulation estimates this slope directly, and the two models can be compared by likelihood on the full distribution of anchored estimates.
+
+Based on the human literature, we expect:
+\begin{description}[leftmargin=1.2cm,labelwidth=1cm]
+  \item[\Hyp{1}] Provided anchors (Study~1) show the selective-accessibility pattern: distributional shift, a positive near/far slope, and retrieval-type traces.
+  \item[\Hyp{2}] Self-generated anchors (Study~2) show the adjustment pattern: adjustment-type traces and estimates that stop near the edge of the plausible range.
+  \item[\Hyp{3}] Extra reasoning and accuracy instructions reduce anchoring for self-generated anchors but not for provided anchors (anchor source $\times$ reasoning interaction).
+  \item[\Hyp{4}] Considering the opposite reduces anchoring more for provided anchors than for self-generated ones (anchor source $\times$ instruction interaction).
+\end{description}
+A failure of \Hyp{1}--\Hyp{4} is also informative. If LLMs show the adjustment pattern for both sources, or no mechanism signature at all, then LLM anchoring reproduces the human outcome through a different process, which bears directly on using LLMs as models of, or substitutes for, human participants.
+
+\subsection{Analysis}
+
+Items, not individual samples, are the independent units. We will fit mixed-effects regressions with random intercepts (and, where supported, slopes) for items and models. The key tests are the anchor source $\times$ reasoning interaction (\Hyp{3}) and the anchor source $\times$ instruction interaction (\Hyp{4}). Reasoning enters as log realised tokens. Model confidence from the baseline phase enters as a covariate. Multiple comparisons within each family of tests are corrected with the Holm procedure. Hypotheses, exclusion rules and analyses will be pre-registered on the Open Science Framework before the main studies.
+
+\subsection{Pilot study}
+
+Before the main studies, a pilot with 30 items (15 per study) on two open-weight models will:
+\begin{itemize}
+  \item confirm that the items produce anchoring and are not memorised;
+  \item check that anchors placed relative to the plausible range behave as intended;
+  \item validate the trace-coding scheme and the LLM coder against hand coding;
+  \item measure realised reasoning tokens and cost per call, to fix the final sample sizes.
+\end{itemize}
+
+% =====================================================================
+\section{Expected contributions}
+% =====================================================================
+
+\begin{itemize}
+  \item \textbf{Theory.} A direct test of whether LLMs anchor through adjustment, accessibility, or neither, and whether the human dissociation by anchor source holds for them.
+  \item \textbf{Explanation of existing results.} If \Hyp{3} holds, it explains why larger reasoning budgets did not reduce anchoring in \citet{kraishan2026long}, and it predicts where they will.
+  \item \textbf{Method.} Reasoning traces used as process data for a classic cognitive bias, with a validated coding scheme.
+  \item \textbf{Practice.} Mechanism-matched mitigation guidance for anchors in prompts, documents and conversations.
+  \item \textbf{Resources.} Public release of items, prompts, raw model outputs and analysis code in the project repository.
+\end{itemize}
+
+% =====================================================================
+\section{Work plan}
+% =====================================================================
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}p{2cm}L@{}}
+\toprule
+\textbf{Months} & \textbf{Work} \\
+\midrule
+1   & Finalise research questions with supervisors; write and fact-check pilot items; build the querying and logging pipeline. \\
+2   & Run the pilot; validate trace coding; fix model panel and sample sizes; pre-register. \\
+3--4 & Write the full item sets; run Study~1. \\
+5--6 & Run Study~2. \\
+7   & Analysis and robustness checks. \\
+8--9 & Write the paper; release data and code; submit and post a preprint. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Resources.} The studies require API access or modest GPU time for open-weight models, but no training. Reasoning traces make calls long, so the main cost is output tokens; the pilot will provide a reliable estimate before any large run. Code, data and results will be kept in the project's GitHub repository.
+
+\paragraph{Ethics.} The core studies involve no human participants. An optional extension, collecting human estimates on the same items as a direct baseline, would require ethics approval and is not part of the core plan.
+
+% =====================================================================
+\section{Risks and mitigations}
+% =====================================================================
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}p{4.2cm}L@{}}
+\toprule
+\textbf{Risk} & \textbf{Mitigation} \\
+\midrule
+Models already know the answers, leaving nothing to anchor & Obscure or altered items; exclude items a model answers precisely in the baseline phase. \\
+\addlinespace
+Self-generated anchor items do not evoke the intended reference value & Check in traces whether the reference value appears; drop items where it rarely does. \\
+\addlinespace
+Reasoning traces are unfaithful & Base conclusions primarily on behavioural signatures; use traces as supporting evidence. \\
+\addlinespace
+Providers ignore requested reasoning budgets & Use realised reasoning tokens as the measure; prefer models with an on/off switch at constant weights. \\
+\addlinespace
+The field moves quickly and a similar study appears & Post a preprint as soon as Study~1 is complete; the self-generated vs provided design is the most distinctive part. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% =====================================================================
+\section{Points for discussion}
+% =====================================================================
+
+\begin{itemize}
+  \item \textbf{Venue and framing.} A cognitive-science venue (e.g.\ CogSci, \emph{Cognition}) would emphasise the human-theory test; an NLP venue (e.g.\ ACL, EMNLP) would emphasise evaluation and mitigation.
+  \item \textbf{Compute.} Whether to use hosted APIs or university GPUs for the open-weight models.
+  \item \textbf{Human baseline.} Whether to add a small human study on the same items.
+  \item \textbf{Trace coding.} Whether an LLM coder validated against hand coding is acceptable, or whether all traces in a subsample should be coded by hand.
+\end{itemize}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}
