@@ -53,8 +53,8 @@
 \begin{itemize}[leftmargin=*]
   \item \textbf{What ran:} a small test model (DeepSeek-R1-Distill-Qwen-1.5B) answered 30 estimation questions at three reasoning levels. That gave 7,200 answers, collected in about 40 minutes on a Colab T4 GPU.
   \item \textbf{The method works from start to finish:} questions go to the model, every answer is saved to GitHub, and the analysis, tables and figures are produced automatically.
-  \item \textbf{Anchoring is strong without reasoning:} anchoring index 0.82 for near anchors (people usually score about 0.5). Reasoning roughly halves it. More reasoning (\enquote{high} vs \enquote{low}) does not reduce it further.
-  \item \textbf{First mechanism signal:} far anchors pulled answers no further than the edge of the model's normal range, and precise anchors pulled slightly more than round ones. Both fit \emph{insufficient adjustment} better than \emph{selective accessibility}.
+  \item \textbf{Anchoring is strong without reasoning:} anchoring index 0.82 for near anchors (about 0.5 in a classic study of people). Reasoning roughly halves it. More reasoning (\enquote{high} vs \enquote{low}) does not reduce it further.
+  \item \textbf{First mechanism signal:} reading the model's thinking shows that the anchor acts when the model first recalls a value. It either recalls its own value or treats the anchor as something it remembers. Step-by-step adjustment away from the anchor appeared in only 1 of 40 thinking traces.
   \item \textbf{Individual answers are all-or-nothing:} the model mostly either ignores the anchor or copies it.
   \item \textbf{Study 2 is inconclusive:} this model does not know the facts the questions rely on.
   \item \textbf{Main problem found:} the \enquote{high} level barely made the model think longer than \enquote{low} (about 550 vs 430 tokens), because the model stops by itself.
@@ -73,7 +73,7 @@ When people guess a number right after seeing another number, their guess moves 
   \item[Retrieving] \citep{strack1997explaining,mussweiler1999hypothesis}. The anchor makes you think of facts that fit it (\enquote{11,000 metres? The tallest waterfalls are enormous}), and your whole guess shifts. \emph{Prediction:} answers move by a similar share of the distance, whether the anchor is near or far.
 \end{description}
 
-\noindent Reasoning models write out their thinking before they answer, so we can also watch the process, not just the final number. A second question (Study~2) follows \citet{epley2001putting}: in people, thinking harder helps when you came up with the starting number yourself, but not when someone handed it to you. Does the same hold for LLMs?
+\noindent Reasoning models write out their thinking before they answer, so we can also watch the process, not just the final number. A second question (Study~2) builds on \citet{epley2001putting} and \citet{epley2005effortful}: in people, extra effort (such as being paid for accuracy) helps when you came up with the starting number yourself, but not when someone handed it to you. Does the same hold for LLMs?
 
 % =====================================================================
 \section{What we did}
@@ -241,14 +241,14 @@ The \emph{anchoring index} \citep{jacowitz1995measures} compares the answers aft
   \addplot[farcol, witherr] coordinates {(0,0.404) += (0,0.244) -= (0,0.221) (1,0.135) += (0,0.153) -= (0,0.128) (2,0.164) += (0,0.135) -= (0,0.118)};
   \addlegendentry{far anchors}
   \addplot[basecol, dashed, mark=none, domain=-0.3:2.3, samples=2] {0.5};
-  \addlegendentry{typical for people}
+  \addlegendentry{people, classic study}
 \end{axis}
 \end{tikzpicture}
 \caption{Anchoring index by reasoning level.}
 \label{fig:index}
 \end{figure}
 
-With thinking off, near anchors give an index of 0.82, stronger than the roughly 0.5 typical for people. Thinking cuts this to about 0.36 (low) and 0.44 (high). So reasoning reduces anchoring but does not remove it, and the higher budget did not help further. This matches what others report \citep{kraishan2026long}, although here \enquote{high} hardly differed from \enquote{low} (Figure~\ref{fig:tokens}). Far anchors give lower values partly by construction: they are further apart, so the same movement is a smaller share of the gap.
+With thinking off, near anchors give an index of 0.82, stronger than the 0.49 that \citet{jacowitz1995measures} found for people. Their anchors were chosen differently, so this comparison is rough. Thinking cuts this to about 0.36 (low) and 0.44 (high). So reasoning reduces anchoring but does not remove it, and the higher budget did not help further. This matches what others report \citep{kraishan2026long}, although here \enquote{high} hardly differed from \enquote{low} (Figure~\ref{fig:tokens}). Far anchors give lower values partly by construction: they are further apart, so the same movement is a smaller share of the gap.
 
 \subsection{Adjusting or retrieving?}
 
@@ -272,17 +272,38 @@ The orange line in Figure~\ref{fig:nearfar} is a prediction, not a measurement: 
   \addlegendentry{far, if answers stopped at the edge}
 \end{axis}
 \end{tikzpicture}
-\caption{Shift or stop at the edge? Blue on orange supports adjusting; blue on green supports retrieving.}
+\caption{Shift or stop at the edge? For medians, blue on orange would suggest adjusting and blue on green retrieving. The text explains why the medians alone cannot settle it.}
 \label{fig:nearfar}
 \end{figure}
 
-\noindent\textbf{What we see.} With thinking on, the blue line (0.26 to 0.29) sits at or slightly below the orange line (0.34) and well below the green line (0.50). Far anchors did not drag answers beyond the edge of the normal zone on average, which fits adjusting. With thinking off, blue (0.52) lies between the two, so the picture is mixed. A third reading also fits: the model may simply reject implausible anchors, as the Angel Falls traces suggest. The reasoning traces will help tell these apart.
+\noindent\textbf{What we see.} With thinking on, the blue line (0.26 to 0.29) sits at or slightly below the orange line (0.34) and well below the green line (0.50). With thinking off, blue (0.52) lies between the two. On medians alone this looks like adjusting, but reading the model's thinking shows that it is not.
 
-\paragraph{Precise vs round anchors.} Precise anchors (e.g.\ 11,180) shifted answers more than round ones (e.g.\ 11,000), by about 0.10 to 0.12 on the shift scale. The interval excludes zero at the low and high levels (off: $+0.10$, interval $-0.03$ to $0.21$; low: $+0.11$, $0.01$ to $0.21$; high: $+0.12$, $0.04$ to $0.20$). In people this is explained by adjustment in smaller steps from a precise number \citep{janiszewski2008precision}, so it also points towards adjusting.
+\paragraph{What the thinking shows.} We read 40 randomly chosen thinking traces (anchors above the normal zone, thinking on). In 31 of 40, the first value the model settled on was its final answer. In 23 of these it was the model's own value and the anchor was ignored; in 8 the value it \enquote{remembered} was the anchor itself (Angel Falls, anchor 99,000\,m: \emph{\enquote{I've heard it's around 97,000 meters tall}}). In 4 traces the model recalled its own value and was then pushed towards the anchor. Only 1 trace started at the anchor and corrected part of the way back, the textbook adjusting pattern. So the anchor acts at the moment the model recalls a value, not through gradual adjustment. The low blue line has a simpler cause: far anchors are copied less often than near ones (Table~\ref{tab:copies}), so the median sits lower. This was a first reading by one reader; the planned two-coder reading must confirm it.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{llrr}
+\toprule
+Thinking & Anchor & Stayed in own zone & Copied the anchor \\
+\midrule
+off  & near & 29\% & 52\% \\
+     & far  & 37\% & 38\% \\
+low  & near & 55\% & 28\% \\
+     & far  & 55\% & 18\% \\
+high & near & 52\% & 31\% \\
+     & far  & 56\% & 16\% \\
+\bottomrule
+\end{tabular}
+\caption{What single answers did after an anchor above the normal zone (200 answers per row). \enquote{Copied} means within 10\% of the anchor; the rest landed elsewhere or gave no number.}
+\label{tab:copies}
+\end{table}
+
+\paragraph{Precise vs round anchors.} Precise anchors (e.g.\ 11,180) shifted answers more than round ones (e.g.\ 11,000), by about 0.10 to 0.12 on the shift scale. The interval excludes zero at the low and high levels (off: $+0.10$, interval $-0.03$ to $0.21$; low: $+0.11$, $0.01$ to $0.21$; high: $+0.12$, $0.04$ to $0.20$). In people this is explained by adjustment in smaller steps from a precise number \citep{janiszewski2008precision}. In this model part of it may have a simpler cause: some answers borrow the anchor's digits (after a precise anchor of 173,200,000\,km$^2$ for the area of Malta, one answer was 173,000\,km$^2$).
 
 \subsection{Study 2: does thinking help more when the model picks the starting number?}
 
-Here we measure \emph{adjustment}: 0 means the answer stayed at the familiar starting value (such as 37\,\textdegree C), and 1 means it reached the truth. The human prediction \citep{epley2001putting} is that more thinking raises the purple line (self) but not the teal line (given).
+Here we measure \emph{adjustment}: 0 means the answer stayed at the familiar starting value (such as 37\,\textdegree C), and 1 means it reached the truth. The human prediction \citep{epley2005effortful} is that more thinking raises the purple line (self) but not the teal line (given).
 
 \begin{figure}[ht]
 \centering
@@ -351,15 +372,15 @@ Study 2 & off & 900 & 69\% & 9\% & 0 \\
 \section{What we learned and what comes next}
 % =====================================================================
 
-\paragraph{What the pilot shows.} The full pipeline works: prompts, running on Colab, saving to GitHub, and an automatic report. The measures behave sensibly on real model output. Even this small model shows strong anchoring, reduced but not removed by reasoning, and a first hint that far anchors stop at the edge of plausibility (adjusting) rather than shifting everything (retrieving).
+\paragraph{What the pilot shows.} The full pipeline works: prompts, running on Colab, saving to GitHub, and an automatic report. The measures behave sensibly on real model output. Even this small model shows strong anchoring, reduced but not removed by reasoning. Reading its thinking shows that the anchor acts when the model first recalls a value (it recalls its own value or treats the anchor as a memory); step-by-step adjustment was rare (1 of 40 traces).
 
 \paragraph{Next steps.}
 \begin{enumerate}
   \item Run the two planned pilot models, Qwen3-8B and DeepSeek-R1-Distill-Llama-8B, on an A100 or L4 GPU.
-  \item Make the \enquote{high} level really mean more thinking. One option is to stop the model from ending its thinking early by appending \enquote{Wait} when it tries to stop before the budget, the budget-forcing method of Muennighoff et al.\ (2025).
+  \item Make the \enquote{high} level really mean more thinking. One option is to stop the model from ending its thinking early by appending \enquote{Wait} when it tries to stop before the budget, the budget-forcing method of \citet{muennighoff2025s1}.
   \item Analyse individual answers as well as medians, given the all-or-nothing pattern in Figure~\ref{fig:angel}.
   \item Check the true answers of all 30 questions against primary sources.
-  \item Hand-code 200 reasoning traces (adjusting / retrieving / dismissing) with two coders, to test the trace-based measure.
+  \item Hand-code 200 reasoning traces (adjusting / retrieving / dismissing / taking the anchor as a memory) with two coders, to test the trace-based measure.
 \end{enumerate}
 
 \paragraph{Points to discuss.}
