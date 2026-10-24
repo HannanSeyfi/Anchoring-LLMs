@@ -39,5 +39,9 @@ class GitSync:
                 print(f"[sync] pushed: {message}")
                 return True
             print(f"[sync] push failed (attempt {attempt + 1}):", push.stderr.strip()[:300])
+            if "403" in push.stderr or "denied" in push.stderr:
+                print("[sync] GitHub refused the push: the token needs 'Contents: Read and write'. "
+                      "Results are kept here; the final save cell pushes them once the token is fixed.")
+                return False
             time.sleep(2 ** (attempt + 1))
         return False

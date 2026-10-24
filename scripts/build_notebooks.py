@@ -62,10 +62,11 @@ def git(*args, cwd=WORKDIR):
         raise RuntimeError((r.stderr or r.stdout).replace(token, "***"))
     return r.stdout.strip()
 
+url = f"https://x-access-token:{{token}}@github.com/{{REPO}}.git"
 if not os.path.isdir(WORKDIR):
-    git("clone", "--branch", BRANCH, f"https://x-access-token:{{token}}@github.com/{{REPO}}.git",
-        WORKDIR, cwd=os.path.dirname(WORKDIR))
+    git("clone", "--branch", BRANCH, url, WORKDIR, cwd=os.path.dirname(WORKDIR))
 else:
+    git("remote", "set-url", "origin", url)  # picks up a token that was changed in the secrets panel
     git("fetch", "origin", BRANCH)
     git("checkout", BRANCH)
     git("pull", "--rebase", "--autostash")
