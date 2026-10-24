@@ -110,10 +110,18 @@ def precise_anchor(round_value: float, direction: str, integer: bool, key: str) 
 
 
 def make_anchor(rng: PlausibleRange, direction: str, distance: float, precision: str,
-                integer: bool, key: str) -> float:
+                integer: bool, key: str) -> Optional[float]:
+    """The anchor value, or None when no usable anchor exists.
+
+    That happens when a model's answers are so spread out that a low anchor would have to
+    be zero or negative for a positive quantity (e.g. a count whose range starts near 1).
+    """
     r = round_anchor(raw_anchor(rng, direction, distance), rng, direction)
     if integer:
         r = float(int(round(r)))
-    if precision == "round":
-        return r
-    return precise_anchor(r, direction, integer, key)
+    a = r if precision == "round" else precise_anchor(r, direction, integer, key)
+    if rng.log_scale and a <= 0:
+        return None
+    if (direction == "low" and a >= rng.lo) or (direction == "high" and a <= rng.hi):
+        return None
+    return a

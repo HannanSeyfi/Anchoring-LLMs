@@ -15,7 +15,7 @@ from typing import Optional
 import numpy as np
 import pandas as pd
 
-from .parsing import parse_numbers
+from .parsing import has_estimate_line, parse_numbers
 from .run import read_records
 
 LEVEL_ORDER = ["off", "low", "high"]
@@ -71,6 +71,9 @@ def data_quality(frames: dict[str, pd.DataFrame]) -> pd.DataFrame:
             out.append({
                 "study": study, "model": model, "thinking_level": level, "answers": len(g),
                 "parse_rate": g["estimate"].notna().mean(),
+                # share of answers that used the requested "Estimate:" line; the rest were read
+                # from the last number in the reply, which is less reliable
+                "format_rate": g["answer"].fillna("").map(has_estimate_line).mean(),
                 "mean_thinking_tokens": g["thinking_tokens"].mean(),
                 "truncated_rate": g["thinking_truncated"].mean(),
             })
@@ -95,6 +98,22 @@ def memorised_items(anchors: dict[str, dict], max_log_width: float = 0.02) -> pd
 
 
 # ----------------------------------------------------------------------------- Study 1
+
+def drop_unusable_anchors(s1: pd.DataFrame, anchors: dict[str, dict]) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Remove answers to anchors of zero or below for a positive quantity.
+
+    Runs made before this check could place them when a model's answers spread over many
+    orders of magnitude. They cannot be compared on a log scale, so they are left out and listed.
+    """
+    if s1.empty:
+        return s1, pd.DataFrame()
+    log_scale = [anchors.get(m, {}).get(i, {}).get("range", {}).get("log_scale", True)
+                 for m, i in zip(s1["model"], s1["item_id"])]
+    bad = pd.Series(log_scale, index=s1.index) & (s1["anchor"] <= 0)
+    dropped = (s1[bad].groupby(["model", "item_id", "direction", "distance", "precision"], observed=True)
+               .agg(anchor=("anchor", "first"), answers=("anchor", "size")).reset_index())
+    return s1[~bad].copy(), dropped
+
 
 def _tr(x, log_scale: bool):
     return math.log10(x) if log_scale else x
@@ -124,7 +143,7 @@ def study1_cells(s1: pd.DataFrame, base: pd.DataFrame, anchors: dict[str, dict])
             if est.empty:
                 continue
         y, b, a = float(est.median()), float(bmed[(model, item_id, level)]), float(g["anchor"].iloc[0])
-        if log and b <= 0:
+        if log and (b <= 0 or a <= 0):
             continue
         edge = rng["hi"] if direction == "high" else rng["lo"]
         denom = _tr(a, log) - _tr(b, log)
@@ -392,6 +411,7 @@ def analyse(out_dir: str | Path, results_dir: str | Path) -> dict[str, pd.DataFr
 
     res: dict[str, pd.DataFrame] = {"data_quality": data_quality(frames),
                                     "memorised": memorised_items(anchors)}
+    frames["study1"], res["dropped_anchors"] = drop_unusable_anchors(frames["study1"], anchors)
     cells = study1_cells(frames["study1"], frames["baseline"], anchors)
     res["study1_cells"] = cells
     res["anchoring_index"] = anchoring_index(frames["study1"]) if not frames["study1"].empty else pd.DataFrame()
@@ -424,6 +444,12 @@ def write_report(res: dict[str, pd.DataFrame], path: Path, figs: list[Path], res
     mem = res["memorised"]
     lines += ["### Items to drop or replace", "",
               _fmt_table(mem) if not mem.empty else "None flagged.\n"]
+    dropped = res.get("dropped_anchors", pd.DataFrame())
+    if not dropped.empty:
+        lines += ["### Anchors left out", "",
+                  "These anchors were zero or negative for a positive quantity, because the model's "
+                  "answers were spread over many orders of magnitude. Their answers are not analysed.", "",
+                  _fmt_table(dropped)]
 
     ai = res["anchoring_index"]
     lines += ["## 2. Study 1: does anchoring appear?", "",

@@ -209,6 +209,8 @@ RESULTS_DIR = "results/" + DATA_DIR.split("/")[-1]
         code('''
 #@title 4. Run the analysis
 !python -m anchoring_llms.analysis --data {DATA_DIR} --out {RESULTS_DIR}
+if globals().get("_exit_code", 0) != 0:
+    raise RuntimeError("The analysis stopped with the error shown above. Paste it to Claude.")
 '''),
         code('''
 #@title 5. Show the report and figures

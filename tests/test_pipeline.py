@@ -33,3 +33,14 @@ def test_dry_run_and_analysis(tmp_path):
     assert (res_dir / "hand_coding_sample.csv").exists()
     assert res["data_quality"]["parse_rate"].min() == 1.0
     assert list((res_dir / "figures").glob("*.png"))
+
+
+def test_unusable_anchors_are_left_out():
+    import pandas as pd
+
+    s1 = pd.DataFrame({"model": ["m"] * 3, "item_id": ["A", "A", "B"], "direction": ["low"] * 3,
+                       "distance": ["far"] * 3, "precision": ["round", "precise", "round"],
+                       "anchor": [0.0, -1.0, 5.0]})
+    anchors = {"m": {"A": {"range": {"log_scale": True}}, "B": {"range": {"log_scale": True}}}}
+    kept, dropped = analysis.drop_unusable_anchors(s1, anchors)
+    assert list(kept["item_id"]) == ["B"] and len(dropped) == 2

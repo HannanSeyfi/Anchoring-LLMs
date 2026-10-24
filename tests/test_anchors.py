@@ -52,3 +52,12 @@ def test_small_integer_anchors_stay_distinct():
         r = make_anchor(rng, direction, 0.25, "round", True, key="s")
         p = make_anchor(rng, direction, 0.25, "precise", True, key="s")
         assert r != p and math.isfinite(p)
+
+
+def test_no_zero_or_negative_anchors_for_positive_counts():
+    # A weak model's answers can span orders of magnitude, starting near 1.
+    rng = plausible_range([1, 1, 2, 5, 50, 200, 400, 500])
+    for distance in (0.25, 1.0):
+        for precision in ("round", "precise"):
+            a = make_anchor(rng, "low", distance, precision, True, key="wide")
+            assert a is None or 0 < a < rng.lo

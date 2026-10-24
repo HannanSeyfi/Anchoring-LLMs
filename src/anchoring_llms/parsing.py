@@ -54,6 +54,12 @@ def parse_estimate(text: str) -> Optional[float]:
     return nums[-1] if nums else None
 
 
+def has_estimate_line(text: str) -> bool:
+    """Whether the reply used the requested 'Estimate: <number>' line."""
+    lines = _ESTIMATE_LINE.findall(strip_think(text or "").replace("**", ""))
+    return bool(lines and parse_numbers(lines[-1]))
+
+
 def parse_comparison(text: str) -> Optional[str]:
     text = strip_think(text or "").replace("**", "")
     found = _COMPARISON.findall(text)

@@ -52,7 +52,9 @@ its own time estimate after the first batch. Runs can be stopped and resumed at 
 
 Look at `results/pilot/summary.md` after the analysis notebook.
 
-1. **Parsing**: at least 95% of answers give a usable number at every level (section 1).
+1. **Parsing**: at least 95% of answers give a usable number at every level, and most of them use
+   the requested `Estimate:` line (`parse_rate` and `format_rate` in section 1). Numbers read
+   from free text are less reliable.
 2. **Budget control**: realised thinking tokens clearly differ between low and high
    (section 1 and `thinking_tokens.png`).
 3. **Usable questions**: at least 10 of the 15 Study 1 questions are not memorised, meaning the

@@ -130,14 +130,18 @@ def compute_anchors(model: str, items: list[Item], baseline: list[dict], cfg: di
         if rng is None:
             out[item.item_id] = {"excluded": "fewer than 5 parsable baseline answers"}
             continue
-        anchors = {}
+        anchors, skipped = {}, []
         for direction in s1["directions"]:
             for dist_name, dist in s1["distances"].items():
                 for precision in s1["precisions"]:
                     key = f"{direction}|{dist_name}|{precision}"
-                    anchors[key] = make_anchor(rng, direction, dist, precision, item.integer,
-                                               key=f"{model}|{item.item_id}|{key}")
-        out[item.item_id] = {"range": rng.to_dict(), "anchors": anchors}
+                    value = make_anchor(rng, direction, dist, precision, item.integer,
+                                        key=f"{model}|{item.item_id}|{key}")
+                    if value is None:
+                        skipped.append(key)
+                    else:
+                        anchors[key] = value
+        out[item.item_id] = {"range": rng.to_dict(), "anchors": anchors, "skipped": skipped}
     return out
 
 
@@ -294,12 +298,17 @@ def main(argv: list[str] | None = None) -> None:
             baseline = read_records(raw / "baseline")
             if not baseline:
                 raise SystemExit("Run the baseline phase first.")
-            anchors = compute_anchors(args.model, items1, baseline, cfg)
             path = out / "anchors" / f"{args.model}.json"
+            if path.exists():  # anchors are fixed once placed, so a resumed run uses the same ones
+                print(f"[anchors] using the saved anchors in {path} (delete the file to recompute)")
+                continue
+            anchors = compute_anchors(args.model, items1, baseline, cfg)
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(json.dumps(anchors, indent=2))
             kept = sum("anchors" in v for v in anchors.values())
-            print(f"[anchors] {kept}/{len(anchors)} items have anchors -> {path}")
+            skipped = sum(len(v.get("skipped", [])) for v in anchors.values())
+            print(f"[anchors] {kept}/{len(anchors)} items have anchors; {skipped} anchors could not "
+                  f"be placed -> {path}")
         elif phase == "study1":
             path = out / "anchors" / f"{args.model}.json"
             if not path.exists():
