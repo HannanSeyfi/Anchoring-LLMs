@@ -31,8 +31,10 @@ budget we can control. The full design is in the [proposal](latex/proposal/main.
 2. **Open the run notebook**:
    [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/HannanSeyfi/Anchoring-LLMs/blob/main/notebooks/01_run_pilot.ipynb)
    (if Colab asks, allow it to see your GitHub repositories, including private ones).
-   If the button does not open it, use Colab's *File → Open notebook → GitHub*, search
-   `HannanSeyfi/Anchoring-LLMs`, pick the `main` branch and `notebooks/01_run_pilot.ipynb`.
+   If Colab's GitHub sign-in fails, upload the notebook instead: open
+   `notebooks/01_run_pilot.ipynb` on GitHub, click *Download raw file*, then in Colab use
+   *File → Upload notebook*. It works the same, because the notebook fetches the code itself
+   with your token.
 3. **Add the token to Colab**: key icon in the left sidebar → *Add new secret*, name it
    `GITHUB_TOKEN`, paste the token, and switch on *Notebook access*. You only do this once.
 4. **Pick a GPU**: *Runtime → Change runtime type → A100* (L4 also works, more slowly).
