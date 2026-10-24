@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 
 REPO = "HannanSeyfi/Anchoring-LLMs"
-BRANCH = "claude/project-thread-q2hng0"
+BRANCH = "main"
 NOTEBOOKS = Path(__file__).resolve().parents[1] / "notebooks"
 
 
