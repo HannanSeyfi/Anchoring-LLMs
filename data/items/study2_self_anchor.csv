@@ -1,0 +1,16 @@
+item_id,question,unit,reference,truth,integer,domain,truth_note
+S2-01,At what temperature does water boil at the summit of Aconcagua (6961 m)?,degrees Celsius,100,76.7,false,physics,Computed: ISA pressure at 6961 m and Antoine equation (scripts/compute_physics_answers.py)
+S2-02,At what temperature does water boil at the summit of Denali (6190 m)?,degrees Celsius,100,79.3,false,physics,Computed: ISA pressure and Antoine equation
+S2-03,At what temperature does water boil at the summit of Mount Kilimanjaro (5895 m)?,degrees Celsius,100,80.3,false,physics,Computed: ISA pressure and Antoine equation
+S2-04,At what temperature does water boil at the summit of Mount Elbrus (5642 m)?,degrees Celsius,100,81.2,false,physics,Computed: ISA pressure and Antoine equation
+S2-05,At what temperature does water boil at the summit of Mont Blanc (4806 m)?,degrees Celsius,100,84.0,false,physics,Computed: ISA pressure and Antoine equation
+S2-06,At what temperature does water boil in La Paz in Bolivia (3640 m)?,degrees Celsius,100,87.9,false,physics,Computed: ISA pressure and Antoine equation
+S2-07,At what temperature does water boil in a pressure cooker running at 1 bar above atmospheric pressure?,degrees Celsius,100,120.5,false,physics,Computed: Antoine equation at 2.01 bar absolute
+S2-08,What is the speed of sound in air at 11 km altitude in the standard atmosphere?,metres per second,343,295.1,false,physics,Computed: sqrt(1.4 x 287.05 x 216.65 K)
+S2-09,How many Earth days does it take the dwarf planet Ceres to orbit the Sun once?,days,365,1682,true,astronomy,About 1682 days (4.60 years); verify against NASA
+S2-10,How many Earth days does it take the asteroid Vesta to orbit the Sun once?,days,365,1325,true,astronomy,About 1325 days (3.63 years); verify against NASA
+S2-11,At what temperature does a typical 40% alcohol vodka freeze?,degrees Celsius,0,-27,false,chemistry,About -27 °C for 40% ABV; approximate
+S2-12,What is the normal body temperature of a healthy adult chicken?,degrees Celsius,37,41.5,false,biology,Normal range about 40.6-41.7 °C; approximate
+S2-13,What is the normal body temperature of a healthy adult dog?,degrees Celsius,37,38.6,false,biology,Normal range about 38.3-39.2 °C; approximate
+S2-14,How many weeks does a horse's pregnancy usually last?,weeks,40,48,false,biology,About 340 days (about 48 weeks); approximate
+S2-15,What is the resting heart rate of an adult elephant?,beats per minute,70,30,true,biology,About 25-35 bpm; approximate
