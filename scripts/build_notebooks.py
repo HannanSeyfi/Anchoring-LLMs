@@ -47,7 +47,7 @@ def secret(name):
     except ImportError:  # not on Colab
         return os.environ.get(name)
     try:
-        return userdata.get(name)
+        return (userdata.get(name) or "").strip()
     except Exception as e:
         raise RuntimeError(f"Add a Colab secret named {{name}} (key icon on the left) "
                            "and switch on 'Notebook access'. See the README.") from e
@@ -74,6 +74,14 @@ git("config", "user.name", "Hannan Seyfi")
 git("config", "user.email", "52991511+HannanSeyfi@users.noreply.github.com")
 os.chdir(WORKDIR)
 print("Using code at commit", git("log", "-1", "--format=%h %s"))
+if SAVE_TO_GITHUB:  # check now that GitHub accepts saves with this token, before any GPU time is spent
+    test = subprocess.run(["git", "push", "--dry-run", "origin", BRANCH], cwd=WORKDIR,
+                          capture_output=True, text=True)
+    if test.returncode != 0:
+        raise RuntimeError("GitHub refuses to save with this token. Give the token 'Contents: Read and "
+                           "write' on Anchoring-LLMs, put it in the GITHUB_TOKEN secret, and run this "
+                           "cell again.\\n" + test.stderr.replace(token, "***")[-300:])
+    print("Saving to GitHub works.")
 '''
 
 SAVE = '''
