@@ -35,10 +35,9 @@ import pandas as pd
 
 from .analysis import _close, _fmt_table
 from .git_sync import GitSync
-from .items import load_items
 from .parsing import parse_numbers
 from .run import load_config, read_records
-from .screen import STUDIES, screen_dirs
+from .screen import STUDIES, candidate_files, load_candidates, screen_dirs
 
 NAN = float("nan")
 
@@ -108,12 +107,26 @@ def item_summary(levels: pd.DataFrame, level_order: list[str]) -> pd.DataFrame:
 
 # ----------------------------------------------------------------------------- selection
 
+def known_share(r: pd.Series, rules: dict) -> float:
+    """The highest share of known answers over the levels the knowledge rule checks (default: all)."""
+    levels = rules.get("known_levels")
+    if not levels:
+        return r["known_max"]
+    return max(r.get(f"known_{level}", NAN) for level in levels)
+
+
+def _known_where(rules: dict) -> str:
+    levels = rules.get("known_levels")
+    return f"with thinking {', '.join(levels)}" if levels else "at any thinking level"
+
+
 def _reasons(r: pd.Series, study: str, sc: dict, first_level: str) -> tuple[list[str], float]:
     """Why a question fails the rules on the reference model (empty if it passes), and its rank score."""
     rules, tol = sc[study], sc["known_tolerance"]
     reasons = []
-    if r["known_max"] > sc["max_known_share"]:
-        reasons.append(f"known ({r['known_max']:.0%} of answers within {tol:.0%} of the true value)")
+    known = known_share(r, rules)
+    if known > sc["max_known_share"]:
+        reasons.append(f"known ({known:.0%} of answers within {tol:.0%} of the true value)")
     if study == "study1":
         score = r["spread_mean"]
         if pd.isna(r["spread_mean"]):
@@ -166,7 +179,7 @@ def pick(summary: pd.DataFrame, items: dict, study: str, sc: dict) -> pd.DataFra
         item = items[item_id]
         rows.append({"item_id": item_id, "domain": item.domain, "question": item.question,
                      "truth": item.truth, "reference": item.reference, **r.to_dict(),
-                     "score": score, "passed": not reasons, "reasons": "; ".join(reasons)})
+                     "known_checked": known_share(r, rules), "score": score, "passed": not reasons, "reasons": "; ".join(reasons)})
     df = pd.DataFrame(rows).drop(columns=["model"], errors="ignore")
     if df.empty:
         return df
@@ -210,11 +223,16 @@ def pick(summary: pd.DataFrame, items: dict, study: str, sc: dict) -> pd.DataFra
     return df.drop(columns=["n_reasons"]).reset_index(drop=True)
 
 
-def write_items(candidates: Path, picked: list[str], target: Path) -> None:
-    """Copy the picked rows of the candidate file unchanged (same columns, same order)."""
-    with open(candidates, newline="", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        fields, rows = reader.fieldnames, [r for r in reader if r["item_id"] in set(picked)]
+def write_items(candidates: Path | list[Path], picked: list[str], target: Path) -> None:
+    """Copy the picked rows of the candidate file(s) unchanged (same columns, same order)."""
+    fields, rows = None, []
+    for path in [candidates] if isinstance(candidates, Path) else candidates:
+        with open(path, newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            if fields is not None and reader.fieldnames != fields:
+                raise ValueError(f"{path} has different columns from the other candidate files")
+            fields = reader.fieldnames
+            rows += [r for r in reader if r["item_id"] in set(picked)]
     target.parent.mkdir(parents=True, exist_ok=True)
     with open(target, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
@@ -249,7 +267,7 @@ def _picked_table(df: pd.DataFrame, study: str, sc: dict, others: list[str],
             row["start value R"] = _num(r["reference"])
         for level in lv:
             row[f"middle 80% ({level})"] = f"{_num(r.get(f'q10_{level}'))} – {_num(r.get(f'q90_{level}'))}"
-        row["known"] = f"{r['known_max']:.0%}"
+        row["known"] = f"{r['known_checked']:.0%}"
         if study == "study1":
             row["spread"] = f"{r['spread_mean']:.2f}"
         else:
@@ -298,9 +316,10 @@ def _example(df: pd.DataFrame, study: str, sc: dict, ref_model: str) -> list[str
     lines.append(f"With thinking {lv}, {ref_model} answered it {n} times. The middle 80% of its answers ran from "
                  f"{_num(r.get(f'q10_{lv}'))} to {_num(r.get(f'q90_{lv}'))}, with a median of "
                  f"{_num(r.get(f'median_{lv}'))}. "
-                 + ("None of its answers" if r["known_max"] == 0 else f"Only {r['known_max']:.0%} of its answers")
-                 + f" were within {sc['known_tolerance']:.0%} of the truth (at any thinking level), so the model "
-                 "does not know this number.")
+                 + ("None of its answers" if r["known_checked"] == 0
+                    else f"Only {r['known_checked']:.0%} of its answers")
+                 + f" were within {sc['known_tolerance']:.0%} of the truth ({_known_where(sc[study])}), so the "
+                 "model does not know this number" + (" without thinking." if sc[study].get("known_levels") else "."))
     if study == "study1":
         lines.append(f"Its spread is {r['spread_mean']:.2f}: the high answers are about "
                      f"{10 ** r['spread_mean']:.1f} times the low ones. An anchor has room to pull here.")
@@ -339,7 +358,7 @@ def write_report(path: Path, cfg: dict, results: dict, summaries: dict, missing:
              + (f"; models other than {ref_model} only with thinking {', '.join(sc['other_models_parse_levels'])}"
                 if sc.get("other_models_parse_levels") else "") + ")",
              f"- {ref_model}: at most {sc['max_known_share']:.0%} of answers within {tol:.0%} of the truth "
-             "(at every level)",
+             f"(Study 1: {_known_where(sc['study1'])}; Study 2: {_known_where(sc['study2'])})",
              f"- Study 1: spread (averaged over levels) at least {sc['study1']['min_spread']} and at most "
              f"{sc['study1']['max_spread']}; median no more than "
              f"{10 ** sc['study1']['max_median_error']:.0f} times off the truth (else the question may be unclear)",
@@ -396,8 +415,8 @@ def select(cfg: dict, repo: Path, smoke: bool = False) -> dict[str, pd.DataFrame
     tables.mkdir(parents=True, exist_ok=True)
     results, summaries, missing, items_paths = {}, {}, {}, {}
     for study in STUDIES:
-        candidates = repo / sc["candidates"][study]
-        items = {it.item_id: it for it in load_items(candidates)}
+        candidates = [repo / f for f in candidate_files(cfg, study)]
+        items = {it.item_id: it for it in load_candidates(repo, cfg, study)}
         df = load_screening(data_dir, study)
         if df.empty:
             print(f"[{study}] no screening answers in {data_dir}; skipped")

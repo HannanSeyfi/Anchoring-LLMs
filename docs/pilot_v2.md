@@ -7,7 +7,7 @@ All settings: [`configs/pilot_v2.yaml`](../configs/pilot_v2.yaml).
 
 ## Step 1: screen the candidate questions
 
-Notebook `04_screen_questions.ipynb`. Each candidate (206 of them) is asked 20 times with thinking
+Notebook `04_screen_questions.ipynb`. Each candidate (260 of them) is asked 20 times with thinking
 off and 20 times with low thinking, without an anchor.
 
 | Run | Runtime | Cost | Saves |
@@ -35,9 +35,11 @@ with a worked example at the top of each study.
 Same notebooks as before, with `CONFIG = configs/pilot_v2.yaml` (now the default). Data goes to
 `data/pilot_v2/`.
 
-**For now, Study 1 only** (`PHASE = baseline,anchors,study1`, the default). The screening found
-only 2 Study 2 questions that Qwen3-32B does not answer straight away (see CHANGELOG.md), so the
-Study 2 questions are still being replaced. Run `PHASE = study2` later, once they are picked.
+**For now, Study 1 only** (`PHASE = baseline,anchors,study1`, the default). The first screening
+found only a few Study 2 questions that Qwen3-32B does not answer straight away (see
+CHANGELOG.md), so 54 near-Earth asteroid questions were added. To use them, run notebook 04 again
+for both models (only the new questions are asked, about $0.25 for Qwen3-32B), then run the pilot
+with `PHASE = study2`.
 
 | Model | Notebook | Runtime | Cost |
 | --- | --- | --- | --- |

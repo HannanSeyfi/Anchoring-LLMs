@@ -18,8 +18,16 @@ reproduced.
   spread averaged over the two levels instead of the smaller one. With these rules 23 Study 1
   questions pass and 15 are picked; before, 2 passed. The rules were changed after seeing the
   data, so the paper should say so.
-- **Study 2** has only 2 usable questions, so `run --phase` now takes a list
+- **Study 2** had only 2 usable questions, so `run --phase` now takes a list
   (`baseline,anchors,study1` runs Study 1 only), and the notebooks use that by default.
+- **New Study 2 candidates:** the only questions where Qwen3-32B stayed near the starting value
+  without thinking were near-Earth asteroids (Itokawa: 369 days, true 557; Bennu: 367 days, true
+  436.65; both close to the truth with thinking). `data/items_v2/candidates_study2_neo.csv` adds 54
+  little-known near-Earth asteroids (orbital periods from Wikipedia, each checked against Kepler's
+  third law). Screening them again only asks the new questions.
+- **Study 2 rules:** knowledge is now checked only with thinking off (`study2.known_levels`), since
+  reaching the true value after thinking is what Study 2 looks for, and there is no topic limit
+  for Study 2 (`max_per_domain: 15`).
 
 ## Question set v2 (2026-10-26)
 
@@ -30,7 +38,7 @@ Settings: `configs/pilot_v2.yaml`. Steps: `docs/pilot_v2.md`.
 
 - **Why:** Qwen3-32B knew 13 of the 15 Study 1 questions (anchoring index 0.00-0.05), so the
   anchors had nothing to pull, and it knew the Study 2 answers too, so Study 2 could not be tested.
-- 206 new candidate questions in `data/items_v2/` (137 for Study 1, 69 for Study 2), every true
+- 206 new candidate questions in `data/items_v2/` (137 for Study 1, 69 for Study 2; 54 more were added later), every true
   value checked against Wikipedia and documented ([notes](data/items_v2/README.md)).
 - New step **screening**: `anchoring_llms.screen` asks each candidate 20 times with thinking off
   and 20 times with low thinking, without an anchor, and saves the answers to `data/screen_v2/`.

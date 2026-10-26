@@ -19,7 +19,7 @@ budget we can control. The full design is in the [proposal](latex/proposal/main.
 | `configs/pilot.yaml` | Every setting of the pilot with the first question set: models, reasoning levels, sample sizes. |
 | `configs/pilot_v2.yaml` | The same for question set v2, plus the screening rules. |
 | `data/items/` | The first 30 pilot questions with their true answers ([notes](data/items/README.md)). |
-| `data/items_v2/` | Question set v2: 206 checked candidate questions and the 15 + 15 picked by screening ([notes](data/items_v2/README.md)). |
+| `data/items_v2/` | Question set v2: 260 checked candidate questions and the 15 + 15 picked by screening ([notes](data/items_v2/README.md)). |
 | `data/screen_v2/` | Screening answers: each candidate asked without an anchor, written by notebook 04. |
 | `data/pilot/` | Raw model answers for the first question set (pilot runs 1 and 2), written by the notebooks ([format](data/pilot/README.md)). |
 | `data/pilot_v2/` | Raw model answers for question set v2 (same format). |
@@ -33,7 +33,7 @@ budget we can control. The full design is in the [proposal](latex/proposal/main.
 ## Question set v2 (current)
 
 Pilot run 2 showed that Qwen3-32B knew most of the first questions, so anchors had nothing to
-pull. Question set v2 screens 206 new candidates and keeps those the models are unsure about.
+pull. Question set v2 screens 260 new candidates and keeps those the models are unsure about.
 The steps, in order, are in [docs/pilot_v2.md](docs/pilot_v2.md):
 
 1. Screen: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/HannanSeyfi/Anchoring-LLMs/blob/main/notebooks/04_screen_questions.ipynb)

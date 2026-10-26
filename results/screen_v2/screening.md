@@ -17,7 +17,7 @@ Each candidate question was asked without an anchor, 20 times per thinking level
 Question rules are checked on **qwen3-32b**, the largest screened model: a question it does not know, a smaller model does not know either. The number rule is checked on every screened model.
 
 - every model: at least 75% of answers contain a number (at every level; models other than qwen3-32b only with thinking low)
-- qwen3-32b: at most 50% of answers within 2% of the truth (at every level)
+- qwen3-32b: at most 50% of answers within 2% of the truth (Study 1: at any thinking level; Study 2: with thinking off)
 - Study 1: spread (averaged over levels) at least 0.1 and at most 2.0; median no more than 10 times off the truth (else the question may be unclear)
 - Study 2: adjustment with thinking off between 0.0 and 0.8
 - at most 3 questions per topic; 15 questions per study
@@ -86,34 +86,34 @@ Question rules are checked on **qwen3-32b**, the largest screened model: a quest
 
 ## Study 2 (self-generated anchors)
 
-69 questions screened, 2 passed the rules, 15 picked → `data/items_v2/study2.csv`.
+69 questions screened, 3 passed the rules, 15 picked → `data/items_v2/study2.csv`.
 
-**Worked example (C2-006).** *How many Earth days does it take the asteroid 25143 Itokawa to orbit the Sun once?* The true value is 557. With thinking off, qwen3-32b answered it 20 times. The middle 80% of its answers ran from 367.8 to 382.9, with a median of 369. Only 35% of its answers were within 2% of the truth (at any thinking level), so the model does not know this number. Starting from R = 365, its median moved 2% of the way to the true value (adjustment 0.02), so there is room for more thinking to adjust further.
+**Worked example (C2-006).** *How many Earth days does it take the asteroid 25143 Itokawa to orbit the Sun once?* The true value is 557. With thinking off, qwen3-32b answered it 20 times. The middle 80% of its answers ran from 367.8 to 382.9, with a median of 369. None of its answers were within 2% of the truth (with thinking off), so the model does not know this number without thinking. Starting from R = 365, its median moved 2% of the way to the true value (adjustment 0.02), so there is room for more thinking to adjust further.
 
 ### Picked questions
 
 | # | id | domain | question | true value | start value R | middle 80% (off) | middle 80% (low) | known | adjustment (off) | adjustment (low) | r1-distill-qwen-1.5b: known / parsed | note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | C2-006 | orbits | How many Earth days does it take the asteroid 25143 Itokawa to orbit… | 557 | 365 | 367.8 – 382.9 | 326.9 – 559.4 | 35% | 0.02 | 0.91 | 100% / 100% |  |
-| 2 | C2-014 | orbits | How many Earth days does it take the asteroid 243 Ida to orbit the Su… | 1,768 | 365 | 1,435 – 1,758 | 4.79 – 1,729 | 20% | 0.77 | 0.77 | 0% / 100% |  |
-| 3 | C2-011 | orbits | How many Earth days does it take the asteroid 21 Lutetia to orbit the… | 1,388 | 365 | 145.4 – 1,452 | 3.749 – 1,680 | 20% | -0.21 | 1.00 | 0% / 100% | fills a gap: answers move away from the true value (adjustment -0.21) |
-| 4 | C2-067 | US states | How many states had been admitted to the United States by the time th… | 38 | 50 | 37.9 – 40 | 37 – 40.4 | 25% | 0.83 | 1.08 | 0% / 100% | fills a gap: already close to the true value (adjustment 0.83) |
-| 5 | C2-065 | US states | How many states had been admitted to the United States by the time Li… | 35 | 50 | 32.9 – 37 | 35.9 – 36 | 10% | 0.93 | 0.93 | 0% / 100% | fills a gap: already close to the true value (adjustment 0.93) |
-| 6 | C2-060 | US states | How many states had been admitted to the United States by the time th… | 28 | 50 | 26 – 30 | 28 – 30 | 15% | 0.95 | 0.91 | 0% / 100% | fills a gap: already close to the true value (adjustment 0.95) |
-| 7 | C2-041 | boiling point | At what temperature does water boil at the summit of Ojos del Salado? | 76.9 | 100 | 73.8 – 87.1 | 76.8 – 88 | 50% | 1.00 | 0.63 | 0% / 100% | fills a gap: already close to the true value (adjustment 1.00) |
-| 8 | C2-039 | rotation | How many hours does it take the asteroid 10 Hygiea to rotate once on… | 13.83 | 24 | 13.83 – 27.7 | 13.8 – 17.22 | 65% | -0.36 | 1.00 | 5% / 100% | fills a gap: known (65% of answers within 2% of the true value); answers move away from the true value (adjustment -0.36) |
-| 9 | C2-048 | boiling point | At what temperature does water boil in Cusco, Peru? | 88.7 | 100 | 88.9 – 90 | 88 – 88.07 | 100% | 0.90 | 1.06 | 5% / 100% | fills a gap: known (100% of answers within 2% of the true value); already close to the true value (adjustment 0.90) |
-| 10 | C2-049 | speed of sound | What is the speed of sound in argon gas at 20 °C and normal pressure? | 319 | 343 | 319 – 321 | 323 – 323 | 100% | 0.96 | 0.83 | 15% / 100% | fills a gap: known (100% of answers within 2% of the true value); already close to the true value (adjustment 0.96) |
-| 11 | C2-047 | boiling point | At what temperature does water boil in Lhasa, Tibet? | 87.8 | 100 | 88 – 88.1 | 88 – 88 | 100% | 0.98 | 0.98 | 5% / 100% | fills a gap: known (100% of answers within 2% of the true value); already close to the true value (adjustment 0.98) |
-| 12 | C2-054 | speed of sound | What is the speed of sound in carbon dioxide gas at 20 °C and normal… | 267 | 343 | 268 – 272 | 268 – 269 | 100% | 0.99 | 0.97 | 30% / 100% | fills a gap: known (100% of answers within 2% of the true value); already close to the true value (adjustment 0.99) |
-| 13 | C2-028 | escape velocity | What is the escape velocity from the surface of Neptune's moon Triton? | 1.455 | 11.2 | 1.45 – 1.5 | 1.45 – 2.36 | 75% | 1.00 | 1.00 | 0% / 100% | fills a gap: known (75% of answers within 2% of the true value); already close to the true value (adjustment 1.00) |
-| 14 | C2-020 | surface gravity | What is the acceleration due to gravity at the surface of Jupiter's m… | 1.796 | 9.81 | 1.796 – 1.8 | 1.79 – 1.795 | 100% | 1.00 | 1.00 | 0% / 100% | fills a gap: known (100% of answers within 2% of the true value); already close to the true value (adjustment 1.00) |
-| 15 | C2-017 | surface gravity | What is the acceleration due to gravity at the surface of Jupiter's m… | 1.236 | 9.81 | 1.235 – 1.24 | 1.235 – 1.236 | 100% | 1.00 | 1.00 | 70% / 100% | fills a gap: known (100% of answers within 2% of the true value); already close to the true value (adjustment 1.00) |
+| 1 | C2-006 | orbits | How many Earth days does it take the asteroid 25143 Itokawa to orbit… | 557 | 365 | 367.8 – 382.9 | 326.9 – 559.4 | 0% | 0.02 | 0.91 | 100% / 100% |  |
+| 2 | C2-007 | orbits | How many Earth days does it take the asteroid 101955 Bennu to orbit t… | 436.6 | 365 | 366.3 – 433 | 433 – 433.6 | 30% | 0.03 | 0.95 | 0% / 100% |  |
+| 3 | C2-014 | orbits | How many Earth days does it take the asteroid 243 Ida to orbit the Su… | 1,768 | 365 | 1,435 – 1,758 | 4.79 – 1,729 | 20% | 0.77 | 0.77 | 0% / 100% |  |
+| 4 | C2-039 | rotation | How many hours does it take the asteroid 10 Hygiea to rotate once on… | 13.83 | 24 | 13.83 – 27.7 | 13.8 – 17.22 | 20% | -0.36 | 1.00 | 5% / 100% | fills a gap: answers move away from the true value (adjustment -0.36) |
+| 5 | C2-011 | orbits | How many Earth days does it take the asteroid 21 Lutetia to orbit the… | 1,388 | 365 | 145.4 – 1,452 | 3.749 – 1,680 | 20% | -0.21 | 1.00 | 0% / 100% | fills a gap: answers move away from the true value (adjustment -0.21) |
+| 6 | C2-067 | US states | How many states had been admitted to the United States by the time th… | 38 | 50 | 37.9 – 40 | 37 – 40.4 | 5% | 0.83 | 1.08 | 0% / 100% | fills a gap: already close to the true value (adjustment 0.83) |
+| 7 | C2-065 | US states | How many states had been admitted to the United States by the time Li… | 35 | 50 | 32.9 – 37 | 35.9 – 36 | 10% | 0.93 | 0.93 | 0% / 100% | fills a gap: already close to the true value (adjustment 0.93) |
+| 8 | C2-060 | US states | How many states had been admitted to the United States by the time th… | 28 | 50 | 26 – 30 | 28 – 30 | 15% | 0.95 | 0.91 | 0% / 100% | fills a gap: already close to the true value (adjustment 0.95) |
+| 9 | C2-041 | boiling point | At what temperature does water boil at the summit of Ojos del Salado? | 76.9 | 100 | 73.8 – 87.1 | 76.8 – 88 | 50% | 1.00 | 0.63 | 0% / 100% | fills a gap: already close to the true value (adjustment 1.00) |
+| 10 | C2-022 | surface gravity | What is the acceleration due to gravity at the surface of Saturn's mo… | 0.113 | 9.81 | 0.11 – 0.113 | 0.11 – 0.113 | 50% | 1.00 | 1.00 | 15% / 100% | fills a gap: already close to the true value (adjustment 1.00) |
+| 11 | C2-051 | speed of sound | What is the speed of sound in krypton gas at 20 °C and normal pressur… | 220 | 343 | 200 – 263.4 | 218.9 – 220 | 45% | 1.00 | 1.00 | 5% / 100% | fills a gap: already close to the true value (adjustment 1.00) |
+| 12 | C2-056 | US states | How many states had been admitted to the United States by the time th… | 17 | 50 | 16 – 17 | 16 – 17 | 40% | 1.03 | 1.00 | 5% / 100% | fills a gap: already close to the true value (adjustment 1.03) |
+| 13 | C2-058 | US states | How many states had been admitted to the United States by the time th… | 22 | 50 | 20 – 22 | 20.9 – 22.1 | 20% | 1.04 | 1.00 | 0% / 100% | fills a gap: already close to the true value (adjustment 1.04) |
+| 14 | C2-059 | US states | How many states had been admitted to the United States by the time Pr… | 24 | 50 | 20 – 24 | 23.9 – 24 | 35% | 1.04 | 1.00 | 5% / 100% | fills a gap: already close to the true value (adjustment 1.04) |
+| 15 | C2-061 | US states | How many states had been admitted to the United States by the time th… | 29 | 50 | 24 – 30 | 29.9 – 31 | 0% | 1.05 | 0.95 | 0% / 100% | fills a gap: already close to the true value (adjustment 1.05) |
 
 ### Why questions were left out
 
 - already close to the true value: 63 questions
-- known: 57 questions
+- known: 49 questions
 - answers move away from the true value: 2 questions
 - answers go far past the true value: 1 question
 
@@ -121,13 +121,13 @@ Question rules are checked on **qwen3-32b**, the largest screened model: a quest
 
 | domain | candidates | passed | picked |
 | --- | --- | --- | --- |
-| US states | 15 | 0 | 3 |
-| orbits | 15 | 2 | 3 |
-| surface gravity | 10 | 0 | 2 |
+| US states | 15 | 0 | 7 |
+| orbits | 15 | 3 | 4 |
+| surface gravity | 10 | 0 | 1 |
 | rotation | 8 | 0 | 1 |
-| boiling point | 8 | 0 | 3 |
-| escape velocity | 7 | 0 | 1 |
-| speed of sound | 6 | 0 | 2 |
+| boiling point | 8 | 0 | 1 |
+| escape velocity | 7 | 0 | 0 |
+| speed of sound | 6 | 0 | 1 |
 
 ## Files
 

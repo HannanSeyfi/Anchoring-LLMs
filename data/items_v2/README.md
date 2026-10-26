@@ -10,6 +10,7 @@ starts from many candidate questions and keeps the ones the models are unsure ab
 | --- | --- | --- |
 | `candidates_study1.csv` | 137 candidate questions for Study 1 (anchors given in the prompt) | by hand, checked against Wikipedia |
 | `candidates_study2.csv` | 69 candidate questions for Study 2 (self-generated vs provided anchors) | by hand, checked against Wikipedia |
+| `candidates_study2_neo.csv` | 54 more Study 2 questions: orbits of little-known near-Earth asteroids, added after the first screening | from Wikipedia infoboxes, checked against Kepler's third law |
 | `study1.csv` | The 15 Study 1 questions picked by screening | `python -m anchoring_llms.select_items` |
 | `study2.csv` | The 15 Study 2 questions picked by screening | `python -m anchoring_llms.select_items` |
 
@@ -43,6 +44,16 @@ that a solver naturally adjusts from, as in Epley and Gilovich's self-generated 
 | boiling point | 8 | 100 °C | water boiling on a high summit (Ojos del Salado: 76.9 °C) |
 | escape velocity | 7 | 11.2 km/s | escape velocity from Ganymede (2.741 km/s) |
 | speed of sound | 6 | 343 m/s | speed of sound in argon at 20 °C (319 m/s) |
+
+**Study 2, second batch (54 questions, `C2-101` to `C2-154`).** In the first screening Qwen3-32B
+answered almost every Study 2 question correctly straight away. The exceptions were two near-Earth
+asteroids: without thinking it said about 369 days for Itokawa (true 557) and 367 for Bennu (true
+436.65), and with thinking it got close. So the second batch asks for the orbital periods of
+little-known near-Earth asteroids, whose year a solver naturally compares with Earth's 365 days
+("How many Earth days does it take the near-Earth asteroid 1685 Toro to orbit the Sun once?").
+Periods within 15% of 365 days were left out, so that moving away from 365 can be measured, and
+each infobox period was checked against Kepler's third law from the semi-major axis (one
+asteroid, 2063 Bacchus, did not match and was dropped).
 
 ## How the true values were checked
 

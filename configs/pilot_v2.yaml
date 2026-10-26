@@ -97,7 +97,9 @@ study2:
 screening:
   candidates:
     study1: data/items_v2/candidates_study1.csv   # 137 questions
-    study2: data/items_v2/candidates_study2.csv   # 69 questions
+    study2:                                       # one file or a list of files
+      - data/items_v2/candidates_study2.csv       # 69 questions
+      - data/items_v2/candidates_study2_neo.csv   # 54 near-Earth asteroid orbits, added after the first screening
   output_dir: data/screen_v2       # the answers
   results_dir: results/screen_v2   # the report and the tables
   levels: ["off", "low"]           # thinking levels used for screening
@@ -118,9 +120,12 @@ screening:
     max_per_domain: 3
   study2:
     n_items: 15
+    known_levels: ["off"]          # knowledge is checked only with thinking off: reaching the true value
+                                   # after thinking is what Study 2 looks for (e.g. Bennu: 367 days with
+                                   # thinking off, 433 with thinking; true 436.65)
     min_adjustment: 0.0            # with thinking off; below 0 the answer moves away from the truth
     max_adjustment: 0.8            # above this the model (almost) knows the answer: no room for thinking to help
-    max_per_domain: 3
+    max_per_domain: 15             # no topic limit: asteroid orbits were the only kind that worked (first screening)
 
 engine:
   max_model_len: 8192

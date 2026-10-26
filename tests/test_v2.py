@@ -22,14 +22,14 @@ REPO = Path(__file__).resolve().parents[1]
 @pytest.mark.parametrize("study", ["study1", "study2"])
 def test_candidate_files_are_complete(study):
     cfg = run.load_config(REPO / "configs/pilot_v2.yaml")
-    path = REPO / cfg["screening"]["candidates"][study]
-    items = load_items(path)
+    items = screen.load_candidates(REPO, cfg, study)  # also checks that ids are unique across files
     assert len(items) >= 60
     assert all(it.truth is not None and it.truth > 0 and it.domain for it in items)
     if study == "study2":
         assert all(it.reference is not None and it.reference != it.truth for it in items)
-    notes = pd.read_csv(path)
-    assert notes["truth_note"].notna().all() and notes["source"].notna().all()
+    for path in screen.candidate_files(cfg, study):
+        notes = pd.read_csv(REPO / path)
+        assert notes["truth_note"].notna().all() and notes["source"].notna().all()
 
 
 # ----------------------------------------------------------------------------- pipeline changes

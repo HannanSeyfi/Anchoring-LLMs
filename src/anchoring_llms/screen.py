@@ -32,6 +32,20 @@ def screen_dirs(cfg: dict, smoke: bool = False) -> tuple[str, str]:
     return sc["output_dir"].rstrip("/") + suffix, sc["results_dir"].rstrip("/") + suffix
 
 
+def candidate_files(cfg: dict, study: str) -> list[str]:
+    """The candidate file(s) of a study: one path or a list of paths in the config."""
+    files = cfg["screening"]["candidates"][study]
+    return [files] if isinstance(files, str) else list(files)
+
+
+def load_candidates(repo: Path, cfg: dict, study: str) -> list[Item]:
+    items = [it for f in candidate_files(cfg, study) for it in load_items(repo / f)]
+    ids = [it.item_id for it in items]
+    if len(ids) != len(set(ids)):
+        raise ValueError(f"Duplicate item ids across the {study} candidate files")
+    return items
+
+
 def screen_cells(model: str, items: list[Item], study: str, cfg: dict) -> list[dict]:
     sc, seed = cfg["screening"], cfg["sampling"]["seed"]
     cells = []
@@ -86,7 +100,7 @@ def main(argv: list[str] | None = None) -> None:
 
     try:
         for study in studies:
-            items = load_items(repo / cfg["screening"]["candidates"][study])
+            items = load_candidates(repo, cfg, study)
             if cfg.get("max_items"):
                 items = items[: cfg["max_items"]]
             run_cells(backend, screen_cells(args.model, items, study, cfg), out / "raw" / args.model / study,
