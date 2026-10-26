@@ -271,7 +271,9 @@ def main(argv: list[str] | None = None) -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--config", default="configs/pilot.yaml")
     ap.add_argument("--model", required=True, help="a key under `models` in the config")
-    ap.add_argument("--phase", default="all", choices=["all", *PHASES])
+    ap.add_argument("--phase", default="all",
+                    help=f"all, or one or more of {', '.join(PHASES)} separated by commas "
+                         "(e.g. baseline,anchors,study1 for Study 1 only)")
     ap.add_argument("--backend", default=None, choices=["vllm", "deepinfra", "dryrun"],
                     help="default: the model's `backend` in the config, else vllm")
     ap.add_argument("--max-spend", type=float, default=None,
@@ -305,7 +307,11 @@ def main(argv: list[str] | None = None) -> None:
         items1, items2 = items1[: cfg["max_items"]], items2[: cfg["max_items"]]
 
     sync = GitSync(repo, [out], enabled=args.sync, min_interval=cfg["sync"]["min_interval_seconds"])
-    phases = PHASES if args.phase == "all" else [args.phase]
+    phases = PHASES if args.phase == "all" else [p.strip() for p in args.phase.split(",") if p.strip()]
+    unknown = [p for p in phases if p not in PHASES]
+    if unknown or not phases:
+        raise SystemExit(f"Unknown phase {', '.join(unknown) or args.phase!r}; use all or {', '.join(PHASES)}.")
+    phases = [p for p in PHASES if p in phases]  # always in the order the phases depend on each other
     needs_model = any(p != "anchors" for p in phases)
     spend_path = out / "runs" / f"{args.model}.spend.json"
     backend = make_backend(kind, model_cfg, cfg, spend_path=spend_path) if needs_model else None

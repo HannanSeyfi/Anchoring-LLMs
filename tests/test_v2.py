@@ -121,7 +121,8 @@ def test_pick_applies_the_rules_and_the_domain_limit():
         {"model": "qwen3-32b", "item_id": "C", "spread_mean": 0.7, "spread_min": 0.6},  # domain limit
         {"model": "qwen3-32b", "item_id": "D", "known_max": 0.9},                      # known
         {"model": "qwen3-32b", "item_id": "E", "spread_min": 0.02, "spread_mean": 0.05},  # too similar
-        {"model": "small", "item_id": "A", "parsed_min": 0.5},                         # small model fails
+        {"model": "small", "item_id": "A", "parsed_min": 0.5, "parsed_low": 0.5},     # small model fails
+        {"model": "small", "item_id": "C", "parsed_min": 0.4, "parsed_low": 1.0},     # refuses only with thinking off
         {"model": "small", "item_id": "B"},
     ])
     df = select_items.pick(summary, items, "study1", sc).set_index("item_id")
@@ -181,3 +182,15 @@ def test_screen_select_and_run_v2(tmp_path):
     res = analysis.analyse(tmp_path / "pilot_smoke", tmp_path / "results_pilot")
     assert not res["study2_adjustment"].empty
     assert "median over questions" in (tmp_path / "results_pilot" / "summary.md").read_text()
+
+
+def test_study1_only_run(tmp_path):
+    out = tmp_path / "data"
+    args = ["--repo", str(REPO), "--model", "qwen3-8b", "--backend", "dryrun", "--smoke", "--output-dir", str(out)]
+    run.main([*args, "--phase", "study1,baseline,anchors"])  # any order; run in dependency order
+    raw = out / "raw" / "qwen3-8b"
+    assert (raw / "study1").is_dir() and not (raw / "study2").exists()
+    res = analysis.analyse(out, tmp_path / "results")  # the analysis copes with no Study 2 data
+    assert res["study2_adjustment"].empty and not res["anchoring_index"].empty
+    with pytest.raises(SystemExit, match="Unknown phase"):
+        run.main([*args, "--phase", "study3"])

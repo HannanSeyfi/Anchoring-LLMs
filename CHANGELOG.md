@@ -4,6 +4,23 @@ What changed in the pilot design and code, and why. The first question set and i
 as they were (`configs/pilot.yaml`, `data/items/`, `data/pilot/`), so earlier runs can still be
 reproduced.
 
+## Screening results and a rule change (2026-10-26, later the same day)
+
+- **What the screening found** (`results/screen_v2/screening.md`): Qwen3-32B knew most candidates
+  (94 of 137 Study 1 questions, 57 of 69 Study 2 questions), usually giving the same number every
+  time. What it did not know were numbers it has to work out or estimate: distances between cities,
+  the windows of Versailles, small details such as the area of Lake Bled. In Study 2 it went
+  straight to the true value instead of starting from 365 days, 100 °C and so on, except for two
+  asteroid orbits (Itokawa: about 369 days with thinking off, about 540 with thinking; true 557).
+- **Rule change:** R1-Distill-Qwen-1.5B refuses to answer about half the time with thinking off,
+  whatever the question ("I cannot answer that question"), so its number rule is now checked only
+  with thinking on (`screening.other_models_parse_levels`). The Study 1 spread rule now uses the
+  spread averaged over the two levels instead of the smaller one. With these rules 23 Study 1
+  questions pass and 15 are picked; before, 2 passed. The rules were changed after seeing the
+  data, so the paper should say so.
+- **Study 2** has only 2 usable questions, so `run --phase` now takes a list
+  (`baseline,anchors,study1` runs Study 1 only), and the notebooks use that by default.
+
 ## Question set v2 (2026-10-26)
 
 Follows the "Changes to the design" in the pilot run 2 report (`latex/qwen3_report/`).

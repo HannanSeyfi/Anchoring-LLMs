@@ -105,11 +105,14 @@ screening:
   models: [qwen3-32b, r1-distill-qwen-1.5b]   # models that will run the pilot on these questions
   reference_model: qwen3-32b       # the question rules are checked on this model (the largest)
   min_parsed: 0.75                 # every model: share of answers with a number, at every level
+  other_models_parse_levels: ["low"]  # but models other than the reference only with thinking on:
+                                   # R1-Distill refuses about half the time with thinking off, whatever
+                                   # the question (screening 2026-10-26), so that says nothing about a question
   known_tolerance: 0.02            # an answer within 2% of the true value counts as "known"
   max_known_share: 0.5             # drop a question if more than half the answers are known
   study1:
     n_items: 15
-    min_spread: 0.1                # log10(q90/q10) at every level: high answers at least 1.26x the low ones
+    min_spread: 0.1                # log10(q90/q10) averaged over levels: high answers at least 1.26x the low ones
     max_spread: 2.0                # on average: high answers more than 100x the low ones = unclear question
     max_median_error: 1.0          # median more than 10x off the truth = unclear question (e.g. units)
     max_per_domain: 3

@@ -142,7 +142,8 @@ MODEL = "r1-distill-qwen-1.5b"  #@param ["r1-distill-qwen-1.5b", "qwen3-4b", "qw
 {CONFIG_PARAM}
 SMOKE_TEST = True  #@param {{type:"boolean"}}
 SAVE_TO_GITHUB = True  #@param {{type:"boolean"}}
-PHASE = "all"  #@param ["all", "baseline", "anchors", "study1", "study2"]
+PHASE = "baseline,anchors,study1"  #@param ["baseline,anchors,study1", "all", "baseline", "anchors", "study1", "study2"]
+# "baseline,anchors,study1" = Study 1 only (question set v2 has no Study 2 questions yet); "all" = both studies.
 BRANCH = "{BRANCH}"  #@param {{type:"string"}}
 VLLM_VERSION = ""  #@param {{type:"string"}}
 # Leave VLLM_VERSION empty for the latest vLLM; the version used is logged with the data.
@@ -227,7 +228,8 @@ MODEL = "qwen3-32b"  #@param ["qwen3-32b", "qwen3-14b"]
 SMOKE_TEST = True  #@param {{type:"boolean"}}
 MAX_SPEND_USD = 5  #@param {{type:"number"}}
 SAVE_TO_GITHUB = True  #@param {{type:"boolean"}}
-PHASE = "all"  #@param ["all", "baseline", "anchors", "study1", "study2"]
+PHASE = "baseline,anchors,study1"  #@param ["baseline,anchors,study1", "all", "baseline", "anchors", "study1", "study2"]
+# "baseline,anchors,study1" = Study 1 only (question set v2 has no Study 2 questions yet); "all" = both studies.
 BRANCH = "{BRANCH}"  #@param {{type:"string"}}
 
 REPO = "{REPO}"

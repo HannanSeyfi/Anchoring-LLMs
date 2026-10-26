@@ -35,6 +35,10 @@ with a worked example at the top of each study.
 Same notebooks as before, with `CONFIG = configs/pilot_v2.yaml` (now the default). Data goes to
 `data/pilot_v2/`.
 
+**For now, Study 1 only** (`PHASE = baseline,anchors,study1`, the default). The screening found
+only 2 Study 2 questions that Qwen3-32B does not answer straight away (see CHANGELOG.md), so the
+Study 2 questions are still being replaced. Run `PHASE = study2` later, once they are picked.
+
 | Model | Notebook | Runtime | Cost |
 | --- | --- | --- | --- |
 | `qwen3-32b` | `03_run_pilot_deepinfra.ipynb` | CPU | about $2 |

@@ -16,9 +16,9 @@ Each candidate question was asked without an anchor, 20 times per thinking level
 
 Question rules are checked on **qwen3-32b**, the largest screened model: a question it does not know, a smaller model does not know either. The number rule is checked on every screened model.
 
-- every model: at least 75% of answers contain a number (at every level)
+- every model: at least 75% of answers contain a number (at every level; models other than qwen3-32b only with thinking low)
 - qwen3-32b: at most 50% of answers within 2% of the truth (at every level)
-- Study 1: spread at least 0.1 at every level and at most 2.0 on average; median no more than 10 times off the truth (else the question may be unclear)
+- Study 1: spread (averaged over levels) at least 0.1 and at most 2.0; median no more than 10 times off the truth (else the question may be unclear)
 - Study 2: adjustment with thinking off between 0.0 and 0.8
 - at most 3 questions per topic; 15 questions per study
 - ranking: Study 1 by spread (most unsure first); Study 2 by how far the answer stayed from the truth (least adjustment first)
@@ -34,7 +34,7 @@ Question rules are checked on **qwen3-32b**, the largest screened model: a quest
 
 ## Study 1 (provided anchors)
 
-137 questions screened, 2 passed the rules, 15 picked → `data/items_v2/study1.csv`.
+137 questions screened, 23 passed the rules, 15 picked → `data/items_v2/study1.csv`.
 
 **Worked example (C1-102).** *How many windows does the Palace of Versailles have?* The true value is 2,143. With thinking off, qwen3-32b answered it 20 times. The middle 80% of its answers ran from 1,290 to 14,100, with a median of 1,350. None of its answers were within 2% of the truth (at any thinking level), so the model does not know this number. Its spread is 1.04: the high answers are about 10.8 times the low ones. An anchor has room to pull here.
 
@@ -42,78 +42,78 @@ Question rules are checked on **qwen3-32b**, the largest screened model: a quest
 
 | # | id | domain | question | true value | middle 80% (off) | middle 80% (low) | known | spread | r1-distill-qwen-1.5b: known / parsed | note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | C1-102 | architecture | How many windows does the Palace of Versailles have? | 2,143 | 1,290 – 14,100 | 1,300 – 14,000 | 0% | 1.04 | 5% / 80% |  |
-| 2 | C1-089 | towers | How tall is the main tower of the Kuwait Towers? | 187 | 128 – 267.1 | 108.1 – 300.4 | 30% | 0.38 | 5% / 95% |  |
-| 3 | C1-006 | islands | What is the area of the German island of Rügen? | 926.4 | 92 – 926 | 92 – 926 | 85% | 1.00 | 0% / 75% | fills a gap: known (85% of answers within 2% of the true value) |
-| 4 | C1-035 | lakes | What is the surface area of Lake Bled in Slovenia? | 1.45 | 1.49 – 4.32 | 1.14 – 10.27 | 0% | 0.71 | 0% / 25% | fills a gap: r1-distill-qwen-1.5b: only 25% of answers had a number |
-| 5 | C1-036 | lakes | What is the surface area of Lake Hallstatt (Hallstätter See) in Austr… | 8.55 | 1.59 – 13.05 | 1.3 – 4.13 | 10% | 0.71 | 0% / 0% | fills a gap: r1-distill-qwen-1.5b: only 0% of answers had a number |
-| 6 | C1-134 | distances | What is the straight-line (great-circle) distance between the centres… | 9,351 | 6,660 – 14,830 | 1,727 – 14,910 | 5% | 0.64 | 0% / 10% | fills a gap: r1-distill-qwen-1.5b: only 10% of answers had a number |
-| 7 | C1-084 | waterfalls | How high is the free fall of Vettisfossen waterfall in Norway? | 275 | 64.5 – 182 | 78 – 310 | 0% | 0.52 | 0% / 0% | fills a gap: r1-distill-qwen-1.5b: only 0% of answers had a number |
-| 8 | C1-030 | lakes | What is the maximum depth of Lake Neusiedl on the Austria-Hungary bor… | 1.8 | 2 – 4.5 | 1.77 – 6.4 | 5% | 0.46 | 0% / 70% | fills a gap: r1-distill-qwen-1.5b: only 70% of answers had a number |
-| 9 | C1-107 | borders | How long is the border between Andorra and Spain? | 64 | 119.8 – 253 | 62.7 – 218.5 | 25% | 0.43 | 0% / 65% | fills a gap: r1-distill-qwen-1.5b: only 65% of answers had a number |
-| 10 | C1-080 | waterfalls | What is the total height of the Krimml Waterfalls in Austria? | 380 | 380 – 715 | 380 – 735 | 40% | 0.28 | 0% / 0% | fills a gap: r1-distill-qwen-1.5b: only 0% of answers had a number |
-| 11 | C1-053 | tunnels and bridges | How long is the Arlberg Road Tunnel in Austria? | 13.97 | 6.795 – 10.87 | 6.29 – 13.81 | 35% | 0.27 | 0% / 30% | fills a gap: r1-distill-qwen-1.5b: only 30% of answers had a number |
-| 12 | C1-106 | borders | How long is the coastline of Slovenia? | 47 | 29 – 47.05 | 29 – 47 | 75% | 0.21 | 0% / 95% | fills a gap: known (75% of answers within 2% of the true value) |
-| 13 | C1-131 | distances | What is the straight-line (great-circle) distance between the centres… | 4,481 | 2,546 – 3,833 | 2,542 – 4,222 | 0% | 0.20 | 0% / 5% | fills a gap: r1-distill-qwen-1.5b: only 5% of answers had a number |
-| 14 | C1-126 | distances | What is the straight-line (great-circle) distance between the centres… | 5,693 | 5,110 – 6,976 | 4,220 – 7,056 | 15% | 0.18 | 15% / 25% | fills a gap: r1-distill-qwen-1.5b: only 25% of answers had a number |
-| 15 | C1-115 | race tracks | How long is one lap of the Nürburgring Nordschleife? | 20.83 | 20.83 – 25.38 | 20.8 – 25.38 | 30% | 0.09 | 0% / 100% | fills a gap: answers too similar (spread 0.09) |
+| 1 | C1-102 | architecture | How many windows does the Palace of Versailles have? | 2,143 | 1,290 – 14,100 | 1,300 – 14,000 | 0% | 1.04 | 5% / 100% |  |
+| 2 | C1-035 | lakes | What is the surface area of Lake Bled in Slovenia? | 1.45 | 1.49 – 4.32 | 1.14 – 10.27 | 0% | 0.71 | 0% / 100% |  |
+| 3 | C1-036 | lakes | What is the surface area of Lake Hallstatt (Hallstätter See) in Austr… | 8.55 | 1.59 – 13.05 | 1.3 – 4.13 | 10% | 0.71 | 0% / 100% |  |
+| 4 | C1-134 | distances | What is the straight-line (great-circle) distance between the centres… | 9,351 | 6,660 – 14,830 | 1,727 – 14,910 | 5% | 0.64 | 0% / 100% |  |
+| 5 | C1-084 | waterfalls | How high is the free fall of Vettisfossen waterfall in Norway? | 275 | 64.5 – 182 | 78 – 310 | 0% | 0.52 | 0% / 100% |  |
+| 6 | C1-030 | lakes | What is the maximum depth of Lake Neusiedl on the Austria-Hungary bor… | 1.8 | 2 – 4.5 | 1.77 – 6.4 | 5% | 0.46 | 0% / 100% |  |
+| 7 | C1-107 | borders | How long is the border between Andorra and Spain? | 64 | 119.8 – 253 | 62.7 – 218.5 | 25% | 0.43 | 0% / 100% |  |
+| 8 | C1-137 | distances | What is the straight-line (great-circle) distance between the centres… | 6,097 | 5,880 – 7,330 | 1,400 – 7,296 | 15% | 0.41 | 5% / 100% |  |
+| 9 | C1-089 | towers | How tall is the main tower of the Kuwait Towers? | 187 | 128 – 267.1 | 108.1 – 300.4 | 30% | 0.38 | 5% / 100% |  |
+| 10 | C1-080 | waterfalls | What is the total height of the Krimml Waterfalls in Austria? | 380 | 380 – 715 | 380 – 735 | 40% | 0.28 | 0% / 100% |  |
+| 11 | C1-053 | tunnels and bridges | How long is the Arlberg Road Tunnel in Austria? | 13.97 | 6.795 – 10.87 | 6.29 – 13.81 | 35% | 0.27 | 0% / 100% |  |
+| 12 | C1-075 | steps | How many steps does the service stairway beside the Niesen funicular… | 11,674 | 1,160 – 1,325 | 990 – 2,204 | 0% | 0.20 | 0% / 100% |  |
+| 13 | C1-131 | distances | What is the straight-line (great-circle) distance between the centres… | 4,481 | 2,546 – 3,833 | 2,542 – 4,222 | 0% | 0.20 | 0% / 100% |  |
+| 14 | C1-045 | mountains | How high is Alam-Kuh in Iran? | 4,850 | 3,409 – 4,941 | 4,066 – 4,538 | 5% | 0.10 | 0% / 100% |  |
+| 15 | C1-091 | towers | How tall is the Azadi Tower in Tehran? | 45 | 43.18 – 54 | 43 – 55 | 0% | 0.10 | 0% / 100% |  |
 
 ### Why questions were left out
 
-- answers too similar: 117 questions
+- answers too similar: 105 questions
 - known: 94 questions
-- r1-distill-qwen-1.5b: too few answers with a number: 88 questions
 
 ### By topic
 
 | domain | candidates | passed | picked |
 | --- | --- | --- | --- |
-| lakes | 20 | 0 | 3 |
-| islands | 18 | 0 | 1 |
-| mountains | 15 | 0 | 0 |
-| distances | 12 | 0 | 3 |
-| steps | 9 | 0 | 0 |
-| tunnels and bridges | 9 | 0 | 1 |
-| waterfalls | 8 | 0 | 2 |
+| lakes | 20 | 6 | 3 |
+| islands | 18 | 0 | 0 |
+| mountains | 15 | 1 | 1 |
+| distances | 12 | 7 | 3 |
+| steps | 9 | 2 | 1 |
+| tunnels and bridges | 9 | 1 | 1 |
+| waterfalls | 8 | 2 | 2 |
 | landforms | 7 | 0 | 0 |
-| towers | 7 | 1 | 1 |
+| towers | 7 | 2 | 2 |
 | parks | 6 | 0 | 0 |
 | space | 6 | 0 | 0 |
 | canals | 6 | 0 | 0 |
-| race tracks | 5 | 0 | 1 |
+| race tracks | 5 | 0 | 0 |
 | architecture | 4 | 1 | 1 |
 | biology | 3 | 0 | 0 |
-| borders | 2 | 0 | 2 |
+| borders | 2 | 1 | 1 |
 
 ## Study 2 (self-generated anchors)
 
-69 questions screened, 0 passed the rules, 15 picked → `data/items_v2/study2.csv`.
+69 questions screened, 2 passed the rules, 15 picked → `data/items_v2/study2.csv`.
+
+**Worked example (C2-006).** *How many Earth days does it take the asteroid 25143 Itokawa to orbit the Sun once?* The true value is 557. With thinking off, qwen3-32b answered it 20 times. The middle 80% of its answers ran from 367.8 to 382.9, with a median of 369. Only 35% of its answers were within 2% of the truth (at any thinking level), so the model does not know this number. Starting from R = 365, its median moved 2% of the way to the true value (adjustment 0.02), so there is room for more thinking to adjust further.
 
 ### Picked questions
 
 | # | id | domain | question | true value | start value R | middle 80% (off) | middle 80% (low) | known | adjustment (off) | adjustment (low) | r1-distill-qwen-1.5b: known / parsed | note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | C2-006 | orbits | How many Earth days does it take the asteroid 25143 Itokawa to orbit… | 557 | 365 | 367.8 – 382.9 | 326.9 – 559.4 | 35% | 0.02 | 0.91 | 100% / 5% | fills a gap: r1-distill-qwen-1.5b: only 5% of answers had a number |
-| 2 | C2-014 | orbits | How many Earth days does it take the asteroid 243 Ida to orbit the Su… | 1,768 | 365 | 1,435 – 1,758 | 4.79 – 1,729 | 20% | 0.77 | 0.77 | 0% / 25% | fills a gap: r1-distill-qwen-1.5b: only 25% of answers had a number |
-| 3 | C2-067 | US states | How many states had been admitted to the United States by the time th… | 38 | 50 | 37.9 – 40 | 37 – 40.4 | 25% | 0.83 | 1.08 | 0% / 90% | fills a gap: already close to the true value (adjustment 0.83) |
-| 4 | C2-060 | US states | How many states had been admitted to the United States by the time th… | 28 | 50 | 26 – 30 | 28 – 30 | 15% | 0.95 | 0.91 | 0% / 75% | fills a gap: already close to the true value (adjustment 0.95) |
-| 5 | C2-061 | US states | How many states had been admitted to the United States by the time th… | 29 | 50 | 24 – 30 | 29.9 – 31 | 5% | 1.05 | 0.95 | 0% / 80% | fills a gap: already close to the true value (adjustment 1.05) |
-| 6 | C2-011 | orbits | How many Earth days does it take the asteroid 21 Lutetia to orbit the… | 1,388 | 365 | 145.4 – 1,452 | 3.749 – 1,680 | 20% | -0.21 | 1.00 | 0% / 5% | fills a gap: answers move away from the true value (adjustment -0.21); r1-distill-qwen-1.5b: only 5% of answers had a number |
-| 7 | C2-048 | boiling point | At what temperature does water boil in Cusco, Peru? | 88.7 | 100 | 88.9 – 90 | 88 – 88.07 | 100% | 0.90 | 1.06 | 5% / 80% | fills a gap: known (100% of answers within 2% of the true value); already close to the true value (adjustment 0.90) |
-| 8 | C2-049 | speed of sound | What is the speed of sound in argon gas at 20 °C and normal pressure? | 319 | 343 | 319 – 321 | 323 – 323 | 100% | 0.96 | 0.83 | 15% / 100% | fills a gap: known (100% of answers within 2% of the true value); already close to the true value (adjustment 0.96) |
-| 9 | C2-047 | boiling point | At what temperature does water boil in Lhasa, Tibet? | 87.8 | 100 | 88 – 88.1 | 88 – 88 | 100% | 0.98 | 0.98 | 5% / 100% | fills a gap: known (100% of answers within 2% of the true value); already close to the true value (adjustment 0.98) |
-| 10 | C2-054 | speed of sound | What is the speed of sound in carbon dioxide gas at 20 °C and normal… | 267 | 343 | 268 – 272 | 268 – 269 | 100% | 0.99 | 0.97 | 30% / 100% | fills a gap: known (100% of answers within 2% of the true value); already close to the true value (adjustment 0.99) |
-| 11 | C2-041 | boiling point | At what temperature does water boil at the summit of Ojos del Salado? | 76.9 | 100 | 73.8 – 87.1 | 76.8 – 88 | 50% | 1.00 | 0.63 | 0% / 30% | fills a gap: already close to the true value (adjustment 1.00); r1-distill-qwen-1.5b: only 30% of answers had a number |
-| 12 | C2-028 | escape velocity | What is the escape velocity from the surface of Neptune's moon Triton? | 1.455 | 11.2 | 1.45 – 1.5 | 1.45 – 2.36 | 75% | 1.00 | 1.00 | 0% / 100% | fills a gap: known (75% of answers within 2% of the true value); already close to the true value (adjustment 1.00) |
-| 13 | C2-018 | surface gravity | What is the acceleration due to gravity at the surface of Neptune's m… | 0.779 | 9.81 | 0.78 – 0.78 | 0.78 – 0.78 | 100% | 1.00 | 1.00 | 0% / 75% | fills a gap: known (100% of answers within 2% of the true value); already close to the true value (adjustment 1.00) |
-| 14 | C2-052 | speed of sound | What is the speed of sound in xenon gas at 20 °C and normal pressure? | 176 | 343 | 175 – 179 | 170 – 190 | 95% | 1.00 | 1.00 | 15% / 75% | fills a gap: known (95% of answers within 2% of the true value); already close to the true value (adjustment 1.00) |
-| 15 | C2-027 | escape velocity | What is the escape velocity from the surface of Jupiter's moon Callis… | 2.441 | 11.2 | 2.4 – 2.44 | 2.4 – 2.44 | 100% | 1.00 | 1.00 | 5% / 100% | fills a gap: known (100% of answers within 2% of the true value); already close to the true value (adjustment 1.00) |
+| 1 | C2-006 | orbits | How many Earth days does it take the asteroid 25143 Itokawa to orbit… | 557 | 365 | 367.8 – 382.9 | 326.9 – 559.4 | 35% | 0.02 | 0.91 | 100% / 100% |  |
+| 2 | C2-014 | orbits | How many Earth days does it take the asteroid 243 Ida to orbit the Su… | 1,768 | 365 | 1,435 – 1,758 | 4.79 – 1,729 | 20% | 0.77 | 0.77 | 0% / 100% |  |
+| 3 | C2-011 | orbits | How many Earth days does it take the asteroid 21 Lutetia to orbit the… | 1,388 | 365 | 145.4 – 1,452 | 3.749 – 1,680 | 20% | -0.21 | 1.00 | 0% / 100% | fills a gap: answers move away from the true value (adjustment -0.21) |
+| 4 | C2-067 | US states | How many states had been admitted to the United States by the time th… | 38 | 50 | 37.9 – 40 | 37 – 40.4 | 25% | 0.83 | 1.08 | 0% / 100% | fills a gap: already close to the true value (adjustment 0.83) |
+| 5 | C2-065 | US states | How many states had been admitted to the United States by the time Li… | 35 | 50 | 32.9 – 37 | 35.9 – 36 | 10% | 0.93 | 0.93 | 0% / 100% | fills a gap: already close to the true value (adjustment 0.93) |
+| 6 | C2-060 | US states | How many states had been admitted to the United States by the time th… | 28 | 50 | 26 – 30 | 28 – 30 | 15% | 0.95 | 0.91 | 0% / 100% | fills a gap: already close to the true value (adjustment 0.95) |
+| 7 | C2-041 | boiling point | At what temperature does water boil at the summit of Ojos del Salado? | 76.9 | 100 | 73.8 – 87.1 | 76.8 – 88 | 50% | 1.00 | 0.63 | 0% / 100% | fills a gap: already close to the true value (adjustment 1.00) |
+| 8 | C2-039 | rotation | How many hours does it take the asteroid 10 Hygiea to rotate once on… | 13.83 | 24 | 13.83 – 27.7 | 13.8 – 17.22 | 65% | -0.36 | 1.00 | 5% / 100% | fills a gap: known (65% of answers within 2% of the true value); answers move away from the true value (adjustment -0.36) |
+| 9 | C2-048 | boiling point | At what temperature does water boil in Cusco, Peru? | 88.7 | 100 | 88.9 – 90 | 88 – 88.07 | 100% | 0.90 | 1.06 | 5% / 100% | fills a gap: known (100% of answers within 2% of the true value); already close to the true value (adjustment 0.90) |
+| 10 | C2-049 | speed of sound | What is the speed of sound in argon gas at 20 °C and normal pressure? | 319 | 343 | 319 – 321 | 323 – 323 | 100% | 0.96 | 0.83 | 15% / 100% | fills a gap: known (100% of answers within 2% of the true value); already close to the true value (adjustment 0.96) |
+| 11 | C2-047 | boiling point | At what temperature does water boil in Lhasa, Tibet? | 87.8 | 100 | 88 – 88.1 | 88 – 88 | 100% | 0.98 | 0.98 | 5% / 100% | fills a gap: known (100% of answers within 2% of the true value); already close to the true value (adjustment 0.98) |
+| 12 | C2-054 | speed of sound | What is the speed of sound in carbon dioxide gas at 20 °C and normal… | 267 | 343 | 268 – 272 | 268 – 269 | 100% | 0.99 | 0.97 | 30% / 100% | fills a gap: known (100% of answers within 2% of the true value); already close to the true value (adjustment 0.99) |
+| 13 | C2-028 | escape velocity | What is the escape velocity from the surface of Neptune's moon Triton? | 1.455 | 11.2 | 1.45 – 1.5 | 1.45 – 2.36 | 75% | 1.00 | 1.00 | 0% / 100% | fills a gap: known (75% of answers within 2% of the true value); already close to the true value (adjustment 1.00) |
+| 14 | C2-020 | surface gravity | What is the acceleration due to gravity at the surface of Jupiter's m… | 1.796 | 9.81 | 1.796 – 1.8 | 1.79 – 1.795 | 100% | 1.00 | 1.00 | 0% / 100% | fills a gap: known (100% of answers within 2% of the true value); already close to the true value (adjustment 1.00) |
+| 15 | C2-017 | surface gravity | What is the acceleration due to gravity at the surface of Jupiter's m… | 1.236 | 9.81 | 1.235 – 1.24 | 1.235 – 1.236 | 100% | 1.00 | 1.00 | 70% / 100% | fills a gap: known (100% of answers within 2% of the true value); already close to the true value (adjustment 1.00) |
 
 ### Why questions were left out
 
 - already close to the true value: 63 questions
 - known: 57 questions
-- r1-distill-qwen-1.5b: too few answers with a number: 52 questions
 - answers move away from the true value: 2 questions
 - answers go far past the true value: 1 question
 
@@ -122,12 +122,12 @@ Question rules are checked on **qwen3-32b**, the largest screened model: a quest
 | domain | candidates | passed | picked |
 | --- | --- | --- | --- |
 | US states | 15 | 0 | 3 |
-| orbits | 15 | 0 | 3 |
-| surface gravity | 10 | 0 | 1 |
-| rotation | 8 | 0 | 0 |
+| orbits | 15 | 2 | 3 |
+| surface gravity | 10 | 0 | 2 |
+| rotation | 8 | 0 | 1 |
 | boiling point | 8 | 0 | 3 |
-| escape velocity | 7 | 0 | 2 |
-| speed of sound | 6 | 0 | 3 |
+| escape velocity | 7 | 0 | 1 |
+| speed of sound | 6 | 0 | 2 |
 
 ## Files
 

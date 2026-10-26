@@ -99,7 +99,7 @@ def item_summary(levels: pd.DataFrame, level_order: list[str]) -> pd.DataFrame:
             if level not in by_level.index:
                 continue
             x = by_level.loc[level]
-            for col in ("median", "q10", "q90", "spread", "known", "adjustment", "mentions_reference"):
+            for col in ("parsed", "median", "q10", "q90", "spread", "known", "adjustment", "mentions_reference"):
                 if col in x.index:
                     row[f"{col}_{level}"] = x[col]
         out.append(row)
@@ -116,10 +116,10 @@ def _reasons(r: pd.Series, study: str, sc: dict, first_level: str) -> tuple[list
         reasons.append(f"known ({r['known_max']:.0%} of answers within {tol:.0%} of the true value)")
     if study == "study1":
         score = r["spread_mean"]
-        if pd.isna(r["spread_min"]):
+        if pd.isna(r["spread_mean"]):
             reasons.append("some answers were zero or negative")
-        elif r["spread_min"] < rules["min_spread"]:
-            reasons.append(f"answers too similar (spread {r['spread_min']:.2f})")
+        elif r["spread_mean"] < rules["min_spread"]:
+            reasons.append(f"answers too similar (spread {r['spread_mean']:.2f})")
         elif r["spread_mean"] > rules["max_spread"]:
             reasons.append(f"answers too scattered (spread {r['spread_mean']:.2f})")
         if r["error_max"] > rules["max_median_error"]:
@@ -137,12 +137,21 @@ def _reasons(r: pd.Series, study: str, sc: dict, first_level: str) -> tuple[list
     return reasons, (score if pd.notna(score) else -np.inf)
 
 
+def parsed_share(o: pd.Series, sc: dict, ref_model: str) -> float:
+    """The lowest share of answers with a number over the levels that the parse rule checks."""
+    levels = sc.get("other_models_parse_levels")
+    if o["model"] == ref_model or not levels:
+        return o["parsed_min"]
+    return min(o.get(f"parsed_{level}", NAN) for level in levels)
+
+
 def pick(summary: pd.DataFrame, items: dict, study: str, sc: dict) -> pd.DataFrame:
     """Apply the rules, rank the questions that pass, and pick `n_items` (at most `max_per_domain` per domain).
 
     The question rules use the reference model; the parse rule is checked for every screened model,
-    so every model can answer the picked questions in the requested format. If too few questions
-    pass, the gap is filled with the ones that fail the fewest rules, marked as such.
+    so every model can answer the picked questions in the requested format (other models only at
+    `other_models_parse_levels`, when set). If too few questions pass, the gap is filled with the
+    ones that fail the fewest rules, marked as such.
     """
     rules, ref_model = sc[study], sc["reference_model"]
     first_level = sc["levels"][0]
@@ -151,8 +160,9 @@ def pick(summary: pd.DataFrame, items: dict, study: str, sc: dict) -> pd.DataFra
     for item_id, r in ref.iterrows():
         reasons, score = _reasons(r, study, sc, first_level)
         for _, o in summary[summary["item_id"] == item_id].iterrows():
-            if o["parsed_min"] < sc["min_parsed"]:
-                reasons.append(f"{o['model']}: only {o['parsed_min']:.0%} of answers had a number")
+            parsed = parsed_share(o, sc, ref_model)
+            if parsed < sc["min_parsed"]:
+                reasons.append(f"{o['model']}: only {parsed:.0%} of answers had a number")
         item = items[item_id]
         rows.append({"item_id": item_id, "domain": item.domain, "question": item.question,
                      "truth": item.truth, "reference": item.reference, **r.to_dict(),
@@ -248,7 +258,8 @@ def _picked_table(df: pd.DataFrame, study: str, sc: dict, others: list[str],
                 row[f"adjustment ({level})"] = "" if pd.isna(a) else f"{a:.2f}"
         for m in others:
             o = summary[(summary["model"] == m) & (summary["item_id"] == r["item_id"])]
-            row[f"{m}: known / parsed"] = (f"{o['known_max'].iloc[0]:.0%} / {o['parsed_min'].iloc[0]:.0%}"
+            row[f"{m}: known / parsed"] = (f"{o['known_max'].iloc[0]:.0%} / "
+                                           f"{parsed_share(o.iloc[0], sc, sc['reference_model']):.0%}"
                                            if not o.empty else "not screened")
         row["note"] = "" if r["status"] == "picked" else "fills a gap: " + r["reasons"]
         rows.append(row)
@@ -324,11 +335,13 @@ def write_report(path: Path, cfg: dict, results: dict, summaries: dict, missing:
              "## Rules", "",
              f"Question rules are checked on **{ref_model}**, the largest screened model: a question it does not "
              "know, a smaller model does not know either. The number rule is checked on every screened model.", "",
-             f"- every model: at least {sc['min_parsed']:.0%} of answers contain a number (at every level)",
+             f"- every model: at least {sc['min_parsed']:.0%} of answers contain a number (at every level"
+             + (f"; models other than {ref_model} only with thinking {', '.join(sc['other_models_parse_levels'])}"
+                if sc.get("other_models_parse_levels") else "") + ")",
              f"- {ref_model}: at most {sc['max_known_share']:.0%} of answers within {tol:.0%} of the truth "
              "(at every level)",
-             f"- Study 1: spread at least {sc['study1']['min_spread']} at every level and at most "
-             f"{sc['study1']['max_spread']} on average; median no more than "
+             f"- Study 1: spread (averaged over levels) at least {sc['study1']['min_spread']} and at most "
+             f"{sc['study1']['max_spread']}; median no more than "
              f"{10 ** sc['study1']['max_median_error']:.0f} times off the truth (else the question may be unclear)",
              f"- Study 2: adjustment with thinking {sc['levels'][0]} between {sc['study2']['min_adjustment']} and "
              f"{sc['study2']['max_adjustment']}",
