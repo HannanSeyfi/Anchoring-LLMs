@@ -11,6 +11,7 @@ starts from many candidate questions and keeps the ones the models are unsure ab
 | `candidates_study1.csv` | 137 candidate questions for Study 1 (anchors given in the prompt) | by hand, checked against Wikipedia |
 | `candidates_study2.csv` | 69 candidate questions for Study 2 (self-generated vs provided anchors) | by hand, checked against Wikipedia |
 | `candidates_study2_neo.csv` | 54 more Study 2 questions: orbits of little-known near-Earth asteroids, added after the first screening | from Wikipedia infoboxes, checked against Kepler's third law |
+| `candidates_study2_events.csv` | 39 more Study 2 questions: numbers from 2026 events (World Cup, Winter Olympics, Asian Games, Commonwealth Games) and 2025-2026 films, which happened after every model's training | from Wikipedia infoboxes and medal tables |
 | `study1.csv` | The 15 Study 1 questions picked by screening | `python -m anchoring_llms.select_items` |
 | `study2.csv` | The 15 Study 2 questions picked by screening | `python -m anchoring_llms.select_items` |
 
@@ -54,6 +55,29 @@ little-known near-Earth asteroids, whose year a solver naturally compares with E
 Periods within 15% of 365 days were left out, so that moving away from 365 can be measured, and
 each infobox period was checked against Kepler's third law from the semi-major axis (one
 asteroid, 2063 Bacchus, did not match and was dropped).
+
+**Study 2, third batch (39 questions, `C2-201` to `C2-239`).** Questions about things that
+happened after every model was trained: all the models we use were released before May 2025,
+so none can know a number from late 2025 or 2026. Each question names a recent event and asks
+for one of its numbers, and the starting value `reference` is the same number from the previous
+edition, which the model does know and can reason from:
+
+| Topic | Questions | Starting value | Example |
+| --- | --- | --- | --- |
+| 2026 World Cup | 4 | the 2022 World Cup | How many goals were scored in the whole tournament? (308; 2022: 172) |
+| 2026 Winter Olympics | 10 | the 2022 Winter Olympics | How many medals in total did the host country, Italy, win? (30; 2022: 17) |
+| 2026 Asian Games | 7 | the 2022 Asian Games (held in 2023) | How many gold medals did the host country, Japan, win? (83; 2022: 52) |
+| 2026 Commonwealth Games | 6 | the 2022 Commonwealth Games | How many medal events were held? (215; 2022: 283) |
+| film box office | 12 | the previous film in the series | Worldwide box office of Zootopia 2, in million US dollars (1,870; Zootopia: 1,026) |
+
+Each question says when and where the event took place and ends with "This happened after your
+training data ends, so you will need to estimate.", so that a model gives a number instead of
+saying it cannot know. The new value differs from the previous one by at least 15%, so moving away
+from the starting value can be measured. The previous edition is not named in the question: the
+model has to bring it to mind itself, as in Epley and Gilovich's self-generated anchors, and in
+the "provided" condition it is given as the comparison value. Values are as of 2026-10-26; one
+film (Spider-Man: Brand New Day, July 2026) is still in some cinemas, so its total may still grow
+a little.
 
 ## How the true values were checked
 

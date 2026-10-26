@@ -100,6 +100,7 @@ screening:
     study2:                                       # one file or a list of files
       - data/items_v2/candidates_study2.csv       # 69 questions
       - data/items_v2/candidates_study2_neo.csv   # 54 near-Earth asteroid orbits, added after the first screening
+      - data/items_v2/candidates_study2_events.csv  # 39 numbers from 2026 events, after every model's training
   output_dir: data/screen_v2       # the answers
   results_dir: results/screen_v2   # the report and the tables
   levels: ["off", "low"]           # thinking levels used for screening

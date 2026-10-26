@@ -4,6 +4,22 @@ What changed in the pilot design and code, and why. The first question set and i
 as they were (`configs/pilot.yaml`, `data/items/`, `data/pilot/`), so earlier runs can still be
 reproduced.
 
+## Study 2 questions about 2026 events (2026-10-26, evening)
+
+- **Why:** a model cannot know a number from an event that happened after it was trained, so it
+  has to estimate, and the same number from the previous edition is a natural starting value
+  (Hannan's idea). Every model we use was released before May 2025.
+- `data/items_v2/candidates_study2_events.csv` adds 39 Study 2 questions (`C2-201` to `C2-239`):
+  the 2026 World Cup (4), the 2026 Winter Olympics (10), the 2026 Asian Games (7), the 2026
+  Commonwealth Games (6) and the worldwide box office of 12 films from 2025-2026, each with the
+  previous edition or film as `reference`. Every value is from Wikipedia (2026-10-26), and every
+  new value is at least 15% away from the previous one ([notes](data/items_v2/README.md)).
+- Each question ends with "This happened after your training data ends, so you will need to
+  estimate.", so that the models give a number instead of saying they cannot know. The screening
+  will show how often they still refuse.
+- No code changes: screening again only asks the new questions, and the Study 1 picks stay the
+  same.
+
 ## Screening results and a rule change (2026-10-26, later the same day)
 
 - **What the screening found** (`results/screen_v2/screening.md`): Qwen3-32B knew most candidates
@@ -38,7 +54,7 @@ Settings: `configs/pilot_v2.yaml`. Steps: `docs/pilot_v2.md`.
 
 - **Why:** Qwen3-32B knew 13 of the 15 Study 1 questions (anchoring index 0.00-0.05), so the
   anchors had nothing to pull, and it knew the Study 2 answers too, so Study 2 could not be tested.
-- 206 new candidate questions in `data/items_v2/` (137 for Study 1, 69 for Study 2; 54 more were added later), every true
+- 206 new candidate questions in `data/items_v2/` (137 for Study 1, 69 for Study 2; 93 more were added later), every true
   value checked against Wikipedia and documented ([notes](data/items_v2/README.md)).
 - New step **screening**: `anchoring_llms.screen` asks each candidate 20 times with thinking off
   and 20 times with low thinking, without an anchor, and saves the answers to `data/screen_v2/`.

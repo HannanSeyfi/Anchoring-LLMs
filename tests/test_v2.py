@@ -32,6 +32,14 @@ def test_candidate_files_are_complete(study):
         assert notes["truth_note"].notna().all() and notes["source"].notna().all()
 
 
+def test_later_study2_batches_leave_room_to_adjust():
+    for name in ("candidates_study2_neo.csv", "candidates_study2_events.csv"):
+        df = pd.read_csv(REPO / "data/items_v2" / name)
+        assert ((df["truth"] - df["reference"]).abs() / df["reference"] >= 0.15).all(), name
+    events = pd.read_csv(REPO / "data/items_v2/candidates_study2_events.csv")
+    assert events["question"].str.endswith("after your training data ends, so you will need to estimate.").all()
+
+
 # ----------------------------------------------------------------------------- pipeline changes
 
 def test_cut_off_replies_do_not_guess_a_number():
