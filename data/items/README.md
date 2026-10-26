@@ -1,4 +1,7 @@
-# Pilot questions
+# Pilot questions (first question set)
+
+Used by `configs/pilot.yaml` in pilot runs 1 and 2. Question set v2, with questions the
+models do not know, is in [`data/items_v2/`](../items_v2/README.md).
 
 Two files, 15 questions each. Every question asks for a single number.
 

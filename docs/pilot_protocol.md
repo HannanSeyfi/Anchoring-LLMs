@@ -6,6 +6,9 @@ enough to show anchoring, and that the traces can be coded. It is not meant to t
 hypotheses with full power. Settings live in [`configs/pilot.yaml`](../configs/pilot.yaml);
 the design follows the [proposal](../latex/proposal/main.tex).
 
+This page describes the first question set. Question set v2 uses the same design with new
+questions and a few fixes: see [pilot_v2.md](pilot_v2.md) and [CHANGELOG.md](../CHANGELOG.md).
+
 ## Design (per model)
 
 **Reasoning levels**: off (0 thinking tokens), low (512), high (2048).

@@ -23,9 +23,10 @@ not as data.
 
 ## Hosted on DeepInfra (no GPU)
 
-| Key in `configs/pilot.yaml` | Model | Why |
+| Key in the config | Model | Why |
 | --- | --- | --- |
-| `qwen3-32b` | [Qwen/Qwen3-32B](https://deepinfra.com/Qwen/Qwen3-32B) | Added after pilot run 1 (October 2026). Same thinking switch as `qwen3-8b`, four times larger, so it should know the facts that the 1.5B model lacked (Study 2). DeepInfra's raw-text endpoint lets us apply the same 0 / 512 / 2048 thinking budgets. About $3 for a full run at $0.08 / $0.28 per million input / output tokens. Served in fp8, and the API takes no seed, so samples cannot be reproduced exactly. |
+| `qwen3-14b` | [Qwen/Qwen3-14B](https://deepinfra.com/Qwen/Qwen3-14B) | Added with question set v2 (in `configs/pilot_v2.yaml` only) as the middle step of the size ladder. $0.12 / $0.24 per million input / output tokens (checked 2026-10-26), so a run costs about the same as `qwen3-32b`. |
+| `qwen3-32b` | [Qwen/Qwen3-32B](https://deepinfra.com/Qwen/Qwen3-32B) | Added after pilot run 1 (October 2026). Same thinking switch as `qwen3-8b`, four times larger, so it should know the facts that the 1.5B model lacked (Study 2). DeepInfra's raw-text endpoint lets us apply the same 0 / 512 / 2048 thinking budgets. Pilot run 2 cost $1.52 at $0.08 / $0.28 per million input / output tokens. Served in fp8, and the API takes no seed, so samples cannot be reproduced exactly. |
 
 Other reasoning models on DeepInfra were more expensive for this design: DeepSeek-R1-0528 would cost
 about $20 per run and cannot switch thinking off; closed models (Gemini, Claude) cost more again
@@ -37,8 +38,8 @@ These are suggestions to decide with the professors once the pilot shows the met
 Check for newer releases of the same families before starting; models change quickly.
 
 1. **A size ladder within Qwen3** (4B, 8B, 14B, 32B). Same training recipe and the same thinking
-   switch, so we can ask whether the mechanism changes with scale. 32B in bfloat16 does not fit a
-   40 GB A100; it needs a quantised version, a larger GPU or a hosted API.
+   switch, so we can ask whether the mechanism changes with scale. Ready in `configs/pilot_v2.yaml`:
+   4B on a free Colab T4, 8B on an A100 or L4, 14B and 32B on DeepInfra.
 2. **gpt-oss-20b** (OpenAI, open weights). Has built-in low/medium/high reasoning effort, so we can
    check that our forced budgets give the same picture as a model's own effort settings. Fits a
    single A100.
