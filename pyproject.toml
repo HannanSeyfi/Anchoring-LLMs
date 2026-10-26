@@ -16,6 +16,7 @@ dependencies = [
 
 [project.optional-dependencies]
 gpu = ["vllm"]
+api = ["requests", "transformers"]   # hosted models (DeepInfra); transformers only loads the tokenizer
 test = ["pytest"]
 
 [tool.setuptools.packages.find]

@@ -178,6 +178,87 @@ if SAVE_TO_GITHUB:
     ], gpu=True)
 
 
+def run_pilot_api() -> dict:
+    return notebook([
+        md(f"""
+# Run the anchoring pilot through DeepInfra (no GPU)
+
+{colab_badge("03_run_pilot_deepinfra.ipynb")}
+
+This notebook runs the pilot for **one hosted model** on DeepInfra and saves every answer to
+GitHub as it goes, in `data/pilot/`. A normal CPU runtime is enough. DeepInfra charges per token;
+a full run of `qwen3-32b` should cost about **$3**.
+
+**Spending limit.** `MAX_SPEND_USD` is the most this model may cost in total, counted across
+restarts. Before each batch the run checks that even the most expensive outcome stays under the
+limit, and stops otherwise. What it spent is shown as it runs and saved with the data.
+
+**Before the first run**
+1. Make a DeepInfra API key: in your DeepInfra account, open *API keys* and create one.
+2. Add it as a Colab secret named `DEEPINFRA_API_KEY` (key icon in the left sidebar,
+   *Add new secret*, switch on *Notebook access*), next to the `GITHUB_TOKEN` secret.
+
+**Then** press *Runtime → Run all*. Start with `SMOKE_TEST` ticked: it costs a few cents and
+checks the key, the model and saving to GitHub (into `data/pilot_smoke/`). Then untick it.
+
+**If Colab disconnects**, open the notebook again and *Run all*: finished answers are skipped,
+and the money already spent still counts towards the limit.
+"""),
+        code(f'''
+#@title 1. Settings
+MODEL = "qwen3-32b"  #@param ["qwen3-32b"]
+SMOKE_TEST = True  #@param {{type:"boolean"}}
+MAX_SPEND_USD = 5  #@param {{type:"number"}}
+SAVE_TO_GITHUB = True  #@param {{type:"boolean"}}
+PHASE = "all"  #@param ["all", "baseline", "anchors", "study1", "study2"]
+BRANCH = "{BRANCH}"  #@param {{type:"string"}}
+
+REPO = "{REPO}"
+WORKDIR = "/content/Anchoring-LLMs"
+DATA_DIR = "data/pilot_smoke" if SMOKE_TEST else "data/pilot"
+'''),
+        code(GET_CODE),
+        code('''
+#@title 3. Install this project and read the DeepInfra key
+!pip install -q -e ".[api]"
+os.environ["DEEPINFRA_API_KEY"] = secret("DEEPINFRA_API_KEY") or ""
+if not os.environ["DEEPINFRA_API_KEY"]:
+    raise RuntimeError("The DEEPINFRA_API_KEY secret is empty.")
+print("DeepInfra key found.")
+'''),
+        code('''
+#@title 4. Run the pilot (answers are pushed to GitHub as it goes)
+flags = f"--model {MODEL} --phase {PHASE} --max-spend {MAX_SPEND_USD}"
+if SMOKE_TEST:
+    flags += " --smoke"
+if SAVE_TO_GITHUB:
+    flags += " --sync"
+!python -m anchoring_llms.run --config configs/pilot.yaml {flags}
+'''),
+        code('''
+#@title 5. How much was spent
+import json
+from pathlib import Path
+spend = Path(DATA_DIR, "runs", f"{MODEL}.spend.json")
+if spend.exists():
+    s = json.loads(spend.read_text())
+    print(f"Spent on {MODEL} so far: ${s['spent_usd']:.2f} (limit ${MAX_SPEND_USD:.2f})")
+else:
+    print("Nothing spent yet.")
+'''),
+        code(SAVE.format(title="6. Final save to GitHub", folder="DATA_DIR",
+                         message='f"Pilot data: {MODEL} (final save from Colab)"')),
+        code('''
+#@title 7. Quick look at the data
+!python -m anchoring_llms.peek --data {DATA_DIR} --model {MODEL}
+'''),
+        md("""
+**Next:** open `02_analyze_pilot.ipynb` to make the tables, figures and report. It analyses every
+model in `data/pilot/` together.
+"""),
+    ], gpu=False)
+
+
 def analyze_pilot() -> dict:
     return notebook([
         md(f"""
@@ -229,7 +310,8 @@ for fig in sorted(Path(RESULTS_DIR, "figures").glob("*.png")):
 
 def main() -> None:
     NOTEBOOKS.mkdir(exist_ok=True)
-    for name, nb in [("01_run_pilot.ipynb", run_pilot()), ("02_analyze_pilot.ipynb", analyze_pilot())]:
+    for name, nb in [("01_run_pilot.ipynb", run_pilot()), ("02_analyze_pilot.ipynb", analyze_pilot()),
+                     ("03_run_pilot_deepinfra.ipynb", run_pilot_api())]:
         (NOTEBOOKS / name).write_text(json.dumps(nb, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
         print("wrote", NOTEBOOKS / name)
 

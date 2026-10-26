@@ -3,6 +3,7 @@
 Usage (from the repository root):
     python -m anchoring_llms.run --config configs/pilot.yaml --model qwen3-8b --phase all --sync
     python -m anchoring_llms.run --config configs/pilot.yaml --model qwen3-8b --backend dryrun --smoke
+    python -m anchoring_llms.run --config configs/pilot.yaml --model qwen3-32b --max-spend 5 --sync
 
 Phases run in order: baseline -> anchors -> study1 -> study2. Every phase
 resumes where it stopped: cells already saved are skipped.
@@ -27,7 +28,7 @@ from typing import Iterable, Iterator
 import yaml
 
 from .anchors import make_anchor, plausible_range
-from .backends import Request, make_backend
+from .backends import Request, SpendLimitReached, make_backend
 from .git_sync import GitSync
 from .items import Item, load_items
 from .parsing import parse_comparison, parse_estimate
@@ -217,8 +218,9 @@ def run_cells(backend, cells: list[dict], path: Path, model: str, hf_id: str, ba
         finished += len(batch)
         elapsed = time.time() - start
         eta = elapsed / finished * (len(todo) - finished)
+        spent = f" | ${backend.spent:.2f} spent" if hasattr(backend, "spent") else ""
         print(f"[{label}] {total - len(todo) + finished}/{total} cells | "
-              f"{elapsed / 60:.1f} min elapsed | ~{eta / 60:.1f} min left", flush=True)
+              f"{elapsed / 60:.1f} min elapsed | ~{eta / 60:.1f} min left{spent}", flush=True)
         sync.maybe_sync(f"Pilot data: {model} {label} ({total - len(todo) + finished}/{total} cells)")
 
 
@@ -251,7 +253,10 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--config", default="configs/pilot.yaml")
     ap.add_argument("--model", required=True, help="a key under `models` in the config")
     ap.add_argument("--phase", default="all", choices=["all", *PHASES])
-    ap.add_argument("--backend", default="vllm", choices=["vllm", "dryrun"])
+    ap.add_argument("--backend", default=None, choices=["vllm", "deepinfra", "dryrun"],
+                    help="default: the model's `backend` in the config, else vllm")
+    ap.add_argument("--max-spend", type=float, default=None,
+                    help="spending limit in US dollars for hosted models (default: api.max_spend_usd)")
     ap.add_argument("--smoke", action="store_true", help="tiny run to check that everything works")
     ap.add_argument("--sync", action="store_true", help="commit and push results to GitHub")
     ap.add_argument("--repo", default=".", help="repository root")
@@ -265,6 +270,9 @@ def main(argv: list[str] | None = None) -> None:
     model_cfg = cfg["models"][args.model]
     if args.output_dir:
         cfg["output_dir"] = args.output_dir
+    if args.max_spend is not None:
+        cfg["api"]["max_spend_usd"] = args.max_spend
+    kind = args.backend or model_cfg.get("backend", "vllm")
     out = repo / cfg["output_dir"]
     raw = out / "raw" / args.model
     items1 = load_items(repo / cfg["items"]["study1"])
@@ -275,12 +283,13 @@ def main(argv: list[str] | None = None) -> None:
     sync = GitSync(repo, [out], enabled=args.sync, min_interval=cfg["sync"]["min_interval_seconds"])
     phases = PHASES if args.phase == "all" else [args.phase]
     needs_model = any(p != "anchors" for p in phases)
-    backend = make_backend(args.backend, model_cfg, cfg) if needs_model else None
-    hf_id = model_cfg["hf_id"] if args.backend == "vllm" else "dry-run"
+    spend_path = out / "runs" / f"{args.model}.spend.json"
+    backend = make_backend(kind, model_cfg, cfg, spend_path=spend_path) if needs_model else None
+    hf_id = "dry-run" if kind == "dryrun" else model_cfg["hf_id"]
     batch = cfg["engine"]["cells_per_batch"]
 
     log = {
-        "model": args.model, "hf_id": hf_id, "backend": args.backend, "smoke": args.smoke,
+        "model": args.model, "hf_id": hf_id, "backend": kind, "smoke": args.smoke,
         "phases": phases, "git_commit": git_commit(repo), "gpu": gpu_name(),
         "vllm": package_version("vllm"), "python": platform.python_version(),
         "started": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
@@ -290,37 +299,44 @@ def main(argv: list[str] | None = None) -> None:
     log_path = out / "runs" / f"{args.model}.jsonl"
     write_log(log_path, {**log, "event": "start"})
 
-    for phase in phases:
-        if phase == "baseline":
-            run_cells(backend, baseline_cells(args.model, items1, cfg), raw / "baseline",
-                      args.model, hf_id, batch, sync, "baseline")
-        elif phase == "anchors":
-            baseline = read_records(raw / "baseline")
-            if not baseline:
-                raise SystemExit("Run the baseline phase first.")
-            path = out / "anchors" / f"{args.model}.json"
-            if path.exists():  # anchors are fixed once placed, so a resumed run uses the same ones
-                print(f"[anchors] using the saved anchors in {path} (delete the file to recompute)")
-                continue
-            anchors = compute_anchors(args.model, items1, baseline, cfg)
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(json.dumps(anchors, indent=2))
-            kept = sum("anchors" in v for v in anchors.values())
-            skipped = sum(len(v.get("skipped", [])) for v in anchors.values())
-            print(f"[anchors] {kept}/{len(anchors)} items have anchors; {skipped} anchors could not "
-                  f"be placed -> {path}")
-        elif phase == "study1":
-            path = out / "anchors" / f"{args.model}.json"
-            if not path.exists():
-                raise SystemExit("Run the anchors phase first.")
-            anchors = json.loads(path.read_text())
-            run_cells(backend, study1_cells(args.model, items1, anchors, cfg), raw / "study1",
-                      args.model, hf_id, batch, sync, "study1")
-        elif phase == "study2":
-            run_cells(backend, study2_cells(args.model, items2, cfg), raw / "study2",
-                      args.model, hf_id, batch, sync, "study2")
-        sync.maybe_sync(f"Pilot data: {args.model} finished {phase}", force=True)
+    try:
+        for phase in phases:
+            if phase == "baseline":
+                run_cells(backend, baseline_cells(args.model, items1, cfg), raw / "baseline",
+                          args.model, hf_id, batch, sync, "baseline")
+            elif phase == "anchors":
+                baseline = read_records(raw / "baseline")
+                if not baseline:
+                    raise SystemExit("Run the baseline phase first.")
+                path = out / "anchors" / f"{args.model}.json"
+                if path.exists():  # anchors are fixed once placed, so a resumed run uses the same ones
+                    print(f"[anchors] using the saved anchors in {path} (delete the file to recompute)")
+                    continue
+                anchors = compute_anchors(args.model, items1, baseline, cfg)
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(json.dumps(anchors, indent=2))
+                kept = sum("anchors" in v for v in anchors.values())
+                skipped = sum(len(v.get("skipped", [])) for v in anchors.values())
+                print(f"[anchors] {kept}/{len(anchors)} items have anchors; {skipped} anchors could not "
+                      f"be placed -> {path}")
+            elif phase == "study1":
+                path = out / "anchors" / f"{args.model}.json"
+                if not path.exists():
+                    raise SystemExit("Run the anchors phase first.")
+                anchors = json.loads(path.read_text())
+                run_cells(backend, study1_cells(args.model, items1, anchors, cfg), raw / "study1",
+                          args.model, hf_id, batch, sync, "study1")
+            elif phase == "study2":
+                run_cells(backend, study2_cells(args.model, items2, cfg), raw / "study2",
+                          args.model, hf_id, batch, sync, "study2")
+            sync.maybe_sync(f"Pilot data: {args.model} finished {phase}", force=True)
+    except SpendLimitReached as stop:
+        write_log(log_path, {**log, "event": "spend_limit", "spent_usd": round(backend.spent, 4)})
+        sync.maybe_sync(f"Pilot data: {args.model} stopped at the spending limit", force=True)
+        raise SystemExit(f"\n{stop}") from None
 
+    if hasattr(backend, "spent"):
+        log["spent_usd"] = round(backend.spent, 4)
     log["finished"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
     write_log(log_path, {**log, "event": "finish"})
     sync.maybe_sync(f"Pilot run log: {args.model}", force=True)

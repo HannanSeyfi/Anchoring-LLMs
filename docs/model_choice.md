@@ -21,6 +21,16 @@ high levels.
 `r1-distill-qwen-1.5b`. The 1.5B model knows few facts, so treat its results as a pipeline check,
 not as data.
 
+## Hosted on DeepInfra (no GPU)
+
+| Key in `configs/pilot.yaml` | Model | Why |
+| --- | --- | --- |
+| `qwen3-32b` | [Qwen/Qwen3-32B](https://deepinfra.com/Qwen/Qwen3-32B) | Added after pilot run 1 (October 2026). Same thinking switch as `qwen3-8b`, four times larger, so it should know the facts that the 1.5B model lacked (Study 2). DeepInfra's raw-text endpoint lets us apply the same 0 / 512 / 2048 thinking budgets. About $3 for a full run at $0.08 / $0.28 per million input / output tokens. Served in fp8, and the API takes no seed, so samples cannot be reproduced exactly. |
+
+Other reasoning models on DeepInfra were more expensive for this design: DeepSeek-R1-0528 would cost
+about $20 per run and cannot switch thinking off; closed models (Gemini, Claude) cost more again
+and do not show their full reasoning.
+
 ## Main study: candidates to discuss after the pilot
 
 These are suggestions to decide with the professors once the pilot shows the method works.

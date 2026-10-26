@@ -13,7 +13,7 @@ budget we can control. The full design is in the [proposal](latex/proposal/main.
 | `latex/proposal/` | The research proposal (also in Overleaf). |
 | `latex/pilot_summary/` | Plain-language summary of pilot run 1 for the professors (also in Overleaf). |
 | `docs/` | [Pilot protocol](docs/pilot_protocol.md) and [which models and why](docs/model_choice.md). |
-| `notebooks/` | Colab notebooks: run the pilot on a GPU, then analyse it. |
+| `notebooks/` | Colab notebooks: run the pilot on a GPU or through DeepInfra, then analyse it. |
 | `configs/pilot.yaml` | Every setting of the pilot: models, reasoning levels, sample sizes. |
 | `data/items/` | The 30 pilot questions with their true answers ([notes](data/items/README.md)). |
 | `data/pilot/` | Raw model answers, written by the notebooks ([format](data/pilot/README.md)). |
@@ -48,6 +48,19 @@ budget we can control. The full design is in the [proposal](latex/proposal/main.
    [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/HannanSeyfi/Anchoring-LLMs/blob/main/notebooks/02_analyze_pilot.ipynb)
    No GPU needed. It writes `results/pilot/summary.md`, the figures and the hand-coding sheet,
    and saves them to GitHub.
+
+## Running a hosted model through DeepInfra (no GPU)
+
+`qwen3-32b` runs on [DeepInfra](https://deepinfra.com) instead of a Colab GPU, with the same
+thinking limits. DeepInfra charges per token: a full pilot run costs about $3, and the notebook
+stops before it can spend more than the limit you set (`MAX_SPEND_USD`, counted across restarts).
+
+1. In your DeepInfra account, open *API keys* and create a key.
+2. In Colab, add it as a secret named `DEEPINFRA_API_KEY` (same place as `GITHUB_TOKEN`).
+3. Open the notebook:
+   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/HannanSeyfi/Anchoring-LLMs/blob/main/notebooks/03_run_pilot_deepinfra.ipynb)
+   Keep the default CPU runtime. Run the smoke test first (a few cents), then untick
+   `SMOKE_TEST` for the real run. Then analyse with `02_analyze_pilot.ipynb` as above.
 
 ## Working on the code locally
 
