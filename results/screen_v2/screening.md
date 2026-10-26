@@ -29,7 +29,7 @@ Question rules are checked on **qwen3-32b**, the largest screened model: a quest
 | --- | --- | --- | --- | --- | --- |
 | study1 | qwen3-32b | 137 | 5480 | 100% | 94 |
 | study1 | r1-distill-qwen-1.5b | 137 | 5480 | 52% | 0 |
-| study2 | qwen3-32b | 69 | 2760 | 100% | 57 |
+| study2 | qwen3-32b | 162 | 6480 | 100% | 57 |
 | study2 | r1-distill-qwen-1.5b | 69 | 2760 | 41% | 3 |
 
 ## Study 1 (provided anchors)
@@ -86,48 +86,54 @@ Question rules are checked on **qwen3-32b**, the largest screened model: a quest
 
 ## Study 2 (self-generated anchors)
 
-69 questions screened, 3 passed the rules, 15 picked → `data/items_v2/study2.csv`.
+162 questions screened, 50 passed the rules, 15 picked → `data/items_v2/study2.csv`.
 
-**Worked example (C2-006).** *How many Earth days does it take the asteroid 25143 Itokawa to orbit the Sun once?* The true value is 557. With thinking off, qwen3-32b answered it 20 times. The middle 80% of its answers ran from 367.8 to 382.9, with a median of 369. None of its answers were within 2% of the truth (with thinking off), so the model does not know this number without thinking. Starting from R = 365, its median moved 2% of the way to the true value (adjustment 0.02), so there is room for more thinking to adjust further.
+**Worked example (C2-119).** *How many Earth days does it take the near-Earth asteroid 2061 Anza to orbit the Sun once?* The true value is 1,247. With thinking off, qwen3-32b answered it 20 times. The middle 80% of its answers ran from 366 to 749.2, with a median of 366.2. None of its answers were within 2% of the truth (with thinking off), so the model does not know this number without thinking. Starting from R = 365, its median moved 0% of the way to the true value (adjustment 0.00), so there is room for more thinking to adjust further.
 
 ### Picked questions
 
 | # | id | domain | question | true value | start value R | middle 80% (off) | middle 80% (low) | known | adjustment (off) | adjustment (low) | r1-distill-qwen-1.5b: known / parsed | note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | C2-006 | orbits | How many Earth days does it take the asteroid 25143 Itokawa to orbit… | 557 | 365 | 367.8 – 382.9 | 326.9 – 559.4 | 0% | 0.02 | 0.91 | 100% / 100% |  |
-| 2 | C2-007 | orbits | How many Earth days does it take the asteroid 101955 Bennu to orbit t… | 436.6 | 365 | 366.3 – 433 | 433 – 433.6 | 30% | 0.03 | 0.95 | 0% / 100% |  |
-| 3 | C2-014 | orbits | How many Earth days does it take the asteroid 243 Ida to orbit the Su… | 1,768 | 365 | 1,435 – 1,758 | 4.79 – 1,729 | 20% | 0.77 | 0.77 | 0% / 100% |  |
-| 4 | C2-039 | rotation | How many hours does it take the asteroid 10 Hygiea to rotate once on… | 13.83 | 24 | 13.83 – 27.7 | 13.8 – 17.22 | 20% | -0.36 | 1.00 | 5% / 100% | fills a gap: answers move away from the true value (adjustment -0.36) |
-| 5 | C2-011 | orbits | How many Earth days does it take the asteroid 21 Lutetia to orbit the… | 1,388 | 365 | 145.4 – 1,452 | 3.749 – 1,680 | 20% | -0.21 | 1.00 | 0% / 100% | fills a gap: answers move away from the true value (adjustment -0.21) |
-| 6 | C2-067 | US states | How many states had been admitted to the United States by the time th… | 38 | 50 | 37.9 – 40 | 37 – 40.4 | 5% | 0.83 | 1.08 | 0% / 100% | fills a gap: already close to the true value (adjustment 0.83) |
-| 7 | C2-065 | US states | How many states had been admitted to the United States by the time Li… | 35 | 50 | 32.9 – 37 | 35.9 – 36 | 10% | 0.93 | 0.93 | 0% / 100% | fills a gap: already close to the true value (adjustment 0.93) |
-| 8 | C2-060 | US states | How many states had been admitted to the United States by the time th… | 28 | 50 | 26 – 30 | 28 – 30 | 15% | 0.95 | 0.91 | 0% / 100% | fills a gap: already close to the true value (adjustment 0.95) |
-| 9 | C2-041 | boiling point | At what temperature does water boil at the summit of Ojos del Salado? | 76.9 | 100 | 73.8 – 87.1 | 76.8 – 88 | 50% | 1.00 | 0.63 | 0% / 100% | fills a gap: already close to the true value (adjustment 1.00) |
-| 10 | C2-022 | surface gravity | What is the acceleration due to gravity at the surface of Saturn's mo… | 0.113 | 9.81 | 0.11 – 0.113 | 0.11 – 0.113 | 50% | 1.00 | 1.00 | 15% / 100% | fills a gap: already close to the true value (adjustment 1.00) |
-| 11 | C2-051 | speed of sound | What is the speed of sound in krypton gas at 20 °C and normal pressur… | 220 | 343 | 200 – 263.4 | 218.9 – 220 | 45% | 1.00 | 1.00 | 5% / 100% | fills a gap: already close to the true value (adjustment 1.00) |
-| 12 | C2-056 | US states | How many states had been admitted to the United States by the time th… | 17 | 50 | 16 – 17 | 16 – 17 | 40% | 1.03 | 1.00 | 5% / 100% | fills a gap: already close to the true value (adjustment 1.03) |
-| 13 | C2-058 | US states | How many states had been admitted to the United States by the time th… | 22 | 50 | 20 – 22 | 20.9 – 22.1 | 20% | 1.04 | 1.00 | 0% / 100% | fills a gap: already close to the true value (adjustment 1.04) |
-| 14 | C2-059 | US states | How many states had been admitted to the United States by the time Pr… | 24 | 50 | 20 – 24 | 23.9 – 24 | 35% | 1.04 | 1.00 | 5% / 100% | fills a gap: already close to the true value (adjustment 1.04) |
-| 15 | C2-061 | US states | How many states had been admitted to the United States by the time th… | 29 | 50 | 24 – 30 | 29.9 – 31 | 0% | 1.05 | 0.95 | 0% / 100% | fills a gap: already close to the true value (adjustment 1.05) |
+| 1 | C2-119 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 2061 Anza to… | 1,247 | 365 | 366 – 749.2 | 365 – 476.4 | 0% | 0.00 | 0.00 | not screened |  |
+| 2 | C2-118 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 2059 Baboqui… | 1,577 | 365 | 366 – 1,209 | 365 – 1,394 | 0% | 0.00 | 0.00 | not screened |  |
+| 3 | C2-109 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1863 Antinou… | 1,240 | 365 | 366 – 455.4 | 360 – 709 | 0% | 0.00 | 0.00 | not screened |  |
+| 4 | C2-126 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 2368 Beltrov… | 1,116 | 365 | 366 – 1,152 | 365 – 530.7 | 5% | 0.00 | 0.02 | not screened |  |
+| 5 | C2-112 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1915 Quetzál… | 1,482 | 365 | 364.5 – 388.1 | 349.8 – 459.6 | 0% | 0.00 | 0.00 | not screened |  |
+| 6 | C2-133 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 3551 Verenia… | 1,105 | 365 | 366.9 – 370.7 | 359.5 – 560.6 | 0% | 0.00 | 0.00 | not screened |  |
+| 7 | C2-114 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1917 Cuyo to… | 1,151 | 365 | 365.9 – 1,157 | 365 – 910.5 | 5% | 0.00 | 0.05 | not screened |  |
+| 8 | C2-116 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1980 Tezcatl… | 816 | 365 | 366 – 1,102 | 365 – 660.7 | 0% | 0.00 | 0.00 | not screened |  |
+| 9 | C2-113 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1916 Boreas… | 1,251 | 365 | 367 – 1,131 | 363 – 425.9 | 0% | 0.00 | 0.00 | not screened |  |
+| 10 | C2-104 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1580 Betulia… | 1,190 | 365 | 366 – 696.9 | 359.5 – 669.9 | 0% | 0.00 | 0.00 | not screened |  |
+| 11 | C2-136 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 3908 Nyx to… | 977.2 | 365 | 366 – 1,349 | 349.7 – 1,130 | 0% | 0.01 | 0.05 | not screened |  |
+| 12 | C2-130 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 3288 Seleucu… | 1,059 | 365 | 365.7 – 1,027 | 365 – 979.5 | 0% | 0.01 | 0.11 | not screened |  |
+| 13 | C2-140 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 4183 Cuno to… | 1,019 | 365 | 366.9 – 913 | 365 – 409.5 | 0% | 0.01 | 0.00 | not screened |  |
+| 14 | C2-143 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 4486 Mithra… | 1,192 | 365 | 366 – 932.9 | 365 – 570.3 | 0% | 0.01 | 0.04 | not screened |  |
+| 15 | C2-129 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 3199 Neferti… | 722 | 365 | 366 – 724.1 | 362.6 – 403.6 | 0% | 0.01 | 0.00 | not screened |  |
 
 ### Why questions were left out
 
-- already close to the true value: 63 questions
+- already close to the true value: 76 questions
 - known: 49 questions
-- answers move away from the true value: 2 questions
-- answers go far past the true value: 1 question
+- answers move away from the true value: 19 questions
+- answers go far past the true value: 17 questions
 
 ### By topic
 
 | domain | candidates | passed | picked |
 | --- | --- | --- | --- |
-| US states | 15 | 0 | 7 |
-| orbits | 15 | 3 | 4 |
-| surface gravity | 10 | 0 | 1 |
-| rotation | 8 | 0 | 1 |
-| boiling point | 8 | 0 | 1 |
+| near-Earth orbits | 54 | 35 | 15 |
+| orbits | 15 | 3 | 0 |
+| US states | 15 | 0 | 0 |
+| film box office | 12 | 5 | 0 |
+| 2026 Winter Olympics | 10 | 1 | 0 |
+| surface gravity | 10 | 0 | 0 |
+| rotation | 8 | 0 | 0 |
+| boiling point | 8 | 0 | 0 |
+| 2026 Asian Games | 7 | 2 | 0 |
 | escape velocity | 7 | 0 | 0 |
-| speed of sound | 6 | 0 | 1 |
+| 2026 Commonwealth Games | 6 | 3 | 0 |
+| speed of sound | 6 | 0 | 0 |
+| 2026 World Cup | 4 | 1 | 0 |
 
 ## Files
 
