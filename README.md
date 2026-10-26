@@ -19,7 +19,7 @@ budget we can control. The full design is in the [proposal](latex/proposal/main.
 | `configs/pilot.yaml` | Every setting of the pilot with the first question set: models, reasoning levels, sample sizes. |
 | `configs/pilot_v2.yaml` | The same for question set v2, plus the screening rules. |
 | `data/items/` | The first 30 pilot questions with their true answers ([notes](data/items/README.md)). |
-| `data/items_v2/` | Question set v2: 299 checked candidate questions and the 15 + 15 picked by screening ([notes](data/items_v2/README.md)). |
+| `data/items_v2/` | Question set v2: 299 checked candidate questions and the 15 + 10 picked by screening ([notes](data/items_v2/README.md)). |
 | `data/screen_v2/` | Screening answers: each candidate asked without an anchor, written by notebook 04. |
 | `data/pilot/` | Raw model answers for the first question set (pilot runs 1 and 2), written by the notebooks ([format](data/pilot/README.md)). |
 | `data/pilot_v2/` | Raw model answers for question set v2 (same format). |

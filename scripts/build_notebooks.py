@@ -341,8 +341,8 @@ An anchor can only pull a model's answer if the model does **not** know the answ
 Qwen3-32B knew 13 of the 15 questions, so there was almost nothing to measure. Question set v2
 starts from 299 candidate questions (`data/items_v2/candidates_*.csv`, every true value checked).
 This notebook asks one model each candidate question 20 times with thinking off and 20 times with
-low thinking, without any anchor, and saves the answers to `data/screen_v2/`. Then it picks the 15
-questions per study that the model is most unsure about, writes them to `data/items_v2/study1.csv`
+low thinking, without any anchor, and saves the answers to `data/screen_v2/`. Then it picks the
+questions that suit each study (15 for Study 1, 10 for Study 2), writes them to `data/items_v2/study1.csv`
 and `study2.csv`, and writes a report to `results/screen_v2/screening.md`.
 
 **Run it twice, in this order**

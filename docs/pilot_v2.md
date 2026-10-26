@@ -25,7 +25,7 @@ every picked question, the range of the model's answers and how often it gave th
 with a worked example at the top of each study.
 
 **What to check in the report**
-- 15 questions per study were picked, and none of them is marked "picked to fill a gap". If some
+- 15 Study 1 and 10 Study 2 questions were picked, and none of them is marked "picked to fill a gap". If some
   are, fewer questions passed the rules than needed; tell Claude, and we can add candidates or
   relax a limit in the `screening` section of the config.
 - The worked examples look like questions a person could also be unsure about.
@@ -35,12 +35,10 @@ with a worked example at the top of each study.
 Same notebooks as before, with `CONFIG = configs/pilot_v2.yaml` (now the default). Data goes to
 `data/pilot_v2/`.
 
-**For now, Study 1 only** (`PHASE = baseline,anchors,study1`, the default). The first screening
-found only a few Study 2 questions that Qwen3-32B does not answer straight away (see
-CHANGELOG.md), so two batches were added: 54 near-Earth asteroid orbits and 39 numbers from 2026
-events that happened after every model's training. To use them, run notebook 04 again for both
-models (only the 93 new questions are asked, about $0.45 for Qwen3-32B), then run the pilot with
-`PHASE = study2`. The Study 1 questions stay the same, because no Study 1 questions were added.
+**Study 1** runs with `PHASE = baseline,anchors,study1` (the default). **Study 2** runs with
+`PHASE = study2`, on the 10 questions where thinking moved Qwen3-32B's answer towards the truth
+(see CHANGELOG.md: two batches were added and screened, 54 near-Earth asteroid orbits and 39
+numbers from 2026 events, and a rule was added after that screening). `PHASE = all` runs both.
 
 | Model | Notebook | Runtime | Cost |
 | --- | --- | --- | --- |

@@ -4,6 +4,24 @@ What changed in the pilot design and code, and why. The first question set and i
 as they were (`configs/pilot.yaml`, `data/items/`, `data/pilot/`), so earlier runs can still be
 reproduced.
 
+## Study 2: thinking must move the answer (2026-10-26, evening)
+
+- **What the second screening found** (162 Study 2 questions): Qwen3-32B gave a number for every
+  2026-event question (no refusals), but it cannot know whether a 2026 number went up or down, so
+  it guessed in either direction (Germany's 2026 Winter Olympics golds: 16; 2022: 12; true 8), and
+  adjustment towards the truth says little there. The 15 questions the rules picked were all
+  little-known asteroids where the median stayed at about 365 days with and without thinking: the
+  model knows nothing about them, so thinking has nothing to work with and could not show an effect.
+- **New rule** `screening.study2.min_thinking_gain: 0.2`: with thinking low, the median must get
+  closer to the true value by at least 0.2 in adjustment units (|1 − adjustment| shrinks by 0.2;
+  going far past the truth counts as moving away). Study 2 questions are now ranked by this gain.
+  10 questions pass (Itokawa, Bennu, 4 near-Earth asteroids, 2 films, 2 medal counts), so
+  `study2.n_items` is 10. Study 1 is unchanged.
+- **For the paper:** this rule was added after seeing the data, and it picks questions where
+  unanchored answers improve with thinking, so the Study 2 questions are by construction ones where
+  thinking can help. The test that matters is whether thinking helps the same way when the starting
+  value is given in the prompt (provided anchor), which the rule did not look at.
+
 ## Study 2 questions about 2026 events (2026-10-26, evening)
 
 - **Why:** a model cannot know a number from an event that happened after it was trained, so it

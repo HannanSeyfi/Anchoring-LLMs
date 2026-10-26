@@ -145,7 +145,7 @@ def test_pick_applies_the_rules_and_the_domain_limit():
 
 def test_pick_study2_wants_room_to_adjust():
     sc = run.load_config(REPO / "configs/pilot_v2.yaml")["screening"]
-    sc = {**sc, "study2": {**sc["study2"], "n_items": 2}}
+    sc = {**sc, "study2": {**sc["study2"], "n_items": 2, "min_thinking_gain": None}}  # the first rule set
     items = _items([("A", "orbits"), ("B", "orbits"), ("C", "gravity")])
     summary = _summary([
         {"model": "qwen3-32b", "item_id": "A", "adjustment_off": 0.3},
@@ -155,6 +155,23 @@ def test_pick_study2_wants_room_to_adjust():
     df = select_items.pick(summary, items, "study2", sc).set_index("item_id")
     assert list(df.index[:2]) == ["A", "C"]  # least adjustment first
     assert df.loc["B", "status"] == "did not pass" and "close to the true value" in df.loc["B", "reasons"]
+
+
+def test_pick_study2_wants_thinking_to_move_the_answer():
+    sc = run.load_config(REPO / "configs/pilot_v2.yaml")["screening"]
+    sc = {**sc, "study2": {**sc["study2"], "n_items": 2, "min_thinking_gain": 0.2}}
+    items = _items([("A", "orbits"), ("B", "orbits"), ("C", "films"), ("D", "films")])
+    summary = _summary([
+        {"model": "qwen3-32b", "item_id": "A", "adjustment_off": 0.02, "adjustment_low": 0.91},  # Itokawa-like
+        {"model": "qwen3-32b", "item_id": "B", "adjustment_off": 0.0, "adjustment_low": 0.0},    # knows nothing
+        {"model": "qwen3-32b", "item_id": "C", "adjustment_off": 0.3, "adjustment_low": 3.0},    # overshoots
+        {"model": "qwen3-32b", "item_id": "D", "adjustment_off": 0.5, "adjustment_low": 0.8},
+    ])
+    df = select_items.pick(summary, items, "study2", sc).set_index("item_id")
+    assert list(df.index[:2]) == ["A", "D"]  # largest gain first
+    assert df.loc["A", "score"] == pytest.approx(0.89)
+    for i in ("B", "C"):
+        assert df.loc[i, "status"] == "did not pass" and "closer to the true value" in df.loc[i, "reasons"]
 
 
 # ----------------------------------------------------------------------------- end to end

@@ -120,12 +120,16 @@ screening:
     max_median_error: 1.0          # median more than 10x off the truth = unclear question (e.g. units)
     max_per_domain: 3
   study2:
-    n_items: 15
+    n_items: 10                    # was 15: only 10 questions pass min_thinking_gain (screening 2026-10-26)
     known_levels: ["off"]          # knowledge is checked only with thinking off: reaching the true value
                                    # after thinking is what Study 2 looks for (e.g. Bennu: 367 days with
                                    # thinking off, 433 with thinking; true 436.65)
     min_adjustment: 0.0            # with thinking off; below 0 the answer moves away from the truth
     max_adjustment: 0.8            # above this the model (almost) knows the answer: no room for thinking to help
+    min_thinking_gain: 0.2         # with thinking low, the median gets at least this much closer to the truth
+                                   # (|1 - adjustment| shrinks by 0.2). Added after the second screening: most
+                                   # asteroid questions stayed at 365 days with and without thinking, because the
+                                   # model knows nothing about them, so thinking had nothing to work with
     max_per_domain: 15             # no topic limit: asteroid orbits were the only kind that worked (first screening)
 
 engine:

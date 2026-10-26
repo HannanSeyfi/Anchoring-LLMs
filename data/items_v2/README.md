@@ -13,7 +13,7 @@ starts from many candidate questions and keeps the ones the models are unsure ab
 | `candidates_study2_neo.csv` | 54 more Study 2 questions: orbits of little-known near-Earth asteroids, added after the first screening | from Wikipedia infoboxes, checked against Kepler's third law |
 | `candidates_study2_events.csv` | 39 more Study 2 questions: numbers from 2026 events (World Cup, Winter Olympics, Asian Games, Commonwealth Games) and 2025-2026 films, which happened after every model's training | from Wikipedia infoboxes and medal tables |
 | `study1.csv` | The 15 Study 1 questions picked by screening | `python -m anchoring_llms.select_items` |
-| `study2.csv` | The 15 Study 2 questions picked by screening | `python -m anchoring_llms.select_items` |
+| `study2.csv` | The 10 Study 2 questions picked by screening | `python -m anchoring_llms.select_items` |
 
 `study1.csv` and `study2.csv` appear once the screening has run (`notebooks/04_screen_questions.ipynb`).
 They are copies of the picked rows of the candidate files, with the same columns.
@@ -91,7 +91,7 @@ great-circle distances between city centres (haversine, Earth radius 6,371 km, c
 Wikipedia), boiling points at altitude (standard atmosphere and the Antoine equation, as for the
 first question set), and the speed of sound in gases at 20 °C (ideal gas).
 
-## How the 15 + 15 questions are picked
+## How the questions are picked
 
 Each candidate is asked 20 times with thinking off and 20 times with low thinking, with no
 anchor, first by Qwen3-32B and then by R1-Distill-Qwen-1.5B. A question is kept when:
@@ -102,9 +102,11 @@ anchor, first by Qwen3-32B and then by R1-Distill-Qwen-1.5B. A question is kept 
   wildly (at most 100 times), and its median is within 10 times the truth (else the question is
   probably misread, for example in the wrong unit);
 - Study 2: with thinking off, Qwen3-32B moves from the starting value towards the truth, but less
-  than 80% of the way, so more thinking has room to help.
+  than 80% of the way, so more thinking has room to help; and with low thinking its median gets
+  clearly closer to the truth (by at least 0.2 in adjustment units), so thinking has something to
+  work with. This last rule was added after the second screening (see `CHANGELOG.md`).
 
-Questions that pass are ranked (Study 1: most unsure first; Study 2: least adjustment first) and
-at most 3 per topic are taken. The rules and limits are in the `screening` section of
+Questions that pass are ranked (Study 1: most unsure first, at most 3 per topic, 15 questions;
+Study 2: the largest gain from thinking first, 10 questions). The rules and limits are in the `screening` section of
 `configs/pilot_v2.yaml`; the report with every question's numbers is
 `results/screen_v2/screening.md`.

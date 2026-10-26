@@ -147,7 +147,24 @@ def _reasons(r: pd.Series, study: str, sc: dict, first_level: str) -> tuple[list
         elif a > rules["max_adjustment"]:
             what = "answers go far past the true value" if a > 1.2 else "already close to the true value"
             reasons.append(f"{what} (adjustment {a:.2f})")
+        if rules.get("min_thinking_gain") is not None:
+            last = sc["levels"][-1]
+            b = r.get(f"adjustment_{last}", NAN)
+            score = thinking_gain(a, b)
+            if pd.isna(score) or score < rules["min_thinking_gain"]:
+                reasons.append(f"thinking does not bring the answer closer to the true value "
+                               f"(adjustment {a:.2f} with thinking {first_level}, {b:.2f} with thinking {last})")
     return reasons, (score if pd.notna(score) else -np.inf)
+
+
+def thinking_gain(a: float, b: float) -> float:
+    """How much closer to the true value the median gets with more thinking, in adjustment units.
+
+    a and b are the adjustments with less and more thinking (0 = at R, 1 = at the true value).
+    0.2 means the distance to the true value shrank by a fifth of the distance from R to it;
+    going far past the true value counts as moving away from it.
+    """
+    return abs(1 - a) - abs(1 - b)
 
 
 def parsed_share(o: pd.Series, sc: dict, ref_model: str) -> float:
@@ -324,9 +341,13 @@ def _example(df: pd.DataFrame, study: str, sc: dict, ref_model: str) -> list[str
         lines.append(f"Its spread is {r['spread_mean']:.2f}: the high answers are about "
                      f"{10 ** r['spread_mean']:.1f} times the low ones. An anchor has room to pull here.")
     else:
-        a = r.get(f"adjustment_{lv}")
+        a, last = r.get(f"adjustment_{lv}"), sc["levels"][-1]
         lines.append(f"Starting from R = {_num(r['reference'])}, its median moved {a:.0%} of the way to the true "
                      f"value (adjustment {a:.2f}), so there is room for more thinking to adjust further.")
+        b = r.get(f"adjustment_{last}")
+        if last != lv and pd.notna(b):
+            lines.append(f"With thinking {last}, its median was {_num(r.get(f'median_{last}'))} "
+                         f"(adjustment {b:.2f}).")
     return [" ".join(lines), ""]
 
 
@@ -363,11 +384,17 @@ def write_report(path: Path, cfg: dict, results: dict, summaries: dict, missing:
              f"{sc['study1']['max_spread']}; median no more than "
              f"{10 ** sc['study1']['max_median_error']:.0f} times off the truth (else the question may be unclear)",
              f"- Study 2: adjustment with thinking {sc['levels'][0]} between {sc['study2']['min_adjustment']} and "
-             f"{sc['study2']['max_adjustment']}",
-             f"- at most {sc['study1']['max_per_domain']} questions per topic; "
-             f"{sc['study1']['n_items']} questions per study",
-             "- ranking: Study 1 by spread (most unsure first); Study 2 by how far the answer stayed from the "
-             "truth (least adjustment first)", ""]
+             f"{sc['study2']['max_adjustment']}"
+             + (f"; with thinking {sc['levels'][-1]} the median gets closer to the truth by at least "
+                f"{sc['study2']['min_thinking_gain']} (in adjustment units, so thinking has something to work with)"
+                if sc["study2"].get("min_thinking_gain") is not None else ""),
+             f"- Study 1: at most {sc['study1']['max_per_domain']} questions per topic, "
+             f"{sc['study1']['n_items']} questions; Study 2: at most {sc['study2']['max_per_domain']} per topic, "
+             f"{sc['study2']['n_items']} questions",
+             "- ranking: Study 1 by spread (most unsure first); Study 2 "
+             + ("by how much closer thinking brings the answer (largest first)"
+                if sc["study2"].get("min_thinking_gain") is not None
+                else "by how far the answer stayed from the truth (least adjustment first)"), ""]
 
     lines += ["## Screened models", ""]
     rows = []

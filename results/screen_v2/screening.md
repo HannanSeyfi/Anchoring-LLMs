@@ -19,9 +19,9 @@ Question rules are checked on **qwen3-32b**, the largest screened model: a quest
 - every model: at least 75% of answers contain a number (at every level; models other than qwen3-32b only with thinking low)
 - qwen3-32b: at most 50% of answers within 2% of the truth (Study 1: at any thinking level; Study 2: with thinking off)
 - Study 1: spread (averaged over levels) at least 0.1 and at most 2.0; median no more than 10 times off the truth (else the question may be unclear)
-- Study 2: adjustment with thinking off between 0.0 and 0.8
-- at most 3 questions per topic; 15 questions per study
-- ranking: Study 1 by spread (most unsure first); Study 2 by how far the answer stayed from the truth (least adjustment first)
+- Study 2: adjustment with thinking off between 0.0 and 0.8; with thinking low the median gets closer to the truth by at least 0.2 (in adjustment units, so thinking has something to work with)
+- Study 1: at most 3 questions per topic, 15 questions; Study 2: at most 15 per topic, 10 questions
+- ranking: Study 1 by spread (most unsure first); Study 2 by how much closer thinking brings the answer (largest first)
 
 ## Screened models
 
@@ -86,32 +86,28 @@ Question rules are checked on **qwen3-32b**, the largest screened model: a quest
 
 ## Study 2 (self-generated anchors)
 
-162 questions screened, 50 passed the rules, 15 picked → `data/items_v2/study2.csv`.
+162 questions screened, 10 passed the rules, 10 picked → `data/items_v2/study2.csv`.
 
-**Worked example (C2-119).** *How many Earth days does it take the near-Earth asteroid 2061 Anza to orbit the Sun once?* The true value is 1,247. With thinking off, qwen3-32b answered it 20 times. The middle 80% of its answers ran from 366 to 749.2, with a median of 366.2. None of its answers were within 2% of the truth (with thinking off), so the model does not know this number without thinking. Starting from R = 365, its median moved 0% of the way to the true value (adjustment 0.00), so there is room for more thinking to adjust further.
+**Worked example (C2-007).** *How many Earth days does it take the asteroid 101955 Bennu to orbit the Sun once?* The true value is 436.6. With thinking off, qwen3-32b answered it 20 times. The middle 80% of its answers ran from 366.3 to 433, with a median of 367. Only 30% of its answers were within 2% of the truth (with thinking off), so the model does not know this number without thinking. Starting from R = 365, its median moved 3% of the way to the true value (adjustment 0.03), so there is room for more thinking to adjust further. With thinking low, its median was 433 (adjustment 0.95).
 
 ### Picked questions
 
 | # | id | domain | question | true value | start value R | middle 80% (off) | middle 80% (low) | known | adjustment (off) | adjustment (low) | r1-distill-qwen-1.5b: known / parsed | note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | C2-119 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 2061 Anza to… | 1,247 | 365 | 366 – 749.2 | 365 – 476.4 | 0% | 0.00 | 0.00 | 0% / 100% |  |
-| 2 | C2-118 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 2059 Baboqui… | 1,577 | 365 | 366 – 1,209 | 365 – 1,394 | 0% | 0.00 | 0.00 | 0% / 100% |  |
-| 3 | C2-109 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1863 Antinou… | 1,240 | 365 | 366 – 455.4 | 360 – 709 | 0% | 0.00 | 0.00 | 0% / 100% |  |
-| 4 | C2-126 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 2368 Beltrov… | 1,116 | 365 | 366 – 1,152 | 365 – 530.7 | 5% | 0.00 | 0.02 | 0% / 100% |  |
-| 5 | C2-112 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1915 Quetzál… | 1,482 | 365 | 364.5 – 388.1 | 349.8 – 459.6 | 0% | 0.00 | 0.00 | 0% / 100% |  |
-| 6 | C2-133 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 3551 Verenia… | 1,105 | 365 | 366.9 – 370.7 | 359.5 – 560.6 | 0% | 0.00 | 0.00 | 0% / 100% |  |
-| 7 | C2-114 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1917 Cuyo to… | 1,151 | 365 | 365.9 – 1,157 | 365 – 910.5 | 5% | 0.00 | 0.05 | 0% / 100% |  |
-| 8 | C2-116 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1980 Tezcatl… | 816 | 365 | 366 – 1,102 | 365 – 660.7 | 0% | 0.00 | 0.00 | 0% / 100% |  |
-| 9 | C2-113 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1916 Boreas… | 1,251 | 365 | 367 – 1,131 | 363 – 425.9 | 0% | 0.00 | 0.00 | 0% / 100% |  |
-| 10 | C2-104 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1580 Betulia… | 1,190 | 365 | 366 – 696.9 | 359.5 – 669.9 | 0% | 0.00 | 0.00 | 0% / 100% |  |
-| 11 | C2-136 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 3908 Nyx to… | 977.2 | 365 | 366 – 1,349 | 349.7 – 1,130 | 0% | 0.01 | 0.05 | 0% / 100% |  |
-| 12 | C2-130 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 3288 Seleucu… | 1,059 | 365 | 365.7 – 1,027 | 365 – 979.5 | 0% | 0.01 | 0.11 | 0% / 100% |  |
-| 13 | C2-140 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 4183 Cuno to… | 1,019 | 365 | 366.9 – 913 | 365 – 409.5 | 0% | 0.01 | 0.00 | 0% / 100% |  |
-| 14 | C2-143 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 4486 Mithra… | 1,192 | 365 | 366 – 932.9 | 365 – 570.3 | 0% | 0.01 | 0.04 | 0% / 100% |  |
-| 15 | C2-129 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 3199 Neferti… | 722 | 365 | 366 – 724.1 | 362.6 – 403.6 | 0% | 0.01 | 0.00 | 0% / 100% |  |
+| 1 | C2-007 | orbits | How many Earth days does it take the asteroid 101955 Bennu to orbit t… | 436.6 | 365 | 366.3 – 433 | 433 – 433.6 | 30% | 0.03 | 0.95 | 0% / 100% |  |
+| 2 | C2-006 | orbits | How many Earth days does it take the asteroid 25143 Itokawa to orbit… | 557 | 365 | 367.8 – 382.9 | 326.9 – 559.4 | 0% | 0.02 | 0.91 | 100% / 100% |  |
+| 3 | C2-234 | film box office | The film Now You See Me: Now You Don't was released in cinemas in Nov… | 246.6 | 334.9 | 272.5 – 460 | 249 – 392 | 5% | 0.03 | 0.62 | 5% / 100% |  |
+| 4 | C2-135 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 3671 Dionysu… | 1,191 | 365 | 361.7 – 1,167 | 420.8 – 2,116 | 0% | 0.02 | 0.60 | 0% / 100% |  |
+| 5 | C2-226 | 2026 Commonwealth Games | The 2026 Commonwealth Games were held in Glasgow, Scotland, from 23 J… | 62 | 92 | 50 – 130.3 | 51.8 – 136.5 | 0% | 0.57 | 0.90 | 0% / 100% |  |
+| 6 | C2-151 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid (52768) 1998… | 1,342 | 365 | 379.6 – 869.9 | 364 – 1,326 | 0% | 0.21 | 0.46 | 5% / 100% |  |
+| 7 | C2-101 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 887 Alinda t… | 1,426 | 365 | 318.9 – 1,292 | 362.5 – 1,614 | 5% | 0.03 | 0.26 | 0% / 100% |  |
+| 8 | C2-216 | 2026 Asian Games | The 2026 Asian Games were held in Aichi and Nagoya, Japan, from 19 Se… | 269 | 188 | 200 – 281.5 | 220 – 324 | 0% | 0.46 | 0.67 | 5% / 100% |  |
+| 9 | C2-230 | film box office | The film The Super Mario Galaxy Movie was released in cinemas in Apri… | 1,013 | 1,361 | 1,090 – 1,525 | 950 – 1,220 | 5% | 0.25 | 0.46 | 0% / 100% |  |
+| 10 | C2-127 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 3103 Eger to… | 607.9 | 365 | 366.3 – 1,033 | 365 – 1,424 | 0% | 0.01 | 0.21 | 0% / 100% |  |
 
 ### Why questions were left out
 
+- thinking does not bring the answer closer to the true value: 134 questions
 - already close to the true value: 76 questions
 - known: 49 questions
 - answers move away from the true value: 19 questions
@@ -121,19 +117,19 @@ Question rules are checked on **qwen3-32b**, the largest screened model: a quest
 
 | domain | candidates | passed | picked |
 | --- | --- | --- | --- |
-| near-Earth orbits | 54 | 35 | 15 |
-| orbits | 15 | 3 | 0 |
+| near-Earth orbits | 54 | 4 | 4 |
+| orbits | 15 | 2 | 2 |
 | US states | 15 | 0 | 0 |
-| film box office | 12 | 5 | 0 |
-| 2026 Winter Olympics | 10 | 1 | 0 |
+| film box office | 12 | 2 | 2 |
+| 2026 Winter Olympics | 10 | 0 | 0 |
 | surface gravity | 10 | 0 | 0 |
 | rotation | 8 | 0 | 0 |
 | boiling point | 8 | 0 | 0 |
-| 2026 Asian Games | 7 | 2 | 0 |
+| 2026 Asian Games | 7 | 1 | 1 |
 | escape velocity | 7 | 0 | 0 |
-| 2026 Commonwealth Games | 6 | 3 | 0 |
+| 2026 Commonwealth Games | 6 | 1 | 1 |
 | speed of sound | 6 | 0 | 0 |
-| 2026 World Cup | 4 | 1 | 0 |
+| 2026 World Cup | 4 | 0 | 0 |
 
 ## Files
 
