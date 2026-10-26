@@ -12,6 +12,7 @@ budget we can control. The full design is in the [proposal](latex/proposal/main.
 | --- | --- |
 | `latex/proposal/` | The research proposal (also in Overleaf). |
 | `latex/pilot_summary/` | Plain-language summary of pilot run 1 for the professors (also in Overleaf). |
+| `latex/qwen3_report/` | Report on pilot run 2 (Qwen3-32B): results, explanations and feedback (also in Overleaf). |
 | `docs/` | [Pilot protocol](docs/pilot_protocol.md) and [which models and why](docs/model_choice.md). |
 | `notebooks/` | Colab notebooks: run the pilot on a GPU or through DeepInfra, then analyse it. |
 | `configs/pilot.yaml` | Every setting of the pilot: models, reasoning levels, sample sizes. |
