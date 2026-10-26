@@ -1,0 +1,134 @@
+# Pilot study, question set v2.
+# Same design as configs/pilot.yaml, with new questions the models do not know and the
+# fixes listed in CHANGELOG.md. See docs/pilot_v2.md for the steps.
+#
+# 1. Screen the candidate questions (notebooks/04_screen_questions.ipynb):
+#      python -m anchoring_llms.screen --config configs/pilot_v2.yaml --model qwen3-32b --sync
+#      python -m anchoring_llms.select_items --config configs/pilot_v2.yaml --sync
+# 2. Run the pilot on the picked questions (notebooks 01 or 03 with CONFIG = configs/pilot_v2.yaml):
+#      python -m anchoring_llms.run --config configs/pilot_v2.yaml --model qwen3-32b --sync
+# 3. Analyse (notebooks/02_analyze_pilot.ipynb with DATA_DIR = data/pilot_v2).
+
+name: pilot_v2
+output_dir: data/pilot_v2       # smoke tests write to data/pilot_v2_smoke instead
+
+items:                          # written by anchoring_llms.select_items from the candidates below
+  study1: data/items_v2/study1.csv
+  study2: data/items_v2/study2.csv
+
+models:
+  qwen3-8b:
+    hf_id: Qwen/Qwen3-8B
+    dtype: bfloat16
+    note: Hybrid model; thinking can be switched off at the same weights.
+  r1-distill-llama-8b:
+    hf_id: deepseek-ai/DeepSeek-R1-Distill-Llama-8B
+    dtype: bfloat16
+    note: Llama-based reasoning model distilled from DeepSeek-R1; a second model family.
+  # Fit on a free Colab T4 GPU (16 GB, no bfloat16).
+  qwen3-4b:
+    hf_id: Qwen/Qwen3-4B
+    dtype: float16
+    note: Smallest step of the Qwen3 size ladder (4B, 8B, 14B, 32B).
+  r1-distill-qwen-1.5b:
+    hf_id: deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
+    dtype: float16
+    note: Small reasoning model; the second model of pilot run 1.
+  # Hosted by DeepInfra: no GPU needed, paid per token (see `api` below).
+  qwen3-32b:
+    hf_id: Qwen/Qwen3-32B             # the tokenizer (for the chat template) comes from here
+    backend: deepinfra
+    api_model: Qwen/Qwen3-32B
+    price_per_million: {input: 0.08, output: 0.28}   # US dollars, DeepInfra, October 2026
+    note: Largest step of the size ladder; the model of pilot run 2.
+  qwen3-14b:
+    hf_id: Qwen/Qwen3-14B
+    backend: deepinfra
+    api_model: Qwen/Qwen3-14B
+    price_per_million: {input: 0.12, output: 0.24}   # US dollars, DeepInfra, checked 2026-10-26
+    note: Middle step of the size ladder.
+
+# Reasoning levels = maximum thinking tokens. 0 means thinking is switched off.
+# Keep the quotes: unquoted `off` is read by YAML as the boolean false.
+thinking_levels:
+  "off": 0
+  "low": 512
+  "high": 2048
+
+# Optional "Wait" extension (Muennighoff et al., 2025, s1): when a model stops thinking before
+# this many tokens, "Wait," is added and it keeps thinking (at most 3 times), so each level
+# really uses its budget. Off by default; to switch it on for the high level, write
+#   thinking_min_tokens: {"high": 1024}
+thinking_min_tokens: {}
+
+sampling:
+  temperature: 0.7
+  top_p: 0.95
+  answer_max_tokens: 1536        # was 512: Qwen3-32B often worked out the answer after thinking and got cut off
+  seed: 20261026
+
+parsing:
+  # A reply cut off at the answer limit has no "Estimate:" line; its last number is usually a
+  # step of a calculation. false = count such a reply as no answer instead of guessing.
+  fallback_when_cut_off: false
+
+baseline:
+  samples_per_level: 20
+
+study1:
+  samples: 10
+  directions: [low, high]
+  distances:                   # offset beyond the plausible range, in range widths (log10 scale)
+    near: 0.25
+    far: 1.0
+  min_factor:                  # and at least this many times away from the median answer
+    near: 1.5
+    far: 5
+  precisions: [round, precise]
+  range_quantiles: [0.10, 0.90]  # was 5-95%: a single odd answer moves the range less
+  min_log_width: 0.15
+
+study2:
+  samples: 10
+  sources: [self, provided]
+  instructions: [none, accuracy, opposite]
+
+# Screening the candidate questions (anchoring_llms.screen and anchoring_llms.select_items).
+screening:
+  candidates:
+    study1: data/items_v2/candidates_study1.csv   # 137 questions
+    study2: data/items_v2/candidates_study2.csv   # 69 questions
+  output_dir: data/screen_v2       # the answers
+  results_dir: results/screen_v2   # the report and the tables
+  levels: ["off", "low"]           # thinking levels used for screening
+  samples: 20                      # answers per question and level
+  models: [qwen3-32b, r1-distill-qwen-1.5b]   # models that will run the pilot on these questions
+  reference_model: qwen3-32b       # the question rules are checked on this model (the largest)
+  min_parsed: 0.75                 # every model: share of answers with a number, at every level
+  known_tolerance: 0.02            # an answer within 2% of the true value counts as "known"
+  max_known_share: 0.5             # drop a question if more than half the answers are known
+  study1:
+    n_items: 15
+    min_spread: 0.1                # log10(q90/q10) at every level: high answers at least 1.26x the low ones
+    max_spread: 2.0                # on average: high answers more than 100x the low ones = unclear question
+    max_median_error: 1.0          # median more than 10x off the truth = unclear question (e.g. units)
+    max_per_domain: 3
+  study2:
+    n_items: 15
+    min_adjustment: 0.0            # with thinking off; below 0 the answer moves away from the truth
+    max_adjustment: 0.8            # above this the model (almost) knows the answer: no room for thinking to help
+    max_per_domain: 3
+
+engine:
+  max_model_len: 8192
+  gpu_memory_utilization: 0.90
+  cells_per_batch: 48
+
+api:
+  max_spend_usd: 5             # per run (screening or pilot), in total; the run stops before it could spend more
+  workers: 32
+  timeout_seconds: 300
+  max_retries: 6
+
+sync:
+  min_interval_seconds: 600
