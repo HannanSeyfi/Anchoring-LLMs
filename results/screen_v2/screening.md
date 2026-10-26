@@ -30,7 +30,7 @@ Question rules are checked on **qwen3-32b**, the largest screened model: a quest
 | study1 | qwen3-32b | 137 | 5480 | 100% | 94 |
 | study1 | r1-distill-qwen-1.5b | 137 | 5480 | 52% | 0 |
 | study2 | qwen3-32b | 162 | 6480 | 100% | 57 |
-| study2 | r1-distill-qwen-1.5b | 69 | 2760 | 41% | 3 |
+| study2 | r1-distill-qwen-1.5b | 162 | 6480 | 37% | 3 |
 
 ## Study 1 (provided anchors)
 
@@ -94,21 +94,21 @@ Question rules are checked on **qwen3-32b**, the largest screened model: a quest
 
 | # | id | domain | question | true value | start value R | middle 80% (off) | middle 80% (low) | known | adjustment (off) | adjustment (low) | r1-distill-qwen-1.5b: known / parsed | note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | C2-119 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 2061 Anza to… | 1,247 | 365 | 366 – 749.2 | 365 – 476.4 | 0% | 0.00 | 0.00 | not screened |  |
-| 2 | C2-118 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 2059 Baboqui… | 1,577 | 365 | 366 – 1,209 | 365 – 1,394 | 0% | 0.00 | 0.00 | not screened |  |
-| 3 | C2-109 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1863 Antinou… | 1,240 | 365 | 366 – 455.4 | 360 – 709 | 0% | 0.00 | 0.00 | not screened |  |
-| 4 | C2-126 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 2368 Beltrov… | 1,116 | 365 | 366 – 1,152 | 365 – 530.7 | 5% | 0.00 | 0.02 | not screened |  |
-| 5 | C2-112 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1915 Quetzál… | 1,482 | 365 | 364.5 – 388.1 | 349.8 – 459.6 | 0% | 0.00 | 0.00 | not screened |  |
-| 6 | C2-133 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 3551 Verenia… | 1,105 | 365 | 366.9 – 370.7 | 359.5 – 560.6 | 0% | 0.00 | 0.00 | not screened |  |
-| 7 | C2-114 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1917 Cuyo to… | 1,151 | 365 | 365.9 – 1,157 | 365 – 910.5 | 5% | 0.00 | 0.05 | not screened |  |
-| 8 | C2-116 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1980 Tezcatl… | 816 | 365 | 366 – 1,102 | 365 – 660.7 | 0% | 0.00 | 0.00 | not screened |  |
-| 9 | C2-113 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1916 Boreas… | 1,251 | 365 | 367 – 1,131 | 363 – 425.9 | 0% | 0.00 | 0.00 | not screened |  |
-| 10 | C2-104 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1580 Betulia… | 1,190 | 365 | 366 – 696.9 | 359.5 – 669.9 | 0% | 0.00 | 0.00 | not screened |  |
-| 11 | C2-136 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 3908 Nyx to… | 977.2 | 365 | 366 – 1,349 | 349.7 – 1,130 | 0% | 0.01 | 0.05 | not screened |  |
-| 12 | C2-130 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 3288 Seleucu… | 1,059 | 365 | 365.7 – 1,027 | 365 – 979.5 | 0% | 0.01 | 0.11 | not screened |  |
-| 13 | C2-140 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 4183 Cuno to… | 1,019 | 365 | 366.9 – 913 | 365 – 409.5 | 0% | 0.01 | 0.00 | not screened |  |
-| 14 | C2-143 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 4486 Mithra… | 1,192 | 365 | 366 – 932.9 | 365 – 570.3 | 0% | 0.01 | 0.04 | not screened |  |
-| 15 | C2-129 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 3199 Neferti… | 722 | 365 | 366 – 724.1 | 362.6 – 403.6 | 0% | 0.01 | 0.00 | not screened |  |
+| 1 | C2-119 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 2061 Anza to… | 1,247 | 365 | 366 – 749.2 | 365 – 476.4 | 0% | 0.00 | 0.00 | 0% / 100% |  |
+| 2 | C2-118 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 2059 Baboqui… | 1,577 | 365 | 366 – 1,209 | 365 – 1,394 | 0% | 0.00 | 0.00 | 0% / 100% |  |
+| 3 | C2-109 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1863 Antinou… | 1,240 | 365 | 366 – 455.4 | 360 – 709 | 0% | 0.00 | 0.00 | 0% / 100% |  |
+| 4 | C2-126 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 2368 Beltrov… | 1,116 | 365 | 366 – 1,152 | 365 – 530.7 | 5% | 0.00 | 0.02 | 0% / 100% |  |
+| 5 | C2-112 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1915 Quetzál… | 1,482 | 365 | 364.5 – 388.1 | 349.8 – 459.6 | 0% | 0.00 | 0.00 | 0% / 100% |  |
+| 6 | C2-133 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 3551 Verenia… | 1,105 | 365 | 366.9 – 370.7 | 359.5 – 560.6 | 0% | 0.00 | 0.00 | 0% / 100% |  |
+| 7 | C2-114 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1917 Cuyo to… | 1,151 | 365 | 365.9 – 1,157 | 365 – 910.5 | 5% | 0.00 | 0.05 | 0% / 100% |  |
+| 8 | C2-116 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1980 Tezcatl… | 816 | 365 | 366 – 1,102 | 365 – 660.7 | 0% | 0.00 | 0.00 | 0% / 100% |  |
+| 9 | C2-113 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1916 Boreas… | 1,251 | 365 | 367 – 1,131 | 363 – 425.9 | 0% | 0.00 | 0.00 | 0% / 100% |  |
+| 10 | C2-104 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 1580 Betulia… | 1,190 | 365 | 366 – 696.9 | 359.5 – 669.9 | 0% | 0.00 | 0.00 | 0% / 100% |  |
+| 11 | C2-136 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 3908 Nyx to… | 977.2 | 365 | 366 – 1,349 | 349.7 – 1,130 | 0% | 0.01 | 0.05 | 0% / 100% |  |
+| 12 | C2-130 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 3288 Seleucu… | 1,059 | 365 | 365.7 – 1,027 | 365 – 979.5 | 0% | 0.01 | 0.11 | 0% / 100% |  |
+| 13 | C2-140 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 4183 Cuno to… | 1,019 | 365 | 366.9 – 913 | 365 – 409.5 | 0% | 0.01 | 0.00 | 0% / 100% |  |
+| 14 | C2-143 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 4486 Mithra… | 1,192 | 365 | 366 – 932.9 | 365 – 570.3 | 0% | 0.01 | 0.04 | 0% / 100% |  |
+| 15 | C2-129 | near-Earth orbits | How many Earth days does it take the near-Earth asteroid 3199 Neferti… | 722 | 365 | 366 – 724.1 | 362.6 – 403.6 | 0% | 0.01 | 0.00 | 0% / 100% |  |
 
 ### Why questions were left out
 
