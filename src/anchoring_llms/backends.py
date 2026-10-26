@@ -6,6 +6,10 @@ with budget forcing: the model thinks inside <think>...</think> for at most
 must answer (Muennighoff et al., 2025). A budget of 0 closes the thinking block
 before any thinking happens, which is the same as Qwen3's non-thinking mode.
 
+Budget forcing can also make a model think longer: if it closes its thinking
+before `min_thinking` tokens, "Wait," is appended and it thinks on, up to its
+budget (Muennighoff et al., 2025). This is off unless a minimum is set.
+
 `DeepInfraBackend` runs the same budget forcing on models hosted by DeepInfra,
 so no GPU is needed, and stops before a run can cost more than a set limit.
 
@@ -31,6 +35,8 @@ from .parsing import strip_think
 THINK_OPEN = "<think>\n"
 THINK_CLOSE = "\n</think>\n\n"
 FORCED_CLOSE = "\n\nI have to give my final answer now.\n</think>\n\n"
+WAIT = "\nWait,"
+MAX_WAITS = 3  # at most this many "Wait," extensions per sample
 
 
 def chat_prompt(tokenizer, user_message: str) -> str:
@@ -54,6 +60,7 @@ class Request:
     n: int                 # number of samples
     seed: int
     meta: dict[str, Any] = field(default_factory=dict)  # used only by the dry-run backend
+    min_thinking: int = 0  # think at least this long, extending with "Wait," (0 = off)
 
 
 @dataclass
@@ -64,6 +71,7 @@ class Completion:
     answer_tokens: int
     thinking_truncated: bool
     answer_finish_reason: Optional[str]
+    waits: int = 0         # how many times "Wait," was appended to the thinking
 
 
 class VLLMBackend:
@@ -99,7 +107,8 @@ class VLLMBackend:
         base = [self.build_prompt(r.prompt) for r in requests]
 
         # Phase A: thinking, for requests with a budget.
-        thinking: dict[int, list[tuple[str, int, bool]]] = {}
+        # thinking[i][j] = (text, tokens, cut off at the budget, number of "Wait," extensions)
+        thinking: dict[int, list[tuple[str, int, bool, int]]] = {}
         think_idx = [i for i, r in enumerate(requests) if r.budget > 0]
         if think_idx:
             outs = self.llm.generate(
@@ -110,14 +119,15 @@ class VLLMBackend:
             )
             for i, out in zip(think_idx, outs):
                 thinking[i] = [
-                    (o.text, len(o.token_ids), o.finish_reason == "length") for o in out.outputs
+                    (o.text, len(o.token_ids), o.finish_reason == "length", 0) for o in out.outputs
                 ]
+            self._extend_thinking(requests, base, thinking)
 
         # Phase B: the answer, after a closed thinking block.
         cont_prompts, cont_params, owners = [], [], []
         for i, r in enumerate(requests):
             if r.budget > 0:
-                for j, (text, _, truncated) in enumerate(thinking[i]):
+                for j, (text, _, truncated, _) in enumerate(thinking[i]):
                     close = FORCED_CLOSE if truncated else THINK_CLOSE
                     cont_prompts.append(base[i] + text.rstrip() + close)
                     cont_params.append(self._params(1, self.answer_max_tokens, r.seed + 1000 + j))
@@ -135,11 +145,34 @@ class VLLMBackend:
                     results[i].append(Completion("", strip_think(o.text).strip(), 0,
                                                  len(o.token_ids), False, o.finish_reason))
             else:
-                text, n_tok, truncated = thinking[i][j]
+                text, n_tok, truncated, waits = thinking[i][j]
                 o = out.outputs[0]
                 results[i].append(Completion(text.strip(), strip_think(o.text).strip(), n_tok,
-                                             len(o.token_ids), truncated, o.finish_reason))
+                                             len(o.token_ids), truncated, o.finish_reason, waits))
         return results
+
+    def _extend_thinking(self, requests: list[Request], base: list[str],
+                         thinking: dict[int, list[tuple[str, int, bool, int]]]) -> None:
+        """Append "Wait," to thinking that stopped before `min_thinking` tokens, and continue it."""
+        wait_tokens = len(self.tokenizer.encode(WAIT, add_special_tokens=False))
+        for _ in range(MAX_WAITS):
+            todo = [(i, j) for i in thinking for j, (_, n_tok, truncated, _) in enumerate(thinking[i])
+                    if not truncated and n_tok < requests[i].min_thinking
+                    and requests[i].budget - n_tok - wait_tokens > 0]
+            if not todo:
+                return
+            prompts, params = [], []
+            for i, j in todo:
+                text, n_tok, _, waits = thinking[i][j]
+                prompts.append(self._tokens(base[i] + text.rstrip() + WAIT))
+                params.append(self._params(1, requests[i].budget - n_tok - wait_tokens,
+                                           requests[i].seed + 2000 + 100 * waits + j, stop=["</think>"]))
+            outs = self.llm.generate(prompts, params, use_tqdm=False)
+            for (i, j), out in zip(todo, outs):
+                text, n_tok, _, waits = thinking[i][j]
+                o = out.outputs[0]
+                thinking[i][j] = (text.rstrip() + WAIT + o.text, n_tok + wait_tokens + len(o.token_ids),
+                                  o.finish_reason == "length", waits + 1)
 
 
 class SpendLimitReached(RuntimeError):
@@ -213,6 +246,8 @@ class DeepInfraBackend:
         for r in requests:
             p = len(self.tokenizer.encode(self.build_prompt(r.prompt), add_special_tokens=False))
             inputs = p + (p + r.budget + 20 if r.budget else 0)  # the answer call resends the thinking
+            if r.budget and r.min_thinking:  # each "Wait," call resends the thinking so far
+                inputs += MAX_WAITS * (p + r.budget)
             outputs = r.budget + self.answer_max_tokens
             total += r.n * (inputs * self.price_in + outputs * self.price_out)
         return total
@@ -266,19 +301,33 @@ class DeepInfraBackend:
     def build_prompt(self, user_message: str) -> str:
         return chat_prompt(self.tokenizer, user_message)
 
-    def _sample(self, base: str, budget: int) -> Completion:
+    def _think(self, prompt: str, max_tokens: int) -> tuple[str, int, Optional[str]]:
+        text, n_tok, finish = self._complete(prompt, max_tokens, stop=["</think>"])
+        if "</think>" in text:  # the server returned past the stop string
+            text = text.split("</think>")[0]
+            n_tok = len(self.tokenizer.encode(text, add_special_tokens=False))
+            finish = "stop"
+        return text, n_tok, finish
+
+    def _sample(self, base: str, budget: int, min_thinking: int = 0) -> Completion:
         if budget == 0:
             text, n_tok, finish = self._complete(base + THINK_CLOSE, self.answer_max_tokens)
             return Completion("", strip_think(text).strip(), 0, n_tok, False, finish)
-        thinking, t_tok, t_finish = self._complete(base, budget, stop=["</think>"])
-        if "</think>" in thinking:  # the server returned past the stop string
-            thinking = thinking.split("</think>")[0]
-            t_tok = len(self.tokenizer.encode(thinking, add_special_tokens=False))
-            t_finish = "stop"
+        thinking, t_tok, t_finish = self._think(base, budget)
+        waits = 0
+        wait_tokens = len(self.tokenizer.encode(WAIT, add_special_tokens=False))
+        while (t_finish != "length" and t_tok < min_thinking and waits < MAX_WAITS
+               and budget - t_tok - wait_tokens > 0):
+            thinking = thinking.rstrip() + WAIT
+            more, m_tok, t_finish = self._think(base + thinking, budget - t_tok - wait_tokens)
+            thinking += more
+            t_tok += wait_tokens + m_tok
+            waits += 1
         truncated = t_finish == "length"
         close = FORCED_CLOSE if truncated else THINK_CLOSE
         text, a_tok, finish = self._complete(base + thinking.rstrip() + close, self.answer_max_tokens)
-        return Completion(thinking.strip(), strip_think(text).strip(), t_tok, a_tok, truncated, finish)
+        return Completion(thinking.strip(), strip_think(text).strip(), t_tok, a_tok, truncated, finish,
+                          waits)
 
     def generate(self, requests: list[Request]) -> list[list[Completion]]:
         worst = self.worst_case_cost(requests)
@@ -291,7 +340,8 @@ class DeepInfraBackend:
         jobs = [(i, j) for i, r in enumerate(requests) for j in range(r.n)]
         try:
             with ThreadPoolExecutor(max_workers=self.workers) as pool:
-                done = list(pool.map(lambda job: self._sample(base[job[0]], requests[job[0]].budget), jobs))
+                done = list(pool.map(lambda job: self._sample(base[job[0]], requests[job[0]].budget,
+                                                              requests[job[0]].min_thinking), jobs))
         finally:
             self._save_spend()
         results: list[list[Completion]] = [[] for _ in requests]

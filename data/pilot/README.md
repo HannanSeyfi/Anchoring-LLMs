@@ -2,6 +2,9 @@
 
 Written by `notebooks/01_run_pilot.ipynb` (through `python -m anchoring_llms.run`).
 Smoke tests write the same layout to `data/pilot_smoke/`, which can be deleted at any time.
+Question set v2 uses the same layout in `data/pilot_v2/`, and its screening answers in
+`data/screen_v2/raw/<model>/<study>/` have the same fields (`study` is `screen_study1` or
+`screen_study2`, and `thinking_level` is `off` or `low`).
 
 ```
 data/pilot/
@@ -32,6 +35,7 @@ to GitHub only add small files. Read them with `anchoring_llms.run.read_records(
 | `thinking`, `answer` | The reasoning trace and the final reply. |
 | `thinking_tokens`, `answer_tokens` | Realised lengths in tokens. |
 | `thinking_truncated` | True if the budget ran out and the thinking was closed for the model. |
+| `waits` | How many times "Wait," was added to make the model think longer (0 unless `thinking_min_tokens` is set; question set v2 and later). |
 | `answer_finish_reason` | `stop` normally; `length` if the reply hit the token limit. |
-| `estimate`, `comparison` | The number and the higher/lower judgement parsed from the reply (empty if none). |
-| `backend`, `timestamp` | `vllm` for real runs, `dryrun` for simulated ones; time saved (UTC). |
+| `estimate`, `comparison` | The number and the higher/lower judgement parsed from the reply (empty if none). From question set v2 on, a reply cut off at the token limit without an `Estimate:` line has no estimate. |
+| `backend`, `timestamp` | `vllm` or `deepinfra` for real runs, `dryrun` for simulated ones; time saved (UTC). |

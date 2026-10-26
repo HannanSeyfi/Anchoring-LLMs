@@ -4,6 +4,7 @@ Usage (from the repository root):
     python -m anchoring_llms.run --config configs/pilot.yaml --model qwen3-8b --phase all --sync
     python -m anchoring_llms.run --config configs/pilot.yaml --model qwen3-8b --backend dryrun --smoke
     python -m anchoring_llms.run --config configs/pilot.yaml --model qwen3-32b --max-spend 5 --sync
+    python -m anchoring_llms.run --config configs/pilot_v2.yaml --model qwen3-32b --sync   # question set v2
 
 Phases run in order: baseline -> anchors -> study1 -> study2. Every phase
 resumes where it stopped: cells already saved are skipped.
@@ -53,6 +54,8 @@ def load_config(path: str | Path, smoke: bool = False) -> dict:
         cfg["study1"]["samples"] = 2
         cfg["study2"]["samples"] = 2
         cfg["max_items"] = 2
+        if "screening" in cfg:
+            cfg["screening"]["samples"] = 2
     return cfg
 
 
@@ -120,6 +123,7 @@ def baseline_cells(model: str, items: list[Item], cfg: dict) -> list[dict]:
 
 def compute_anchors(model: str, items: list[Item], baseline: list[dict], cfg: dict) -> dict:
     s1 = cfg["study1"]
+    min_factor = s1.get("min_factor") or {}
     by_item = defaultdict(list)
     for r in baseline:
         if r["model"] == model and r.get("estimate") is not None:
@@ -137,7 +141,8 @@ def compute_anchors(model: str, items: list[Item], baseline: list[dict], cfg: di
                 for precision in s1["precisions"]:
                     key = f"{direction}|{dist_name}|{precision}"
                     value = make_anchor(rng, direction, dist, precision, item.integer,
-                                        key=f"{model}|{item.item_id}|{key}")
+                                        key=f"{model}|{item.item_id}|{key}",
+                                        min_factor=min_factor.get(dist_name))
                     if value is None:
                         skipped.append(key)
                     else:
@@ -186,8 +191,20 @@ def study2_cells(model: str, items: list[Item], cfg: dict) -> list[dict]:
 
 # ----------------------------------------------------------------------------- running
 
+def run_options(cfg: dict) -> dict:
+    """Settings of `run_cells` that come from the config (older configs leave them out)."""
+    return {
+        # A reply cut off at the answer limit usually has no "Estimate:" line, and its last
+        # number is often a step of a calculation, so it is better counted as no answer.
+        "fallback_when_cut_off": cfg.get("parsing", {}).get("fallback_when_cut_off", True),
+        "min_thinking": {str(k): int(v) for k, v in (cfg.get("thinking_min_tokens") or {}).items()},
+    }
+
+
 def run_cells(backend, cells: list[dict], path: Path, model: str, hf_id: str, batch_size: int,
-              sync: GitSync, label: str) -> None:
+              sync: GitSync, label: str, fallback_when_cut_off: bool = True,
+              min_thinking: dict | None = None, title: str = "Pilot data") -> None:
+    min_thinking = min_thinking or {}
     done = {r["cell_id"] for r in read_records(path)}
     todo = [c for c in cells if c["cell_id"] not in done]
     total = len(cells)
@@ -196,7 +213,8 @@ def run_cells(backend, cells: list[dict], path: Path, model: str, hf_id: str, ba
     finished = 0
     for batch in chunks(todo, batch_size):
         requests = [Request(c["cell_id"], c["prompt"], c["budget"], c["n"], c["seed"],
-                            meta={"truth": c.get("truth"), "anchor": c.get("anchor")})
+                            meta={"truth": c.get("truth"), "anchor": c.get("anchor")},
+                            min_thinking=min_thinking.get(c.get("thinking_level"), 0))
                     for c in batch]
         completions = backend.generate(requests)
         now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
@@ -204,13 +222,14 @@ def run_cells(backend, cells: list[dict], path: Path, model: str, hf_id: str, ba
         for cell, comps in zip(batch, completions):
             fields = {k: v for k, v in cell.items() if k not in ("n", "seed")}
             for idx, c in enumerate(comps):
+                cut_off = c.answer_finish_reason == "length"
                 rows.append({
                     **fields, "model": model, "hf_id": hf_id, "sample": idx,
                     "thinking": c.thinking, "answer": c.answer,
                     "thinking_tokens": c.thinking_tokens, "answer_tokens": c.answer_tokens,
                     "thinking_truncated": c.thinking_truncated,
-                    "answer_finish_reason": c.answer_finish_reason,
-                    "estimate": parse_estimate(c.answer),
+                    "answer_finish_reason": c.answer_finish_reason, "waits": c.waits,
+                    "estimate": parse_estimate(c.answer, fallback=fallback_when_cut_off or not cut_off),
                     "comparison": parse_comparison(c.answer),
                     "backend": backend.name, "timestamp": now,
                 })
@@ -221,7 +240,7 @@ def run_cells(backend, cells: list[dict], path: Path, model: str, hf_id: str, ba
         spent = f" | ${backend.spent:.2f} spent" if hasattr(backend, "spent") else ""
         print(f"[{label}] {total - len(todo) + finished}/{total} cells | "
               f"{elapsed / 60:.1f} min elapsed | ~{eta / 60:.1f} min left{spent}", flush=True)
-        sync.maybe_sync(f"Pilot data: {model} {label} ({total - len(todo) + finished}/{total} cells)")
+        sync.maybe_sync(f"{title}: {model} {label} ({total - len(todo) + finished}/{total} cells)")
 
 
 def gpu_name() -> str:
@@ -275,6 +294,11 @@ def main(argv: list[str] | None = None) -> None:
     kind = args.backend or model_cfg.get("backend", "vllm")
     out = repo / cfg["output_dir"]
     raw = out / "raw" / args.model
+    for study in ("study1", "study2"):
+        if not (repo / cfg["items"][study]).exists():
+            raise SystemExit(f"{cfg['items'][study]} does not exist yet. For question set v2, screen the "
+                             "candidate questions and pick the final ones first "
+                             "(notebooks/04_screen_questions.ipynb).")
     items1 = load_items(repo / cfg["items"]["study1"])
     items2 = load_items(repo / cfg["items"]["study2"])
     if cfg.get("max_items"):
@@ -287,6 +311,8 @@ def main(argv: list[str] | None = None) -> None:
     backend = make_backend(kind, model_cfg, cfg, spend_path=spend_path) if needs_model else None
     hf_id = "dry-run" if kind == "dryrun" else model_cfg["hf_id"]
     batch = cfg["engine"]["cells_per_batch"]
+    title = cfg.get("name", "pilot").replace("_", " ").capitalize() + " data"  # "Pilot v2 data"
+    opts = {**run_options(cfg), "title": title}
 
     log = {
         "model": args.model, "hf_id": hf_id, "backend": kind, "smoke": args.smoke,
@@ -303,7 +329,7 @@ def main(argv: list[str] | None = None) -> None:
         for phase in phases:
             if phase == "baseline":
                 run_cells(backend, baseline_cells(args.model, items1, cfg), raw / "baseline",
-                          args.model, hf_id, batch, sync, "baseline")
+                          args.model, hf_id, batch, sync, "baseline", **opts)
             elif phase == "anchors":
                 baseline = read_records(raw / "baseline")
                 if not baseline:
@@ -325,21 +351,21 @@ def main(argv: list[str] | None = None) -> None:
                     raise SystemExit("Run the anchors phase first.")
                 anchors = json.loads(path.read_text())
                 run_cells(backend, study1_cells(args.model, items1, anchors, cfg), raw / "study1",
-                          args.model, hf_id, batch, sync, "study1")
+                          args.model, hf_id, batch, sync, "study1", **opts)
             elif phase == "study2":
                 run_cells(backend, study2_cells(args.model, items2, cfg), raw / "study2",
-                          args.model, hf_id, batch, sync, "study2")
-            sync.maybe_sync(f"Pilot data: {args.model} finished {phase}", force=True)
+                          args.model, hf_id, batch, sync, "study2", **opts)
+            sync.maybe_sync(f"{title}: {args.model} finished {phase}", force=True)
     except SpendLimitReached as stop:
         write_log(log_path, {**log, "event": "spend_limit", "spent_usd": round(backend.spent, 4)})
-        sync.maybe_sync(f"Pilot data: {args.model} stopped at the spending limit", force=True)
+        sync.maybe_sync(f"{title}: {args.model} stopped at the spending limit", force=True)
         raise SystemExit(f"\n{stop}") from None
 
     if hasattr(backend, "spent"):
         log["spent_usd"] = round(backend.spent, 4)
     log["finished"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
     write_log(log_path, {**log, "event": "finish"})
-    sync.maybe_sync(f"Pilot run log: {args.model}", force=True)
+    sync.maybe_sync(f"{title}: run log for {args.model}", force=True)
     print("Done.")
 
 

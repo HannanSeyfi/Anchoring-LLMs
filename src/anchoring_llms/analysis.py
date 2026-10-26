@@ -2,6 +2,9 @@
 
 Everything here is descriptive. Items are the unit of analysis: medians are
 taken within each cell, then averaged over items with bootstrap intervals.
+Study 2 summaries use the median over items instead of the mean, because a few
+wrong answers (a unit slip, a calculation cut off mid-way) can give one item an
+adjustment score far outside 0-1 and dominate a mean.
 """
 
 from __future__ import annotations
@@ -37,23 +40,29 @@ def load_anchors(out_dir: str | Path) -> dict[str, dict]:
     return {p.stem: json.loads(p.read_text()) for p in sorted(Path(out_dir, "anchors").glob("*.json"))}
 
 
-def bootstrap_mean(values, n_boot: int = 2000, seed: int = 0) -> tuple[float, float, float]:
+def bootstrap_mean(values, n_boot: int = 2000, seed: int = 0,
+                   stat: str = "mean") -> tuple[float, float, float]:
+    """The mean (or median, with stat="median") and a 95% bootstrap interval."""
     v = np.asarray([x for x in values if x is not None and np.isfinite(x)], dtype=float)
     if len(v) == 0:
         return (np.nan, np.nan, np.nan)
     if len(v) == 1:
         return (float(v[0]), np.nan, np.nan)
+    f = np.median if stat == "median" else np.mean
     rng = np.random.default_rng(seed)
-    boots = rng.choice(v, size=(n_boot, len(v)), replace=True).mean(axis=1)
-    return (float(v.mean()), float(np.quantile(boots, 0.025)), float(np.quantile(boots, 0.975)))
+    boots = f(rng.choice(v, size=(n_boot, len(v)), replace=True), axis=1)
+    return (float(f(v)), float(np.quantile(boots, 0.025)), float(np.quantile(boots, 0.975)))
 
 
-def summarise_over_items(df: pd.DataFrame, value: str, by: list[str]) -> pd.DataFrame:
-    """Mean over items with a bootstrap interval; cells within an item are averaged first."""
+def summarise_over_items(df: pd.DataFrame, value: str, by: list[str], stat: str = "mean") -> pd.DataFrame:
+    """Mean (or median) over items with a bootstrap interval; cells within an item are averaged first.
+
+    The column holding the summary is called "mean" either way, so tables and figures stay alike.
+    """
     out = []
     for keys, g in df.groupby(by, observed=True):
         per_item = g.groupby("item_id")[value].mean().dropna()
-        mean, lo, hi = bootstrap_mean(per_item)
+        mean, lo, hi = bootstrap_mean(per_item, stat=stat)
         keys = keys if isinstance(keys, tuple) else (keys,)
         out.append({**dict(zip(by, keys)), "mean": mean, "ci_low": lo, "ci_high": hi,
                     "n_items": len(per_item)})
@@ -76,6 +85,9 @@ def data_quality(frames: dict[str, pd.DataFrame]) -> pd.DataFrame:
                 "format_rate": g["answer"].fillna("").map(has_estimate_line).mean(),
                 "mean_thinking_tokens": g["thinking_tokens"].mean(),
                 "truncated_rate": g["thinking_truncated"].mean(),
+                # share of replies that hit the answer limit before finishing
+                "answer_cut_off_rate": (g["answer_finish_reason"] == "length").mean()
+                if "answer_finish_reason" in g else np.nan,
             })
     return pd.DataFrame(out)
 
@@ -361,9 +373,9 @@ def make_figures(results: dict[str, pd.DataFrame], fig_dir: str | Path) -> list[
         for r, m in enumerate(models):
             for c, ins in enumerate(instr):
                 sub = adj[(adj["model"] == m) & (adj["instruction"] == ins)]
-                summ = summarise_over_items(sub, "adjustment", ["source", "thinking_level"])
+                summ = summarise_over_items(sub, "adjustment", ["source", "thinking_level"], stat="median")
                 _plot_lines(axes[r][c], summ, "source", f"{m} | instruction: {ins}",
-                            "adjustment (0 = reference, 1 = truth)")
+                            "median adjustment (0 = reference, 1 = truth)")
                 axes[r][c].axhline(1, color="grey", lw=0.8, ls="--")
         fig.tight_layout()
         paths.append(fig_dir / "study2_adjustment.png")
@@ -478,10 +490,13 @@ def write_report(res: dict[str, pd.DataFrame], path: Path, figs: list[Path], res
     adj = res["study2_adjustment"]
     lines += ["## 5. Study 2: self-generated vs provided anchors", "",
               "Adjustment: 0 = answer stayed at the reference value, 1 = reached the true value. "
-              "The key prediction is that more reasoning increases adjustment for `self` but not `provided`.", ""]
+              "The key prediction is that more reasoning increases adjustment for `self` but not `provided`. "
+              "The column `mean` here is the **median over questions** (with a bootstrap interval), so a "
+              "few wrong answers cannot dominate it.", ""]
     if not adj.empty:
         lines.append(_fmt_table(summarise_over_items(adj, "adjustment",
-                                                     ["model", "instruction", "source", "thinking_level"])))
+                                                     ["model", "instruction", "source", "thinking_level"],
+                                                     stat="median")))
     tf = res["trace_features"]
     lines += ["## 6. Reasoning traces (simple features)", ""]
     if not tf.empty:

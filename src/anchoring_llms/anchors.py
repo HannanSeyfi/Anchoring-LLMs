@@ -1,9 +1,15 @@
 """Placing anchors relative to each model's own plausible range.
 
 The plausible range is the 5th-95th percentile of a model's unanchored
-estimates for an item. Anchors are placed just outside it ("near") or well
-outside it ("far"), below it ("low") or above it ("high"), and written as a
-round or a precise number (Janiszewski & Uy, 2008).
+estimates for an item (10th-90th in question set v2, set by `range_quantiles`).
+Anchors are placed just outside it ("near") or well outside it ("far"), below
+it ("low") or above it ("high"), and written as a round or a precise number
+(Janiszewski & Uy, 2008).
+
+When a model gives nearly the same answer every time, its range is very narrow,
+so anchors placed only by the range would sit close to its answer. An optional
+`min_factor` keeps every anchor at least that many times away from the model's
+median answer (on the log scale): for example 1.5 for near and 5 for far anchors.
 """
 
 from __future__ import annotations
@@ -60,12 +66,20 @@ def _jitter(key: str, lo: float, hi: float) -> float:
     return lo + (hi - lo) * h
 
 
-def raw_anchor(rng: PlausibleRange, direction: str, distance: float) -> float:
-    """Anchor value before rounding: `distance` range-widths beyond the range edge."""
+def raw_anchor(rng: PlausibleRange, direction: str, distance: float,
+               min_factor: Optional[float] = None) -> float:
+    """Anchor value before rounding: `distance` range-widths beyond the range edge,
+    and at least `min_factor` times away from the median answer (log scale only)."""
     if rng.log_scale:
         if direction == "high":
-            return 10 ** (math.log10(rng.hi) + distance * rng.width)
-        return 10 ** (math.log10(rng.lo) - distance * rng.width)
+            value = 10 ** (math.log10(rng.hi) + distance * rng.width)
+            if min_factor and rng.median > 0:
+                value = max(value, rng.median * min_factor)
+        else:
+            value = 10 ** (math.log10(rng.lo) - distance * rng.width)
+            if min_factor and rng.median > 0:
+                value = min(value, rng.median / min_factor)
+        return value
     if direction == "high":
         return rng.hi + distance * rng.width
     return rng.lo - distance * rng.width
@@ -110,13 +124,13 @@ def precise_anchor(round_value: float, direction: str, integer: bool, key: str) 
 
 
 def make_anchor(rng: PlausibleRange, direction: str, distance: float, precision: str,
-                integer: bool, key: str) -> Optional[float]:
+                integer: bool, key: str, min_factor: Optional[float] = None) -> Optional[float]:
     """The anchor value, or None when no usable anchor exists.
 
     That happens when a model's answers are so spread out that a low anchor would have to
     be zero or negative for a positive quantity (e.g. a count whose range starts near 1).
     """
-    r = round_anchor(raw_anchor(rng, direction, distance), rng, direction)
+    r = round_anchor(raw_anchor(rng, direction, distance, min_factor), rng, direction)
     if integer:
         r = float(int(round(r)))
     a = r if precision == "round" else precise_anchor(r, direction, integer, key)

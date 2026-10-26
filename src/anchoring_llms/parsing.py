@@ -42,14 +42,20 @@ def parse_numbers(text: str, allow_m_scale: bool = False) -> list[float]:
     return [_to_number(m, allow_m_scale) for m in _NUMBER.finditer(text)]
 
 
-def parse_estimate(text: str) -> Optional[float]:
-    """The number on the last 'Estimate:' line, else the last number in the reply."""
+def parse_estimate(text: str, fallback: bool = True) -> Optional[float]:
+    """The number on the last 'Estimate:' line, else the last number in the reply.
+
+    With `fallback=False` a reply without an 'Estimate:' line gives None. Use that for replies
+    that were cut off at the answer limit, whose last number is often a step of a calculation.
+    """
     text = strip_think(text or "").replace("**", "")
     lines = _ESTIMATE_LINE.findall(text)
     if lines:
         nums = parse_numbers(lines[-1])
         if nums:
             return nums[0]
+    if not fallback:
+        return None
     nums = parse_numbers(text)
     return nums[-1] if nums else None
 
