@@ -78,6 +78,7 @@ api:                           # used only by hosted models (backend: deepinfra)
   timeout_seconds: 300
   max_retries: 6
   rate_limit_wait_seconds: 1800  # keep retrying 'too many requests' (HTTP 429) for up to 30 minutes
+  cells_per_batch: 12           # hosted models save after every 12 cells
 
 sync:
   min_interval_seconds: 600    # push to GitHub at most every 10 minutes during a run

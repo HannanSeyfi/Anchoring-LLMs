@@ -242,6 +242,9 @@ class DeepInfraBackend:
         self._open = 0
         self._ok_in_row = 0
         self._pause_until = 0.0
+        self._reasons_shown: set[str] = set()
+        self._done = 0
+        self._last_report = 0.0
 
     # -- spending
 
@@ -279,10 +282,13 @@ class DeepInfraBackend:
         if wait > 0:
             self._sleep(wait)
 
-    def _release(self, rate_limited: bool, pause: float = 0.0) -> None:
+    def _release(self, rate_limited: bool, pause: float = 0.0, reason: str = "") -> None:
         with self._slots:
             self._open -= 1
             if rate_limited:
+                if reason and reason not in self._reasons_shown:
+                    self._reasons_shown.add(reason)
+                    print(f"DeepInfra's reason for 'too many requests': {reason}", flush=True)
                 self._ok_in_row = 0
                 if self._limit > 1:
                     self._limit = max(1, self._limit // 2)
@@ -333,7 +339,7 @@ class DeepInfraBackend:
                     self._release(False)
                     raise RuntimeError(f"DeepInfra error {r.status_code}: {r.text[:300]}")
                 problem = f"HTTP {r.status_code}"
-            self._release(rate_limited, pause)
+            self._release(rate_limited, pause, r.text.strip()[:300] if rate_limited else "")
             if rate_limited:
                 waited += pause
                 if waited > self.rate_limit_wait:
@@ -408,10 +414,21 @@ class DeepInfraBackend:
                 f"so far is kept; raise the limit and run again to continue.")
         base = [self.build_prompt(r.prompt) for r in requests]
         jobs = [(i, j) for i, r in enumerate(requests) for j in range(r.n)]
+        self._done, self._last_report = 0, time.monotonic()
+
+        def one(job):
+            c = self._sample(base[job[0]], requests[job[0]].budget, requests[job[0]].min_thinking)
+            with self._lock:
+                self._done += 1
+                if time.monotonic() - self._last_report > 60 or self._done == len(jobs):
+                    self._last_report = time.monotonic()
+                    print(f"  {self._done}/{len(jobs)} answers in this batch done "
+                          f"(sending {self._limit} at a time, ${self.spent:.2f} spent)", flush=True)
+            return c
+
         try:
             with ThreadPoolExecutor(max_workers=self.workers) as pool:
-                done = list(pool.map(lambda job: self._sample(base[job[0]], requests[job[0]].budget,
-                                                              requests[job[0]].min_thinking), jobs))
+                done = list(pool.map(one, jobs))
         finally:
             self._save_spend()
         results: list[list[Completion]] = [[] for _ in requests]

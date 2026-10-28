@@ -108,7 +108,9 @@ def main(argv: list[str] | None = None) -> None:
             if cfg.get("max_items"):
                 items = items[: cfg["max_items"]]
             run_cells(backend, screen_cells(args.model, items, study, cfg), out / "raw" / args.model / study,
-                      args.model, hf_id, cfg["engine"]["cells_per_batch"], sync, f"screen {study}", **opts)
+                      args.model, hf_id,
+                      cfg["api"].get("cells_per_batch", cfg["engine"]["cells_per_batch"])
+                      if kind == "deepinfra" else cfg["engine"]["cells_per_batch"], sync, f"screen {study}", **opts)
             sync.maybe_sync(f"{title}: {args.model} finished {study}", force=True)
     except SpendLimitReached as stop:
         write_log(log_path, {**log, "event": "spend_limit", "spent_usd": round(backend.spent, 4)})

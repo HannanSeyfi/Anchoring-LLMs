@@ -321,6 +321,8 @@ def main(argv: list[str] | None = None) -> None:
     backend = make_backend(kind, model_cfg, cfg, spend_path=spend_path) if needs_model else None
     hf_id = "dry-run" if kind == "dryrun" else model_cfg["hf_id"]
     batch = cfg["engine"]["cells_per_batch"]
+    if kind == "deepinfra":  # save more often: hosted batches can be slow when rate limited
+        batch = cfg["api"].get("cells_per_batch", batch)
     title = cfg.get("name", "pilot").replace("_", " ").capitalize() + " data"  # "Pilot v2 data"
     opts = {**run_options(cfg), "title": title}
 
