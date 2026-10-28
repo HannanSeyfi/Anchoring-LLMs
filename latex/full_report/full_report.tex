@@ -952,7 +952,7 @@ The 2026 FIFA World Cup, the first with 48 teams and 104 matches, was played in 
 The second screening asked only the 93 new questions (Qwen3-32B: \$0.44; total screening spend \$1.41).
 
 \begin{itemize}
-  \item \textbf{No refusals}: Qwen3-32B gave a number 100\% of the time. The small model gave a number 38\% of the time with thinking off and 100\% with thinking on.
+  \item \textbf{Refusals}: Qwen3-32B gave a number 100\% of the time, and so did the small model with thinking on. With thinking off the small model refused almost every time: only 9 of its 780 replies (1\%) ended with a number. (An earlier version of this report said 38\%; that count wrongly read refusals that mention the year 2026 as the answer ``2026''. See the separate report on the 2026 questions.)
   \item \textbf{It really did not know}: only 4--5\% of answers were within 2\% of the truth.
   \item \textbf{Direction}: the model's median went in the right direction (up or down from the previous edition) for 67\% of questions with thinking off and 74\% with low thinking (13 and 10 of the 39 went the wrong way) (Figure~\ref{fig:events}).
   \item \textbf{Closer than just repeating $R$}: the model's median was closer to the truth than the previous value was for 54\% (off) and 69\% (low) of questions.
