@@ -227,6 +227,9 @@ MODEL = "qwen3-32b"  #@param ["qwen3-32b", "qwen3-14b"]
 {CONFIG_PARAM}
 SMOKE_TEST = True  #@param {{type:"boolean"}}
 MAX_SPEND_USD = 5  #@param {{type:"number"}}
+WORKERS = 8  #@param {{type:"integer"}}
+# WORKERS = questions sent to DeepInfra at the same time. If you see "too many requests"
+# (HTTP 429), the run slows down by itself; you can also set this to 4 or 2.
 SAVE_TO_GITHUB = True  #@param {{type:"boolean"}}
 PHASE = "baseline,anchors,study1"  #@param ["baseline,anchors,study1", "all", "baseline", "anchors", "study1", "study2"]
 # "baseline,anchors,study1" = Study 1 only (question set v2 has no Study 2 questions yet); "all" = both studies.
@@ -248,7 +251,7 @@ print("DeepInfra key found.")
 '''),
         code('''
 #@title 4. Run the pilot (answers are pushed to GitHub as it goes)
-flags = f"--model {MODEL} --phase {PHASE} --max-spend {MAX_SPEND_USD}"
+flags = f"--model {MODEL} --phase {PHASE} --max-spend {MAX_SPEND_USD} --workers {WORKERS}"
 if SMOKE_TEST:
     flags += " --smoke"
 if SAVE_TO_GITHUB:
@@ -368,10 +371,12 @@ saved answers are skipped.
 MODEL = "qwen3-32b"  #@param ["qwen3-32b", "r1-distill-qwen-1.5b", "qwen3-14b", "qwen3-4b", "qwen3-8b", "r1-distill-llama-8b"]
 SMOKE_TEST = True  #@param {{type:"boolean"}}
 MAX_SPEND_USD = 5  #@param {{type:"number"}}
+WORKERS = 8  #@param {{type:"integer"}}
 SAVE_TO_GITHUB = True  #@param {{type:"boolean"}}
 BRANCH = "{BRANCH}"  #@param {{type:"string"}}
 VLLM_VERSION = ""  #@param {{type:"string"}}
-# MAX_SPEND_USD only matters for the hosted models (qwen3-32b, qwen3-14b).
+# MAX_SPEND_USD and WORKERS only matter for the hosted models (qwen3-32b, qwen3-14b). WORKERS =
+# questions sent at the same time; lower it (4 or 2) if DeepInfra says "too many requests".
 
 REPO = "{REPO}"
 WORKDIR = "/content/Anchoring-LLMs"
@@ -410,7 +415,7 @@ else:
 #@title 4. Ask the candidate questions (answers are pushed to GitHub as it goes)
 flags = f"--model {MODEL}"
 if HOSTED:
-    flags += f" --max-spend {MAX_SPEND_USD}"
+    flags += f" --max-spend {MAX_SPEND_USD} --workers {WORKERS}"
 if SMOKE_TEST:
     flags += " --smoke"
 if SAVE_TO_GITHUB:

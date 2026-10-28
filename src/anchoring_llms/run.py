@@ -278,6 +278,8 @@ def main(argv: list[str] | None = None) -> None:
                     help="default: the model's `backend` in the config, else vllm")
     ap.add_argument("--max-spend", type=float, default=None,
                     help="spending limit in US dollars for hosted models (default: api.max_spend_usd)")
+    ap.add_argument("--workers", type=int, default=None,
+                    help="most requests sent at the same time to hosted models (default: api.workers)")
     ap.add_argument("--smoke", action="store_true", help="tiny run to check that everything works")
     ap.add_argument("--sync", action="store_true", help="commit and push results to GitHub")
     ap.add_argument("--repo", default=".", help="repository root")
@@ -293,6 +295,8 @@ def main(argv: list[str] | None = None) -> None:
         cfg["output_dir"] = args.output_dir
     if args.max_spend is not None:
         cfg["api"]["max_spend_usd"] = args.max_spend
+    if args.workers is not None:
+        cfg["api"]["workers"] = args.workers
     kind = args.backend or model_cfg.get("backend", "vllm")
     out = repo / cfg["output_dir"]
     raw = out / "raw" / args.model

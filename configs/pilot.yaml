@@ -74,9 +74,10 @@ engine:
 
 api:                           # used only by hosted models (backend: deepinfra)
   max_spend_usd: 5             # the run stops before it could spend more than this, in total
-  workers: 32                  # requests sent at the same time
+  workers: 8                   # most requests open at the same time (halved on 'too many requests')
   timeout_seconds: 300
   max_retries: 6
+  rate_limit_wait_seconds: 1800  # keep retrying 'too many requests' (HTTP 429) for up to 30 minutes
 
 sync:
   min_interval_seconds: 600    # push to GitHub at most every 10 minutes during a run

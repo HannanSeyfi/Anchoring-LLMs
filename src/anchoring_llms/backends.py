@@ -193,6 +193,12 @@ class DeepInfraBackend:
     as in `VLLMBackend`. Each sample is one request (two when it thinks), sent in
     parallel. The API takes no seed, so samples cannot be reproduced exactly.
 
+    Rate limits: at most `workers` requests are open at once. When DeepInfra answers 429
+    ("too many requests"), every thread pauses (for the server's Retry-After when it gives
+    one), the number of open requests is halved, and it grows back by one after every
+    `RAMP_UP_AFTER` answers in a row. A 429 is retried for up to `rate_limit_wait` seconds
+    in total before the run gives up; other failures use `max_retries`.
+
     Every reply reports its cost. The running total is saved in `spend_path`, so it
     carries over when a run is resumed, and a batch only starts if even its most
     expensive outcome stays within `max_spend_usd`.
@@ -200,12 +206,14 @@ class DeepInfraBackend:
 
     name = "deepinfra"
     url = "https://api.deepinfra.com/v1/openai/completions"
+    RAMP_UP_AFTER = 20
 
     def __init__(self, hf_id: str, api_model: str, api_key: Optional[str], price_in: float,
                  price_out: float, max_spend_usd: float, spend_path: Optional[Path] = None,
                  temperature: float = 0.7, top_p: float = 0.95, answer_max_tokens: int = 512,
-                 workers: int = 32, timeout: float = 300, max_retries: int = 6,
-                 tokenizer=None, post: Optional[Callable[[dict], dict]] = None):
+                 workers: int = 8, timeout: float = 300, max_retries: int = 6,
+                 rate_limit_wait: float = 1800, tokenizer=None,
+                 post: Optional[Callable[[dict], dict]] = None, sleep: Callable[[float], None] = time.sleep):
         if not api_key and post is None:
             raise SystemExit("No DeepInfra API key. Set the DEEPINFRA_API_KEY environment variable "
                              "(on Colab: a secret named DEEPINFRA_API_KEY).")
@@ -223,9 +231,17 @@ class DeepInfraBackend:
         self.workers = workers
         self.timeout = timeout
         self.max_retries = max_retries
+        self.rate_limit_wait = rate_limit_wait
         self._key = api_key
         self._post = post or self._http_post
+        self._sleep = sleep
         self._lock = threading.Lock()
+        # shared by all threads: how many requests may be open, how many are, and a pause
+        self._slots = threading.Condition()
+        self._limit = max(1, workers)
+        self._open = 0
+        self._ok_in_row = 0
+        self._pause_until = 0.0
 
     # -- spending
 
@@ -254,11 +270,48 @@ class DeepInfraBackend:
 
     # -- requests
 
+    def _acquire(self) -> None:
+        with self._slots:
+            while self._open >= self._limit:
+                self._slots.wait()
+            self._open += 1
+        wait = self._pause_until - time.monotonic()
+        if wait > 0:
+            self._sleep(wait)
+
+    def _release(self, rate_limited: bool, pause: float = 0.0) -> None:
+        with self._slots:
+            self._open -= 1
+            if rate_limited:
+                self._ok_in_row = 0
+                if self._limit > 1:
+                    self._limit = max(1, self._limit // 2)
+                    print(f"DeepInfra says too many requests: now sending {self._limit} at a time.",
+                          flush=True)
+                self._pause_until = max(self._pause_until, time.monotonic() + pause)
+            else:
+                self._ok_in_row += 1
+                if self._ok_in_row >= self.RAMP_UP_AFTER and self._limit < self.workers:
+                    self._limit += 1
+                    self._ok_in_row = 0
+            self._slots.notify_all()
+
+    @staticmethod
+    def _retry_after(response) -> Optional[float]:
+        try:
+            return max(0.0, float(response.headers.get("Retry-After")))
+        except (TypeError, ValueError):
+            return None
+
     def _http_post(self, payload: dict) -> dict:
         import requests
 
-        delay = 2.0
-        for attempt in range(self.max_retries + 1):
+        delay = 2.0          # for timeouts and server errors
+        limit_delay = 10.0   # for 429 when the server gives no Retry-After
+        failures, waited = 0, 0.0
+        while True:
+            self._acquire()
+            rate_limited, pause = False, 0.0
             try:
                 r = requests.post(self.url, json=payload, timeout=self.timeout,
                                   headers={"Authorization": f"Bearer {self._key}"})
@@ -266,18 +319,35 @@ class DeepInfraBackend:
                 problem = type(e).__name__
             else:
                 if r.status_code == 200:
+                    self._release(False)
                     return r.json()
                 if r.status_code in (401, 402, 403):
+                    self._release(False)
                     raise SystemExit(f"DeepInfra refused the request ({r.status_code}). Check the API "
                                      f"key and the account balance. {r.text[:300]}")
-                if r.status_code != 429 and r.status_code < 500:
+                if r.status_code == 429:
+                    rate_limited = True
+                    pause = self._retry_after(r) or limit_delay
+                    pause = min(pause, 300.0) + random.random() * 2
+                elif r.status_code < 500:
+                    self._release(False)
                     raise RuntimeError(f"DeepInfra error {r.status_code}: {r.text[:300]}")
                 problem = f"HTTP {r.status_code}"
-            if attempt == self.max_retries:
-                raise RuntimeError(f"DeepInfra did not answer after {attempt + 1} tries ({problem}).")
-            time.sleep(delay + random.random())
+            self._release(rate_limited, pause)
+            if rate_limited:
+                waited += pause
+                if waited > self.rate_limit_wait:
+                    raise RuntimeError(
+                        f"DeepInfra kept saying 'too many requests' (HTTP 429) for {waited / 60:.0f} "
+                        f"minutes. Wait a while and run again: finished answers are kept. {r.text[:200]}")
+                limit_delay = min(2 * limit_delay, 120.0)
+                self._sleep(pause)
+                continue
+            failures += 1
+            if failures > self.max_retries:
+                raise RuntimeError(f"DeepInfra did not answer after {failures} tries ({problem}).")
+            self._sleep(delay + random.random())
             delay = min(2 * delay, 60.0)
-        raise AssertionError("unreachable")
 
     def _complete(self, prompt: str, max_tokens: int, stop=None) -> tuple[str, int, Optional[str]]:
         payload = {"model": self.api_model, "prompt": prompt, "max_tokens": max_tokens,
@@ -402,6 +472,7 @@ def make_backend(kind: str, model_cfg: dict, cfg: dict, spend_path: Optional[Pat
             price_out=price["output"], max_spend_usd=api["max_spend_usd"], spend_path=spend_path,
             temperature=s["temperature"], top_p=s["top_p"], answer_max_tokens=s["answer_max_tokens"],
             workers=api["workers"], timeout=api["timeout_seconds"], max_retries=api["max_retries"],
+            rate_limit_wait=api.get("rate_limit_wait_seconds", 1800),
         )
     return VLLMBackend(
         hf_id=model_cfg["hf_id"], dtype=model_cfg.get("dtype", "bfloat16"),

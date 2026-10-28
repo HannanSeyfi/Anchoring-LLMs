@@ -99,3 +99,39 @@ def test_runner_stops_cleanly_at_the_limit(tmp_path, monkeypatch):
     assert rows and {r["backend"] for r in rows} == {"deepinfra"}
     with pytest.raises(SystemExit, match="limit"):
         run.main([*args, "--phase", "study2", "--max-spend", str(spent)])
+
+
+class FakeResponse:
+    def __init__(self, status, headers=None):
+        self.status_code = status
+        self.headers = headers or {}
+        self.text = "rate limited" if status == 429 else ""
+
+    def json(self):
+        return FakeAPI()({"max_tokens": 10})
+
+
+def test_rate_limit_waits_and_slows_down(tmp_path, monkeypatch):
+    """429s are retried (honouring Retry-After) and halve the number of open requests."""
+    import requests
+
+    replies = [FakeResponse(429, {"Retry-After": "7"})] * 10 + [FakeResponse(200)]
+    monkeypatch.setattr(requests, "post", lambda *a, **k: replies.pop(0))
+    slept = []
+    be = DeepInfraBackend(hf_id="x", api_model="m", api_key="k", price_in=0.08, price_out=0.28,
+                          max_spend_usd=10, workers=8, max_retries=2, tokenizer=FakeTokenizer(),
+                          sleep=slept.append)
+    assert be._http_post({})["choices"]  # 10 rate limits are more than max_retries, still fine
+    assert be._limit == 1
+    assert all(7 <= s < 10 for s in slept if s > 1)
+
+
+def test_rate_limit_gives_up_after_wait_limit(tmp_path, monkeypatch):
+    import requests
+
+    monkeypatch.setattr(requests, "post", lambda *a, **k: FakeResponse(429))
+    be = DeepInfraBackend(hf_id="x", api_model="m", api_key="k", price_in=0.08, price_out=0.28,
+                          max_spend_usd=10, rate_limit_wait=100, tokenizer=FakeTokenizer(),
+                          sleep=lambda s: None)
+    with pytest.raises(RuntimeError, match="too many requests"):
+        be._http_post({})

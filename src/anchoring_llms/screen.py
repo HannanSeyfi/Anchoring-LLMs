@@ -68,6 +68,8 @@ def main(argv: list[str] | None = None) -> None:
                     help="default: the model's `backend` in the config, else vllm")
     ap.add_argument("--max-spend", type=float, default=None,
                     help="spending limit in US dollars for hosted models (default: api.max_spend_usd)")
+    ap.add_argument("--workers", type=int, default=None,
+                    help="most requests sent at the same time to hosted models (default: api.workers)")
     ap.add_argument("--smoke", action="store_true", help="tiny run to check that everything works")
     ap.add_argument("--sync", action="store_true", help="commit and push results to GitHub")
     ap.add_argument("--repo", default=".", help="repository root")
@@ -81,6 +83,8 @@ def main(argv: list[str] | None = None) -> None:
         raise SystemExit(f"Unknown model {args.model!r}; choose from {list(cfg['models'])}")
     if args.max_spend is not None:
         cfg["api"]["max_spend_usd"] = args.max_spend
+    if args.workers is not None:
+        cfg["api"]["workers"] = args.workers
     model_cfg = cfg["models"][args.model]
     kind = args.backend or model_cfg.get("backend", "vllm")
     out = repo / screen_dirs(cfg, args.smoke)[0]

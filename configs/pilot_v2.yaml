@@ -139,9 +139,10 @@ engine:
 
 api:
   max_spend_usd: 5             # per run (screening or pilot), in total; the run stops before it could spend more
-  workers: 32
+  workers: 8                   # most requests open at the same time (halved on 'too many requests')
   timeout_seconds: 300
   max_retries: 6
+  rate_limit_wait_seconds: 1800  # keep retrying 'too many requests' (HTTP 429) for up to 30 minutes
 
 sync:
   min_interval_seconds: 600

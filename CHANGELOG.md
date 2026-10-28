@@ -4,6 +4,17 @@ What changed in the pilot design and code, and why. The first question set and i
 as they were (`configs/pilot.yaml`, `data/items/`, `data/pilot/`), so earlier runs can still be
 reproduced.
 
+## DeepInfra rate limits (2026-10-28)
+
+- **What happened:** the first Study 2 run of `qwen3-32b` stopped before any answer was saved
+  with "DeepInfra did not answer after 7 tries (HTTP 429)". 429 means "too many requests": the run
+  sent 32 requests at once and gave up after about two minutes of retrying.
+- **Fix** (code only, no change to the design or the data): at most 8 requests are open at once
+  (`api.workers`, notebook setting `WORKERS`, `--workers`). On a 429 every request pauses (for the
+  server's Retry-After when given, else 10 s doubling to 2 min), the number open is halved, and it
+  grows back slowly. 429s are retried for up to 30 minutes (`api.rate_limit_wait_seconds`) instead
+  of 6 tries.
+
 ## Study 2: thinking must move the answer (2026-10-26, evening)
 
 - **What the second screening found** (162 Study 2 questions): Qwen3-32B gave a number for every
