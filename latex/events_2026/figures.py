@@ -148,32 +148,33 @@ figs: list[tuple[str, plt.Figure]] = []
 
 # ----------------------------------------------------------------------------- F1: did it answer?
 def fig_answered(df: pd.DataFrame):
-    # One colour per kind of reply (the same in every row), and the meaning written on the bars.
-    fig, ax = plt.subplots(figsize=(W, 2.0))
-    kinds = [("number", "gave a number", "#1baf7a", INK),
-             ("refused", "refused", "#6b6a65", "white"),
-             ("other", "other text", "#d9d8d1", INK)]
-    for i, (key, label, _) in enumerate(COMBOS):
+    fig, ax = plt.subplots(figsize=(W, 1.9))
+    kinds = [("number", "ended with “Estimate: <number>”", None),
+             ("refused", "refused (“I am sorry, I cannot answer…”)", "#d9d8d1"),
+             ("other", "other text, no Estimate line", "#efeee9")]
+    for i, (key, label, col) in enumerate(COMBOS):
         y = len(COMBOS) - 1 - i
         g = df[df.key == key]
         left = 0
-        for kind, name, kcol, tcol in kinds:
+        for kind, _, kcol in kinds:
             n = int((g.kind == kind).sum())
-            if n:
-                ax.barh(y, n, left=left, height=0.6, color=kcol, edgecolor="white", linewidth=1)
-            if n >= 100:
-                ax.text(left + n / 2, y, f"{n} {name}", ha="center", va="center", fontsize=7.5, color=tcol)
-            elif n:  # too thin to hold its label: write it just to the right, on the next segment
-                ax.text(left + n + 6, y, f"\u25c0 {n} {name}", ha="left", va="center", fontsize=7,
-                        color="white")
+            ax.barh(y, n, left=left, height=0.62, color=kcol or col, edgecolor="white", linewidth=1)
+            if n >= 40:
+                dark = kind == "number" and key.endswith("low")  # white text only on the dark shades
+                ax.text(left + n / 2, y, f"{n}", ha="center", va="center", fontsize=7.5,
+                        color="white" if dark else INK)
             left += n
     ax.set_yticks(range(len(COMBOS)))
-    ax.set_yticklabels([lab for _, lab, _ in COMBOS][::-1], color=INK)
+    ax.set_yticklabels([lab for _, lab, _ in COMBOS][::-1])
     ax.tick_params(axis="y", length=0)
     ax.set_xlim(0, 780)
     ax.set_xticks([0, 195, 390, 585, 780])
-    ax.set_xlabel("replies (39 questions \u00d7 20 tries = 780 for each row)")
-    ax.spines["left"].set_visible(False)
+    ax.set_xlabel("replies (39 questions × 20 tries = 780)")
+    ax.grid(axis="x")
+    ax.set_axisbelow(True)
+    handles = [plt.Rectangle((0, 0), 1, 1, color=c or "#9a9a94") for _, _, c in kinds]
+    ax.legend(handles, [lab for _, lab, _ in kinds], loc="upper center", bbox_to_anchor=(0.45, 1.32),
+              ncol=3, fontsize=7, handlelength=1, columnspacing=1.2)
     fig.tight_layout()
     figs.append(("answered", fig))
 
