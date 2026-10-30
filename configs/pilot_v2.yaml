@@ -71,6 +71,12 @@ parsing:
   # A reply cut off at the answer limit has no "Estimate:" line; its last number is usually a
   # step of a calculation. false = count such a reply as no answer instead of guessing.
   fallback_when_cut_off: false
+  # A reply without an "Estimate:" line at all is also no answer (added 2026-10-30, before Study 1
+  # v2). In pilot run 1, R1-Distill-1.5B with thinking off left the line out in 274 of 300 baseline
+  # replies, and the last number was then often the anchor ("121,100 ... lower than 192,880,557"
+  # was read as 192,880,557) or a year from a refusal (2024). Qwen3-32B always wrote the line in
+  # Study 2, so its data is the same either way.
+  fallback: false
 
 baseline:
   samples_per_level: 20

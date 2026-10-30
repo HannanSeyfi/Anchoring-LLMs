@@ -48,6 +48,17 @@ numbers from 2026 events, and a rule was added after that screening). `PHASE = a
 Start each with `SMOKE_TEST` ticked, then untick it for the real run. Pilot run 2 cost $1.52 for
 Qwen3-32B; v2 can cost a little more because answers may now be up to 1,536 tokens long.
 
+### Plan from 2026-10-30
+
+| Run | Notebook | `MODEL` | `PHASE` | Runtime | Cost |
+| --- | --- | --- | --- | --- | --- |
+| 1 | `03_run_pilot_deepinfra.ipynb` | `qwen3-32b` | `baseline,anchors,study1` | CPU | about $2 |
+| 2 | `01_run_pilot.ipynb` | `r1-distill-qwen-1.5b` | `all` | free T4 | free, about 1 hour |
+| 3 | `03_run_pilot_deepinfra.ipynb` | `qwen3-14b` | `all` | CPU | about $3 |
+
+Study 2 of `qwen3-32b` is already done (2026-10-29). Then notebook 02 once with
+`DATA_DIR = data/pilot_v2`.
+
 ## Step 3: analyse
 
 Notebook `02_analyze_pilot.ipynb` with `DATA_DIR = data/pilot_v2`. It writes

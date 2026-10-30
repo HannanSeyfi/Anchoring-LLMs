@@ -197,12 +197,16 @@ def run_options(cfg: dict) -> dict:
         # A reply cut off at the answer limit usually has no "Estimate:" line, and its last
         # number is often a step of a calculation, so it is better counted as no answer.
         "fallback_when_cut_off": cfg.get("parsing", {}).get("fallback_when_cut_off", True),
+        # Without an "Estimate:" line the last number in a reply is often the anchor itself
+        # ("lower than 192,880,557") or a year from a refusal ("as of 2024"), so a config can
+        # count every such reply as no answer.
+        "fallback": cfg.get("parsing", {}).get("fallback", True),
         "min_thinking": {str(k): int(v) for k, v in (cfg.get("thinking_min_tokens") or {}).items()},
     }
 
 
 def run_cells(backend, cells: list[dict], path: Path, model: str, hf_id: str, batch_size: int,
-              sync: GitSync, label: str, fallback_when_cut_off: bool = True,
+              sync: GitSync, label: str, fallback_when_cut_off: bool = True, fallback: bool = True,
               min_thinking: dict | None = None, title: str = "Pilot data") -> None:
     min_thinking = min_thinking or {}
     done = {r["cell_id"] for r in read_records(path)}
@@ -229,7 +233,7 @@ def run_cells(backend, cells: list[dict], path: Path, model: str, hf_id: str, ba
                     "thinking_tokens": c.thinking_tokens, "answer_tokens": c.answer_tokens,
                     "thinking_truncated": c.thinking_truncated,
                     "answer_finish_reason": c.answer_finish_reason, "waits": c.waits,
-                    "estimate": parse_estimate(c.answer, fallback=fallback_when_cut_off or not cut_off),
+                    "estimate": parse_estimate(c.answer, fallback=fallback and (fallback_when_cut_off or not cut_off)),
                     "comparison": parse_comparison(c.answer),
                     "backend": backend.name, "timestamp": now,
                 })
