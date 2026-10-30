@@ -74,6 +74,10 @@
 When a language model sees a number before it estimates something, its estimate moves towards that number. This is called \emph{anchoring}, and it is well known in people and already shown in language models. We want to find out \emph{why} it happens in models, by testing the two explanations that psychology offers for people, and by reading the model's own thinking as it answers.
 \end{keybox}
 
+\begin{keybox}[Correction (30 October 2026).]
+With thinking off, the small model of run~1 usually left out the requested \texttt{Estimate:} line. The first version of this report then used the last number in the reply, which was often the anchor repeated back or a year from a refusal. Its numbers now count only replies with the \texttt{Estimate:} line: its thinking-off anchoring index is 0.58 (near anchors, 10 questions), not 0.82; the thinking-on values change by less than 0.01. The run~1 figures and tables below are corrected; the rest is unchanged.
+\end{keybox}
+
 \begin{keybox}[Where we are on 27 October 2026.]
 We have written the proposal, built all the software, run two pilot runs (a small 1.5-billion-parameter model and the 32-billion-parameter Qwen3-32B), learned that the large model already knew our first questions, written 299 new candidate questions, screened them, and picked 15 new questions for Study~1 and 10 for Study~2. The next step is to run the pilot again on these new questions. Altogether we have collected 38,320 model answers for \$2.93.
 \end{keybox}
@@ -502,7 +506,7 @@ At low, the small model used most of its 512 tokens and was cut off in 43\% of S
 
 \subsection{Did anchoring appear?}
 
-Yes, strongly. With thinking off, near anchors gave an anchoring index of 0.82, higher than the 0.49 found for people (Figure~\ref{fig:index} in Section~\ref{sec:run2}, blue line). Thinking reduced it to 0.36 (low) and 0.44 (high): reasoning reduces anchoring but does not remove it, and the high level did not help further. Far anchors gave 0.40 / 0.14 / 0.16; these are lower partly by construction, because far anchors are further apart, so the same movement is a smaller share of the gap.
+Yes. With thinking off, near anchors gave an anchoring index of 0.58, a little above the 0.49 found for people (Figure~\ref{fig:index} in Section~\ref{sec:run2}, blue line), but on only 10 questions, because without thinking the model rarely gave a proper answer. With thinking it was 0.36 (low) and 0.44 (high): reasoning does not remove anchoring, and the high level did not help further. Far anchors gave 0.25 / 0.14 / 0.16; these are lower partly by construction, because far anchors are further apart, so the same movement is a smaller share of the gap.
 
 \subsection{Adjusting or retrieving? The near/far test}
 
@@ -512,12 +516,12 @@ Yes, strongly. With thinking off, near anchors gave an anchoring index of 0.82, 
 \toprule
 & \textbf{off} & \textbf{low} & \textbf{high} \\
 \midrule
-Shift after a near anchor (measured) & 0.83 & 0.50 & 0.51 \\
-Shift after a far anchor (measured) & 0.52 & 0.26 & 0.29 \\
-Shift after a far anchor \emph{if answers stopped at the edge} (prediction) & 0.29 & 0.34 & 0.34 \\
+Shift after a near anchor (measured) & -- & 0.50 & 0.51 \\
+Shift after a far anchor (measured) & -- & 0.26 & 0.29 \\
+Shift after a far anchor \emph{if answers stopped at the edge} (prediction) & -- & 0.34 & 0.34 \\
 \bottomrule
 \end{tabular}
-\caption{Run 1, the near/far test, averaged over 15 questions. Retrieving predicts far = near (the same share of the way); adjusting predicts far = the edge prediction.}
+\caption{Run 1, the near/far test, averaged over 15 questions. Retrieving predicts far = near (the same share of the way); adjusting predicts far = the edge prediction. With thinking off too few replies had a proper answer to measure this.}
 \label{tab:nearfar}
 \end{table}
 
@@ -526,7 +530,7 @@ With thinking on, the far shift (0.26--0.29) sits at or below the edge predictio
 \begin{figure}[ht]
 \centering
 \fig{5}
-\caption{What single answers did after an anchor above the normal zone (run 1, 200 answers per row). ``Copied'' means within 10\% of the anchor. Thinking roughly halves copying. Without thinking, 9\% of answers had no number at all.}
+\caption{What single answers did after an anchor above the normal zone (run 1, 200 answers per row). ``Copied'' means within 10\% of the anchor. Without thinking, 81--82\% of replies had no \texttt{Estimate:} line (mostly refusals), so those rows say little.}
 \label{fig:outcomes}
 \end{figure}
 
@@ -553,7 +557,7 @@ We read 40 randomly chosen traces (anchor above the zone, thinking on) and coded
 The anchor acts at the moment the model first recalls a value: it either produces its own memory, or the anchor takes the place of a memory, often with an invented confirmation (``Looking it up\dots''). Step-by-step adjustment away from the anchor was rare (1 of 40). This looks more like \emph{retrieving} than \emph{adjusting}, but it is one small, confused model, read by one reader.
 \end{keybox}
 
-\paragraph{Precise vs round.} Precise anchors (e.g.\ 11,180) shifted answers more than round ones (11,000), by about 0.10--0.12 on the shift scale (off $+0.10$, interval $-0.03$ to $0.21$; low $+0.11$, $0.01$ to $0.21$; high $+0.12$, $0.04$ to $0.20$). In people this points to adjusting; here part of it may simply be borrowed digits, as in the Malta example.
+\paragraph{Precise vs round.} Precise anchors (e.g.\ 11,180) shifted answers more than round ones (11,000), by about 0.11--0.12 on the shift scale (low $+0.11$, interval $0.01$ to $0.21$; high $+0.12$, $0.04$ to $0.20$; too few proper answers with thinking off). In people this points to adjusting; here part of it may simply be borrowed digits, as in the Malta example.
 
 \subsection{Study 2 in run 1}
 
@@ -574,18 +578,18 @@ Inconclusive. The small model does not know the facts, so it has nothing to adju
 \toprule
 \textbf{Part} & \textbf{Thinking} & \textbf{Has a number} & \textbf{Used the Estimate line} & \textbf{Thinking cut at budget} \\
 \midrule
-Baseline & off & 91\% & 0\% & -- \\
- & low & 100\% & 93\% & 49\% \\
- & high & 100\% & 94\% & 1\% \\
-Study 1 & off & 90\% & 17\% & -- \\
- & low & 100\% & 99\% & 43\% \\
- & high & 100\% & 98\% & 1\% \\
-Study 2 & off & 69\% & 9\% & -- \\
- & low & 100\% & 98\% & 67\% \\
- & high & 100\% & 96\% & 15\% \\
+Baseline & off & 0\% & 0\% & -- \\
+ & low & 93\% & 93\% & 49\% \\
+ & high & 94\% & 94\% & 1\% \\
+Study 1 & off & 17\% & 17\% & -- \\
+ & low & 99\% & 99\% & 43\% \\
+ & high & 98\% & 98\% & 1\% \\
+Study 2 & off & 9\% & 9\% & -- \\
+ & low & 98\% & 98\% & 67\% \\
+ & high & 96\% & 96\% & 15\% \\
 \bottomrule
 \end{tabular}
-\caption{Run 1 data quality. With thinking off the small model rarely followed the answer format.}
+\caption{Run 1 data quality. With thinking off the small model rarely followed the answer format. ``Has a number'' now counts only replies with the \texttt{Estimate:} line (the first version counted any number in the reply: 91\%, 90\% and 69\% with thinking off).}
 \end{table}
 
 \dpn{Run 1 completed and analysed; report \texttt{pilot\_summary.tex} written in Overleaf; an explainer document ``Pilot Run 1, Explained From Zero''; 40 traces read and coded. The software works end to end.}
@@ -750,7 +754,7 @@ A horse's pregnancy is typically longer than a human pregnancy, which is about 4
 Where it ran & Colab T4, about 40 min, free & DeepInfra, 88 min, \$1.52 \\
 Used the format, thinking off & 0--17\% & 85--100\% \\
 Knew the answers & almost none & 13 of 15 within 1\% \\
-Anchoring index, near, off / low / high & 0.82 / 0.36 / 0.44 & 0.04 / 0.00 / 0.05 \\
+Anchoring index, near, off / low / high & 0.58 / 0.36 / 0.44 & 0.04 / 0.00 / 0.05 \\
 Thinking tokens, Study 1, low / high & 431 / 554 & 471 / 671 \\
 Study 2 & no knowledge to adjust towards & already at the truth \\
 How anchors acted & replaced or kept the first recalled value & picked between two memories \\
@@ -821,7 +825,7 @@ I am sorry, I cannot answer that question. I am an AI assistant designed to prov
 \subsection{Rule changes after the first screening}
 
 \begin{itemize}
-  \item The small model's ``at least 75\% of answers contain a number'' rule is now checked only with thinking on (it gave a number 52\% (Study~1) and 37\% (Study~2) of the time with thinking off).
+  \item The small model's ``at least 75\% of answers contain a number'' rule is now checked only with thinking on (with thinking off it wrote the \texttt{Estimate:} line in only 0.1\% (Study~1) and 3\% (Study~2) of replies; the first version of this report said it ``gave a number'' 52\% and 37\% of the time, counting any number in a refusal).
   \item The Study~1 spread rule now uses the spread averaged over the two levels instead of the smaller one.
 \end{itemize}
 With these rules, 23 Study~1 questions pass and 15 are picked; before, only 2 passed. Because the rules were changed \emph{after} seeing the data, the paper must say so.

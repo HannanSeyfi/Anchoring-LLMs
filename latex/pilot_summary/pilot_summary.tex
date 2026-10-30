@@ -52,11 +52,15 @@
 \begin{document}
 \maketitle
 
+\begin{tcolorbox}[colback=yellow!8, colframe=orange!60, title=\textbf{Correction (30 October 2026)}, fonttitle=\normalsize]
+With thinking off, this model usually left out the requested \texttt{Estimate:} line. The first version of this report then used the last number in the reply, which was often the anchor repeated back (\enquote{about 121,100 people \ldots\ lower than 192,880,557} was read as 192,880,557) or a year from a refusal (\enquote{as of 2024}). All numbers below now count only replies with the \texttt{Estimate:} line. The thinking-off anchoring index drops from 0.82 to 0.58 (near anchors, 10 questions); the thinking-on values change by less than 0.01.
+\end{tcolorbox}
+
 \begin{tcolorbox}[colback=gray!6, colframe=gray!50, title=\textbf{At a glance}, fonttitle=\normalsize]
 \begin{itemize}[leftmargin=*]
   \item \textbf{What ran:} a small test model (DeepSeek-R1-Distill-Qwen-1.5B) answered 30 estimation questions at three reasoning levels. That gave 7,200 answers, collected in about 40 minutes on a Colab T4 GPU.
   \item \textbf{The method works from start to finish:} questions go to the model, every answer is saved to GitHub, and the analysis, tables and figures are produced automatically.
-  \item \textbf{Anchoring is strong without reasoning:} anchoring index 0.82 for near anchors (about 0.5 in a classic study of people). Reasoning roughly halves it. More reasoning (\enquote{high} vs \enquote{low}) does not reduce it further.
+  \item \textbf{Anchoring is clear:} anchoring index 0.58 for near anchors with thinking off (about 0.5 in a classic study of people), but that rests on only 10 questions, because without thinking the model rarely gave a proper answer. With thinking it was 0.36 (low) and 0.44 (high). More reasoning (\enquote{high} vs \enquote{low}) does not reduce it further.
   \item \textbf{First mechanism signal:} reading the model's thinking shows that the anchor acts when the model first recalls a value. It either recalls its own value or treats the anchor as something it remembers. Step-by-step adjustment away from the anchor appeared in only 1 of 40 thinking traces.
   \item \textbf{Individual answers are all-or-nothing:} the model mostly either ignores the anchor or copies it.
   \item \textbf{Study 2 is inconclusive:} this model does not know the facts the questions rely on.
@@ -239,9 +243,9 @@ The \emph{anchoring index} \citep{jacowitz1995measures} compares the answers aft
 \centering
 \begin{tikzpicture}
 \begin{axis}[pilot, ylabel={anchoring index}, ymin=0, ymax=1.2, legend pos=north east]
-  \addplot[nearcol, witherr] coordinates {(0,0.816) += (0,0.097) -= (0,0.099) (1,0.358) += (0,0.193) -= (0,0.180) (2,0.436) += (0,0.205) -= (0,0.214)};
+  \addplot[nearcol, witherr] coordinates {(0,0.576) += (0,0.185) -= (0,0.210) (1,0.358) += (0,0.193) -= (0,0.180) (2,0.436) += (0,0.205) -= (0,0.214)};
   \addlegendentry{near anchors}
-  \addplot[farcol, witherr] coordinates {(0,0.404) += (0,0.244) -= (0,0.221) (1,0.135) += (0,0.153) -= (0,0.128) (2,0.164) += (0,0.135) -= (0,0.118)};
+  \addplot[farcol, witherr] coordinates {(0,0.252) += (0,0.251) -= (0,0.249) (1,0.135) += (0,0.153) -= (0,0.128) (2,0.164) += (0,0.135) -= (0,0.118)};
   \addlegendentry{far anchors}
   \addplot[basecol, dashed, mark=none, domain=-0.3:2.3, samples=2] {0.5};
   \addlegendentry{people, classic study}
@@ -251,7 +255,7 @@ The \emph{anchoring index} \citep{jacowitz1995measures} compares the answers aft
 \label{fig:index}
 \end{figure}
 
-With thinking off, near anchors give an index of 0.82, stronger than the 0.49 that \citet{jacowitz1995measures} found for people. Their anchors were chosen differently, so this comparison is rough. Thinking cuts this to about 0.36 (low) and 0.44 (high). So reasoning reduces anchoring but does not remove it, and the higher budget did not help further. This matches what others report \citep{kraishan2026long}, although here \enquote{high} hardly differed from \enquote{low} (Figure~\ref{fig:tokens}). Far anchors give lower values partly by construction: they are further apart, so the same movement is a smaller share of the gap.
+With thinking off, near anchors give an index of 0.58, a little above the 0.49 that \citet{jacowitz1995measures} found for people. Their anchors were chosen differently, so this comparison is rough, and the thinking-off value rests on only 10 questions (most replies without thinking had no \texttt{Estimate:} line). With thinking it is about 0.36 (low) and 0.44 (high). So reasoning may reduce anchoring somewhat but does not remove it, and the higher budget did not help further. This matches what others report \citep{kraishan2026long}, although here \enquote{high} hardly differed from \enquote{low} (Figure~\ref{fig:tokens}). Far anchors give lower values partly by construction: they are further apart, so the same movement is a smaller share of the gap.
 
 \subsection{Adjusting or retrieving?}
 
@@ -267,11 +271,11 @@ The orange line in Figure~\ref{fig:nearfar} is a prediction, not a measurement: 
 \centering
 \begin{tikzpicture}
 \begin{axis}[pilot, ylabel={shift towards the anchor}, ymin=0, ymax=1.2, legend pos=north east]
-  \addplot[nearcol, witherr] coordinates {(0,0.832) += (0,0.089) -= (0,0.106) (1,0.496) += (0,0.125) -= (0,0.118) (2,0.512) += (0,0.155) -= (0,0.147)};
+  \addplot[nearcol, witherr] coordinates {(1,0.496) += (0,0.125) -= (0,0.118) (2,0.512) += (0,0.155) -= (0,0.147)};
   \addlegendentry{near anchor (measured)}
-  \addplot[farcol, witherr] coordinates {(0,0.516) += (0,0.139) -= (0,0.147) (1,0.264) += (0,0.120) -= (0,0.111) (2,0.293) += (0,0.115) -= (0,0.118)};
+  \addplot[farcol, witherr] coordinates {(1,0.264) += (0,0.120) -= (0,0.111) (2,0.293) += (0,0.115) -= (0,0.118)};
   \addlegendentry{far anchor (measured)}
-  \addplot[edgecol, witherr, dashed, mark=diamond*] coordinates {(0,0.289) += (0,0.037) -= (0,0.049) (1,0.336) += (0,0.017) -= (0,0.015) (2,0.336) += (0,0.015) -= (0,0.014)};
+  \addplot[edgecol, witherr, dashed, mark=diamond*] coordinates {(1,0.336) += (0,0.017) -= (0,0.015) (2,0.336) += (0,0.015) -= (0,0.014)};
   \addlegendentry{far, if answers stopped at the edge}
 \end{axis}
 \end{tikzpicture}
@@ -279,7 +283,7 @@ The orange line in Figure~\ref{fig:nearfar} is a prediction, not a measurement: 
 \label{fig:nearfar}
 \end{figure}
 
-\noindent\textbf{What we see.} With thinking on, the blue line (0.26 to 0.29) sits at or slightly below the orange line (0.34) and well below the green line (0.50). With thinking off, blue (0.52) lies between the two. On medians alone this looks like adjusting, but reading the model's thinking shows that it is not.
+\noindent\textbf{What we see.} With thinking on, the blue line (0.26 to 0.29) sits at or slightly below the orange line (0.34) and well below the green line (0.50). With thinking off, too few replies had a proper answer to measure this (the \enquote{off} points are left out). On medians alone this looks like adjusting, but reading the model's thinking shows that it is not.
 
 \paragraph{What the thinking shows.} We read 40 randomly chosen thinking traces (anchors above the normal zone, thinking on). In 31 of 40, the first value the model settled on was its final answer. In 23 of these it was the model's own value and the anchor was ignored; in 8 the value it \enquote{remembered} was the anchor itself (Angel Falls, anchor 99,000\,m: \emph{\enquote{I've heard it's around 97,000 meters tall}}). In 4 traces the model recalled its own value and was then pushed towards the anchor. Only 1 trace started at the anchor and corrected part of the way back, the textbook adjusting pattern. So the anchor acts at the moment the model recalls a value, not through gradual adjustment. The low blue line has a simpler cause: far anchors are copied less often than near ones (Table~\ref{tab:copies}), so the median sits lower. This was a first reading by one reader; the planned two-coder reading must confirm it.
 
@@ -290,19 +294,19 @@ The orange line in Figure~\ref{fig:nearfar} is a prediction, not a measurement: 
 \toprule
 Thinking & Anchor & Stayed in own zone & Copied the anchor \\
 \midrule
-off  & near & 29\% & 52\% \\
-     & far  & 37\% & 38\% \\
-low  & near & 55\% & 28\% \\
-     & far  & 55\% & 18\% \\
-high & near & 52\% & 31\% \\
-     & far  & 56\% & 16\% \\
+off  & near & 7\% & 8\% \\
+     & far  & 10\% & 4\% \\
+low  & near & 54\% & 28\% \\
+     & far  & 54\% & 18\% \\
+high & near & 51\% & 31\% \\
+     & far  & 55\% & 15\% \\
 \bottomrule
 \end{tabular}
-\caption{What single answers did after an anchor above the normal zone (200 answers per row). \enquote{Copied} means within 10\% of the anchor; the rest landed elsewhere or gave no number.}
+\caption{What single answers did after an anchor above the normal zone (200 answers per row). \enquote{Copied} means within 10\% of the anchor; the rest landed elsewhere or gave no proper answer. With thinking off, 81--82\% of replies had no \texttt{Estimate:} line, so those rows say little.}
 \label{tab:copies}
 \end{table}
 
-\paragraph{Precise vs round anchors.} Precise anchors (e.g.\ 11,180) shifted answers more than round ones (e.g.\ 11,000), by about 0.10 to 0.12 on the shift scale. The interval excludes zero at the low and high levels (off: $+0.10$, interval $-0.03$ to $0.21$; low: $+0.11$, $0.01$ to $0.21$; high: $+0.12$, $0.04$ to $0.20$). In people this is explained by adjustment in smaller steps from a precise number \citep{janiszewski2008precision}. In this model part of it may have a simpler cause: some answers borrow the anchor's digits (after a precise anchor of 173,200,000\,km$^2$ for the area of Malta, one answer was 173,000\,km$^2$).
+\paragraph{Precise vs round anchors.} Precise anchors (e.g.\ 11,180) shifted answers more than round ones (e.g.\ 11,000), by about 0.10 to 0.12 on the shift scale. The interval excludes zero at the low and high levels (low: $+0.11$, interval $0.01$ to $0.21$; high: $+0.12$, $0.04$ to $0.20$). With thinking off there were too few proper answers to measure it. In people this is explained by adjustment in smaller steps from a precise number \citep{janiszewski2008precision}. In this model part of it may have a simpler cause: some answers borrow the anchor's digits (after a precise anchor of 173,200,000\,km$^2$ for the area of Malta, one answer was 173,000\,km$^2$).
 
 \subsection{Study 2: does thinking help more when the model picks the starting number?}
 
@@ -341,7 +345,7 @@ Here we measure \emph{adjustment}: 0 means the answer stayed at the familiar sta
 \label{fig:study2}
 \end{figure}
 
-\noindent\textbf{What we see.} Both lines stay between about 0 and 0.4, with wide error bars, and there is no consistent gap between self and given. Example: for the chicken question the model answered about 36 to 37\,\textdegree C at both reasoning levels, whether or not we gave it 37\,\textdegree C. The likeliest reason is that a 1.5B model does not know these facts, so it has nothing to adjust towards. The \enquote{off} level is not shown because its answers were unusable: 31\% gave no number at all (often a refusal) and some were wild, such as $-10$\,\textdegree C for boiling water on a mountain.
+\noindent\textbf{What we see.} Both lines stay between about 0 and 0.4, with wide error bars, and there is no consistent gap between self and given. Example: for the chicken question the model answered about 36 to 37\,\textdegree C at both reasoning levels, whether or not we gave it 37\,\textdegree C. The likeliest reason is that a 1.5B model does not know these facts, so it has nothing to adjust towards. The \enquote{off} level is not shown because its answers were unusable: only 9\% used the \texttt{Estimate:} line (the rest were often refusals) and some were wild, such as $-10$\,\textdegree C for boiling water on a mountain.
 
 \subsection{Data quality}
 
@@ -349,7 +353,7 @@ Here we measure \emph{adjustment}: 0 means the answer stayed at the familiar sta
 \centering\small
 \begin{tabular}{llrrrr}
 \toprule
-Part & Level & Answers & Gave a number & Used the format & Thinking tokens \\
+Part & Level & Answers & Gave a number (old reading) & Used the format & Thinking tokens \\
 \midrule
 Baseline & off & 300 & 91\% & 0\% & 0 \\
  & low & 300 & 100\% & 93\% & 436 \\
@@ -362,7 +366,7 @@ Study 2 & off & 900 & 69\% & 9\% & 0 \\
  & high & 900 & 100\% & 96\% & 946 \\
 \bottomrule
 \end{tabular}
-\caption{\enquote{Gave a number}: a usable estimate could be read from the reply. \enquote{Used the format}: the reply ended with the requested \texttt{Estimate:} line; otherwise the last number in the reply was used, which is less reliable.}
+\caption{\enquote{Gave a number}: a usable estimate could be read from the reply. \enquote{Used the format}: the reply ended with the requested \texttt{Estimate:} line; only these replies are used now. \enquote{Gave a number (old reading)} is what the first version counted: any number in the reply, which with thinking off was often the anchor repeated back or a year from a refusal.}
 \end{table}
 
 \begin{itemize}
@@ -375,7 +379,7 @@ Study 2 & off & 900 & 69\% & 9\% & 0 \\
 \section{What we learned and what comes next}
 % =====================================================================
 
-\paragraph{What the pilot shows.} The full pipeline works: prompts, running on Colab, saving to GitHub, and an automatic report. The measures behave sensibly on real model output. Even this small model shows strong anchoring, reduced but not removed by reasoning. Reading its thinking shows that the anchor acts when the model first recalls a value (it recalls its own value or treats the anchor as a memory); step-by-step adjustment was rare (1 of 40 traces).
+\paragraph{What the pilot shows.} The full pipeline works: prompts, running on Colab, saving to GitHub, and an automatic report. The measures behave sensibly on real model output. Even this small model shows clear anchoring, which reasoning does not remove. Reading its thinking shows that the anchor acts when the model first recalls a value (it recalls its own value or treats the anchor as a memory); step-by-step adjustment was rare (1 of 40 traces).
 
 \paragraph{Next steps.}
 \begin{enumerate}

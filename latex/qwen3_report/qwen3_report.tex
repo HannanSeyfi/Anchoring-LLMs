@@ -40,12 +40,16 @@
 \begin{document}
 \maketitle
 
+\begin{tcolorbox}[colback=yellow!8, colframe=orange!60, title=\textbf{Correction (30 October 2026)}, fonttitle=\normalsize]
+With thinking off, the small model of run~1 usually left out the requested \texttt{Estimate:} line. The first version of this report then used the last number in the reply, which was often the anchor repeated back or a year from a refusal. Its numbers now count only replies with the \texttt{Estimate:} line: its thinking-off anchoring index is 0.58 (near anchors, 10 questions), not 0.82; the thinking-on values change by less than 0.01.
+\end{tcolorbox}
+
 \begin{tcolorbox}[colback=gray!6, colframe=gray!50, title=\textbf{At a glance}, fonttitle=\normalsize]
 \begin{itemize}[leftmargin=*]
   \item \textbf{What ran:} Qwen3-32B, a model 20 times larger than the one in run 1, answered the same 7,200 questions through DeepInfra. It took 88 minutes and cost \$1.52. No GPU was needed.
   \item \textbf{The run worked cleanly:} every answer contained a number, thinking could be switched off properly, and the \enquote{high} level now thinks about twice as long as \enquote{low}.
   \item \textbf{The model knows the answers.} For 13 of the 15 Study~1 questions its usual answer was within 1\% of the true value (Angel Falls: 979\,m, almost every time).
-  \item \textbf{So it was hardly anchored:} anchoring index 0.00 to 0.05, against 0.82 for the small model and 0.49 for people. With thinking on, anchors left 86\% of answers exactly where they were without an anchor.
+  \item \textbf{So it was hardly anchored:} anchoring index 0.00 to 0.05, against 0.36--0.58 for the small model and 0.49 for people. With thinking on, anchors left 86\% of answers exactly where they were without an anchor.
   \item \textbf{Where it was unsure, the anchor worked by choosing between memories.} For Liechtenstein the model half-remembers both 39,000 and 390,000; a high anchor raised the 390,000 answers from 30\% to 50\%.
   \item \textbf{Thinking off is more vulnerable:} without thinking, the model sometimes copied the anchor or overshot it, and its \enquote{higher or lower} judgement contradicted its own estimate 28\% of the time (0.3\% with high thinking).
   \item \textbf{Study 2 could not test anything:} the model reached the true value from every starting point.
@@ -173,7 +177,7 @@ The model was not \enquote{immune} to anchoring here. These questions are simply
   tick label style={font=\small}, label style={font=\small},
   error bars/y dir=both, error bars/y explicit,
 ]
-  \addplot[smallcol, thick, mark=*] coordinates {(0,0.816) +- (0,0.098) (1,0.358) +- (0,0.187) (2,0.436) +- (0,0.210)};
+  \addplot[smallcol, thick, mark=*] coordinates {(0,0.576) += (0,0.185) -= (0,0.210) (1,0.358) +- (0,0.187) (2,0.436) +- (0,0.210)};
   \addlegendentry{run 1: small model (1.5B)}
   \addplot[bigcol, thick, mark=square*] coordinates {(0,0.041) += (0,0.080) -= (0,0.047) (1,0.004) += (0,0.007) -= (0,0.004) (2,0.045) += (0,0.063) -= (0,0.045)};
   \addlegendentry{run 2: Qwen3-32B}
@@ -185,7 +189,7 @@ The model was not \enquote{immune} to anchoring here. These questions are simply
 \label{fig:index}
 \end{figure}
 
-\paragraph{The headline number.} Figure~\ref{fig:index} shows the anchoring index for both runs. Run 1's small model scored 0.82 with thinking off; Qwen3-32B scored 0.04. With thinking on, Qwen3-32B scored between 0.00 and 0.05. For far anchors it was 0.00 to 0.02. On these questions, the large model is close to unanchorable.
+\paragraph{The headline number.} Figure~\ref{fig:index} shows the anchoring index for both runs. Run 1's small model scored 0.58 with thinking off (on only 10 questions, because without thinking it rarely gave a proper answer); Qwen3-32B scored 0.04. With thinking on, Qwen3-32B scored between 0.00 and 0.05. For far anchors it was 0.00 to 0.02. On these questions, the large model is close to unanchorable.
 
 \paragraph{What single answers did.} A simpler way to see it is to count how often an answer equals the model's usual answer (within 1\%). Without an anchor, 86--89\% of answers do, because the model's answers vary a little anyway. With an anchor the share is almost the same (Table~\ref{tab:same}). With thinking on, the anchors changed nothing that we can see. With thinking off, they moved about 8\% of answers.
 
@@ -300,8 +304,8 @@ Where it ran & Colab T4 GPU, about 40 min & DeepInfra, 88 min, \$1.52 \\
 Format used, thinking off & 0--17\% & 85--100\% \\
 Thinking tokens, low / high & 430 / 550 & 485 / 1,035 \\
 Knows the answers & rarely & 13 of 15 within 1\% \\
-Anchoring index, near, off / low / high & 0.82 / 0.36 / 0.44 & 0.04 / 0.00 / 0.05 \\
-Copies of the anchor (within 10\%) & 16--52\% of answers & 12 exact copies in 3,600 \\
+Anchoring index, near, off / low / high & 0.58 / 0.36 / 0.44 & 0.04 / 0.00 / 0.05 \\
+Copies of the anchor (within 10\%) & 15--31\% of answers (thinking on) & 12 exact copies in 3,600 \\
 How the anchor acts & at recall: own value or anchor & at recall: which memory wins \\
 Study 2 & model lacks the facts & model knows the facts \\
 \bottomrule

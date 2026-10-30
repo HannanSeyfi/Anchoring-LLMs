@@ -46,7 +46,7 @@ So far we have run \textbf{seven experiments}: two pilot runs of the full design
 
 \section*{The story in seven steps}
 \begin{enumerate}[leftmargin=*]
-  \item \textbf{Small model:} strongly anchored. The anchor acted when the model recalled a value, not by gradual adjustment.
+  \item \textbf{Small model:} clearly anchored. The anchor acted when the model recalled a value, not by gradual adjustment.
   \item \textbf{Large model:} it knew almost every answer, so it was hardly anchored (0.00 to 0.05). Where it was unsure, the anchor chose which memory won.
   \item \textbf{Screening round 1:} 206 new questions tested without anchors; 15 good Study~1 questions picked that the large model does not know.
   \item \textbf{Screening round 2:} asteroid orbits and 2026 events tried for Study~2; 10 questions picked where thinking moves the answer.
@@ -64,7 +64,7 @@ So far we have run \textbf{seven experiments}: two pilot runs of the full design
 \end{itemize}
 
 \section*{A correction to Experiment 1}
-In Experiment~1 the small model with thinking off usually left out the \enquote{Estimate:} line, and the code then took the last number in its reply, which was often the anchor repeated back. Read strictly (only replies with the line), its near-anchor index with thinking off is 0.58 (10 questions), not 0.82. The values with thinking on barely change (0.36 and 0.44). From Experiment~6 on, the strict reading is used.
+In Experiment~1 the small model with thinking off usually left out the \enquote{Estimate:} line, and the code then took the last number in its reply, which was often the anchor repeated back. Read strictly (only replies with the line), its near-anchor index with thinking off is 0.58 (10 questions), not 0.82. The values with thinking on barely change (0.36 and 0.44). The strict reading is now used in every report: Experiments 1 and 2 here, \texttt{pilot\_summary}, \texttt{qwen3\_report} and \texttt{full\_report} were corrected on 30 October.
 
 \section*{What has not been run yet}
 Qwen3-14B on both studies (about \$3), to compare sizes inside one model family. Then: reading a sample of the large model's thinking traces to see \emph{how} it is anchored (the mechanism question of the project), and Study~2 again with higher thinking limits.

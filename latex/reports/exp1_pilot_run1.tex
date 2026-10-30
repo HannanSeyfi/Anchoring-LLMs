@@ -24,7 +24,7 @@
 \header{Experiment 1: Pilot run 1 with a small model}{Does the method work, and does a small model anchor?}{24 October 2026}
 
 \inshort{\begin{itemize}[leftmargin=*]
-  \item A small model (1.5 billion parameters) was \textbf{strongly anchored}: about as strongly as, or more than, people in classic studies.
+  \item A small model (1.5 billion parameters) was \textbf{clearly anchored}: about as strongly as people in classic studies.
   \item \textbf{Thinking roughly halved the anchoring}, but more thinking did not reduce it further.
   \item Reading its thinking, the anchor acted at the moment the model \textbf{recalled} a value, not by slow step-by-step adjustment.
 \end{itemize}}
@@ -44,7 +44,7 @@ Two things. First, whether the whole pipeline works: send questions to a model, 
 
 \section*{What we found}
 \begin{itemize}[leftmargin=*]
-  \item \textbf{Strong anchoring.} The anchoring index (0 = no effect, 1 = answers move as far as the anchors) was 0.82 for near anchors with thinking off. People score about 0.49 in the classic study. With thinking it fell to 0.36 (low) and 0.44 (high).
+  \item \textbf{Strong anchoring.} The anchoring index (0 = no effect, 1 = answers move as far as the anchors) was 0.58 for near anchors with thinking off (corrected from 0.82, see the overview; only 10 questions, because without thinking the model rarely gave a proper answer). People score about 0.49 in the classic study. With thinking it was 0.36 (low) and 0.44 (high).
   \item \textbf{All or nothing.} Example: \enquote{How tall is Angel Falls?} (true 979\,m). After an anchor of 11,000\,m, 7 of 10 answers jumped near the anchor and 3 stayed near 980\,m. Single answers either ignored the anchor or copied it.
   \item \textbf{How the anchor acts.} In 40 thinking traces we read, 31 settled on their first recalled value: the model's own value (23) or the anchor treated as a memory (8, e.g.\ \enquote{I've heard it's around 97,000 meters}). The textbook pattern, starting at the anchor and adjusting away, appeared only once.
   \item \textbf{Problems.} \enquote{High} thinking was barely longer than \enquote{low} (about 550 vs 430 tokens), because the model stops by itself. With thinking off the model often ignored the answer format or refused. Study~2 showed nothing, because the model does not know the facts.
