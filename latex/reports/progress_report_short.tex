@@ -1,0 +1,190 @@
+\documentclass[11pt,a4paper]{article}
+\input{reports/style}
+\pagestyle{plain}
+\newtcolorbox{inshort}{breakable, colback=gray!6, colframe=gray!50, title=\textbf{In short}, fonttitle=\normalsize, before skip=6pt, after skip=10pt}
+
+\title{\textbf{After Pilot Run 1: A Short Summary}\\[4pt]
+\large What we did and what we found, from pilot run 2 to Study 2\\
+\large for \emph{Adjusting or Retrieving? Testing the Mechanisms of Anchoring in LLMs}}
+\author{Hannan Seyfi\\[8pt]
+\normalsize Supervised by Dr.\ Shiva Kamkar (Assistant Professor)\\
+\normalsize and Dr.\ Babak Majidi (Associate Professor)\\[8pt]
+\normalsize Khatam University}
+\date{30 October 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{plain}
+
+\begin{tcolorbox}[colback=gray!6, colframe=gray!50, title=\textbf{At a glance}, fonttitle=\normalsize]
+\begin{itemize}[leftmargin=*]
+  \item After pilot run~1 we ran \textbf{six more experiments} (43,660 answers, \$4.49) on a large model, Qwen3-32B, and the small model from pilot run~1, R1-Distill-Qwen-1.5B.
+  \item \textbf{A model that knows the answer is not anchored.} On the old questions the large model was hardly moved by anchors, because it knew 13 of the 15 answers.
+  \item \textbf{On questions it is unsure about, it anchors like people.} After screening 299 new questions, the large model's anchoring index was 0.35--0.45 (people: about 0.49).
+  \item \textbf{Thinking longer does not reduce this} in the large model. The small model is anchored more, often by copying the anchor, and longer thinking does help it.
+  \item \textbf{A number we give pulls harder than one the model thinks of itself}, in both models, as in people. But thinking helped in both cases, unlike in people.
+  \item \textbf{The model's thinking suggests the anchor changes what it \enquote{remembers}}, which points towards the \emph{retrieving} explanation.
+\end{itemize}
+\end{tcolorbox}
+
+\section{Background}
+
+When people estimate a number right after seeing another one, their estimate moves towards it, even if that number is irrelevant. This is the \emph{anchoring effect} \citep{tversky1974judgment}. Language models show it too. Our project asks \emph{why}, by comparing two explanations from psychology:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Adjusting:} start at the anchor and move towards your own answer, but stop too early \citep{epley2006anchoring}.
+  \item \textbf{Retrieving:} the anchor brings facts that fit it to mind, so the whole estimate shifts \citep{mussweiler1999hypothesis}.
+\end{itemize}
+\textbf{Study~1} asks a question with an anchor (\enquote{Is Angel Falls higher or lower than 11,000\,m? Then give your estimate}) and measures how far the answers move. \textbf{Study~2} compares a starting number the model thinks of itself with the same number given to it; in people, extra effort helps only in the first case \citep{epley2005effortful}. Each question is asked with thinking \emph{off}, \emph{short} (up to 512 tokens) or \emph{long} (up to 2,048 tokens).
+
+Pilot run~1 (24 October) showed that the whole method works, but the small model knew too little. One correction: its thinking-off anchoring index is \textbf{0.58, not 0.82} as first reported, because answers without the requested \texttt{Estimate:} line had been read wrongly. All reports now use the strict reading.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}lp{6cm}p{3.2cm}rr@{}}
+\toprule
+& Step & Model(s) & Answers & Cost \\
+\midrule
+\ref{sec:run2} & Pilot run 2: old questions, large model & Qwen3-32B & 7,200 & \$1.52 \\
+\ref{sec:screen} & Screening: finding new questions (two rounds) & Qwen3-32B, 1.5B & 23,920 & \$1.41 \\
+\ref{sec:s1} & Study 1 on the new questions & Qwen3-32B, 1.5B & 8,940 & \$0.94 \\
+\ref{sec:s2} & Study 2 on both models & Qwen3-32B, 1.5B & 3,600 & \$0.62 \\
+\midrule
+& Total & & 43,660 & \$4.49 \\
+\bottomrule
+\end{tabular}
+\caption{Everything run after pilot run 1. The section number is in the first column.}
+\end{table}
+
+% ---------------------------------------------------------------------
+\section{Pilot run 2: the large model knew the answers}
+\label{sec:run2}
+
+\begin{inshort}
+We repeated pilot run~1 with Qwen3-32B, a model twenty times larger. It knew almost every answer, so the anchors had nothing to pull. Where it was unsure, the anchor decided which of two memories it used.
+\end{inshort}
+
+For 13 of the 15 Study~1 questions, the model's usual answer was within 1\% of the truth. For Angel Falls it said 979\,m in 238 of 240 anchored answers. The anchoring index was 0.00--0.05.
+
+The exception was Liechtenstein (population about 39,600). The model half-remembers both 39,000 and 390,000. A high anchor made the wrong, larger memory win more often: from 30\% to 50\% of answers with long thinking (Figure~\ref{fig:liech}).
+
+\begin{transcript}[Liechtenstein, anchor 690,000, long thinking (answer 385,000)]
+\cut{} If the country is small, maybe around 300,000 to 400,000? I'm not sure. \cut{} I've heard before that Liechtenstein has a population around 380,000 or so.
+\end{transcript}
+
+\begin{figure}[ht]
+\centering\ffig[0.6\textwidth]{10}
+\caption{Liechtenstein: share of answers giving the ten-times-too-large value, with no anchor and after a low or high anchor.}
+\label{fig:liech}
+\end{figure}
+
+\textbf{Lesson:} anchoring needs uncertainty. We needed questions the model does not know.
+
+% ---------------------------------------------------------------------
+\section{Screening: finding questions the model does not know}
+\label{sec:screen}
+
+\begin{inshort}
+We wrote 299 new candidate questions, asked each one 40 times without an anchor, and kept those the large model is unsure about: 15 for Study~1 and 10 for Study~2.
+\end{inshort}
+
+\paragraph{Study 1 questions.} The large model knew most candidates. What it did not know were numbers it must estimate, such as the windows of the Palace of Versailles (true 2,143). Its answers jumped between two \enquote{memories}, about 1,300 and about 14,000 (Figure~\ref{fig:versailles}), so an anchor has room to work. The 15 picks include Versailles, the Vettisfossen waterfall and distances between cities.
+
+\begin{figure}[ht]
+\centering\ffig[0.9\textwidth]{11}
+\caption{Two memories, no anchor. Left: Liechtenstein (pilot run 2). Right: the windows of Versailles. Each dot is one answer; the dark line is the truth.}
+\label{fig:versailles}
+\end{figure}
+
+\paragraph{Study 2 questions.} Study~2 needs a familiar starting number that the model can think its way away from. Asteroid orbits worked best: the natural start is one Earth year. For asteroid Bennu (true 437 days) the model said 366 days without thinking and 433 with thinking:
+
+\begin{transcript}[Bennu, short thinking (answer 433)]
+\cut{} Earth's orbital period is 365.25 days, so if Bennu is in a similar orbit, maybe it's a bit more or less? \cut{} perhaps I can derive the orbital period using Kepler's third law \cut{}
+\end{transcript}
+
+We kept 10 questions where thinking moves the answer towards the truth: six asteroid orbits, two 2026 box-office totals and two 2026 medal counts (start: the previous film or Games).
+
+% ---------------------------------------------------------------------
+\section{Study 1: thinking does not reduce anchoring}
+\label{sec:s1}
+
+\begin{inshort}
+On the new questions the large model is anchored about as strongly as people, whether it thinks or not. The small model is anchored more, often by copying the anchor.
+\end{inshort}
+
+\paragraph{An example: Vettisfossen.} The true free fall of this Norwegian waterfall is 275\,m; without an anchor the large model usually said 100--135\,m. After a low anchor (23\,m) its answers dropped to about 30\,m; after a high one (280\,m) they rose to about 240\,m (Figure~\ref{fig:vettis}). Its thinking shows how: it \enquote{remembers} a fact that fits whichever anchor it saw.
+
+\begin{transcript}[Anchor 280\,m, long thinking (answer 270)]
+\cut{} The highest waterfall in Europe is Kjosfossen, which is around 277 meters. If Vettisfossen is similar, maybe it's close to that. \cut{}
+\end{transcript}
+\begin{transcript}[Anchor 23\,m, long thinking (answer 17)]
+\cut{} From what I remember, some sources list Vettisfossen as having a free fall of around 17 meters.
+\end{transcript}
+Both \enquote{facts} are invented, and each fits its anchor.
+
+\begin{figure}[ht]
+\centering\rfig{e6_vettisfossen}
+\caption{Qwen3-32B on Vettisfossen (true 275\,m). Each dot is one answer; triangles are the anchors.}
+\label{fig:vettis}
+\end{figure}
+
+\paragraph{The main result.} For near anchors the large model's anchoring index was 0.35 (off), 0.45 (short) and 0.41 (long), close to the 0.49 found in people \citep{jacowitz1995measures}, and thinking did not lower it (Figure~\ref{fig:index}). Its answers slid towards the anchor as a group; it repeated the anchor exactly in only 1--2\% of answers. The small model scored 0.83 (short) and 0.59 (long) and gave the anchor back in 15--25\% of answers, mostly when its thinking was cut off at the limit.
+
+\begin{figure}[ht]
+\centering\rfig{e6_index}
+\caption{Anchoring index over the 15 questions, with 95\% intervals. Orange: Qwen3-32B; blue: R1-Distill-Qwen-1.5B. Dashed line: people.}
+\label{fig:index}
+\end{figure}
+
+% ---------------------------------------------------------------------
+\section{Study 2: a given number pulls harder}
+\label{sec:s2}
+
+\begin{inshort}
+A starting number we give pulls harder than one the model thinks of itself, in both models. But thinking helped the large model in both cases, so the human pattern (effort helps only with your own number) did not fully appear.
+\end{inshort}
+
+\paragraph{An example: the Mario film.} The previous film earned \$1,361 million; the new one earned \$1,013 million. When the model had to recall the previous film itself, thinking brought its answer down to about 950. When we asked \enquote{higher or lower than \$1,361 million?}, it stayed near 1,350 (Figure~\ref{fig:mario}).
+
+\begin{transcript}[Given start, long thinking (answer 1,250)]
+\cut{} So the comparison would be lower than \$1.361 billion. My estimate would be around \$1.3 billion, maybe a bit less. \cut{}
+\end{transcript}
+
+\begin{figure}[ht]
+\centering\sfig[0.85\textwidth]{1}
+\caption{The Mario film. Green: the model recalled the previous film itself; purple: we gave it. Bars are middle answers.}
+\label{fig:mario}
+\end{figure}
+
+\paragraph{The main result.} Over the 9 usable questions, answers moved from the starting value towards the truth by 0.18, 0.53 and 0.62 (off, short, long) when the model used its own start, but only 0.00, 0.18 and 0.28 when we gave it (Figure~\ref{fig:s2}). Thinking helped in both versions, so the strong prediction failed. Not every question followed the Mario pattern: for asteroid Itokawa, long thinking reached the truth in both versions, because the model worked it out with Kepler's law.
+
+\begin{figure}[ht]
+\centering\sfig[0.7\textwidth]{3}
+\caption{How far the middle answer moved from the starting value (0) towards the truth (1). Qwen3-32B, no extra instruction.}
+\label{fig:s2}
+\end{figure}
+
+\paragraph{The small model} repeated a given start in 24--26\% of answers, against 10--16\% for its own, so the given number again pulled harder. But only about a quarter of its answers ended closer to the truth (large model: about 80\%), because it does not know these facts. Study~2 cannot be answered on it.
+
+% ---------------------------------------------------------------------
+\section{What we learned and what comes next}
+
+\begin{figure}[ht]
+\centering\rfig[0.75\textwidth]{ov_index}
+\caption{Anchoring index for near anchors in every Study 1 run. Dashed: old questions; solid: new, screened questions. On the new questions the large model (orange) is anchored about as much as people at every thinking level.}
+\label{fig:all}
+\end{figure}
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Anchoring needs uncertainty}: the same model goes from no anchoring to human-like anchoring once the questions are ones it does not know (Figure~\ref{fig:all}).
+  \item \textbf{Thinking is not a fix}: in the large model, short or long thinking gives the same anchoring as no thinking. This is the clearest result so far and a possible headline for the paper.
+  \item \textbf{Given numbers pull harder than self-generated ones}, in both models, as in people.
+  \item \textbf{Mechanism}: the thinking traces show the anchor choosing which \enquote{fact} the model recalls (Liechtenstein, Vettisfossen), which fits \emph{retrieving}; the numbers partly fit \emph{adjusting}. Reading more traces will settle this.
+\end{enumerate}
+
+\paragraph{Next steps.} (1) Run Qwen3-14B on both studies (about \$3) to compare model sizes within one family. (2) Read a sample of the large model's thinking traces with two coders. (3) Raise the thinking limits, since the short limit cut off most thinking. (4) Add more Study~2 questions like the asteroids and the Mario film.
+
+\paragraph{Limits.} This is still a pilot: two models, 10--15 questions per study, and some question-selection rules set after seeing the data. The numbers show directions, not final results. Full details, all figures and more examples are in the long version, \texttt{progress\_report.tex}.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}
