@@ -1,0 +1,57 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{csquotes}
+\usepackage{tcolorbox}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\setlist{itemsep=2pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\inshort}[1]{\begin{tcolorbox}[colback=gray!6,colframe=gray!50,title=\textbf{In short},fonttitle=\normalsize]#1\end{tcolorbox}}
+\newcommand{\header}[3]{%
+  {\Large\textbf{#1}}\par\smallskip
+  {\large #2}\par\smallskip
+  {\small Hannan Seyfi \textperiodcentered{} Supervisors: Dr.\ Shiva Kamkar and Dr.\ Babak Majidi \textperiodcentered{} Khatam University \textperiodcentered{} #3}\par
+  {\small Project: \emph{Adjusting or Retrieving? Testing the Mechanisms of Anchoring in Large Language Models}}\par\medskip\hrule\medskip}
+
+\begin{document}
+\header{Experiment 4: Screening new questions (round 2)}{Asteroids and 2026 events for Study 2}{26 October 2026}
+
+\inshort{\begin{itemize}[leftmargin=*]
+  \item To find Study~2 questions we added \textbf{54 asteroid orbits} and \textbf{39 questions about events of 2026}, which the models cannot know because they were trained earlier.
+  \item Most asteroids were too obscure, and for 2026 events the model could only guess whether a number went up or down.
+  \item \textbf{10 Study~2 questions} were picked: those where thinking clearly moves the answer from the starting value towards the truth.
+\end{itemize}}
+
+\section*{What we tested}
+Study~2 needs questions with a natural starting value that the model does not simply know. Two ideas: (1) little-known asteroids, where the natural start is one Earth year (365 days); (2) events of 2026 (Hannan's idea), where the natural start is the previous edition (for example, goals at the 2022 World Cup).
+
+\section*{How}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Questions:} 54 near-Earth asteroids (orbits checked with Kepler's law) and 39 events of 2026: the World Cup, the Winter Olympics, the Asian Games, the Commonwealth Games and 12 films.
+  \item \textbf{Models and asking:} as in Experiment 3, no anchor. 3,720 answers per model; \$0.44 for Qwen3-32B.
+\end{itemize}
+
+\section*{What we found}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Asteroids.} Bennu (true 437 days) shows what we hoped for: without thinking the model said about 366 days; with thinking it used Kepler's law and reached 433. But most of the 54 asteroids stayed at about 365 days with \emph{and} without thinking: the model knows nothing about them, so thinking has nothing to work with.
+  \item \textbf{2026 events, large model.} It always gave a number and its guesses started from the previous edition. But it expects numbers to grow, so it was usually right when the 2026 value went up and only about half the time when it went down (Germany's Winter Olympics golds: it guessed 13 to 17, previous 12, true 8). Thinking helped a little: closer to the truth than the previous value in 27 of 39 questions with thinking, 21 without.
+  \item \textbf{2026 events, small model.} Without thinking it refused almost every time (only 9 of 780 replies gave a number). With thinking its guesses were poor (within 25\% in only 6 of 39 questions).
+  \item \textbf{Two mistakes in our answer reader} were found: a refusal mentioning \enquote{2026} was read as the number 2026, and \enquote{\$400 million} was read as 400,000,000 when the question already asked in millions. Neither changes which questions were picked; both still need fixing in the code.
+  \item \textbf{New rule and picks.} We kept only questions where thinking moves the answer from the starting value towards the truth. 10 passed: Itokawa, Bennu, 4 other asteroids, 2 films (\emph{Super Mario Galaxy}, \emph{Now You See Me 3}) and 2 medal counts.
+\end{itemize}
+
+\section*{What it means}
+Study~2 now has 10 questions where thinking has something to work with. The 2026 questions solve the \enquote{model knows the answer} problem, but moving towards the truth there is partly luck, so the asteroid questions are the cleaner test.
+
+\textbf{Honest note:} the \enquote{thinking must move the answer} rule was added after seeing the data, and it picks questions where thinking helps by construction. What it does \emph{not} decide is whether thinking helps equally when we give the starting value, which is what Experiment~5 tests.
+
+\vfill
+{\small More detail: \texttt{full\_report.tex}, Step 5, and \texttt{events\_2026.tex} (all 39 questions and both models' answers).}
+\end{document}

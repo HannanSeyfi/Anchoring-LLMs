@@ -1,0 +1,58 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{csquotes}
+\usepackage{tcolorbox}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\setlist{itemsep=2pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\inshort}[1]{\begin{tcolorbox}[colback=gray!6,colframe=gray!50,title=\textbf{In short},fonttitle=\normalsize]#1\end{tcolorbox}}
+\newcommand{\header}[3]{%
+  {\Large\textbf{#1}}\par\smallskip
+  {\large #2}\par\smallskip
+  {\small Hannan Seyfi \textperiodcentered{} Supervisors: Dr.\ Shiva Kamkar and Dr.\ Babak Majidi \textperiodcentered{} Khatam University \textperiodcentered{} #3}\par
+  {\small Project: \emph{Adjusting or Retrieving? Testing the Mechanisms of Anchoring in Large Language Models}}\par\medskip\hrule\medskip}
+
+\begin{document}
+\header{Experiment 1: Pilot run 1 with a small model}{Does the method work, and does a small model anchor?}{24 October 2026}
+
+\inshort{\begin{itemize}[leftmargin=*]
+  \item A small model (1.5 billion parameters) was \textbf{strongly anchored}: about as strongly as, or more than, people in classic studies.
+  \item \textbf{Thinking roughly halved the anchoring}, but more thinking did not reduce it further.
+  \item Reading its thinking, the anchor acted at the moment the model \textbf{recalled} a value, not by slow step-by-step adjustment.
+\end{itemize}}
+
+\section*{What we tested}
+Two things. First, whether the whole pipeline works: send questions to a model, save every answer to GitHub, and produce the analysis automatically. Second, a first look at our research question: when a model is anchored, does it \emph{adjust} from the anchor and stop too early, or does the anchor make it \emph{retrieve} memories that fit the anchor?
+
+\section*{How}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Model:} DeepSeek-R1-Distill-Qwen-1.5B, on a free Colab T4 GPU (about 40 minutes, no cost).
+  \item \textbf{Questions:} 30 estimation questions, 15 for Study~1 and 15 for Study~2.
+  \item \textbf{Thinking levels:} off, low (up to 512 thinking tokens), high (up to 2,048).
+  \item \textbf{Study 1:} first we asked each question without an anchor to find the model's usual range. Then we asked \enquote{Is it higher or lower than X?} followed by \enquote{give your best estimate}, with 8 anchors per question (near or far, above or below, round or precise).
+  \item \textbf{Study 2:} questions with a familiar but wrong starting value (a chicken's body temperature, where 37\,\textdegree C is the human value). Either the model has to think of the starting value itself, or we give it.
+  \item \textbf{Size:} 7,200 answers.
+\end{itemize}
+
+\section*{What we found}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Strong anchoring.} The anchoring index (0 = no effect, 1 = answers move as far as the anchors) was 0.82 for near anchors with thinking off. People score about 0.49 in the classic study. With thinking it fell to 0.36 (low) and 0.44 (high).
+  \item \textbf{All or nothing.} Example: \enquote{How tall is Angel Falls?} (true 979\,m). After an anchor of 11,000\,m, 7 of 10 answers jumped near the anchor and 3 stayed near 980\,m. Single answers either ignored the anchor or copied it.
+  \item \textbf{How the anchor acts.} In 40 thinking traces we read, 31 settled on their first recalled value: the model's own value (23) or the anchor treated as a memory (8, e.g.\ \enquote{I've heard it's around 97,000 meters}). The textbook pattern, starting at the anchor and adjusting away, appeared only once.
+  \item \textbf{Problems.} \enquote{High} thinking was barely longer than \enquote{low} (about 550 vs 430 tokens), because the model stops by itself. With thinking off the model often ignored the answer format or refused. Study~2 showed nothing, because the model does not know the facts.
+\end{itemize}
+
+\section*{What it means}
+The method works from start to finish. The first signal favours \emph{retrieving} over \emph{adjusting}. But a 1.5B model is only a test of the method, so none of this is a result yet. Next we needed a stronger model (Experiment~2).
+
+\vfill
+{\small Full report: \texttt{pilot\_summary.tex} \textperiodcentered{} Data: \texttt{data/pilot/raw/r1-distill-qwen-1.5b/} in the GitHub repository.}
+\end{document}

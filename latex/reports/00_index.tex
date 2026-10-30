@@ -1,0 +1,75 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{csquotes}
+\usepackage{tcolorbox}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\setlist{itemsep=2pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\inshort}[1]{\begin{tcolorbox}[colback=gray!6,colframe=gray!50,title=\textbf{In short},fonttitle=\normalsize]#1\end{tcolorbox}}
+\newcommand{\header}[3]{%
+  {\Large\textbf{#1}}\par\smallskip
+  {\large #2}\par\smallskip
+  {\small Hannan Seyfi \textperiodcentered{} Supervisors: Dr.\ Shiva Kamkar and Dr.\ Babak Majidi \textperiodcentered{} Khatam University \textperiodcentered{} #3}\par
+  {\small Project: \emph{Adjusting or Retrieving? Testing the Mechanisms of Anchoring in Large Language Models}}\par\medskip\hrule\medskip}
+
+\begin{document}
+\header{Experiments so far: overview}{Seven experiments, 50,860 model answers, \$4.49 in total}{30 October 2026}
+
+So far we have run \textbf{seven experiments}: two pilot runs of the full design, two rounds of screening new questions, Study~1 on the new questions, and Study~2 on two models. Each has its own short summary in this folder.
+
+\begin{center}\small
+\begin{tabular}{@{}rp{4.3cm}p{3.1cm}rrl@{}}
+\toprule
+\# & Experiment & Model(s) & Answers & Cost & Summary file \\
+\midrule
+1 & Pilot run 1 (24 Oct) & R1-Distill-Qwen-1.5B & 7,200 & free & \texttt{exp1\_pilot\_run1} \\
+2 & Pilot run 2 (26 Oct) & Qwen3-32B & 7,200 & \$1.52 & \texttt{exp2\_pilot\_run2} \\
+3 & Screening, round 1 (26 Oct) & Qwen3-32B, 1.5B & 16,480 & \$0.97 & \texttt{exp3\_screening1} \\
+4 & Screening, round 2: asteroids and 2026 events (26 Oct) & Qwen3-32B, 1.5B & 7,440 & \$0.44 & \texttt{exp4\_screening2} \\
+5 & Study 2: own vs given starting value (29 Oct) & Qwen3-32B & 1,800 & \$0.62 & \texttt{exp5\_study2} \\
+6 & Study 1 on the new questions (30 Oct) & Qwen3-32B, 1.5B & 8,940 & \$0.94 & \texttt{exp6\_study1} \\
+7 & Study 2 on the small model (30 Oct) & R1-Distill-Qwen-1.5B & 1,800 & free & \texttt{exp7\_study2\_small} \\
+\midrule
+ & Total & & 50,860 & \$4.49 & \\
+\bottomrule
+\end{tabular}
+\end{center}
+{\small Small test runs before each experiment are not counted. The 1.5B model ran free on Colab; Qwen3-32B ran on DeepInfra.}
+
+\section*{The story in seven steps}
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Small model:} strongly anchored. The anchor acted when the model recalled a value, not by gradual adjustment.
+  \item \textbf{Large model:} it knew almost every answer, so it was hardly anchored (0.00 to 0.05). Where it was unsure, the anchor chose which memory won.
+  \item \textbf{Screening round 1:} 206 new questions tested without anchors; 15 good Study~1 questions picked that the large model does not know.
+  \item \textbf{Screening round 2:} asteroid orbits and 2026 events tried for Study~2; 10 questions picked where thinking moves the answer.
+  \item \textbf{Study 2, large model:} a given starting value pulls harder than the model's own. Thinking helped in both cases, so the strong human-based prediction was not supported.
+  \item \textbf{Study 1, new questions:} the large model is now anchored at a human-like level (0.35--0.45 for near anchors; people about 0.49), and \textbf{thinking longer does not reduce it}. The small model is anchored more (up to 0.83), often by copying the anchor, and there longer thinking does help.
+  \item \textbf{Study 2, small model:} again the given value pulls harder (it is repeated back twice as often), but the model knows too little to move towards the truth, so this test cannot be answered on it.
+\end{enumerate}
+
+\section*{What we know now}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Anchoring needs uncertainty.} When a model knows the answer, the anchor does nothing.
+  \item \textbf{On uncertain questions, thinking does not fix anchoring in the large model.} This fits the 2026 finding that bigger thinking budgets do not help.
+  \item \textbf{A given number pulls harder than a self-generated one}, in both models.
+  \item \textbf{Small and large models are anchored in different ways:} the small one copies, the large one shifts its whole range of answers.
+\end{itemize}
+
+\section*{A correction to Experiment 1}
+In Experiment~1 the small model with thinking off usually left out the \enquote{Estimate:} line, and the code then took the last number in its reply, which was often the anchor repeated back. Read strictly (only replies with the line), its near-anchor index with thinking off is 0.58 (10 questions), not 0.82. The values with thinking on barely change (0.36 and 0.44). From Experiment~6 on, the strict reading is used.
+
+\section*{What has not been run yet}
+Qwen3-14B on both studies (about \$3), to compare sizes inside one model family. Then: reading a sample of the large model's thinking traces to see \emph{how} it is anchored (the mechanism question of the project), and Study~2 again with higher thinking limits.
+
+\section*{Longer reports}
+For detail, see \texttt{full\_report.tex} (everything up to 27 October), \texttt{pilot\_summary.tex} (Experiment 1), \texttt{qwen3\_report.tex} (Experiment 2), \texttt{events\_2026.tex} (the 2026 questions in Experiment 4) and \texttt{study2\_qwen3.tex} (Experiment 5). Tables and figures for Experiments 6 and 7: \texttt{results/pilot\_v2/} in the GitHub repository.
+
+\end{document}
