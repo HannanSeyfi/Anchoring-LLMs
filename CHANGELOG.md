@@ -4,6 +4,19 @@ What changed in the pilot design and code, and why. The first question set and i
 as they were (`configs/pilot.yaml`, `data/items/`, `data/pilot/`), so earlier runs can still be
 reproduced.
 
+## Replies without an "Estimate:" line are no answer (2026-10-30, before Study 1 v2)
+
+- **What happened:** in pilot run 1, R1-Distill-Qwen-1.5B with thinking off left out the
+  "Estimate:" line in 274 of 300 baseline replies and 877 of 1,200 Study 1 replies. The parser then
+  took the last number in the reply, which was often the anchor repeated back ("Liechtenstein has
+  about 121,100 people. This is lower than 192,880,557" was read as 192,880,557) or a year from a
+  refusal ("as of 2024"). That makes the small model look more anchored than it is, and the
+  refusal years also widen the range the anchors are placed from.
+- **Fix** (`parsing.fallback: false` in `configs/pilot_v2.yaml`): a reply without an "Estimate:"
+  line counts as no answer. Qwen3-32B wrote the line in all 1,800 Study 2 replies, so its data is
+  unchanged. Pilot run 1 and its config stay as they were. Expect R1-Distill-1.5B to give few
+  answers with thinking off; the analysis reports that as its format rate.
+
 ## DeepInfra rate limits (2026-10-28)
 
 - **What happened:** the first Study 2 run of `qwen3-32b` stopped before any answer was saved

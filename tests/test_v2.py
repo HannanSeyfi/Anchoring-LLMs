@@ -49,6 +49,15 @@ def test_cut_off_replies_do_not_guess_a_number():
     assert parse_estimate("Estimate: 1,234", fallback=False) == 1234
 
 
+def test_replies_without_an_estimate_line_are_no_answer_in_v2():
+    cfg = run.load_config(REPO / "configs" / "pilot_v2.yaml")
+    assert run.run_options(cfg)["fallback"] is False
+    assert run.run_options({})["fallback"] is True      # older configs keep the old behaviour
+    echo = "Liechtenstein has about 121,100 people. This is lower than 192,880,557."
+    assert parse_estimate(echo) == 192880557            # the anchor, not the model's answer
+    assert parse_estimate(echo, fallback=False) is None
+
+
 def test_min_factor_keeps_anchors_away_from_a_confident_model():
     rng = plausible_range([100, 100, 101, 100, 99, 100, 100], (0.1, 0.9), 0.0)
     near_plain = make_anchor(rng, "high", 0.25, "round", False, key="k")
