@@ -1,0 +1,56 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{csquotes}
+\usepackage{tcolorbox}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\setlist{itemsep=2pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\inshort}[1]{\begin{tcolorbox}[colback=gray!6,colframe=gray!50,title=\textbf{In short},fonttitle=\normalsize]#1\end{tcolorbox}}
+\newcommand{\header}[3]{%
+  {\Large\textbf{#1}}\par\smallskip
+  {\large #2}\par\smallskip
+  {\small Hannan Seyfi \textperiodcentered{} Supervisors: Dr.\ Shiva Kamkar and Dr.\ Babak Majidi \textperiodcentered{} Khatam University \textperiodcentered{} #3}\par
+  {\small Project: \emph{Adjusting or Retrieving? Testing the Mechanisms of Anchoring in Large Language Models}}\par\medskip\hrule\medskip}
+
+\begin{document}
+\header{Experiment 2: Pilot run 2 with a large model}{The same test on Qwen3-32B}{26 October 2026}
+
+\inshort{\begin{itemize}[leftmargin=*]
+  \item The large model \textbf{already knew the answers} to almost all our questions, so it was \textbf{hardly anchored} at all.
+  \item Where it was unsure, the anchor worked by \textbf{choosing which half-remembered value won}.
+  \item Lesson: anchoring needs uncertainty. We needed new questions the model does not know.
+\end{itemize}}
+
+\section*{What we tested}
+Experiment 1 used a very small model that knew little and handled \enquote{thinking off} badly. Here we ran exactly the same design on a model 20 times larger.
+
+\section*{How}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Model:} Qwen3-32B, a model that can think or answer straight away. Run on DeepInfra (a paid cloud service): 88 minutes, \$1.52.
+  \item \textbf{Design:} unchanged from Experiment 1. The same 30 questions, the same three thinking levels, 7,200 answers.
+\end{itemize}
+
+\section*{What we found}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{The run worked cleanly.} Every answer had a number, \enquote{thinking off} worked properly, and \enquote{high} now meant about twice as much thinking as \enquote{low} (about 1,035 vs 485 tokens).
+  \item \textbf{The model knew the answers.} For 13 of the 15 Study~1 questions its usual answer was within 1\% of the truth. Angel Falls: 979\,m almost every time, and 238 of 240 anchored answers were exactly 979\,m.
+  \item \textbf{Almost no anchoring.} The anchoring index was 0.00 to 0.05 (Experiment 1: 0.36--0.58; people: about 0.49).
+  \item \textbf{Where it was unsure, the anchor picked the memory.} For the population of Liechtenstein (about 39,600) the model half-remembers both 39,000 and 390,000. A high anchor raised the share of \enquote{390,000} answers from 30\% to 50\%; a low anchor cut it to 5\%.
+  \item \textbf{Thinking off was more vulnerable.} Without thinking the model sometimes copied or overshot the anchor, and its \enquote{higher or lower} answer contradicted its own estimate 28\% of the time (0.3\% with high thinking).
+  \item \textbf{Study 2 could not test anything}: the model reached the true value from every starting point.
+\end{itemize}
+
+\section*{What it means}
+This does not show that large models resist anchoring. It shows that a model which \emph{knows} the answer is not anchored, as with people. The two runs fail in opposite ways (the small model knows too little, the large one too much) but agree on the mechanism: the anchor acts when the model recalls a value. Neither showed step-by-step adjustment. Next step: find questions the large model does not know (Experiments 3 and 4).
+
+\vfill
+{\small Full report: \texttt{qwen3\_report.tex} \textperiodcentered{} Data: \texttt{data/pilot/raw/qwen3-32b/} in the GitHub repository.}
+\end{document}

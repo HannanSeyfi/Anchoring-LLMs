@@ -1,58 +1,168 @@
 \documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage[margin=2.4cm]{geometry}
-\usepackage{microtype}
-\usepackage{booktabs}
-\usepackage{enumitem}
-\usepackage{textcomp}
-\usepackage{csquotes}
-\usepackage{tcolorbox}
-\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
-\setlist{itemsep=2pt,topsep=4pt}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{5pt}
-\newcommand{\inshort}[1]{\begin{tcolorbox}[colback=gray!6,colframe=gray!50,title=\textbf{In short},fonttitle=\normalsize]#1\end{tcolorbox}}
-\newcommand{\header}[3]{%
-  {\Large\textbf{#1}}\par\smallskip
-  {\large #2}\par\smallskip
-  {\small Hannan Seyfi \textperiodcentered{} Supervisors: Dr.\ Shiva Kamkar and Dr.\ Babak Majidi \textperiodcentered{} Khatam University \textperiodcentered{} #3}\par
-  {\small Project: \emph{Adjusting or Retrieving? Testing the Mechanisms of Anchoring in Large Language Models}}\par\medskip\hrule\medskip}
+\input{reports/style}
+\renewcommand{\shorttitle}{Experiment 1: Pilot run 1}
 
 \begin{document}
-\header{Experiment 1: Pilot run 1 with a small model}{Does the method work, and does a small model anchor?}{24 October 2026}
+\reporttitle{Experiment 1}{Pilot Run 1: A Small Model}{Testing the whole method on R1-Distill-Qwen-1.5B}{24 October 2026 (corrected 30 October)}
 
-\inshort{\begin{itemize}[leftmargin=*]
-  \item A small model (1.5 billion parameters) was \textbf{clearly anchored}: about as strongly as people in classic studies.
-  \item \textbf{Thinking roughly halved the anchoring}, but more thinking did not reduce it further.
-  \item Reading its thinking, the anchor acted at the moment the model \textbf{recalled} a value, not by slow step-by-step adjustment.
-\end{itemize}}
+\begin{plainabstract}
+Before spending money on large models, we tested the complete method on a small, free model: R1-Distill-Qwen-1.5B, run on a Colab GPU. It answered 30 estimation questions, 7,200 times in all, with thinking off, short or long. The method worked from start to finish: questions went to the model, answers were saved to GitHub, and the tables and figures were produced automatically. The model was clearly anchored. After a \enquote{higher or lower than X?} question its answers moved 36--44\% of the way towards the anchors with thinking on (people: about 49\%), and 58\% with thinking off, although that value rests on only 10 questions. Single answers were all-or-nothing: the model either kept its own value or jumped to the anchor. Reading 40 of its thinking traces showed that the anchor acts at the moment the model first \enquote{remembers} a value; step-by-step adjustment away from the anchor appeared only once. The model knows almost none of the facts, so these numbers test the method, not our hypotheses.
+\end{plainabstract}
 
-\section*{What we tested}
-Two things. First, whether the whole pipeline works: send questions to a model, save every answer to GitHub, and produce the analysis automatically. Second, a first look at our research question: when a model is anchored, does it \emph{adjust} from the anchor and stop too early, or does the anchor make it \emph{retrieve} memories that fit the anchor?
+\begin{keynumbers}
+Model & R1-Distill-Qwen-1.5B (1.5 billion parameters), free Colab T4 GPU, about 40 minutes \\
+Questions & 15 Study~1 questions (canal lengths, waterfalls, populations\dots) and 15 Study~2 questions (boiling points, body temperatures\dots) \\
+Answers & 7,200: 900 without an anchor, 3,600 Study~1, 2,700 Study~2 \\
+Main result & Clear anchoring (index 0.36--0.58); answers all-or-nothing; anchor acts on the first recalled value \\
+Status & Method works; this model is too small for the actual research questions \\
+\end{keynumbers}
 
-\section*{How}
+\begin{cautionbox}[Correction (30 October 2026).]
+With thinking off, this model usually left out the requested \texttt{Estimate:} line. The first version of this report then used the last number in the reply, which was often the anchor repeated back or a year from a refusal. All numbers here count only replies with the \texttt{Estimate:} line. The thinking-off anchoring index is 0.58 (10 questions), not 0.82; the values with thinking change by less than 0.01.
+\end{cautionbox}
+
+\section{Why this experiment}
+
+The project asks why language models anchor, by testing the two explanations that psychology offers for people: \textbf{adjusting} (start at the anchor and move away, but not far enough) and \textbf{retrieving} (the anchor brings facts that fit it to mind). The full design has two studies. \textbf{Study~1} gives the model an anchor in a \enquote{higher or lower than X?} question and varies its distance and precision. \textbf{Study~2} compares an anchor the model thinks of itself with the same anchor given to it.
+
+This first run had a practical goal: check that every part of the method works before using paid models. We used a model small enough to run for free.
+
+\section{What we did}
+
+\subsection{Questions}
+\textbf{Study~1:} 15 questions a model might half-know, from the length of the Panama Canal (82\,km) and the height of Angel Falls (979\,m) to the population of Liechtenstein (39,600) and the number of lakes in Finland (187,888). \textbf{Study~2:} 15 questions with a familiar but wrong starting value: water boils at 100\,°C (but not on a mountain), a year is 365 days (but not on Ceres), a human's temperature is 37\,°C (but not a chicken's).
+
+\subsection{Steps}
+\begin{enumerate}[leftmargin=*]
+  \item Each Study~1 question without an anchor, 20 times per thinking level, to find the model's usual range.
+  \item Eight anchors per question: below or above that range, near or far, round or precise.
+  \item Each anchor in the classic form: \enquote{Is it higher or lower than X? Then give your best estimate.} 10 answers per condition.
+  \item Study~2: own or given starting value, three instructions (none, \enquote{accuracy matters}, \enquote{consider why it might be different}), 10 answers each.
+\end{enumerate}
+Thinking was off, short (at most 512 tokens) or long (at most 2,048 tokens).
+
+\subsection{Measures}
+The \textbf{anchoring index} \citep{jacowitz1995measures}: how far the middle answer after a high anchor is from the one after a low anchor, as a share of the distance between the anchors. 0 = no effect, 1 = answers follow the anchors all the way. People score about 0.49. We also counted what single answers did, and read 40 thinking traces.
+
+\section{Results}
+
+\subsection{One question in detail: Angel Falls}
+
+Without an anchor, the small model's answers to \enquote{How tall is Angel Falls?} ranged from 147\,m to 13,000\,m (true: 979\,m). With the near high anchor of 11,000\,m, it \enquote{remembered} a number near the anchor and invented a supporting fact:
+
+\begin{transcript}[Anchor 11,000\,m, short thinking (final answer 11,700\,m)]
+\who{Thinking} \cut{} I know that 11,000 meters is a pretty tall height. I'm pretty sure Angel Falls is taller than that because I've heard it's over 10,000 meters. Maybe around 11,700 meters? \cut{} For example, the waterfall at Lake Eder in Chile is about 10,974 meters, so Angel Falls must be a bit taller. \cut{}
+\who{Answer} Comparison: higher. Estimate: 11,700 meters
+\end{transcript}
+
+Another answer to the same prompt rejected the anchor as \enquote{a myth}, yet \enquote{remembered} 9,700\,m, ten times the truth and close to the anchor's size:
+
+\begin{transcript}[Anchor 11,000\,m, short thinking (final answer 9,700\,m)]
+\who{Thinking} \cut{} I think it's somewhere around 9,700 meters tall. \cut{} I don't think Angel Falls is higher than 11,000 meters. In fact, 11,000 meters is a myth because Angel Falls is actually shorter than that. \cut{}
+\who{Answer} Comparison: lower. Estimate: 9700
+\end{transcript}
+
+\begin{figure}[ht]
+\centering\ffig{3}
+\caption{Every answer to \enquote{How tall is Angel Falls?} with short thinking. Orange triangles: the anchors; shaded band: the usual range; line: the true height. After the near high anchor, 7 of 10 answers jumped to the anchor's neighbourhood; after the far high anchor, 6 of 10 stayed near the usual answer and 3 copied the anchor.}
+\label{fig:angel}
+\end{figure}
+
+\begin{keybox}[Single answers are all-or-nothing.]
+The anchor tends to win completely or lose completely: the model gives either its own value or a value next to the anchor, rarely something in between. An average over such a mix can look like \enquote{partial adjustment} even when no single answer was adjusted.
+\end{keybox}
+
+\subsection{How strong is the anchoring?}
+
+With near anchors the index was 0.58 with thinking off, 0.36 with short and 0.44 with long thinking (Figure~\ref{fig:index}, blue line). Far anchors gave 0.25, 0.14 and 0.16; those are lower partly by construction, since far anchors are further apart. Without thinking the model gave a proper answer in only about 1 reply in 5, so the thinking-off value rests on 10 questions and has a wide interval.
+
+\begin{figure}[ht]
+\centering\ffig[0.68\textwidth]{4}
+\caption{Anchoring index for near anchors with 95\% intervals. Blue: this run. Orange: Qwen3-32B in Experiment~2, for comparison. Grey: people in the classic study, with differently placed anchors.}
+\label{fig:index}
+\end{figure}
+
+\subsection{Did the model think more when allowed to?}
+Barely (Figure~\ref{fig:tokens}). With the short limit it used most of its 512 tokens and was stopped in 43\% of Study~1 answers. With the long limit it could use 2,048 but used only about 554, because it decided it was done. For this model, \enquote{long} hardly differed from \enquote{short}.
+
+\begin{figure}[ht]
+\centering\ffig{7}
+\caption{How long the models actually thought, against their limit. Blue: this run; orange: Experiment~2.}
+\label{fig:tokens}
+\end{figure}
+
+\subsection{Adjusting or retrieving? The near/far test}
+
+Adjusting predicts that answers after a far anchor stop at the edge of the usual range; retrieving predicts that they move by the same share as after a near anchor. With thinking on, the median shift after far anchors (0.26--0.29) sat at or below the edge prediction (0.34), well below the near shift (0.50). On medians alone this looks like adjusting. But the single answers explain it differently (Figure~\ref{fig:outcomes}): far anchors are simply copied less often than near ones (15--18\% vs 28--31\%), which lowers the median. The medians do not show adjustment; they show a mix of copies and non-copies.
+
+\begin{figure}[ht]
+\centering\ffig{5}
+\caption{What single answers did after an anchor above the usual range (300 answers per row). \enquote{Copied} means within 10\% of the anchor. With thinking off, 81--82\% of replies had no \texttt{Estimate:} line.}
+\label{fig:outcomes}
+\end{figure}
+
+\subsection{Reading the thinking}
+
+We read 40 randomly chosen traces (anchor above the range, thinking on) and coded what the thinking did (Figure~\ref{fig:traces}). In 31 of 40 the first value the model committed to was its final answer: its own value in 23, the anchor treated as a memory in 8. In 4 the model recalled its own value and was then pushed towards the anchor. Only 1 trace showed the textbook pattern of starting at the anchor and adjusting away.
+
+\begin{figure}[ht]
+\centering\ffig{6}
+\caption{What the thinking did in 40 random traces.}
+\label{fig:traces}
+\end{figure}
+
+\begin{transcript}[Real examples from the 40 traces (anchor in brackets)]
+\who{Kept own value} Lhasa [19,290\,m]: \enquote{I think around 3,800 meters \cut{} Lhasa is about 3,867 meters above sea level.} Final: 3,867.
+\who{Anchor as memory} Angel Falls [99,000\,m]: \enquote{I've heard it's around 97,000 meters tall.} Final: 97,000.
+\who{Pushed to anchor} London Underground [417,916 stations]: counts about 40 stations, then \enquote{Looking it up, the London Underground has around 417,916 stations.} Final: 417,916.
+\who{Adjusting} Malta [170,000,000\,km$^2$]: \enquote{I think Malta's land area is around 170 million \cut{} that doesn't make sense because it's a small island \cut{} around 500,000.} Final: 500,000.
+\end{transcript}
+
+\paragraph{Precise or round.} Precise anchors (11,180) shifted answers more than round ones (11,000), by about 0.11--0.12 on the shift scale with thinking on. In people this points to adjusting \citep{janiszewski2008precision}; here part of it may be borrowed digits (after an anchor of 173,200,000\,km$^2$ for Malta, one answer was 173,000).
+
+\subsection{Study 2}
+Inconclusive. The model does not know these facts, so it has nothing to adjust towards. It did start from the intended starting value but often moved the wrong way:
+
+\begin{transcript}[Chicken body temperature, own start, short thinking (final answer 35.5\,°C; true 41.5)]
+\cut{} I know that for humans, the average body temperature is around 37 degrees Celsius. But I'm not sure about chickens. Maybe they're similar? \cut{} I've heard somewhere that adult chickens are around 35-36 degrees.
+\end{transcript}
+
+\subsection{Data quality}
+\begin{center}\small
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+Part & Thinking & Usable answer & Thinking tokens & Stopped at limit \\
+\midrule
+No anchor & off / short / long & 0\% / 93\% / 94\% & 0 / 436 / 556 & -- / 49\% / 1\% \\
+Study 1 & off / short / long & 17\% / 99\% / 98\% & 0 / 431 / 554 & -- / 43\% / 1\% \\
+Study 2 & off / short / long & 9\% / 98\% / 96\% & 0 / 475 / 946 & -- / 67\% / 15\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+With thinking off, this model mostly refused (\enquote{I am sorry, I cannot answer that question}) or ignored the format; it is trained to always think first. 11 of 120 \enquote{far below} anchors came out as 0 or negative because the model's ranges were so wide; they were dropped, and the code now refuses to place such anchors.
+
+\section{What it means}
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{The method works} end to end, including saving to GitHub from Colab and automatic analysis.
+  \item \textbf{A first mechanism signal:} the anchor acts at the moment a value is recalled. The model either recalls its own value or takes the anchor as a memory, often with an invented confirmation. Step-by-step adjustment was rare (1 of 40). This leans towards \emph{retrieving}, but it is one small, confused model read by one reader.
+  \item \textbf{Medians can mislead:} an \enquote{adjusting-like} median pattern came from fewer copies after far anchors. Any mechanism claim must look at single answers and traces, not only at averages.
+\end{enumerate}
+
+\begin{cautionbox}[Limits.]
+A 1.5B model knows almost none of these facts and cannot use \enquote{thinking off}. Its numbers are a test of the method, not evidence for the paper. The long limit made little difference because the model stopped thinking by itself.
+\end{cautionbox}
+
+\section{What came next}
+Move to a large model that knows facts and can switch thinking off (Qwen3-32B, Experiment~2); add an option to force longer thinking; keep the small model only as a cheap check.
+
+\appendix
+\section{Data and files}
 \begin{itemize}[leftmargin=*]
-  \item \textbf{Model:} DeepSeek-R1-Distill-Qwen-1.5B, on a free Colab T4 GPU (about 40 minutes, no cost).
-  \item \textbf{Questions:} 30 estimation questions, 15 for Study~1 and 15 for Study~2.
-  \item \textbf{Thinking levels:} off, low (up to 512 thinking tokens), high (up to 2,048).
-  \item \textbf{Study 1:} first we asked each question without an anchor to find the model's usual range. Then we asked \enquote{Is it higher or lower than X?} followed by \enquote{give your best estimate}, with 8 anchors per question (near or far, above or below, round or precise).
-  \item \textbf{Study 2:} questions with a familiar but wrong starting value (a chicken's body temperature, where 37\,\textdegree C is the human value). Either the model has to think of the starting value itself, or we give it.
-  \item \textbf{Size:} 7,200 answers.
+  \item Raw answers: \texttt{data/pilot/raw/r1-distill-qwen-1.5b/}; questions: \texttt{data/items/}
+  \item Trace reading: \texttt{results/pilot/trace\_reading\_run1.md}; settings: \texttt{configs/pilot.yaml}
+  \item Longer report: \texttt{pilot\_summary.tex}; figures from \texttt{full\_report\_figures.pdf}
 \end{itemize}
 
-\section*{What we found}
-\begin{itemize}[leftmargin=*]
-  \item \textbf{Strong anchoring.} The anchoring index (0 = no effect, 1 = answers move as far as the anchors) was 0.58 for near anchors with thinking off (corrected from 0.82, see the overview; only 10 questions, because without thinking the model rarely gave a proper answer). People score about 0.49 in the classic study. With thinking it was 0.36 (low) and 0.44 (high).
-  \item \textbf{All or nothing.} Example: \enquote{How tall is Angel Falls?} (true 979\,m). After an anchor of 11,000\,m, 7 of 10 answers jumped near the anchor and 3 stayed near 980\,m. Single answers either ignored the anchor or copied it.
-  \item \textbf{How the anchor acts.} In 40 thinking traces we read, 31 settled on their first recalled value: the model's own value (23) or the anchor treated as a memory (8, e.g.\ \enquote{I've heard it's around 97,000 meters}). The textbook pattern, starting at the anchor and adjusting away, appeared only once.
-  \item \textbf{Problems.} \enquote{High} thinking was barely longer than \enquote{low} (about 550 vs 430 tokens), because the model stops by itself. With thinking off the model often ignored the answer format or refused. Study~2 showed nothing, because the model does not know the facts.
-\end{itemize}
-
-\section*{What it means}
-The method works from start to finish. The first signal favours \emph{retrieving} over \emph{adjusting}. But a 1.5B model is only a test of the method, so none of this is a result yet. Next we needed a stronger model (Experiment~2).
-
-\vfill
-{\small Full report: \texttt{pilot\_summary.tex} \textperiodcentered{} Data: \texttt{data/pilot/raw/r1-distill-qwen-1.5b/} in the GitHub repository.}
+\bibliographystyle{plainnat}
+\bibliography{references}
 \end{document}

@@ -1,0 +1,59 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{csquotes}
+\usepackage{tcolorbox}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\setlist{itemsep=2pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\inshort}[1]{\begin{tcolorbox}[colback=gray!6,colframe=gray!50,title=\textbf{In short},fonttitle=\normalsize]#1\end{tcolorbox}}
+\newcommand{\header}[3]{%
+  {\Large\textbf{#1}}\par\smallskip
+  {\large #2}\par\smallskip
+  {\small Hannan Seyfi \textperiodcentered{} Supervisors: Dr.\ Shiva Kamkar and Dr.\ Babak Majidi \textperiodcentered{} Khatam University \textperiodcentered{} #3}\par
+  {\small Project: \emph{Adjusting or Retrieving? Testing the Mechanisms of Anchoring in Large Language Models}}\par\medskip\hrule\medskip}
+
+\begin{document}
+\header{Experiment 3: Screening new questions (round 1)}{Finding questions the model does not know}{26 October 2026}
+
+\inshort{\begin{itemize}[leftmargin=*]
+  \item We wrote \textbf{206 new questions} and tested each one \emph{without} an anchor, to see whether the model knows the answer.
+  \item Qwen3-32B knew most of them (94 of 137 for Study~1). What it did not know were numbers it has to work out, such as distances between cities or the windows of Versailles.
+  \item \textbf{15 new Study~1 questions} were picked. Study~2 was still a problem: only 2 usable questions.
+\end{itemize}}
+
+\section*{What we tested}
+Experiment 2 showed that anchoring needs questions the model is unsure about. So before running anchors again, we \emph{screened} candidate questions: ask each one many times with no anchor and keep only those where the model's answers vary and are rarely correct.
+
+\section*{How}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Questions:} 206 candidates (137 for Study~1, 69 for Study~2), every true value checked on Wikipedia.
+  \item \textbf{Models:} Qwen3-32B on DeepInfra (\$0.97) and the small 1.5B model on a free Colab GPU.
+  \item \textbf{Asking:} each question 20 times with thinking off and 20 times with low thinking, no anchor. 8,240 answers per model.
+  \item \textbf{Keep rules (Study 1):} the large model gives the true value (within 2\%) at most half the time, its answers spread widely but not absurdly, and at most 3 questions per topic.
+\end{itemize}
+
+\section*{What we found}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{The large model knows a lot}: 94 of 137 Study~1 questions and 57 of 69 Study~2 questions, usually with the same number every time.
+  \item \textbf{Example of a good question:} \enquote{How many windows does the Palace of Versailles have?} (true 2,143). The model's answers ran from about 1,300 to 14,100 and none was correct. An anchor has room to pull here.
+  \item \textbf{The small model refused half the time with thinking off}, whatever the question (\enquote{I am sorry, I cannot answer that question\ldots}). So for the small model we check only answers with thinking on.
+  \item \textbf{Picked:} 23 Study~1 questions passed and the best 15 were kept (for example Lake Bled's area, Vettisfossen waterfall, the Azadi Tower).
+  \item \textbf{Study 2:} the model jumped straight to the true value instead of starting from 365 days, 100\,\textdegree C and so on. Only two asteroid orbits stayed near the starting value without thinking (Itokawa: 369 days without thinking, about 540 with; true 557).
+\end{itemize}
+
+\section*{What it means}
+Screening is a cheap way (under \$1) to make sure our anchoring questions actually test anchoring. Study~1 now has a good question set. Study~2 needed new kinds of questions, which led to Experiment~4.
+
+\textbf{Honest note:} two keep rules were adjusted after seeing the screening data. The paper must say so.
+
+\vfill
+{\small More detail: \texttt{full\_report.tex}, Step 4 \textperiodcentered{} Screening report: \texttt{results/screen\_v2/screening.md} in the GitHub repository.}
+\end{document}

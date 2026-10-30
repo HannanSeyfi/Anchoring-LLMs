@@ -1,59 +1,159 @@
 \documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage[margin=2.4cm]{geometry}
-\usepackage{microtype}
-\usepackage{booktabs}
-\usepackage{enumitem}
-\usepackage{textcomp}
-\usepackage{csquotes}
-\usepackage{tcolorbox}
-\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
-\setlist{itemsep=2pt,topsep=4pt}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{5pt}
-\newcommand{\inshort}[1]{\begin{tcolorbox}[colback=gray!6,colframe=gray!50,title=\textbf{In short},fonttitle=\normalsize]#1\end{tcolorbox}}
-\newcommand{\header}[3]{%
-  {\Large\textbf{#1}}\par\smallskip
-  {\large #2}\par\smallskip
-  {\small Hannan Seyfi \textperiodcentered{} Supervisors: Dr.\ Shiva Kamkar and Dr.\ Babak Majidi \textperiodcentered{} Khatam University \textperiodcentered{} #3}\par
-  {\small Project: \emph{Adjusting or Retrieving? Testing the Mechanisms of Anchoring in Large Language Models}}\par\medskip\hrule\medskip}
+\input{reports/style}
+\renewcommand{\shorttitle}{Experiment 3: Screening, round 1}
 
 \begin{document}
-\header{Experiment 3: Screening new questions (round 1)}{Finding questions the model does not know}{26 October 2026}
+\reporttitle{Experiment 3}{Screening New Questions, Round 1}{Finding questions the large model does not know}{26 October 2026}
 
-\inshort{\begin{itemize}[leftmargin=*]
-  \item We wrote \textbf{206 new questions} and tested each one \emph{without} an anchor, to see whether the model knows the answer.
-  \item Qwen3-32B knew most of them (94 of 137 for Study~1). What it did not know were numbers it has to work out, such as distances between cities or the windows of Versailles.
-  \item \textbf{15 new Study~1 questions} were picked. Study~2 was still a problem: only 2 usable questions.
-\end{itemize}}
+\begin{plainabstract}
+Experiment~2 failed because Qwen3-32B knew the answers, and anchoring needs uncertainty. So we added a new step: write many candidate questions, ask each one 40 times without any anchor, and keep only those the model is unsure about. We wrote 206 candidates (137 for Study~1, 69 for Study~2) and checked every true value on Wikipedia. The large model knew most of them: 94 of the 137 Study~1 questions and 57 of the 69 Study~2 questions, usually giving the same number every time. What it did not know were numbers it has to work out or estimate: distances between cities, the number of windows in the Palace of Versailles, the area of a small lake. Applying fixed rules (the model gives the true value in at most half of its answers; its answers vary enough, but not wildly), we picked 15 new Study~1 questions. Versailles is a good example: the model switches between two \enquote{memories}, about 1,300 and about 14,000 windows (true 2,143), so an anchor has room to work. Study~2 was harder: the model went straight to the true value for classic questions, so only two usable questions were found, which led to Experiment~4. The screening cost \$0.97.
+\end{plainabstract}
 
-\section*{What we tested}
-Experiment 2 showed that anchoring needs questions the model is unsure about. So before running anchors again, we \emph{screened} candidate questions: ask each one many times with no anchor and keep only those where the model's answers vary and are rarely correct.
+\begin{keynumbers}
+Models & Qwen3-32B (DeepInfra, \$0.97) picks the questions; R1-Distill-Qwen-1.5B (free) checks that it answers with a number \\
+Candidates & 206 new questions (137 Study~1, 69 Study~2), true values checked on Wikipedia \\
+Answers & 16,480: 40 per question per model, no anchors (thinking off and short) \\
+Main result & The large model knew 94/137 Study~1 and 57/69 Study~2 candidates. 15 Study~1 questions picked. \\
+Open problem & Only 2 usable Study~2 questions (solved in Experiment~4) \\
+\end{keynumbers}
 
-\section*{How}
+\section{Why this experiment}
+A question is only useful for anchoring if the model is unsure of the answer. In people, anchors have their largest effects when people do not know the answer \citep{jacowitz1995measures}. We cannot guess in advance what a model knows, so we test it: \textbf{screening}. The questions are picked with Qwen3-32B, the largest model we use, because a question it does not know is unlikely to be known by a smaller one.
+
+\section{What we did}
+
+\subsection{The candidates}
+We wrote 137 Study~1 candidates across lakes, islands, mountains, city distances, steps, tunnels and bridges, waterfalls, towers, parks, space, canals, race tracks, architecture, biology and borders, aiming at details a model may have read once but not memorised. The 69 Study~2 candidates each have a familiar starting value (gravity on Mars vs Earth, boiling points, asteroid orbits vs one Earth year, US states). Every true value has a documented source.
+
+\subsection{How screening works}
+Each candidate was asked 20 times with thinking off and 20 times with short thinking, without an anchor. From these 40 answers:
 \begin{itemize}[leftmargin=*]
-  \item \textbf{Questions:} 206 candidates (137 for Study~1, 69 for Study~2), every true value checked on Wikipedia.
-  \item \textbf{Models:} Qwen3-32B on DeepInfra (\$0.97) and the small 1.5B model on a free Colab GPU.
-  \item \textbf{Asking:} each question 20 times with thinking off and 20 times with low thinking, no anchor. 8,240 answers per model.
-  \item \textbf{Keep rules (Study 1):} the large model gives the true value (within 2\%) at most half the time, its answers spread widely but not absurdly, and at most 3 questions per topic.
+  \item \textbf{known:} the share of answers within 2\% of the true value;
+  \item \textbf{spread:} $\log_{10}$(90th percentile / 10th percentile) of the answers. 0 = the same answer every time; 0.3 = the high answers are twice the low ones; 1 = ten times;
+  \item \textbf{adjustment} (Study~2): how far the middle answer moved from the starting value (0) towards the truth (1);
+  \item \textbf{parsed:} the share of answers with a number.
 \end{itemize}
 
-\section*{What we found}
+\subsection{The rules for Study 1}
+\begin{enumerate}[leftmargin=*]
+  \item at least 75\% of answers contain a number;
+  \item at most 50\% of answers within 2\% of the truth, at any thinking level;
+  \item spread between 0.1 and 2.0, averaged over the two levels;
+  \item the middle answer no more than 10 times off the truth (otherwise the question may be unclear, e.g.\ a unit problem);
+  \item at most 3 questions per topic; pick the 15 with the largest spread.
+\end{enumerate}
+
+\section{Results}
+
+\subsection{A worked example: the windows of Versailles}
+The true number is 2,143. With thinking off, the middle 80\% of Qwen3-32B's answers ran from 1,290 to 14,100 and the middle answer was 1,350; none of the 40 answers was within 2\% of the truth.
+
+\begin{transcript}[Versailles windows, thinking off (answer 1,350)]
+The Palace of Versailles is a vast and complex structure with numerous rooms, halls, and wings. \cut{} Official sources and well-documented accounts suggest that the main palace has approximately 1,300 to 1,400 windows. Estimate: 1350
+\end{transcript}
+
+\begin{transcript}[Versailles windows, short thinking (answer 14,000)]
+\cut{} I think it's around 700 rooms. \cut{} If there are 700 rooms and each has an average of 3 windows, that would be 2100 windows. But that seems low \cut{} Wait, I think I've heard that the Palace of Versailles has around 14,000 windows. \cut{} If the palace has 700 rooms and each has an average of 20 windows, that would be 14,000.
+\end{transcript}
+
+As with Liechtenstein in Experiment~2, the model has two \enquote{memories}, and its own calculation (2,100) was very close to the truth before it rejected it (Figure~\ref{fig:twomem}). Its spread is 1.04: an anchor has room to work.
+
+\begin{figure}[ht]
+\centering\ffig{11}
+\caption{Two memories. Left: Liechtenstein in Experiment~2, no anchor. Right: Versailles windows in this screening; the model switches between about 1,300 and about 14,000 (true 2,143). Logarithmic axes.}
+\label{fig:twomem}
+\end{figure}
+
+\subsection{What the large model knew}
 \begin{itemize}[leftmargin=*]
-  \item \textbf{The large model knows a lot}: 94 of 137 Study~1 questions and 57 of 69 Study~2 questions, usually with the same number every time.
-  \item \textbf{Example of a good question:} \enquote{How many windows does the Palace of Versailles have?} (true 2,143). The model's answers ran from about 1,300 to 14,100 and none was correct. An anchor has room to pull here.
-  \item \textbf{The small model refused half the time with thinking off}, whatever the question (\enquote{I am sorry, I cannot answer that question\ldots}). So for the small model we check only answers with thinking on.
-  \item \textbf{Picked:} 23 Study~1 questions passed and the best 15 were kept (for example Lake Bled's area, Vettisfossen waterfall, the Azadi Tower).
-  \item \textbf{Study 2:} the model jumped straight to the true value instead of starting from 365 days, 100\,\textdegree C and so on. Only two asteroid orbits stayed near the starting value without thinking (Itokawa: 369 days without thinking, about 540 with; true 557).
+  \item It knew 94 of 137 Study~1 candidates and 57 of 69 Study~2 candidates, usually giving the same number every time.
+  \item What it did not know were numbers it has to estimate or work out: distances between cities, the windows of Versailles, details such as the area of Lake Bled.
+  \item In Study~2 it went straight to the true value instead of starting from 365 days or 100\,°C. Only two asteroid orbits stayed near the starting value without thinking (Itokawa: about 369 days with thinking off, about 540 with thinking; true 557).
 \end{itemize}
 
-\section*{What it means}
-Screening is a cheap way (under \$1) to make sure our anchoring questions actually test anchoring. Study~1 now has a good question set. Study~2 needed new kinds of questions, which led to Experiment~4.
+\begin{figure}[ht]
+\centering\ffig{12}
+\caption{All 137 Study~1 candidates. Across: how often Qwen3-32B gave the true value. Up: how much its answers varied. Shaded: the keep zone. Orange: the 15 picked questions; grey dots inside the zone were left out by the topic limit or the 10-times-off rule.}
+\label{fig:s1screen}
+\end{figure}
 
-\textbf{Honest note:} two keep rules were adjusted after seeing the screening data. The paper must say so.
+\begin{figure}[ht]
+\centering\ffig{13}
+\caption{Why candidates were left out (a question can fail several rules).}
+\label{fig:reasons}
+\end{figure}
 
-\vfill
-{\small More detail: \texttt{full\_report.tex}, Step 4 \textperiodcentered{} Screening report: \texttt{results/screen\_v2/screening.md} in the GitHub repository.}
+\subsection{The small model}
+With thinking off, the small model refused almost always. Of its 3,371 answers without a number, 2,846 were the same sentence: \enquote{I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses.} Read strictly (only replies with an \texttt{Estimate:} line), it answered in only 0.1\% (Study~1) and 3\% (Study~2) of replies without thinking. Its \enquote{gives a number} rule is therefore checked only with thinking on, where it answered in more than 97\% of replies.
+
+\subsection{The 15 new Study 1 questions}
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}rlrrr@{}}
+\toprule
+& Question (short) & True & Middle 80\%, off & Known \\
+\midrule
+1 & Windows of the Palace of Versailles & 2,143 & 1,290 -- 14,100 & 0\% \\
+2 & Surface area of Lake Bled, km$^2$ & 1.45 & 1.49 -- 4.32 & 0\% \\
+3 & Surface area of Lake Hallstatt, km$^2$ & 8.55 & 1.59 -- 13.05 & 10\% \\
+4 & Distance Wellington -- Santiago, km & 9,351 & 6,660 -- 14,830 & 5\% \\
+5 & Free fall of Vettisfossen waterfall, m & 275 & 64.5 -- 182 & 0\% \\
+6 & Maximum depth of Lake Neusiedl, m & 1.8 & 2 -- 4.5 & 5\% \\
+7 & Border between Andorra and Spain, km & 64 & 119.8 -- 253 & 25\% \\
+8 & Distance Kathmandu -- Nairobi, km & 6,097 & 5,880 -- 7,330 & 15\% \\
+9 & Main tower of the Kuwait Towers, m & 187 & 128 -- 267.1 & 30\% \\
+10 & Total height of the Krimml Waterfalls, m & 380 & 380 -- 715 & 40\% \\
+11 & Arlberg Road Tunnel, km & 13.97 & 6.8 -- 10.87 & 35\% \\
+12 & Steps of the Niesen funicular stairway & 11,674 & 1,160 -- 1,325 & 0\% \\
+13 & Distance Anchorage -- Honolulu, km & 4,481 & 2,546 -- 3,833 & 0\% \\
+14 & Height of Alam-Kuh in Iran, m & 4,850 & 3,409 -- 4,941 & 5\% \\
+15 & Height of the Azadi Tower in Tehran, m & 45 & 43.18 -- 54 & 0\% \\
+\bottomrule
+\end{tabular}
+\caption{The 15 picked questions, most unsure first. \enquote{Known}: the highest share of answers within 2\% of the truth over the two levels.}
+\end{table}
+
+\begin{figure}[ht]
+\centering\ffig{9}
+\caption{How sure Qwen3-32B is on the 15 new questions: the middle 80\% of 20 answers divided by the true value; light: thinking off, dark: short thinking. Compare Experiment~2, where its bars were dots. Now there is room for an anchor to pull.}
+\end{figure}
+
+\subsection{Changes to the pipeline}
+\begin{center}\small
+\begin{tabularx}{\textwidth}{@{}P{5.4cm}L@{}}
+\toprule
+Change & Why \\
+\midrule
+Answer limit 512 $\to$ 1,536 tokens & 16\% of Qwen3-32B's Study~2 replies without thinking were cut off before the estimate \\
+A cut-off reply counts as no answer & Its last number is usually a step of a calculation \\
+Study~2 summaries use the median over questions & A few wild answers dominated the mean \\
+Anchors at least 1.5$\times$ (near) and 5$\times$ (far) from the middle answer & With a zero-width range, anchors sat almost on the answer \\
+Usual range from the 10th--90th percentile (was 5th--95th) & The extreme edges rest on 3 of 60 answers \\
+Qwen3-14B added to the configuration & Middle step of a size ladder \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{What it means}
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{We now have Study~1 questions with room for anchoring.} The 15 picks are uncertain for the large model, and several show the \enquote{two memories} pattern.
+  \item \textbf{Large models know a lot of round facts.} What remains uncertain are numbers that must be estimated or computed, which is also where anchoring matters in practice.
+  \item \textbf{Study~2 needs a different kind of question}, because the large model jumps to the truth for classic textbook questions.
+\end{enumerate}
+
+\begin{cautionbox}[Honest notes for the paper.]
+Two rules (the small model's number check, and averaging the spread over levels) were changed \emph{after} seeing the data; before the change only 2 questions passed. The questions are picked on the same model that is then tested, so they are, by construction, ones it is unsure about. That is the point, but it is a selection, and the paper must report how many candidates were screened (206, later 299). For the main study, the rules should be fixed before screening and checked on a second model.
+\end{cautionbox}
+
+\appendix
+\section{Data and files}
+\begin{itemize}[leftmargin=*]
+  \item Candidates: \texttt{data/items\_v2/candidates\_study1.csv}, \texttt{candidates\_study2.csv}
+  \item Screening answers: \texttt{data/screen\_v2/}; report: \texttt{results/screen\_v2/screening.md}
+  \item Picked questions: \texttt{data/items\_v2/study1.csv}; rules: \texttt{configs/pilot\_v2.yaml}; changes: \texttt{CHANGELOG.md}
+\end{itemize}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
 \end{document}

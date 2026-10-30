@@ -1,0 +1,72 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{csquotes}
+\usepackage{tcolorbox}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\setlist{itemsep=2pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\inshort}[1]{\begin{tcolorbox}[colback=gray!6,colframe=gray!50,title=\textbf{In short},fonttitle=\normalsize]#1\end{tcolorbox}}
+\newcommand{\header}[3]{%
+  {\Large\textbf{#1}}\par\smallskip
+  {\large #2}\par\smallskip
+  {\small Hannan Seyfi \textperiodcentered{} Supervisors: Dr.\ Shiva Kamkar and Dr.\ Babak Majidi \textperiodcentered{} Khatam University \textperiodcentered{} #3}\par
+  {\small Project: \emph{Adjusting or Retrieving? Testing the Mechanisms of Anchoring in Large Language Models}}\par\medskip\hrule\medskip}
+
+\begin{document}
+\header{Experiment 7: Study 2 on the small model}{Own vs given starting value, on R1-Distill-Qwen-1.5B}{30 October 2026}
+
+\inshort{\begin{itemize}[leftmargin=*]
+  \item As in the large model, a \textbf{given} starting value pulls harder than the model's \textbf{own}: the small model repeated it in about 1 in 4 answers, against about 1 in 8 for its own.
+  \item But the small model \textbf{does not know enough to move towards the truth}. Only about 1 in 4 of its answers were closer to the truth than the starting value (Qwen3-32B: about 4 in 5), and thinking did not change that.
+  \item So on this model Study~2 \textbf{cannot test} whether thinking helps more with an own starting value. It mainly shows the limits of a 1.5B model.
+\end{itemize}}
+
+\section*{What we tested}
+The same test as Experiment~5, now on the small model. People adjust away from a starting number they thought of themselves when they make an effort, but much less from one they were given. Does the model's thinking work the same way?
+
+\textbf{Example:} \enquote{How many days does asteroid 3103 Eger take to orbit the Sun?} The natural start is one Earth year (365 days); the truth is 608. \emph{Own}: we just ask the question. \emph{Given}: we first ask \enquote{Is it higher or lower than 365 days?}. The small model's middle answer was about 365 days (350--365) either way, with short or long thinking: it knows nothing about this asteroid, so there is nothing to adjust with.
+
+\section*{How}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Model:} R1-Distill-Qwen-1.5B on a free Colab T4 (45 minutes, free).
+  \item \textbf{Questions:} the same 10 as Experiment~5 (6 asteroids, 2 medal counts, 2 films), picked on the large model.
+  \item \textbf{Conditions:} own or given start; no extra sentence, \enquote{accuracy matters}, or \enquote{consider why it might be different}; thinking off, short (512 tokens) or long (2,048). 10 answers each: 1,800 answers.
+  \item With thinking off the model gave a number in only 3\% of replies (it mostly refused), so only short and long thinking are used below.
+\end{itemize}
+
+\section*{What we found}
+\begin{center}\small
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+ & \multicolumn{2}{c}{Small model (1.5B)} & \multicolumn{2}{c}{Large model (32B)} \\
+ & short & long & short & long \\
+\midrule
+Answer \emph{equals} the given start & 24\% & 26\% & 5\% & 5\% \\
+Answer \emph{equals} its own start & 16\% & 10\% & 10\% & 6\% \\
+Given start: answer closer to the truth & 27\% & 27\% & 76\% & 90\% \\
+Own start: answer closer to the truth & 17\% & 24\% & 81\% & 89\% \\
+\bottomrule
+\end{tabular}\\[2pt]
+{\footnotesize All three instruction versions together. \enquote{Equals} = within 2\%. \enquote{Closer} = nearer the true value than the starting value is.}
+\end{center}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{The given value works as a crutch.} When we mentioned the starting value, the small model often simply gave it back. With its own start it more often wandered off on its own.
+  \item \textbf{But wandering off is not getting closer.} With its own start the answers were scattered very widely. Examples (no extra sentence): for Bennu (true 437 days) its middle answer with short thinking was 1,900 days; for the 2026 Asian Games it gave 400 medals with long thinking (true 269).
+  \item \textbf{Three of the six asteroids} (Alinda, Eger, Dionysus): the middle answer stayed at about 365 days in nearly every condition, because the model has no knowledge of them.
+  \item \textbf{Thinking barely helped}: about a quarter of answers were closer to the truth at both thinking lengths (own start: 17\% to 24\%; given: 27\% both times).
+\end{itemize}
+
+\section*{What it means}
+The finding that a given starting value pulls harder than an own one now holds in two very different models. The question of whether thinking helps \emph{only} with the own starting value cannot be answered on the small model, because it lacks the knowledge to correct anything. Study~2 needs a model that knows enough to adjust: Qwen3-14B (about \$1.50 for Study~2) is the natural next step.
+
+\vfill
+{\small Data: \texttt{data/pilot\_v2/raw/r1-distill-qwen-1.5b/study2/} in the GitHub repository. Box-office replies written as \enquote{\$400 million} were read as 400 (the question already asks in millions).}
+\end{document}

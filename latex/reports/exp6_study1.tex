@@ -1,75 +1,219 @@
 \documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage[margin=2.4cm]{geometry}
-\usepackage{microtype}
-\usepackage{booktabs}
-\usepackage{enumitem}
-\usepackage{textcomp}
-\usepackage{csquotes}
-\usepackage{tcolorbox}
-\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
-\setlist{itemsep=2pt,topsep=4pt}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{5pt}
-\newcommand{\inshort}[1]{\begin{tcolorbox}[colback=gray!6,colframe=gray!50,title=\textbf{In short},fonttitle=\normalsize]#1\end{tcolorbox}}
-\newcommand{\header}[3]{%
-  {\Large\textbf{#1}}\par\smallskip
-  {\large #2}\par\smallskip
-  {\small Hannan Seyfi \textperiodcentered{} Supervisors: Dr.\ Shiva Kamkar and Dr.\ Babak Majidi \textperiodcentered{} Khatam University \textperiodcentered{} #3}\par
-  {\small Project: \emph{Adjusting or Retrieving? Testing the Mechanisms of Anchoring in Large Language Models}}\par\medskip\hrule\medskip}
+\input{reports/style}
+\renewcommand{\shorttitle}{Experiment 6: Study 1 on the new questions}
 
 \begin{document}
-\header{Experiment 6: Study 1 on the new questions}{Does a number in the question pull the answer, and does thinking stop it?}{30 October 2026}
+\reporttitle{Experiment 6}{Study 1 on the New Questions}{Does a number in the question pull the answer, and does thinking stop it?}{30 October 2026}
 
-\inshort{\begin{itemize}[leftmargin=*]
-  \item On questions it does not know, \textbf{the large model (Qwen3-32B) is clearly anchored}: about as strongly as people for near anchors (index 0.35--0.45; people about 0.49).
-  \item \textbf{Thinking does not reduce it} in the large model. Long thinking was less anchored than no thinking in only 5 of 15 questions.
-  \item \textbf{The small model (R1-Distill-1.5B) is anchored much more} (index up to 0.83) and often just copies the anchor. For this model, \textbf{longer thinking helps} (0.68 down to 0.49).
-\end{itemize}}
+\begin{plainabstract}
+We asked two language models 15 factual questions they cannot answer from memory, such as \enquote{How high is the free fall of Vettisfossen waterfall in Norway?}. Before each answer we asked whether the true value is higher or lower than some number (the \emph{anchor}). We then measured how far the anchor pulled the answers. The large model, Qwen3-32B, was clearly anchored: for anchors just outside its usual range, it moved its answers about 35--45\% of the way between a low and a high anchor. People in the classic study move about 49\% of the way. Letting the model think before answering, briefly or at length, did \textbf{not} reduce this. The large model rarely repeated the anchor; instead its whole range of answers slid towards it. The small model, R1-Distill-Qwen-1.5B, was anchored much more strongly (up to 83\%) and often simply gave the anchor back. Copying happened mostly when its thinking was stopped at the length limit before it had finished. For the small model, longer thinking did help (down to 59\%). In short: on questions a model is unsure about, thinking longer does not protect a large model from anchoring.
+\end{plainabstract}
 
-\section*{What we tested}
-This is the main Study~1 test, now on the 15 new questions picked in Experiment~3 (ones the large model does not know). Pilot run~2 failed because Qwen3-32B knew almost every old answer.
+\begin{keynumbers}
+Models & Qwen3-32B (DeepInfra, \$0.94) and R1-Distill-Qwen-1.5B (free Colab T4) \\
+Questions & 15 picked in Experiment~3: lakes, mountains, towers, waterfalls, distances \\
+Answers & 4,500 (32B) and 4,440 (1.5B): 900 without an anchor, the rest after one of 8 anchors \\
+Main result & Large model: anchoring index 0.35 / 0.45 / 0.41 (near anchors; thinking off / short / long). Thinking does not reduce it. \\
+Small model & 0.83 (short) and 0.59 (long thinking); copies the anchor in 15--25\% of answers \\
+\end{keynumbers}
 
-\textbf{Example:} \enquote{How high is the free fall of Vettisfossen waterfall in Norway?} (true: 275\,m). Without an anchor, Qwen3-32B usually says about 100--135\,m. We then ask \enquote{Is it higher or lower than X metres?} and after that \enquote{What is your best estimate?}. With X\,=\,23 its middle answer was about 25--33\,m; with X\,=\,280 it was about 235--250\,m. The same thing happened with thinking off, short or long.
+\section{Why this experiment}
 
-\section*{How}
+Anchoring is the tendency to let an irrelevant number pull an estimate towards it \citep{tversky1974judgment}. Our project asks \emph{why} language models anchor. Psychology offers two explanations. \textbf{Adjusting:} start from the anchor and move away from it, but stop too early \citep{epley2006anchoring}. \textbf{Retrieving:} the anchor brings facts that fit it to mind, so the answer is built from a biased sample of memory \citep{strack1997explaining,mussweiler1999hypothesis}. Study~1 tests the first prediction that separates them: what happens with near and far anchors, and with round and precise anchors.
+
+Our earlier attempt (pilot run 2, Experiment~2) failed for a simple reason: Qwen3-32B already knew 13 of the 15 answers, so no anchor could move it. In Experiments~3 and~4 we tested 137 new candidate questions without anchors and kept 15 that the large model does \emph{not} know. This is the first run of Study~1 on those questions.
+
+\section{What we did}
+
+\subsection{The steps}
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{No anchor first.} Each question was asked 20 times at each thinking level without an anchor. This gives the model's \emph{usual range}: the middle 80\% of its answers (10th to 90th percentile).
+  \item \textbf{Placing anchors.} From that range, 8 anchors per question: \emph{below} or \emph{above} it; \emph{near} (a quarter of the range's width beyond its edge, and at least 1.5 times away from the middle answer) or \emph{far} (a full width beyond, at least 5 times away); written as a \emph{round} number (280) or a \emph{precise} one (283.6). Each model gets anchors from its own range.
+  \item \textbf{Anchored questions.} Each anchor was used in the classic two-step form \citep{jacowitz1995measures}: first \enquote{higher or lower than X?}, then \enquote{your best estimate}. 10 answers per anchor and thinking level.
+\end{enumerate}
+
+\begin{transcript}[The exact prompt (Vettisfossen, anchor 280\,m)]
+How high is the free fall of Vettisfossen waterfall in Norway?\\[3pt]
+First, is it higher or lower than 280 metres? Then give your best estimate. End your reply with these two lines:\\
+Comparison: \textless higher or lower\textgreater\\
+Estimate: \textless number\textgreater\\
+where \textless number\textgreater{} is a single number in metres (not a range).
+\end{transcript}
+
+\subsection{Thinking levels}
+Both models can think before answering. We set three levels: \textbf{off} (no thinking), \textbf{short} (at most 512 thinking tokens) and \textbf{long} (at most 2,048). When the limit is reached, the thinking is stopped and the model must answer. Qwen3-32B has a real \enquote{off} switch. R1-Distill-1.5B is trained to always think, so with thinking off it mostly refused or ignored the answer format.
+
+\subsection{Measures}
 \begin{itemize}[leftmargin=*]
-  \item \textbf{Models:} Qwen3-32B on DeepInfra (\$0.94) and R1-Distill-Qwen-1.5B on a free Colab T4.
-  \item \textbf{Steps:} first each question without an anchor (20 answers per thinking level) to find the model's usual range. Then 8 anchors per question: below or above that range, just outside (\enquote{near}) or far outside (\enquote{far}), written round (280) or precise (283.6).
-  \item \textbf{Thinking:} off, short (512 tokens) or long (2,048 tokens). 10 answers per condition. In total 4,500 answers (32B) and 4,440 (1.5B).
-  \item \textbf{Measure:} the anchoring index: how far the middle answer moves, as a share of the gap between the low and high anchor. 0 = no effect, 1 = answers follow the anchors all the way.
-  \item \textbf{New rule:} a reply without the line \enquote{Estimate: \ldots} counts as no answer. Before, the code took the last number in the reply, which was often the anchor repeated back.
+  \item \textbf{Anchoring index} \citep{jacowitz1995measures}: the middle answer after the high anchor minus the middle answer after the low anchor, divided by the distance between the two anchors (on a log scale, as the numbers span orders of magnitude). 0 = the anchor changed nothing; 1 = the answers moved all the way to the anchors. People score about 0.49.
+  \item \textbf{What single answers did}: stayed inside the usual range, moved outside it, or gave the anchor back exactly (within 1\%).
+  \item \textbf{Reading the answer:} only replies with the \texttt{Estimate:} line count. A reply without it is \enquote{no answer}. (Before this experiment the code took the last number in such replies, which was often the anchor repeated back; see the correction in the overview.)
 \end{itemize}
 
-\section*{What we found}
+\section{Results}
+
+\subsection{One question in detail: Vettisfossen}
+
+The true free fall of Vettisfossen is 275\,m. Without an anchor, Qwen3-32B usually said 100--135\,m: it does not know this waterfall. Figure~\ref{fig:vettis} shows every answer. The anchors pulled the answers strongly at every thinking level: after \enquote{lower than 23\,m?} the middle answer was 25--33\,m; after \enquote{higher than 280\,m?} it was 235--250\,m.
+
+\begin{figure}[ht]
+\centering\rfig{e6_vettisfossen}
+\caption{Qwen3-32B on Vettisfossen (true 275\,m, thin line). Each dot is one answer (20 without an anchor, 10 per anchor); round anchors only. The anchors move the answers at all three thinking levels.}
+\label{fig:vettis}
+\end{figure}
+
+The thinking shows how. With the anchor 280\,m, the model reasons its way to a number close to the anchor:
+
+\begin{transcript}[Qwen3-32B, Vettisfossen, anchor 280\,m, long thinking (final answer 270)]
+\cut{} I remember that some of the tallest waterfalls in the world are in Norway. \cut{} The highest waterfall in Europe is Kjosfossen, which is around 277 meters. If Vettisfossen is similar, maybe it's close to that. \cut{} I think Vettisfossen's height is approximately 270 meters. That would make it lower than 280. \cut{} Therefore, my best estimate would be 270 meters.
+\end{transcript}
+
+With the anchor 23\,m, the same model \enquote{remembers} a small number instead:
+
+\begin{transcript}[Qwen3-32B, Vettisfossen, anchor 23\,m, long thinking (final answer 17)]
+\cut{} For instance, the Høgafossen in Lærdal is about 35 meters. If Vettisfossen is another in the same area, maybe it's similar. \cut{} From what I remember, some sources list Vettisfossen as having a free fall of around 17 meters.
+\end{transcript}
+
+Both \enquote{facts} are invented (Kjosfossen is not Europe's highest waterfall), and each fits the anchor it was given. The high anchor happened to be close to the truth, so it improved the answer; the low one made it worse. The anchor decides the direction, not the truth.
+
+\subsection{How strong is the anchoring?}
+
+\begin{figure}[ht]
+\centering\rfig{e6_index}
+\caption{Anchoring index, averaged over the 15 questions, with 95\% bootstrap intervals over questions. The dashed line is the 0.49 found for people \citep{jacowitz1995measures}, whose anchors were chosen differently, so that comparison is rough.}
+\label{fig:index}
+\end{figure}
+
+Figure~\ref{fig:index} gives the main result. For near anchors the large model scored 0.35 with thinking off, 0.45 with short thinking and 0.41 with long thinking, close to the human value. Far anchors gave lower values (0.13--0.18). That is partly built into the measure: far anchors are further apart, so the same movement is a smaller share of the gap.
+
+\begin{keybox}[Thinking does not reduce anchoring in the large model.]
+Averaged over near and far anchors the index was 0.24 (off), 0.32 (short) and 0.27 (long). Long thinking gave less anchoring than no thinking in only 5 of the 15 questions. This matches a recent finding that larger thinking budgets do not reliably reduce anchoring \citep{kraishan2026long}, now on questions chosen so that the model is truly unsure.
+\end{keybox}
+
+The small model was anchored much more: 0.83 with short thinking and 0.59 with long thinking for near anchors. Here, longer thinking helped, in 10 of 15 questions. With thinking off it gave a usable answer in only 9\% of replies, so its \enquote{off} values (open circles) rest on 6--8 questions and say little.
+
+\begin{figure}[ht]
+\centering\rfig{e6_items}
+\caption{The anchoring index for each question and thinking level. Questions are sorted by the large model's average. Left: for the large model, the three levels sit close together for most questions, with no common direction. Right: for the small model, long thinking (darkest dot) is usually lowest.}
+\label{fig:items}
+\end{figure}
+
+Figure~\ref{fig:items} shows that the result is not driven by one or two questions. For the large model the strongest anchoring was on the number of steps of the Niesen stairway (index 0.58--0.90; true 11,674) and on Vettisfossen; the weakest was on the Azadi Tower, which it knows (45\,m).
+
+\subsection{Copying or sliding?}
+
+\begin{figure}[ht]
+\centering\rfig{e6_outcomes}
+\caption{What each answer did after an anchor. The large model almost never gives the anchor back (1--2\%); its answers move as a group. The small model gives the anchor back in 15--25\% of answers when it thinks, and gives almost no usable answer with thinking off.}
+\label{fig:outcomes}
+\end{figure}
+
+The two models are anchored in different ways (Figure~\ref{fig:outcomes}). The large model repeated the anchor exactly in only 1--2\% of answers. Yet its middle answer moved 35--45\% of the way: its whole range of answers slid towards the anchor. The small model often just gave the anchor back: 25\% of answers with short thinking, 15\% with long thinking.
+
+\paragraph{Copying happens when thinking is cut short.} Figure~\ref{fig:cutoff} splits the answers by whether the thinking finished by itself or was stopped at the limit. With short thinking the small model was stopped in about half of its answers. When stopped, it copied the anchor in 34\% of answers; when it finished, in 15\%.
+
+\begin{figure}[ht]
+\centering\rfig[0.62\textwidth]{e6_cutoff}
+\caption{Share of answers that give the anchor back, by whether the thinking finished (plain bars) or was stopped at the limit (striped bars). Thinking off is left out.}
+\label{fig:cutoff}
+\end{figure}
+
+The question about the distance between Wellington and Santiago (true 9,351\,km) shows this clearly (Figure~\ref{fig:wellington}). With short thinking, the small model starts a proper calculation with coordinates and the haversine formula, is stopped halfway, and then falls back on the anchor:
+
+\begin{transcript}[R1-Distill-1.5B, Wellington--Santiago, anchor 65,000\,km, short thinking]
+\cut{} I remember that the Earth's radius is approximately 6,371 kilometers. \cut{} cos(θ) = sin(φ1) * sin(φ2) + cos(φ1) * cos(φ2) * cos(dλ) \cut{} The difference in longitude, dλ, is 177°E - (-175°W) = 177° + 175° = 352°. Wait, \cut{} Maybe I should subtract from 360°, so 360° - 35 \textit{[thinking stopped at the limit]}
+\who{Answer} Lower. Estimate: 58,000 kilometres
+\end{transcript}
+
+With long thinking the same calculation finishes, and the answer is close to the truth:
+
+\begin{transcript}[R1-Distill-1.5B, Wellington--Santiago, anchor 65,000\,km, long thinking]
+\cut{} So, c ≈ 2 * 0.7535 ≈ 1.507 radians. Now, compute the distance d = R * c. R is 6371 km, so d ≈ 6371 * 1.507 ≈ 9600 km. Wait, that's higher than 65,000 km? No, 9600 km is way less than 65,000 km.
+\who{Answer} Comparison: Lower. Estimate: 9600 km
+\end{transcript}
+
+\begin{figure}[ht]
+\centering\rfig{e6_wellington}
+\caption{R1-Distill-1.5B on Wellington--Santiago (true 9,351\,km). With short thinking, answers sit on the anchor; with long thinking, the high anchors lose their pull. The low anchor of 1,300\,km still pulls the middle answer down to about 1,340 even with long thinking.}
+\label{fig:wellington}
+\end{figure}
+
+For the large model the picture is different: it was stopped in 81\% of short-thinking answers but copied in only 1\% of them. It does not need to finish its thinking to give its own number.
+
+\subsection{Round or precise anchors}
+
+In people, a precise anchor (283.6) pulls harder than a round one (280), which is taken as a sign of adjustment in small steps \citep{janiszewski2008precision}. The large model showed no difference at any level. The small model showed a small effect in the human direction (Figure~\ref{fig:precision}): $+0.10$ with short thinking and $+0.07$ with long thinking on the shift scale, with intervals just above zero. Part of it may be digit copying: a copied precise anchor is still \enquote{precise}.
+
+\begin{figure}[ht]
+\centering\rfig[0.55\textwidth]{e6_precision}
+\caption{How much more a precise anchor shifted the answer than a round one (0 = no difference). Bars are 95\% intervals over questions.}
+\label{fig:precision}
+\end{figure}
+
+\subsection{First hints about the mechanism}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{The thinking starts at the anchor.} In about 7 of 10 of the large model's thinking traces, the first number it writes is the anchor (4 of 10 for the small model).
+  \item \textbf{Far anchors stop near the edge.} Adjusting predicts that answers after a far anchor stop near the edge of the usual range; retrieving predicts they move by the same share as after a near anchor. For the large model with thinking, the far-anchor shift (0.27 short, 0.23 long) was close to what stopping at the edge predicts (0.25), and well below the near-anchor shift (0.44--0.45). This pattern fits \emph{adjusting}. Because the large model hardly ever copies, it is not the copying artefact we found in run~1.
+  \item \textbf{But the thinking looks like retrieving.} In the Vettisfossen traces the model does not count up or down from the anchor; it \enquote{remembers} a fact that fits it. Reading a proper sample of traces is the next step (a sheet of randomly drawn traces for two coders is ready in \texttt{results/pilot\_v2/hand\_coding\_sample.csv}).
+\end{itemize}
+
+\section{What it means}
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Study~1 works now.} With questions it is unsure about, a large model is anchored at about the human level. The failure of pilot run~2 was about knowledge, not about the model being immune.
+  \item \textbf{Thinking is not a fix.} For the large model, thinking briefly or at length gave the same anchoring as no thinking. This is the clearest result so far, and the headline for the paper.
+  \item \textbf{Two kinds of anchoring.} The small model copies the anchor, mostly when its thinking is cut off; longer thinking lets it finish its own estimate. The large model does not copy; its estimates slide. A mechanism study must treat these as different behaviours.
+  \item \textbf{Mechanism: mixed first signals.} The numbers (far anchors stopping near the edge) fit adjusting; the thinking text (invented facts that fit the anchor) looks like retrieving. Both can be true at once: the model may retrieve anchor-consistent \enquote{facts} and stop when it finds one that sounds plausible.
+\end{enumerate}
+
+\begin{cautionbox}[Limits.]
+15 questions and two models. The questions were picked because Qwen3-32B is unsure about them, which is necessary for anchoring but is a selection the paper must report. The comparison with people is rough, because our anchors are placed outside the model's range, while the classic study used values at the 15th and 85th percentile of people's answers. The short limit (512 tokens) stopped most of the large model's thinking, so \enquote{short} often means \enquote{interrupted}.
+\end{cautionbox}
+
+\section{Next steps}
+\begin{enumerate}[leftmargin=*]
+  \item Run the same design on \textbf{Qwen3-14B} (about \$2): same family, smaller, so differences come from size alone.
+  \item \textbf{Read the traces} with two coders, using the prepared sample, to settle adjusting vs retrieving.
+  \item Try a \textbf{higher thinking limit} (4,096 tokens) so that \enquote{long} is never cut off.
+\end{enumerate}
+
+\appendix
+\section{The 15 questions}
 \begin{center}\small
-\begin{tabular}{@{}llccc@{}}
+\begin{tabularx}{\textwidth}{@{}Lrrr@{}}
 \toprule
-Model & Anchors & Thinking off & Short thinking & Long thinking \\
+Question & True & 32B usual & 1.5B usual \\
 \midrule
-Qwen3-32B & near & 0.35 & 0.45 & 0.41 \\
-Qwen3-32B & far & 0.13 & 0.18 & 0.14 \\
-R1-Distill-1.5B & near & (0.69)* & 0.83 & 0.59 \\
-R1-Distill-1.5B & far & (0.64)* & 0.54 & 0.37 \\
+Maximum depth of Lake Neusiedl (m) & 1.8 & 3.0 & 140 \\
+Surface area of Lake Bled (km$^2$) & 1.45 & 1.7 & 825 \\
+Surface area of Lake Hallstatt (km$^2$) & 8.55 & 2.35 & 1,225 \\
+Height of Alam-Kuh, Iran (m) & 4,850 & 4,100 & 2,750 \\
+Length of the Arlberg Road Tunnel (km) & 13.97 & 9.95 & 28 \\
+Steps of the Niesen funicular stairway & 11,674 & 1,168 & 100 \\
+Total height of the Krimml Waterfalls (m) & 380 & 390 & 261 \\
+Free fall of Vettisfossen (m) & 275 & 120 & 235 \\
+Main tower of the Kuwait Towers (m) & 187 & 187 & 809 \\
+Azadi Tower, Tehran (m) & 45 & 43.2 & 300 \\
+Windows of the Palace of Versailles & 2,143 & 1,300 & 275 \\
+Andorra--Spain border (km) & 64 & 148 & 117 \\
+Distance Anchorage--Honolulu (km) & 4,481 & 3,420 & 5,614 \\
+Distance Wellington--Santiago (km) & 9,351 & 7,235 & 6,269 \\
+Distance Kathmandu--Nairobi (km) & 6,097 & 6,100 & 5,800 \\
 \bottomrule
-\end{tabular}\\[2pt]
-{\footnotesize *With thinking off the small model gave a usable number in only 9\% of replies (mostly refusals), so these two numbers rest on 6--8 questions.}
+\end{tabularx}\\[2pt]
+{\footnotesize \enquote{Usual}: middle answer without an anchor (32B: all levels; 1.5B: short and long thinking).}
 \end{center}
+
+\section{Data and files}
 \begin{itemize}[leftmargin=*]
-  \item \textbf{The large model now shows anchoring}, because these questions are uncertain for it. It gave the true value in only 4\% of the unanchored answers with thinking off.
-  \item \textbf{Thinking did not help the large model.} Averaged over near and far anchors: 0.24 (off), 0.32 (short), 0.27 (long).
-  \item \textbf{The large model moves, the small one copies.} Qwen3-32B repeated the anchor as its answer in only 1--3\% of replies, so its whole range of answers slides towards the anchor. The small model copied the anchor in 27\% of replies with short thinking and 17\% with long thinking (near anchors).
-  \item \textbf{Longer thinking helped the small model} in 10 of 15 questions. Example: the distance Wellington--Santiago (true 9,351\,km). With short thinking and the anchor 65,000\,km it answered about 58,000; with long thinking about 9,100. But a low anchor (1,300\,km) still pulled it down to about 1,340 even with long thinking.
-  \item \textbf{Far anchors pull less than near ones} (in proportion to their distance), in both models.
-  \item \textbf{Round vs precise:} no difference for the large model. For the small model precise anchors pulled a little harder (+0.10 short, +0.07 long thinking). In people, that pattern is a sign of step-by-step adjustment.
-  \item \textbf{Where the thinking starts:} in about 7 of 10 of the large model's thinking traces, the first number it writes is the anchor. It starts from the anchor and works from there.
+  \item Raw answers: \texttt{data/pilot\_v2/raw/<model>/baseline/} and \texttt{.../study1/}
+  \item Anchors: \texttt{data/pilot\_v2/anchors/}
+  \item Tables and summary: \texttt{results/pilot\_v2/}
+  \item Figures: \texttt{latex/reports/figures.py}; settings: \texttt{configs/pilot\_v2.yaml}
 \end{itemize}
+All in the GitHub repository.
 
-\section*{What it means}
-Study~1 now works: with uncertain questions the large model is anchored at a human-like level, and \textbf{thinking longer does not fix it}. The small model shows anchoring through copying, and only there does longer thinking help. Which of the two mechanisms (adjusting or retrieving) drives the large model is not settled by these numbers. The next step is to read a sample of its thinking traces (the sheet \texttt{hand\_coding\_sample.csv} is ready), and to add Qwen3-14B to see whether anchoring changes with size inside one model family.
-
-\vfill
-{\small Data: \texttt{data/pilot\_v2/raw/<model>/study1/} \textperiodcentered{} Tables: \texttt{results/pilot\_v2/} in the GitHub repository.}
+\bibliographystyle{plainnat}
+\bibliography{references}
 \end{document}
