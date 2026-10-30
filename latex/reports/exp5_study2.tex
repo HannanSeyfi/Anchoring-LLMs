@@ -1,0 +1,59 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{tcolorbox}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\setlist{itemsep=2pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\inshort}[1]{\begin{tcolorbox}[colback=gray!6,colframe=gray!50,title=\textbf{In short},fonttitle=\normalsize]#1\end{tcolorbox}}
+\newcommand{\header}[3]{%
+  {\Large\textbf{#1}}\par\smallskip
+  {\large #2}\par\smallskip
+  {\small Hannan Seyfi \textperiodcentered{} Supervisors: Dr.\ Shiva Kamkar and Dr.\ Babak Majidi \textperiodcentered{} Khatam University \textperiodcentered{} #3}\par
+  {\small Project: \emph{Adjusting or Retrieving? Testing the Mechanisms of Anchoring in Large Language Models}}\par\medskip\hrule\medskip}
+
+\begin{document}
+\header{Experiment 5: Study 2 on Qwen3-32B}{Does thinking help more with the model's \emph{own} starting value than with a \emph{given} one?}{29 October 2026}
+
+\inshort{\begin{itemize}[leftmargin=*]
+  \item A \textbf{given} starting value pulls harder than the model's \textbf{own}, at every thinking level.
+  \item \textbf{Thinking helped in both cases.} The human prediction (\enquote{effort helps only with your own starting value}) was \textbf{not supported} in its strong form.
+  \item The short thinking limit (512 tokens) \textbf{interrupted the model} in 98\% of answers, which makes that level hard to interpret.
+\end{itemize}}
+
+\section*{What we tested}
+In people, extra effort helps them move away from a starting number they thought of themselves, but not from one someone gave them. We asked whether a model's thinking plays the same role.
+
+\textbf{Example:} \enquote{How many days does asteroid Itokawa take to orbit the Sun?} The natural start is one Earth year (365 days); the truth is 557. In the \emph{own} version we just ask the question. In the \emph{given} version we first ask \enquote{Is it higher or lower than 365 days?}. Same number, only who brought it up changes.
+
+\section*{How}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Model:} Qwen3-32B on DeepInfra (\$0.62).
+  \item \textbf{Questions:} the 10 picked in Experiment 4 (6 asteroids, 2 films, 2 medal counts of 2026).
+  \item \textbf{Conditions:} own or given starting value; no extra sentence, \enquote{accuracy matters}, or \enquote{consider why it might be different}; thinking off, short (512 tokens) or long (2,048). 10 answers each: 1,800 answers.
+  \item \textbf{Measure:} how far the middle answer moved from the starting value (0) towards the truth (1).
+\end{itemize}
+
+\section*{What we found}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Given pulls harder.} With no extra sentence, own: 0.18, 0.53, 0.62 (off, short, long); given: 0.00, 0.18, 0.28. Bennu was left out because the model now knew it (433 days every time).
+  \item \textbf{Thinking helped both.} Own +0.44, given +0.28. Thinking helped the own version more in only 5 or 6 of 9 questions, close to a coin flip.
+  \item \textbf{Mario film} (previous film \$1,361 million, true \$1,013 million) matched the human pattern: with its own start, thinking brought the answer down to about 950; with the given start it stayed near 1,350. \textbf{Itokawa} did not: with long thinking both versions used Kepler's law and reached the truth (540 and 528 days).
+  \item \textbf{Extra sentences, thinking off.} \enquote{Accuracy matters} helped the own version more than the given one in all 9 questions; \enquote{consider the opposite} helped both. Both match human studies. But the sentences made the model reason out loud in its answer (3 times longer), so this was not really \enquote{no thinking}.
+  \item \textbf{Interrupted thinking.} Short thinking was stopped at the limit in 98\% of answers, sometimes one step before the right answer (Itokawa: cut mid-calculation, then answered 367).
+  \item \textbf{Fair test only on 6 questions.} For three of the 2026 questions the model almost never thought of the previous value by itself, so only the asteroids and the Mario film fairly test the own starting value.
+\end{itemize}
+
+\section*{What it means}
+The clean result is that a given starting value pulls harder than the model's own. The idea that thinking helps \emph{only} with the model's own starting value did not hold on this model. Suggested next run (about \$1): higher thinking limits (1,024 and 4,096 tokens), a true number-only answer when thinking is off, more asteroid- and Mario-like questions, and a smaller model (Qwen3-14B or 8B).
+
+\vfill
+{\small Full report: \texttt{study2\_qwen3.tex} \textperiodcentered{} Data: \texttt{data/pilot\_v2/raw/qwen3-32b/study2/} in the GitHub repository.}
+\end{document}

@@ -1,0 +1,59 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{tcolorbox}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\setlist{itemsep=2pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\inshort}[1]{\begin{tcolorbox}[colback=gray!6,colframe=gray!50,title=\textbf{In short},fonttitle=\normalsize]#1\end{tcolorbox}}
+\newcommand{\header}[3]{%
+  {\Large\textbf{#1}}\par\smallskip
+  {\large #2}\par\smallskip
+  {\small Hannan Seyfi \textperiodcentered{} Supervisors: Dr.\ Shiva Kamkar and Dr.\ Babak Majidi \textperiodcentered{} Khatam University \textperiodcentered{} #3}\par
+  {\small Project: \emph{Adjusting or Retrieving? Testing the Mechanisms of Anchoring in Large Language Models}}\par\medskip\hrule\medskip}
+
+\begin{document}
+\header{Experiments so far: overview}{Five experiments, 40,120 model answers, \$3.55 in total}{30 October 2026}
+
+So far we have run \textbf{five experiments}: two pilot runs of the full design, two rounds of screening new questions, and one run of Study~2. Each has its own one-page summary in this folder.
+
+\begin{center}\small
+\begin{tabular}{@{}rp{4.3cm}p{3.1cm}rrl@{}}
+\toprule
+\# & Experiment & Model(s) & Answers & Cost & Summary file \\
+\midrule
+1 & Pilot run 1 (24 Oct) & R1-Distill-Qwen-1.5B & 7,200 & free & \texttt{exp1\_pilot\_run1} \\
+2 & Pilot run 2 (26 Oct) & Qwen3-32B & 7,200 & \$1.52 & \texttt{exp2\_pilot\_run2} \\
+3 & Screening, round 1 (26 Oct) & Qwen3-32B, 1.5B & 16,480 & \$0.97 & \texttt{exp3\_screening1} \\
+4 & Screening, round 2: asteroids and 2026 events (26 Oct) & Qwen3-32B, 1.5B & 7,440 & \$0.44 & \texttt{exp4\_screening2} \\
+5 & Study 2: own vs given starting value (29 Oct) & Qwen3-32B & 1,800 & \$0.62 & \texttt{exp5\_study2} \\
+\midrule
+ & Total & & 40,120 & \$3.55 & \\
+\bottomrule
+\end{tabular}
+\end{center}
+{\small Small test runs before each experiment are not counted. The 1.5B model ran free on Colab; Qwen3-32B ran on DeepInfra.}
+
+\section*{The story in five steps}
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Small model:} strongly anchored (index 0.82 vs about 0.49 for people). The anchor acted when the model recalled a value, not by gradual adjustment.
+  \item \textbf{Large model:} it knew almost every answer, so it was hardly anchored (0.00 to 0.05). Where it was unsure, the anchor chose which memory won.
+  \item \textbf{Screening round 1:} 206 new questions tested without anchors; 15 good Study~1 questions picked that the large model does not know.
+  \item \textbf{Screening round 2:} asteroid orbits and 2026 events tried for Study~2; 10 questions picked where thinking moves the answer.
+  \item \textbf{Study 2:} a given starting value pulls harder than the model's own. Thinking helped in both cases, so the strong human-based prediction was not supported.
+\end{enumerate}
+
+\section*{What has not been run yet}
+Study~1 on the 15 new questions (Experiment 3's picks) has not been run. That is the next main step. After it: Study~2 again with higher thinking limits, and smaller models (Qwen3-14B, 8B, 4B) to see whether anchoring grows as the model knows less.
+
+\section*{Longer reports}
+For detail, see \texttt{full\_report.tex} (everything up to 27 October), \texttt{pilot\_summary.tex} (Experiment 1), \texttt{qwen3\_report.tex} (Experiment 2), \texttt{events\_2026.tex} (the 2026 questions in Experiment 4) and \texttt{study2\_qwen3.tex} (Experiment 5).
+
+\end{document}
