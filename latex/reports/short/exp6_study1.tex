@@ -1,0 +1,75 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{csquotes}
+\usepackage{tcolorbox}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\setlist{itemsep=2pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\inshort}[1]{\begin{tcolorbox}[colback=gray!6,colframe=gray!50,title=\textbf{In short},fonttitle=\normalsize]#1\end{tcolorbox}}
+\newcommand{\header}[3]{%
+  {\Large\textbf{#1}}\par\smallskip
+  {\large #2}\par\smallskip
+  {\small Hannan Seyfi \textperiodcentered{} Supervisors: Dr.\ Shiva Kamkar and Dr.\ Babak Majidi \textperiodcentered{} Khatam University \textperiodcentered{} #3}\par
+  {\small Project: \emph{Adjusting or Retrieving? Testing the Mechanisms of Anchoring in Large Language Models}}\par\medskip\hrule\medskip}
+
+\begin{document}
+\header{Experiment 6: Study 1 on the new questions}{Does a number in the question pull the answer, and does thinking stop it?}{30 October 2026}
+
+\inshort{\begin{itemize}[leftmargin=*]
+  \item On questions it does not know, \textbf{the large model (Qwen3-32B) is clearly anchored}: about as strongly as people for near anchors (index 0.35--0.45; people about 0.49).
+  \item \textbf{Thinking does not reduce it} in the large model. Long thinking was less anchored than no thinking in only 5 of 15 questions.
+  \item \textbf{The small model (R1-Distill-1.5B) is anchored much more} (index up to 0.83) and often just copies the anchor. For this model, \textbf{longer thinking helps} (0.68 down to 0.49).
+\end{itemize}}
+
+\section*{What we tested}
+This is the main Study~1 test, now on the 15 new questions picked in Experiment~3 (ones the large model does not know). Pilot run~2 failed because Qwen3-32B knew almost every old answer.
+
+\textbf{Example:} \enquote{How high is the free fall of Vettisfossen waterfall in Norway?} (true: 275\,m). Without an anchor, Qwen3-32B usually says about 100--135\,m. We then ask \enquote{Is it higher or lower than X metres?} and after that \enquote{What is your best estimate?}. With X\,=\,23 its middle answer was about 25--33\,m; with X\,=\,280 it was about 235--250\,m. The same thing happened with thinking off, short or long.
+
+\section*{How}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Models:} Qwen3-32B on DeepInfra (\$0.94) and R1-Distill-Qwen-1.5B on a free Colab T4.
+  \item \textbf{Steps:} first each question without an anchor (20 answers per thinking level) to find the model's usual range. Then 8 anchors per question: below or above that range, just outside (\enquote{near}) or far outside (\enquote{far}), written round (280) or precise (283.6).
+  \item \textbf{Thinking:} off, short (512 tokens) or long (2,048 tokens). 10 answers per condition. In total 4,500 answers (32B) and 4,440 (1.5B).
+  \item \textbf{Measure:} the anchoring index: how far the middle answer moves, as a share of the gap between the low and high anchor. 0 = no effect, 1 = answers follow the anchors all the way.
+  \item \textbf{New rule:} a reply without the line \enquote{Estimate: \ldots} counts as no answer. Before, the code took the last number in the reply, which was often the anchor repeated back.
+\end{itemize}
+
+\section*{What we found}
+\begin{center}\small
+\begin{tabular}{@{}llccc@{}}
+\toprule
+Model & Anchors & Thinking off & Short thinking & Long thinking \\
+\midrule
+Qwen3-32B & near & 0.35 & 0.45 & 0.41 \\
+Qwen3-32B & far & 0.13 & 0.18 & 0.14 \\
+R1-Distill-1.5B & near & (0.69)* & 0.83 & 0.59 \\
+R1-Distill-1.5B & far & (0.64)* & 0.54 & 0.37 \\
+\bottomrule
+\end{tabular}\\[2pt]
+{\footnotesize *With thinking off the small model gave a usable number in only 9\% of replies (mostly refusals), so these two numbers rest on 6--8 questions.}
+\end{center}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{The large model now shows anchoring}, because these questions are uncertain for it. It gave the true value in only 4\% of the unanchored answers with thinking off.
+  \item \textbf{Thinking did not help the large model.} Averaged over near and far anchors: 0.24 (off), 0.32 (short), 0.27 (long).
+  \item \textbf{The large model moves, the small one copies.} Qwen3-32B repeated the anchor as its answer in only 1--3\% of replies, so its whole range of answers slides towards the anchor. The small model copied the anchor in 27\% of replies with short thinking and 17\% with long thinking (near anchors).
+  \item \textbf{Longer thinking helped the small model} in 10 of 15 questions. Example: the distance Wellington--Santiago (true 9,351\,km). With short thinking and the anchor 65,000\,km it answered about 58,000; with long thinking about 9,100. But a low anchor (1,300\,km) still pulled it down to about 1,340 even with long thinking.
+  \item \textbf{Far anchors pull less than near ones} (in proportion to their distance), in both models.
+  \item \textbf{Round vs precise:} no difference for the large model. For the small model precise anchors pulled a little harder (+0.10 short, +0.07 long thinking). In people, that pattern is a sign of step-by-step adjustment.
+  \item \textbf{Where the thinking starts:} in about 7 of 10 of the large model's thinking traces, the first number it writes is the anchor. It starts from the anchor and works from there.
+\end{itemize}
+
+\section*{What it means}
+Study~1 now works: with uncertain questions the large model is anchored at a human-like level, and \textbf{thinking longer does not fix it}. The small model shows anchoring through copying, and only there does longer thinking help. Which of the two mechanisms (adjusting or retrieving) drives the large model is not settled by these numbers. The next step is to read a sample of its thinking traces (the sheet \texttt{hand\_coding\_sample.csv} is ready), and to add Qwen3-14B to see whether anchoring changes with size inside one model family.
+
+\vfill
+{\small Data: \texttt{data/pilot\_v2/raw/<model>/study1/} \textperiodcentered{} Tables: \texttt{results/pilot\_v2/} in the GitHub repository.}
+\end{document}

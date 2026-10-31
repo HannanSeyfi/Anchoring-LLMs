@@ -18,6 +18,7 @@ from matplotlib.backends.backend_pdf import PdfPages
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
+from anchoring_llms.parsing import parse_estimate  # noqa: E402
 from anchoring_llms.run import read_records  # noqa: E402
 
 OUT = ROOT / "latex" / "full_report"
@@ -42,7 +43,12 @@ W = 6.3  # text width in inches
 
 
 def load(dataset: str, model: str, study: str) -> pd.DataFrame:
-    return pd.DataFrame(read_records(ROOT / "data" / dataset / "raw" / model / study))
+    df = pd.DataFrame(read_records(ROOT / "data" / dataset / "raw" / model / study))
+    if dataset == "pilot" and model == "r1-distill-qwen-1.5b":
+        # Run 1 was saved with the old reading (last number when there is no "Estimate:" line),
+        # which with thinking off often gave the anchor or a refusal year. Corrected 2026-10-30.
+        df["estimate"] = [parse_estimate(a, fallback=False) for a in df.answer]
+    return df
 
 
 def fmt_num(x: float) -> str:
@@ -183,7 +189,8 @@ def fig_angel():
 def fig_index():
     fig, ax = plt.subplots(figsize=(W * 0.66, 2.8))
     x = np.arange(3)
-    r1 = (np.array([0.816, 0.358, 0.436]), np.array([0.099, 0.180, 0.214]), np.array([0.097, 0.193, 0.205]))
+    # Run 1 counts only replies with an "Estimate:" line (corrected 2026-10-30; was 0.816 at off).
+    r1 = (np.array([0.576, 0.360, 0.437]), np.array([0.210, 0.179, 0.214]), np.array([0.185, 0.193, 0.204]))
     r2 = (np.array([0.041, 0.004, 0.045]), np.array([0.047, 0.004, 0.045]), np.array([0.080, 0.007, 0.063]))
     ax.axhline(0.49, color=GREY, lw=1.2, label="people (Jacowitz & Kahneman, 1995): 0.49")
     for (m, lo, hi), col, lab, off in [(r1, BLUE, "run 1: R1-Distill-Qwen-1.5B", -0.04),
@@ -207,10 +214,11 @@ def fig_index():
 
 # ----------------------------------------------------------------------------- F5: what single answers did, run 1
 def fig_run1_outcomes():
-    rows = [("off, near", 29, 52, 10, 9), ("off, far", 37, 38, 16, 9), ("low, near", 55, 28, 17, 0),
-            ("low, far", 55, 18, 26, 0), ("high, near", 52, 31, 17, 0), ("high, far", 56, 16, 28, 0)]
+    # Only replies with an "Estimate:" line count (corrected 2026-10-30).
+    rows = [("off, near", 7, 8, 4, 81), ("off, far", 10, 4, 4, 82), ("low, near", 54, 28, 17, 1),
+            ("low, far", 54, 18, 26, 2), ("high, near", 51, 31, 16, 2), ("high, far", 55, 15, 28, 1)]
     cats = [("stayed in own normal zone", BLUE), ("copied the anchor", ORANGE),
-            ("landed elsewhere", AQUA), ("no number", YELLOW)]
+            ("landed elsewhere", AQUA), ("no Estimate line", YELLOW)]
     fig, ax = plt.subplots(figsize=(W, 2.4))
     for i, r in enumerate(rows):
         y = len(rows) - 1 - i
@@ -333,7 +341,7 @@ def fig_sureness():
         ax.grid(axis="x")
         ax.set_title(title, loc="left", fontsize=8)
         ax.set_ylim(-0.6, len(rr) - 0.4)
-    fig.supxlabel("answer divided by the true value (bar: middle 80% of 60 answers without an anchor; dot: median)",
+    fig.supxlabel("answer divided by the true value (bar: middle 80% of the answers without an anchor, up to 60; dot: median)",
                   fontsize=7.5, color=INK2)
     fig.tight_layout(w_pad=1.0)
     add("sureness_first_set", fig)

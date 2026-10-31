@@ -1,0 +1,142 @@
+\documentclass[11pt,a4paper]{article}
+\input{reports/style}
+\renewcommand{\shorttitle}{Experiment 7: Study 2 on the small model}
+
+\begin{document}
+\reporttitle{Experiment 7}{Study 2 on the Small Model}{Own versus given starting value, on R1-Distill-Qwen-1.5B}{30 October 2026}
+
+\begin{plainabstract}
+Study~2 asks whether thinking helps a model move away from a starting number it thought of \emph{itself} more than from one it was \emph{given}, as it does in people. Example: an asteroid's orbit takes longer or shorter than one Earth year, and a natural first guess is 365 days. In one version the model has to think of 365 itself; in the other we ask \enquote{higher or lower than 365 days?}. We ran this on the small model, R1-Distill-Qwen-1.5B, with the same 10 questions as on Qwen3-32B in Experiment~5. As in the large model, a given starting value pulled harder: the small model gave it back as its answer about twice as often as its own (24--26\% vs 10--16\% of answers). But only about one answer in four ended up closer to the truth than the starting value, against about four in five for the large model, and thinking longer barely changed that. The small model does not know enough about these asteroids, films and medal tables to correct anything, so this experiment cannot tell whether thinking helps more with an own starting value. It confirms one finding (given values pull harder) and shows that Study~2 needs a model with more knowledge.
+\end{plainabstract}
+
+\begin{keynumbers}
+Model & R1-Distill-Qwen-1.5B on a free Colab T4 (45 minutes) \\
+Questions & The 10 Study~2 questions of Experiment~5: 6 asteroid orbits, 2 medal counts and 2 box-office totals from 2026 \\
+Answers & 1,800: own or given start $\times$ 3 instructions $\times$ 3 thinking levels $\times$ 10 \\
+Usable & 3\% with thinking off (it refuses); 98--99\% with thinking \\
+Main result & Given start repeated in 24--26\% of answers, own start in 10--16\%. Answers closer to the truth than the start: about 25\%, at both thinking lengths. \\
+\end{keynumbers}
+
+\section{Why this experiment}
+
+In people, the two explanations of anchoring apply to different anchors. When someone \emph{generates} the starting number themselves (\enquote{a chicken's temperature? well, mine is 37\,°C\dots}), they adjust away from it, and extra effort, such as being told that accuracy matters, makes them adjust further. When the number is \emph{given} to them, effort does little, because the given number has already shaped what comes to mind \citep{epley2001putting,epley2005effortful}. Our hypothesis is that a model's thinking plays the role of effort. If so, more thinking should help with an own starting value but not with a given one.
+
+In Experiment~5 Qwen3-32B did not follow this strong form: thinking helped in both versions, although a given value pulled harder throughout. Here we ask whether a much smaller model, which knows much less, behaves differently.
+
+\section{What we did}
+
+\subsection{Questions}
+The same 10 questions as Experiment~5. Each has a natural starting value (the \emph{reference}) and a true value that differs from it:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Six asteroid orbits} (start: one Earth year, 365 days). Itokawa 557, Bennu 437, Alinda 1,426, Eger 608, Dionysus 1,191 and (52768)~1998~OR2 1,342 days.
+  \item \textbf{Two medal counts from 2026} (start: the previous edition). Japan at the 2026 Asian Games: previous 188, true 269. Canada at the 2026 Commonwealth Games: previous 92, true 62.
+  \item \textbf{Two box-office totals} (start: the previous film). The Super Mario Galaxy Movie: previous \$1,361 million, true \$1,013 million. Now You See Me: Now You Don't: previous \$334.9 million, true \$246.6 million.
+\end{itemize}
+They were picked in Experiment~4 on Qwen3-32B, because there its thinking moved the answer towards the truth.
+
+\subsection{Conditions}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Own start:} we only ask the question. The model has to think of the starting value itself.
+  \item \textbf{Given start:} we first ask \enquote{Is it higher or lower than 365 days?}. Same number, only its source changes.
+  \item \textbf{Instruction:} none; \enquote{accuracy matters}; or \enquote{consider why it might be different}.
+  \item \textbf{Thinking:} off, short (512 tokens) or long (2,048 tokens). 10 answers per condition.
+\end{itemize}
+
+\begin{transcript}[The two versions (Eger)]
+\who{Own} How many Earth days does it take the near-Earth asteroid 3103 Eger to orbit the Sun once? Give your best estimate. End your reply with a final line of the form Estimate: \textless number\textgreater{} \cut{}
+\who{Given} How many Earth days does it take the near-Earth asteroid 3103 Eger to orbit the Sun once? First, is it higher or lower than 365 days? Then give your best estimate. \cut{}
+\end{transcript}
+
+\subsection{Measures}
+The main measure of Experiment~5, \emph{adjustment} (0 = the answer stayed at the start, 1 = it reached the truth), does not work well here: the small model's answers often overshoot by a factor of ten or more, which gives values like 20 that mean \enquote{wildly off}, not \enquote{very well adjusted}. We therefore use two simple shares:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Answer = the start:} the answer is within 2\% of the starting value.
+  \item \textbf{Closer to the truth:} the answer is nearer the true value than the starting value is (measured as a ratio, so 2 times too high and 2 times too low count the same).
+\end{itemize}
+Box-office replies written as \enquote{\$400 million} were read as 400, since the question already asks in millions. Only replies with an \texttt{Estimate:} line count.
+
+\section{Results}
+
+\subsection{Thinking off gives no answers}
+With thinking off, the small model gave an answer in only 3\% of replies (Figure~\ref{fig:answered}). The rest were mostly the standard refusal \enquote{I am sorry, I cannot answer that question.} This model is trained to always think first. Everything below uses short and long thinking only.
+
+\begin{figure}[ht]
+\centering\rfig[0.55\textwidth]{e7_answered}
+\caption{Share of replies with a usable answer (an \texttt{Estimate:} line with a number).}
+\label{fig:answered}
+\end{figure}
+
+\subsection{A given start is repeated more often}
+
+\begin{figure}[ht]
+\centering\rfig{e7_shares}
+\caption{A: share of answers equal to the starting value. B: share of answers closer to the truth than the starting value. Lighter bars: short thinking; darker: long thinking. All three instructions together.}
+\label{fig:shares}
+\end{figure}
+
+Figure~\ref{fig:shares}A shows the clearest result. When we mentioned the starting value, the small model gave it back as its answer in 24\% (short) and 26\% (long thinking) of answers. When it had to think of it itself, only 16\% and 10\%. The large model rarely did either (5--10\%).
+
+A typical case is Eger with the given start. The model even says the orbit is \enquote{higher} and then answers exactly the anchor:
+
+\begin{transcript}[R1-Distill-1.5B, Eger, given start 365, long thinking]
+\cut{} I remember that Earth takes about 365 days to orbit the Sun, which is why we have a year. But 3103 Eger is an asteroid, not a planet, so its orbital period should be different. I think the key here is to compare the asteroid's period with Earth's. I recall that some asteroids are faster than Earth, like some close-in objects like 39375000960000000000\dots \textit{[the thinking continues with zeros until the limit]}
+\who{Answer} Comparison: Higher. Estimate: 365
+\end{transcript}
+
+\subsection{But an own start does not lead to better answers}
+
+Figure~\ref{fig:shares}B shows the catch. Only 17--27\% of the small model's answers were closer to the truth than the starting value, in both versions and at both thinking lengths. For Qwen3-32B the share was 76--90\%. When the small model left its own starting value, it usually wandered off in a random direction:
+
+\begin{transcript}[R1-Distill-1.5B, Bennu (true 437 days), own start, short thinking (final answer 10,000)]
+\cut{} Kepler's third law comes to mind, which relates the orbital period of a planet (or any object) orbiting the Sun to the distance from the Sun. \cut{} I think 101955 Bennu is a hyperbolic trajectory, and it has a semi-major axis of about 400 AU. But I'm not entirely certain. \cut{}
+\who{Answer} Estimate: 10,000 days
+\end{transcript}
+
+The ten answers in this condition ranged from 66 to 27,000 days. The method was right (Kepler's law) but the facts were invented.
+
+\begin{figure}[ht]
+\centering\rfig{e7_items}
+\caption{Every question on its own. Dots are the small model's answers with short and long thinking; the black bar is its middle answer; the orange dashed bar is Qwen3-32B's middle answer for comparison.}
+\label{fig:items}
+\end{figure}
+
+Figure~\ref{fig:items} shows each question. Three patterns stand out:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Asteroids it knows nothing about} (Alinda, Eger, Dionysus): the middle answer stays at about 365 days in nearly every condition. With no knowledge, one Earth year is the default whether or not we mention it.
+  \item \textbf{Wide scatter with an own start}: green circles spread over two or three orders of magnitude (Bennu, 1998~OR2, Itokawa), while purple squares cluster at the starting value.
+  \item \textbf{The 2026 questions:} for the Mario film the small model's answers were far below the truth (middle answers \$45 million and \$450 million with an own start, true \$1,013 million); for Japan's medals it gave 400 with long thinking (true 269). It cannot know these events and guesses.
+\end{itemize}
+
+\subsection{The instructions}
+With thinking off there were too few answers to compare the instructions. With thinking, the instructions changed little. Under every instruction the given start was repeated more often than the own start (23--30\% vs 11--15\% of answers). \enquote{Accuracy matters} raised the share of answers closer to the truth slightly (given 30\%, own 23\%, against 23\% and 19\% with no instruction), but differences of this size (up to 7 percentage points, about 60 answers per cell) are within chance.
+
+\section{What it means}
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{A given value pulls harder, again.} In two very different models, a starting value that we mention is taken over more often than one the model thinks of itself. This matches people \citep{epley2001putting} and is now a robust finding of the project.
+  \item \textbf{The main question cannot be answered on this model.} To show that thinking helps \emph{only} with an own starting value, the model must know enough to adjust towards the truth. The small model does not: its own answers are as often worse as better.
+  \item \textbf{Knowledge is the precondition.} Study~1 needs questions the model is unsure about; Study~2 needs questions where the model has partial knowledge that thinking can use. A 1.5B model has too little.
+\end{enumerate}
+
+\begin{cautionbox}[Limits.]
+The questions were picked on Qwen3-32B, not on this model. With thinking off the model gave almost no answers. Short thinking was stopped at the limit in 86\% of answers. 10 answers per condition is enough to see the large patterns here, not small differences.
+\end{cautionbox}
+
+\section{Next steps}
+\begin{enumerate}[leftmargin=*]
+  \item Run Study~2 on \textbf{Qwen3-14B} (about \$1.50): it should know enough to adjust, and it has a real \enquote{off} switch.
+  \item Raise the thinking limits (1,024 and 4,096 tokens), so that thinking is not cut off mid-calculation.
+  \item Add more questions of the asteroid and Mario-film kind, where the large model has partial knowledge.
+\end{enumerate}
+
+\appendix
+\section{Data and files}
+\begin{itemize}[leftmargin=*]
+  \item Raw answers: \texttt{data/pilot\_v2/raw/r1-distill-qwen-1.5b/study2/}
+  \item Questions: \texttt{data/items\_v2/study2.csv}
+  \item Figures: \texttt{latex/reports/figures.py}; settings: \texttt{configs/pilot\_v2.yaml}
+\end{itemize}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}

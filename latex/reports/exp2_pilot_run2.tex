@@ -1,0 +1,154 @@
+\documentclass[11pt,a4paper]{article}
+\input{reports/style}
+\renewcommand{\shorttitle}{Experiment 2: Pilot run 2}
+
+\begin{document}
+\reporttitle{Experiment 2}{Pilot Run 2: A Large Model}{The same 30 questions on Qwen3-32B}{26 October 2026}
+
+\begin{plainabstract}
+We repeated the first pilot with a model twenty times larger, Qwen3-32B, run through the DeepInfra service for \$1.52. The software worked cleanly: every answer contained a number, thinking could be switched off properly, and long thinking really was longer than short thinking. But the model already knew almost every answer. For 13 of the 15 Study~1 questions its usual answer was within 1\% of the truth (Angel Falls: 979\,m, nearly every time), so there was nothing for an anchor to pull: the anchoring index was 0.00 to 0.05, against about 0.49 in people. The model is not immune to anchoring; anchoring needs uncertainty, in people too. On the few questions where it was unsure, the anchor did work, and in a telling way. For Liechtenstein the model half-remembers both 39,000 and 390,000, and a high anchor made the wrong, larger memory win more often (30\% to 50\% of answers). This is what the \emph{retrieving} explanation predicts. Study~2 could not be tested either, because the model reached the true value in every condition. The lesson: we need new questions the model does not know, which led to Experiments~3 and~4.
+\end{plainabstract}
+
+\begin{keynumbers}
+Model & Qwen3-32B (32 billion parameters) on DeepInfra; 88 minutes; \$1.52 \\
+Questions & The same 30 as Experiment~1 \\
+Answers & 7,200 \\
+Main result & The model knew 13 of 15 answers, so almost no anchoring (index 0.00--0.05). Where unsure, the anchor chose which memory won. \\
+Consequence & New questions needed (Experiments 3 and 4) \\
+\end{keynumbers}
+
+\section{Why this experiment}
+Experiment~1 showed that the method works, but the small model knew almost nothing and could not switch thinking off. Qwen3-32B is a \emph{hybrid} model \citep{yang2025qwen3}: the same weights can answer with or without thinking, so \enquote{thinking off vs on} changes nothing else. It is large enough to know many facts, and cheap to run through an online service.
+
+\section{What we did}
+Exactly the design of Experiment~1: the same 30 questions, the usual range from 20 unanchored answers per thinking level, 8 anchors per question, 10 answers per condition, thinking off / short (512 tokens) / long (2,048 tokens), and Study~2 with own or given starting values and three instructions. The model ran on DeepInfra's servers; the notebook needed no GPU.
+
+\section{Results}
+
+\subsection{The model knew the answers}
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Question & True & Usual answer & Usual range \\
+\midrule
+Panama Canal length (km) & 82 & 82 & 77 -- 82 \\
+London Underground stations & 272 & 272 & 270 -- 302 \\
+Malta land area (km$^2$) & 316 & 316 & 316 -- 316 \\
+Angel Falls height (m) & 979 & 979 & 979 -- 979 \\
+Lake Baikal depth (m) & 1,642 & 1,642 & 1,642 -- 1,642 \\
+Eiffel Tower steps & 1,665 & 1,665 & 672 -- 1,665 \\
+Trans-Siberian Railway (km) & 9,289 & 9,288 & 9,288 -- 9,288 \\
+Liechtenstein population & 39,600 & 39,000 & 38,000 -- 385,100 \\
+Lakes in Finland over 500\,m$^2$ & 187,888 & 187,888 & 56,000 -- 188,000 \\
+\bottomrule
+\end{tabular}
+\caption{What Qwen3-32B says without an anchor (60 answers per question; 9 of the 15 questions shown). For 13 of 15 the usual answer is within 1\% of the truth.}
+\label{tab:knowledge}
+\end{table}
+
+\begin{figure}[ht]
+\centering\ffig{8}
+\caption{How sure each model was without an anchor. Each bar is the middle 80\% of the answers, divided by the true value; the dot is the middle answer. The small model (left) spreads over factors of 10 to 1,000; Qwen3-32B (right) gives the same correct number almost every time.}
+\label{fig:sure}
+\end{figure}
+
+Table~\ref{tab:knowledge} and Figure~\ref{fig:sure} show the problem. Because anchors are placed from the usual range, a model that always gives the same number gets anchors very close to it: for Angel Falls 900 and 1,100\,m (near), 690 and 1,400\,m (far). A model that knows the waterfall is 979\,m tall simply says 979: \textbf{238 of its 240 anchored answers were exactly 979\,m}.
+
+\begin{transcript}[Angel Falls, anchor 1,400\,m, thinking on (final answer 979)]
+\cut{} From what I've heard before, Angel Falls has a total height of around 979 meters. \cut{} So it is lower than 1,400 meters.
+\end{transcript}
+
+\subsection{Hardly any anchoring}
+
+The anchoring index for near anchors was 0.04 (off), 0.00 (short) and 0.05 (long), and 0.00--0.02 for far anchors (Figure~\ref{fig:index}). A simpler count: without an anchor 86--89\% of answers equal the usual answer; after an anchor the share is the same with thinking on, and slightly lower (81\%) with thinking off.
+
+\begin{figure}[ht]
+\centering\ffig[0.68\textwidth]{4}
+\caption{Anchoring index for near anchors with 95\% intervals. Orange: this run. Blue: the small model of Experiment~1. Grey: people.}
+\label{fig:index}
+\end{figure}
+
+\subsection{Where the model was unsure, the anchor did work}
+
+Three questions show what happens when the model is not sure. In each, the anchor changed \emph{which} value the model recalled; it did not pull the answer gradually.
+
+\paragraph{Liechtenstein: two memories.} The population is about 39,600. Qwen3-32B usually says 38,000 or 39,000, but sometimes 380,000 or 390,000, the same digits ten times too large. This second \enquote{memory} appears only with thinking on: in 20\% (short) and 30\% (long) of unanchored answers. A high anchor (690,000 or 3.9 million) raised it to 33\% and 50\%; a low anchor (21,000 or 3,700) lowered it to 8\% and 5\% (Figure~\ref{fig:liech}).
+
+\begin{figure}[ht]
+\centering\ffig[0.66\textwidth]{10}
+\caption{Liechtenstein: share of answers that gave the ten-times-too-large value. With thinking off it never appeared.}
+\label{fig:liech}
+\end{figure}
+
+\begin{transcript}[Liechtenstein, no anchor, short thinking (final answer 383,000)]
+\cut{} Maybe around 30,000 to 50,000 people? Wait, that seems too low. Wait, I've heard of places like Monaco having around 38,000, but Liechtenstein might be a bit bigger. \cut{} I recall that in the 2010s, some sources said it was over 300,000. \cut{} The area of Liechtenstein is about 160 square kilometers. So 160 * 200 = 32,000. Wait, that can't be right. \cut{}
+\who{Answer} Estimate: 383000
+\end{transcript}
+
+The model had the right size twice (\enquote{30,000 to 50,000} and \enquote{32,000}) and argued itself out of it both times: thinking created a doubt. A high anchor then steers that doubt towards the larger memory:
+
+\begin{transcript}[Liechtenstein, anchor 690,000, long thinking (final answer 385,000)]
+\cut{} If the country is small, maybe around 300,000 to 400,000? I'm not sure. Let me try to remember any numbers. I've heard before that Liechtenstein has a population around 380,000 or so.
+\end{transcript}
+
+\paragraph{Lakes in Finland: copying when thinking is cut short.} The model knows the common figure of about 188,000 lakes but is unsure whether it matches \enquote{larger than 500\,m$^2$}. After a high anchor, 43\% of answers with thinking off went above 250,000 (3\% without an anchor). Some were exact copies, with a contradiction:
+\begin{transcript}[Lakes in Finland, anchor 253,939, thinking off]
+\cut{} the exact number of lakes larger than 500 square metres is significantly higher than 253,939 \cut{} Comparison: lower. Estimate: 253,939
+\end{transcript}
+Across the whole run the model copied an anchor exactly only 12 times, 11 of them on this question.
+
+\paragraph{London Underground: overshooting without thinking.} The model knows 272 stations. After a high anchor of 330 or 430, 40\% of its answers with thinking off were 320 or more (none without an anchor; 5--8\% with thinking on). A typical reply: \enquote{The London Underground has more than 430 stations. My best estimate, based on recent data, is 446 stations.}
+
+\paragraph{The higher-or-lower step without thinking.} With thinking off the comparison contradicted the model's own estimate 28\% of the time (3\% with short, 0.3\% with long thinking): for Malta and an anchor of 290\,km$^2$ it answered \enquote{lower} and then 316. Without thinking, the comparison is answered carelessly while the estimate comes from memory.
+
+\subsection{Study 2: already at the truth}
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+ & & & \multicolumn{3}{c}{Own start} & \multicolumn{3}{c}{Given start} \\
+\cmidrule(lr){4-6}\cmidrule(lr){7-9}
+Question & Start & True & off & short & long & off & short & long \\
+\midrule
+Chicken temperature (°C) & 37 & 41.5 & 41 & 41 & 41 & 41.5 & 41 & 40.6 \\
+Elephant heart rate (bpm) & 70 & 30 & 28 & 28 & 28 & 28 & 28 & 30 \\
+Ceres orbit (days) & 365 & 1,682 & 1,682 & 1,682 & 1,680 & 1,682 & 1,680.5 & 1,680 \\
+Boiling point, Aconcagua (°C) & 100 & 76.7 & 71.5 & 73.5 & 76.0 & 72.0 & 74.0 & 76.2 \\
+Horse pregnancy (weeks) & 40 & 48 & 48 & 48 & 48 & 340 & 48 & 48 \\
+\bottomrule
+\end{tabular}
+\caption{Study~2, middle answer of 30 for five of the 15 questions.}
+\end{table}
+
+The model reached the truth in every condition; for boiling points it worked out the physics. The one odd value, 340 for the horse with a given 40 weeks and thinking off, is a unit slip: a horse's pregnancy is about 340 \emph{days}. It happened in 18 of 30 such answers and almost never otherwise.
+
+\subsection{A software problem found}
+With thinking off, the model often worked through formulas in its reply and hit the 512-token answer limit before writing \texttt{Estimate:} (16\% of Study~2 answers without thinking). The code then took the last number, sometimes an intermediate step (87,074.82 in a speed-of-sound formula). Fixed in question set v2: the answer limit is now 1,536 tokens, and cut-off replies count as no answer.
+
+\section{What it means}
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{The large model is not immune; it knew the answers.} Anchoring needs uncertainty. Questions for the next run must be ones the model does \emph{not} know.
+  \item \textbf{Where it was unsure, the anchor chose the memory.} Liechtenstein shows the pattern the \emph{retrieving} explanation predicts: two competing memories, and the anchor decides which one comes to mind.
+  \item \textbf{Thinking can create doubt.} The wrong Liechtenstein memory appeared only with thinking on.
+\end{enumerate}
+
+\begin{cautionbox}[Limits.]
+The interesting cases are only three questions. Anchors placed from a zero-width range sat almost on the answer, which also limits what this run can show.
+\end{cautionbox}
+
+\section{What came next}
+Write and screen new questions the model does not know (Experiment~3), find Study~2 questions where thinking has room to help (Experiment~4), and fix the answer limit.
+
+\appendix
+\section{Data and files}
+\begin{itemize}[leftmargin=*]
+  \item Raw answers: \texttt{data/pilot/raw/qwen3-32b/}; settings: \texttt{configs/pilot.yaml}
+  \item Longer report: \texttt{qwen3\_report.tex}; figures from \texttt{full\_report\_figures.pdf}
+\end{itemize}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}

@@ -77,7 +77,9 @@ print("Using code at commit", git("log", "-1", "--format=%h %s"))
 if SAVE_TO_GITHUB:  # check now that GitHub accepts saves with this token, before any GPU time is spent
     test = subprocess.run(["git", "push", "--dry-run", "origin", BRANCH], cwd=WORKDIR,
                           capture_output=True, text=True)
-    if test.returncode != 0:
+    # "rejected" means GitHub accepted the token but main moved on (e.g. another notebook saved
+    # meanwhile); the run pulls before every save, so that is fine.
+    if test.returncode != 0 and "rejected" not in test.stderr:
         raise RuntimeError("GitHub refuses to save with this token. Give the token 'Contents: Read and "
                            "write' on Anchoring-LLMs, put it in the GITHUB_TOKEN secret, and run this "
                            "cell again.\\n" + test.stderr.replace(token, "***")[-300:])

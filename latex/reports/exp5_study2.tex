@@ -1,0 +1,182 @@
+\documentclass[11pt,a4paper]{article}
+\input{reports/style}
+\renewcommand{\shorttitle}{Experiment 5: Study 2 on the large model}
+
+\begin{document}
+\reporttitle{Experiment 5}{Study 2 on the Large Model}{Own versus given starting value, on Qwen3-32B}{29 October 2026}
+
+\begin{plainabstract}
+In people, extra effort helps them move away from a starting number they thought of \emph{themselves}, but hardly helps with a number someone \emph{gave} them. Study~2 asks whether a model's thinking plays the role of that effort. Example: an asteroid's orbit is not one Earth year, but 365 days is the natural first guess. In one version the model must think of 365 itself; in the other we ask \enquote{Is it higher or lower than 365 days?}. We asked Qwen3-32B 10 such questions 1,800 times (\$0.62). Two results are clear. First, \textbf{a given starting value pulls harder} than the model's own at every thinking level: with no thinking, answers did not move away from a given value at all. Second, \textbf{thinking helped in both versions}, a little more with the model's own value (+0.44 against +0.28 on a 0-to-1 scale), but only in 5 or 6 of 9 questions. So the strong human-like prediction (\enquote{thinking helps \emph{only} with your own starting value}) was not supported. The Mario film followed the human pattern exactly; asteroid Itokawa did not, because with enough thinking the model worked out the orbit with Kepler's law in both versions. The sentence \enquote{accuracy matters} helped the own version more in all 9 questions, as in people. One technical problem: short thinking (512 tokens) was cut off in 98\% of answers, sometimes one step before the right answer.
+\end{plainabstract}
+
+\begin{keynumbers}
+Model & Qwen3-32B on DeepInfra; \$0.62 \\
+Questions & The 10 Study~2 questions from Experiment~4: 6 asteroid orbits, 2 medal counts and 2 box-office totals from 2026 \\
+Answers & 1,800: own or given start $\times$ 3 instructions $\times$ 3 thinking levels $\times$ 10; every answer readable \\
+Main result & Moved from start towards truth (0--1, middle of 9 questions): own 0.18 / 0.53 / 0.62, given 0.00 / 0.18 / 0.28 (off / short / long) \\
+Prediction & \enquote{Thinking helps only the own start}: not supported (own +0.44, given +0.28; own more in 5--6 of 9) \\
+Problem & Short thinking cut off at its limit in 98\% of answers \\
+\end{keynumbers}
+
+\section{Why this experiment}
+When people estimate, they often start from a number that comes to mind and adjust from it, usually not far enough. Human studies found a surprising difference \citep{epley2001putting,epley2005effortful}. If people think of the starting number \emph{themselves}, more effort (for example being paid for accuracy) helps them move further from it. If the number is \emph{given}, effort hardly helps. The explanation is that a self-made starting value is known to be only a first guess, so people keep adjusting; a given value makes the mind look for reasons it might be right.
+
+These two explanations match the two accounts our project compares: \emph{adjusting} (start at the anchor and move away) and \emph{retrieving} (the anchor brings matching facts to mind). Our prediction was: \textbf{thinking, and sentences asking for care, help the model move away from its own starting value, but not from a given one.}
+
+\section{What we did}
+
+\subsection{The two versions}
+\begin{transcript}[The two versions (Itokawa; true value 557 days)]
+\who{Own} How many Earth days does it take the asteroid 25143 Itokawa to orbit the Sun once? Give your best estimate. \cut{}
+\who{Given} How many Earth days does it take the asteroid 25143 Itokawa to orbit the Sun once? First, is it higher or lower than 365 days? Then give your best estimate. \cut{}
+\end{transcript}
+The starting value is the same number in both versions. Only \emph{who brought it up} changes.
+
+\subsection{Conditions}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Questions:} Bennu, Itokawa, Dionysus, (52768)~1998~OR2, Alinda and Eger (start: 365 days); Japan's medals at the 2026 Asian Games (start: 188) and Canada's at the 2026 Commonwealth Games (start: 92); \emph{The Super Mario Galaxy Movie} (start: \$1,361 million) and \emph{Now You See Me: Now You Don't} (start: \$334.9 million).
+  \item \textbf{Extra sentence}, both taken from human studies: none; \enquote{Accuracy matters here: take as much care as you need to make your estimate as close as possible to the true value} (like paying people for accuracy); or \enquote{Before answering, consider reasons why the true value might be quite different from [the first value that comes to mind / 365 days]} (the \enquote{consider the opposite} method, \citealp{mussweiler2000overcoming}).
+  \item \textbf{Thinking:} off, short (at most 512 tokens) or long (at most 2,048). 10 answers per condition.
+\end{itemize}
+
+\subsection{The measure: how far did the answer move?}
+For each question and condition we take the middle answer (median of 10) and ask how far it went from the starting value towards the truth:
+\[ \text{moved} = \frac{\text{middle answer} - \text{start}}{\text{truth} - \text{start}} \]
+0 = stayed at the start, 1 = reached the truth; values are capped at $-0.5$ and $1.5$. Example: Itokawa, own start, long thinking, middle answer 540: $(540-365)/(557-365) = 0.91$, almost all the way.
+
+Bennu is left out of the summaries: the model answered 433 days (true 437) at every level, so there was nothing left to move. In the screening it had said 366 without thinking, so its answer changed between runs. 9 questions remain.
+
+\section{Results}
+
+\subsection{Worked example 1: the Mario film follows the human pattern}
+The previous film earned \$1,361 million; the new one earned \$1,013 million. The model was trained before 2026, so it has to estimate. In both versions it recalls the first film's \$1.36 billion. With its \textbf{own} start, thinking brings the middle answer down from 1,300 to 950, close to the truth. With the \textbf{given} start, it stays at 1,450 and drops only to 1,350 with long thinking (Figure~\ref{fig:mario}).
+
+\begin{figure}[ht]
+\centering\sfig{1}
+\caption{The Mario film. Each dot is one answer (10 per group); the thick bar is the middle answer. Green: the model had to think of the previous film itself; purple: we asked \enquote{higher or lower than 1,361?}.}
+\label{fig:mario}
+\end{figure}
+
+\begin{transcript}[Own start, long thinking (answer 950)]
+\cut{} The most recent Mario movie was The Super Mario Bros. Movie in 2023, which was a huge hit. It made around \$1.36 billion worldwide. That's a solid benchmark. \cut{} perhaps it's safe to estimate around \$800 million to \$1.2 billion. \cut{} Let's go with an estimate of \$950 million as a middle ground.
+\end{transcript}
+
+\begin{transcript}[Given start, long thinking (answer 1,250)]
+\cut{} the Super Mario Bros. movie from 2023 \cut{} made around \$1.35 billion worldwide. \cut{} So the comparison would be lower than \$1.361 billion. My estimate would be around \$1.3 billion, maybe a bit less. \cut{} So I'll go with lower, and estimate \$1,250 million.
+\who{Answer} Comparison: lower. Estimate: 1250
+\end{transcript}
+The second answer is the textbook pattern of a given anchor: decide \enquote{lower}, then go only a little lower.
+
+\subsection{Worked example 2: Itokawa does not}
+\begin{figure}[ht]
+\centering\sfig{2}
+\caption{Same layout for Itokawa (start 365 days, truth 557 days).}
+\label{fig:itokawa}
+\end{figure}
+Without thinking and with short thinking, the middle answer stays near one year in both versions (369 and 367 own; 396 and 406 given). With long thinking \textbf{both} reach the truth, 540 and 528 days (Figure~\ref{fig:itokawa}). The model works it out with Kepler's law (\enquote{semi-major axis about 1.3 AU, so about 1.48 years, about 540 days}), and that works whoever brought up the 365.
+
+\subsection{The main result}
+\begin{figure}[ht]
+\centering\sfig[0.75\textwidth]{3}
+\caption{How far the middle answer moved from the start (0) towards the truth (1), middle of the 9 questions, no extra sentence.}
+\label{fig:main}
+\end{figure}
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{A given value always pulls harder.} The purple line is below the green one at every level (Figure~\ref{fig:main}). Without thinking, answers with a given start did not move at all (0.00); with the model's own start they moved a little (0.18).
+  \item \textbf{Thinking helps in both versions.} Own: $0.18 \to 0.53 \to 0.62$ (+0.44). Given: $0.00 \to 0.18 \to 0.28$ (+0.28). Counted question by question, thinking helped the own version more in 6 of 9 questions (short) and 5 of 9 (long): close to a coin flip.
+\end{enumerate}
+
+\begin{figure}[ht]
+\centering\sfig{4}
+\caption{Every question on its own, no extra sentence. Dashed line: starting value; dotted line: truth.}
+\label{fig:items}
+\end{figure}
+
+\paragraph{Does the model really think of its own start?} The \enquote{own} version only works if the model actually recalls the starting value. We counted how often own-version replies mention it:
+
+\begin{center}\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Question (own start) & off & short & long \\
+\midrule
+Asteroids (365 days), range over 6 questions & 20--70\% & 57--80\% & 100\% \\
+Mario Galaxy (previous film \$1,361 m) & 80\% & 60\% & 90\% \\
+Japan, Asian Games medals (previous 188) & 0\% & 0\% & 0\% \\
+Canada, Commonwealth Games medals (previous 92) & 3\% & 0\% & 0\% \\
+Now You See Me 3 (previous film \$334.9 m) & 0\% & 7\% & 10\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For three of the four 2026 questions the model almost never recalls the previous value, so its \enquote{own} version really has no starting value. Only the asteroids and the Mario film are a fair test. On those six there is still no clear difference: with short thinking the own version moved more (0.18 to 0.49, against $-0.01$ to 0.05 for given), but with long thinking the given version caught up (0.29 vs 0.23).
+
+\subsection{The extra sentences}
+\begin{figure}[ht]
+\centering\sfig{5}
+\caption{The same measure for each extra sentence (middle of 9 questions).}
+\label{fig:instr}
+\end{figure}
+
+\begin{figure}[ht]
+\centering\sfig{6}
+\caption{Thinking off only. A: how far answers moved. B: average length of the visible answer.}
+\label{fig:off}
+\end{figure}
+
+With thinking off, the sentences had large effects (Figure~\ref{fig:off}A):
+\begin{itemize}[leftmargin=*]
+  \item \textbf{\enquote{Accuracy matters}} moved answers further with the own start (+0.20) than with the given one (+0.06), and helped the own version more in \textbf{all 9 questions}. This matches people: incentives help only with self-made starting values \citep{epley2005effortful}.
+  \item \textbf{\enquote{Consider why it might be different}} helped both about equally (+0.25 own, +0.28 given). Also as in people: \enquote{consider the opposite} is the one method known to reduce anchoring on given values.
+\end{itemize}
+
+But the visible answer became about \textbf{three times longer} (about 330 tokens instead of 110, Figure~\ref{fig:off}B): the model reasoned out loud in its answer. For Itokawa with \enquote{accuracy matters} and no thinking it wrote:
+\begin{transcript}[Itokawa, accuracy matters, thinking off (answer 593)]
+According to NASA's JPL Small-Body Database, the orbital period of 25143 Itokawa is 1.622013 years \cut{} 1.622013 × 365.25 = 592.74 days
+\end{transcript}
+So \enquote{no thinking} plus a sentence is really \enquote{thinking in the answer, with no limit}. With real thinking on (Figure~\ref{fig:instr}), the sentences add little.
+
+\subsection{The thinking limit interrupts the model}
+\begin{figure}[ht]
+\centering\sfig{7}
+\caption{A: thinking length of every answer; tall bars at 512 and 2,048 are answers stopped at the limit. B: asteroid questions only (Bennu left out), own and given together; one line per extra sentence.}
+\label{fig:cutoff}
+\end{figure}
+
+Almost every short-thinking answer was stopped at 512 tokens (Figure~\ref{fig:cutoff}A), and the model then had to answer at once, sometimes in the middle of a calculation:
+\begin{transcript}[Itokawa, own start, short thinking, stopped at 512 tokens (answer 367)]
+\cut{} If Itokawa's semi-major axis is similar, say around 1.3 AU, then using Kepler's law, P squared would be (1.3)\^{}3. Let me calculate that. 1.3 cubed is 1.3 * 1.3 = 1.69, then 1.69 * 1.3 ≈ 2.197. So P squared is approximately 2.197, so P is the square root of
+\who{Answer} Estimate: 367
+\end{transcript}
+The model was one step from about 540 days. This is \enquote{insufficient adjustment} produced by the limit, not by the model. On the asteroid questions short thinking barely beat no thinking (0.09 to 0.17), and even long thinking hit its limit in 68--83\% of asteroid answers (Figure~\ref{fig:cutoff}B). The own/given comparison stays fair, because both get the same limit, but \enquote{short} means \enquote{interrupted}.
+
+\section{What it means}
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Given starting values pull harder than the model's own}, at every thinking level. This is the clean result, and it matches people.
+  \item \textbf{Thinking is not like human effort in the strong sense}: it helps with given values too. When the model has the knowledge (Itokawa, Kepler's law), it reasons its way to the truth whoever brought up the start.
+  \item \textbf{\enquote{Accuracy matters} helps the own start more (9 of 9), \enquote{consider the opposite} helps both}, as in people, but through reasoning written in the answer, which we did not control.
+\end{enumerate}
+
+\begin{cautionbox}[Limits.]
+One model, 10 questions (9 usable, 6 fair for the own version), 10 answers per condition; differences of 0.1--0.2 could change with more questions. Summaries are medians over questions (the mean gives the same direction, different sizes). For the 2026 questions, \enquote{moving towards the truth} partly means guessing the right direction. Question-selection rules were set after seeing screening data.
+\end{cautionbox}
+
+\section{Next steps}
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Raise the limits} to 1,024 and 4,096 tokens, so that most thinking finishes.
+  \item \textbf{Make \enquote{no thinking} truly short:} ask for the Estimate line only.
+  \item \textbf{Keep only questions where the model really recalls the start} (asteroid- and Mario-like) and add more of them.
+  \item \textbf{Run on Qwen3-14B} to see whether the own/given gap changes with less knowledge (Experiment~7 showed the 1.5B model knows too little).
+\end{enumerate}
+
+\appendix
+\section{Data and files}
+\begin{itemize}[leftmargin=*]
+  \item Raw answers: \texttt{data/pilot\_v2/raw/qwen3-32b/study2/}
+  \item Questions: \texttt{data/items\_v2/study2.csv}; settings: \texttt{configs/pilot\_v2.yaml}
+  \item Longer report: \texttt{study2\_qwen3.tex}; figures from \texttt{study2\_figures.pdf}
+\end{itemize}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}

@@ -1,0 +1,144 @@
+\documentclass[11pt,a4paper]{article}
+\input{reports/style}
+\renewcommand{\shorttitle}{Experiment 4: Screening, round 2}
+
+\begin{document}
+\reporttitle{Experiment 4}{Screening New Questions, Round 2}{Asteroid orbits and events of 2026, in search of Study 2 questions}{26 October 2026}
+
+\begin{plainabstract}
+Study~2 needs questions where a model starts from a familiar number and must think its way away from it: an asteroid's year is not 365 days; a 2026 tournament does not have the same number of goals as the 2022 one. In the first screening the large model jumped straight to the truth on classic questions, so we tried two new kinds. First, 54 little-known near-Earth asteroids. Bennu worked exactly as hoped: without thinking the model said 366 days, one Earth year; with thinking it used Kepler's law and reached 433 (true 437). But most asteroids were too obscure, and the model said 365 days with and without thinking. Second, 39 numbers from events of 2026, after every model's training (Hannan's idea): World Cup goals, Winter Olympics medals, box-office totals. The model cannot know these, and it did start from the previous edition, but it often could not know whether a number went up or down (Germany's golds: it said 13--17, true 8). We added a rule that thinking must move the answer towards the truth, and exactly 10 questions passed: Bennu, Itokawa, 4 other asteroids, 2 films and 2 medal counts. The screening cost \$0.44.
+\end{plainabstract}
+
+\begin{keynumbers}
+Models & Qwen3-32B (DeepInfra, \$0.44) and R1-Distill-Qwen-1.5B (free) \\
+Candidates & 93 new: 54 near-Earth asteroid orbits, 39 numbers from 2026 events \\
+Answers & 7,440, no anchors (thinking off and short) \\
+Main result & 10 Study~2 questions where thinking moves the answer towards the truth (middle adjustment 0.03 without thinking, 0.61 with) \\
+New rule & \enquote{Thinking must move the answer}: gain of at least 0.2 \\
+\end{keynumbers}
+
+\section{Why this experiment}
+Study~2 compares a starting value the model thinks of itself with the same value given to it, and asks whether thinking helps more in the first case, as effort does in people \citep{epley2001putting,epley2005effortful}. For that, the model must (1) start from the familiar value when it does not think, and (2) be able to move towards the truth when it does. The first screening found only two such questions.
+
+\section{What we did}
+\paragraph{Batch 1: near-Earth asteroids.} The only Study~2 questions where the large model stayed near the starting value without thinking were asteroid orbits. We added 54 little-known near-Earth asteroids. The starting value is one Earth year (365 days); every true period comes from Wikipedia and was checked with Kepler's third law.
+
+\paragraph{Batch 2: events of 2026.} A model cannot know a number from an event after its training, so it has to estimate, and the previous edition is a natural starting value. Every model we use was released before May 2025. 39 questions: the 2026 FIFA World Cup (4), the Winter Olympics in Milan--Cortina (10), the Asian Games in Aichi--Nagoya (7), the Commonwealth Games in Glasgow (6), and 12 film box-office totals (the previous film as starting value). Each new value is at least 15\% from the previous one.
+
+\begin{transcript}[Example question]
+The 2026 FIFA World Cup, the first with 48 teams and 104 matches, was played in Canada, Mexico and the United States in June and July 2026. How many goals were scored in the whole tournament? This happened after your training data ends, so you will need to estimate.
+\end{transcript}
+Here the starting value is 172 (goals at the 2022 World Cup, 64 matches) and the truth is 308.
+
+\section{Results}
+
+\subsection{Asteroids: Bennu works, most do not}
+
+\begin{transcript}[Bennu, thinking off (answer 366; true 436.65)]
+The asteroid 101955 Bennu has an orbital period around the Sun of approximately 366 Earth days. Estimate: 366
+\end{transcript}
+
+\begin{transcript}[Bennu, short thinking (answer 433.3)]
+\cut{} Earth's orbital period is 365.25 days, so if Bennu is in a similar orbit, maybe it's a bit more or less? \cut{} perhaps I can derive the orbital period using Kepler's third law if I know the semi-major axis. \cut{} If the semi-major axis is 1.1 AU \cut{} P would be the square root of 1.331, which is approximately 1.154 years. \cut{} 1.154 * 365 ≈ 421 days. \cut{} Bennu's orbit has a semi-major axis of approximately 1.126 AU. \cut{}
+\who{Answer} Estimate: 433.3
+\end{transcript}
+
+Without thinking, the model stays at the value it generated itself (one Earth year). With thinking, it starts from 365, reasons, and adjusts almost all the way: the textbook adjusting pattern for a self-generated anchor (Figure~\ref{fig:bennu}, left). But most of the 54 asteroids were too obscure: the model said about 365 days with \emph{and} without thinking, so thinking had nothing to work with.
+
+\begin{figure}[ht]
+\centering\ffig{15}
+\caption{Every screening answer for two questions. Orange line: the starting value; dark line: the truth. Left: Bennu; without thinking the model stays at one Earth year, with thinking it gets close to the truth. Right: World Cup goals (log axis); with thinking every answer is near the truth, without thinking a third are about ten times too large.}
+\label{fig:bennu}
+\end{figure}
+
+\subsection{Events of 2026}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{It really did not know:} only 4--5\% of answers were within 2\% of the truth.
+  \item \textbf{No refusals from the large model}; the small model with thinking off answered in only 9 of 780 replies (1\%).
+  \item \textbf{Direction:} the middle answer went the right way (up or down from the previous edition) for 67\% of questions without thinking and 74\% with thinking (Figure~\ref{fig:events}).
+  \item \textbf{Better than repeating the previous value} for 54\% (off) and 69\% (short thinking) of questions; typical error a factor of 1.33--1.38.
+\end{itemize}
+
+\begin{figure}[ht]
+\centering\ffig[0.82\textwidth]{14}
+\caption{The 39 questions about 2026. Across: the true 2026 value relative to the previous edition; up: the model's middle answer relative to the previous edition. Shaded squares: right direction; diagonal: perfect. Light: thinking off; dark: short thinking.}
+\label{fig:events}
+\end{figure}
+
+\paragraph{World Cup goals} (truth 308, previous 172). With thinking, every answer was between 242 and 364. The model turns the previous total into a rate and scales it:
+\begin{transcript}[World Cup goals, short thinking (answer 300)]
+\cut{} the 2022 World Cup had 64 matches and 172 goals, which is about 2.6875 per game. If we extrapolate that to 104 matches, it would be 2.6875 * 104 = 280. \cut{} Estimate: 300
+\end{transcript}
+
+\paragraph{Germany's golds at the 2026 Winter Olympics} (truth 8, previous 12). Here the model went the wrong way, and could not have known better:
+\begin{transcript}[Germany golds, short thinking (answer 13)]
+\cut{} in the 2022 Beijing Winter Olympics, Germany won 12 gold medals. That's a good starting point. \cut{} In 2018 Pyeongchang, they won 14 golds. In 2014 Sochi, 11 golds. So there's a slight upward trend. \cut{}
+\end{transcript}
+
+\begin{keybox}[What the 2026 questions can and cannot do.]
+They solve the knowledge problem: no model can know the answer, and it really does start from the previous edition. But it cannot know whether a number went up or down, so for many of them \enquote{adjusting towards the truth} is luck. They work only where the direction can be reasoned out (more matches mean more goals).
+\end{keybox}
+
+\subsection{A new rule: thinking must move the answer}
+With the old rules, the 15 picks were all obscure asteroids that stayed at 365 days with and without thinking, which cannot show whether thinking helps. So we added:
+\[ \text{thinking gain} = |1 - a_{\text{off}}| - |1 - a_{\text{short}}| \;\geq\; 0.2, \]
+where $a$ is the adjustment (0 = at the starting value, 1 = at the truth). With short thinking, the middle answer must get closer to the truth by at least 0.2; going far past the truth counts as moving away. Example: Bennu has $a_{\text{off}} = 0.03$ and $a_{\text{short}} = 0.95$, a gain of 0.92.
+
+\begin{figure}[ht]
+\centering\ffig{16}
+\caption{All 162 Study~2 candidates. Across: adjustment without thinking; up: with short thinking. Blue: first batch; green: asteroids; yellow: 2026 events. Most first-batch questions sit near (1,1): the model knew them. Circled: the 10 picks.}
+\end{figure}
+
+\subsection{The 10 Study 2 questions}
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}rlrrrr@{}}
+\toprule
+& Question (short) & Start & True & Adj.\ off & Adj.\ short \\
+\midrule
+1 & Bennu orbit, days & 365 & 436.65 & 0.03 & 0.95 \\
+2 & Itokawa orbit, days & 365 & 557 & 0.02 & 0.91 \\
+3 & \emph{Now You See Me: Now You Don't}, \$ million & 334.9 & 246.6 & 0.03 & 0.62 \\
+4 & 3671 Dionysus orbit, days & 365 & 1,191 & 0.02 & 0.60 \\
+5 & Canada's medals, Commonwealth Games 2026 & 92 & 62 & 0.57 & 0.90 \\
+6 & (52768) 1998 OR2 orbit, days & 365 & 1,342 & 0.21 & 0.46 \\
+7 & 887 Alinda orbit, days & 365 & 1,425.5 & 0.03 & 0.26 \\
+8 & Japan's medals, Asian Games 2026 & 188 & 269 & 0.46 & 0.67 \\
+9 & \emph{The Super Mario Galaxy Movie}, \$ million & 1,361 & 1,013 & 0.25 & 0.46 \\
+10 & 3103 Eger orbit, days & 365 & 607.9 & 0.01 & 0.21 \\
+\bottomrule
+\end{tabular}
+\caption{The 10 picks, ranked by thinking gain.}
+\end{table}
+
+\begin{figure}[ht]
+\centering\ffig{17}
+\caption{The 10 picks: adjustment of the middle answer without thinking (light) and with short thinking (dark).}
+\end{figure}
+
+\FloatBarrier
+\subsection{Two reading problems found later}
+A closer look at the 2026 answers (report \texttt{events\_2026.tex}) found two problems in how answers were read. Refusals that mention the year 2026 were read as the answer \enquote{2026}, and \enquote{\$400 million} was read as 400,000,000 for questions already asked in millions. Neither changed which questions were picked, because the picks use the large model, which wrote clean answers.
+
+\section{What it means}
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{We have Study~2 questions}, and the clearest of them (Bennu, Itokawa) show the human pattern for a self-generated anchor: stay at the familiar value without effort, adjust with effort.
+  \item \textbf{Knowledge is needed for adjustment.} Obscure asteroids stay at 365 days whatever the model does; thinking only helps when there is something to reason with.
+  \item \textbf{2026 events are useful mainly for Study~1:} the model is truly unsure, but the direction of change is often unknowable.
+\end{enumerate}
+
+\begin{cautionbox}[Honest notes for the paper.]
+The \enquote{thinking must move the answer} rule was added after seeing the data, and it selects questions where unanchored answers improve with thinking. That does not bias the actual test, which is whether thinking helps \emph{equally} when the starting value is given; the rule did not look at that. Six of the 10 questions are asteroids, so results may say more about asteroids than about anchors in general.
+\end{cautionbox}
+
+\appendix
+\section{Data and files}
+\begin{itemize}[leftmargin=*]
+  \item Candidates: \texttt{data/items\_v2/candidates\_study2\_neo.csv} and\\ \texttt{data/items\_v2/candidates\_study2\_events.csv}
+  \item Answers: \texttt{data/screen\_v2/}; picks: \texttt{data/items\_v2/study2.csv}
+  \item Longer reports: \texttt{events\_2026.tex}, \texttt{full\_report.tex}
+\end{itemize}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}
