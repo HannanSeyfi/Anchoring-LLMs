@@ -1,0 +1,298 @@
+experiment,model,phase,thinking_level,thinking_budget,anchor,direction,distance,precision,start_source,instruction,sample,comparison,estimate_saved,estimate_checked,thinking_tokens,thinking_cut_off,answer_cut_off,cell_id,raw_file,answer
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,0,,45,45,512,True,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,Estimate: 45
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,1,,44,44,512,True,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,Estimate: 44
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,2,,45,45,507,False,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,Estimate: 45
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,3,,44,44,512,True,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,Estimate: 44
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,4,,45,45,512,True,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,Estimate: 45
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,5,,45,45,512,True,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,Estimate: 45
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,6,,45,45,512,True,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,Estimate: 45
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,7,,45,45,512,True,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,Estimate: 45
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,8,,45,45,512,True,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,Estimate: 45
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,9,,44,44,512,True,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,Estimate: 44
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,10,,45,45,512,True,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,Estimate: 45
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,11,,44,44,512,True,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,Estimate: 44
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,12,,45,45,505,False,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,Estimate: 45
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,13,,45,45,512,True,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,Estimate: 45
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,14,,45,45,512,True,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss waterfall in Iceland is one of the most powerful waterfalls in Europe, renowned for its immense volume of water cascading over a dramatic cliff into the Jökulsárgljúfur canyon. The height of the waterfall is typically measured as the vertical drop from the top of the cliff to the plunge pool below. Based on reliable sources and commonly cited measurements, the height of Dettifoss is approximately 44.8 meters. This figure is often rounded to 45 meters in many references, but for precision, the exact measurement is closer to 44.8.
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,15,,44,44,448,False,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss waterfall in Iceland is known for its immense power and is often cited as one of the most powerful waterfalls in Europe. The height of the waterfall is typically measured from the top of the falls to the base, and the most commonly referenced figure is around 44 to 45 meters. Given the slight variations in measurement depending on the specific point of reference, the most widely accepted estimate is 44 meters.
+
+Estimate: 44"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,16,,45,45,512,True,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,Estimate: 45
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,17,,45,45,435,False,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss waterfall in Iceland is renowned for its impressive height and power. It is one of the tallest waterfalls in the country and is often cited as being around 45 meters in height. This figure is consistent with descriptions from travel and geological sources, which emphasize its vertical drop and significant flow.
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,18,,44,44,512,True,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss waterfall in Iceland is one of the most powerful in Europe, but its height is not as extreme as some other waterfalls. Based on comparisons with other Icelandic waterfalls like Skógafoss (60 meters) and Gullfoss (32 meters), and considering Dettifoss's reputation for power rather than height, it is likely in the mid-40s range. Historical estimates and sources commonly cite it as approximately 44 meters.  
+
+Estimate: 44"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,19,,45,45,512,True,False,screen|qwen3-32b|C1-081|low,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,Estimate: 45
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,0,,45,45,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is often cited as approximately 45 metres (148 feet) from the top of the basalts to the base of the waterfall. This measurement reflects the vertical drop of the main cascade. 
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,1,,45,45,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is often cited as approximately 45 metres. This measurement refers to the vertical drop of the waterfall's main cascade.
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,2,,45,45,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is often cited as approximately 45 meters (148 feet) from the top of the basalt cliffs to the base of the waterfall. This figure refers to the vertical drop of the main cascade.
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,3,,45,45,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is often cited as approximately 45 meters. This figure refers to the vertical drop of the main cascade. 
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,4,,45,45,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is often cited as around 45 metres. While some sources may give slightly different measurements depending on how the height is defined (e.g., the vertical drop or the overall fall including cascades), 45 metres is a widely accepted estimate.
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,5,,45,45,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is often cited as approximately 45 meters. This figure refers to the total drop from the top of the basalt cliffs to the base of the waterfall. While some sources may vary slightly due to differing measurement methods or the dynamic nature of the landscape, 45 meters is a widely accepted estimate.
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,6,,45,45,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is typically cited as around 45 to 50 meters depending on the source and the specific part of the waterfall being measured. Given the most consistent and commonly referenced measurements, a reasonable estimate would be:
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,7,,48,48,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is often cited as around 45 to 50 meters depending on the source and the specific measurement point. Considering the primary drop and the most commonly referenced estimates, a reasonable single-number estimate would be:
+
+Estimate: 48"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,8,,45,45,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe and is known for its impressive height and volume. It has a total drop of approximately 45 meters (148 feet) from the top of the basalt columns to the pool below.
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,9,,45,45,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is a notable feature. Based on available data and descriptions, it drops from a height of approximately 45 metres.
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,10,,45,45,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is often cited as approximately 45 meters (148 feet) from the top of the basalt cliffs to the plunge pool below.
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,11,,45,45,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is often cited as approximately 45 meters (148 feet) from the top of the falls to the base of the first tier. While some sources may give slightly different measurements due to the complex and rugged terrain, the most consistent and widely accepted estimate is around this figure.
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,12,,45,45,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is often cited as approximately 45 meters (148 feet). This measurement refers to the vertical drop from the top of the basalt columns to the plunge pool below. While there may be slight variations in some sources, 45 meters is the most commonly accepted value.
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,13,,44,44,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is a notable feature. While the overall height from the top of the canyon to the bottom can exceed 45 meters (148 feet), the actual vertical drop of the waterfall itself is typically cited as being around 44 meters (144 feet). This measurement refers to the main drop of the waterfall.
+
+Estimate: 44"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,14,,45,45,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is a subject of some variation due to differing measurements and sources. The generally accepted height of the main drop is around 45 meters (148 feet). Some sources may suggest slightly different figures, but 45 meters is a commonly cited value.
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,15,,45,45,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is often cited as approximately 45 meters. While some sources may vary slightly due to different measurement methods or descriptions of its multi-tiered structure, the most commonly accepted estimate is around this value.
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,16,,45,45,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is often cited as approximately 45 meters (148 feet). This measurement refers to the vertical drop from the top of the basalt cliffs to the plunge pool below.
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,17,,45,45,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is often cited as around 45 meters (148 feet) from the top of the瀑布 to the base of the lower cascade. This figure refers to the overall height of the waterfall system, including the upper and lower drops.
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,18,,45,45,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is often cited as approximately 45 meters. This measurement reflects the total drop from the top of the basalt cliffs to the plunge pool below.
+
+Estimate: 45"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,19,,45,45,0,False,False,screen|qwen3-32b|C1-081|off,data/screen_v2/raw/qwen3-32b/study1/part-0003-20261026T132546Z.jsonl.gz,"Dettifoss is one of the most powerful waterfalls in Europe, and its height is often cited as approximately 45 meters. This refers to the vertical drop from the top of the basalt cliffs to the plunge pool below. 
+
+Estimate: 45"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,0,,155,155,512,True,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Estimate: 155 meters
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,1,,56,56,384,False,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Estimate: 56 meters
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,2,,180,180,317,False,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Estimate: 180 meters
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,3,,95,95,328,False,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Estimate: 95
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,4,,330,330,419,False,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Estimate: 330 meters
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,5,,1850,1850,451,False,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Estimate: 1850 meters
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,6,,300,300,375,False,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Estimate: 300
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,7,,1450,,304,False,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,The best estimate for the height of Dettifoss waterfall in Iceland is approximately 1400 to 1450 meters.
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,8,,1200,1200,322,False,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Estimate: 1200 meters
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,9,,104,104,378,False,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Estimate: 104
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,10,,330,330,497,False,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Estimate: 330 meters
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,11,,225,225,286,False,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Estimate: 225 meters
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,12,,196,196,264,False,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Estimate: 196 meters
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,13,,336,336,419,False,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Estimate: 336 meters
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,14,,1600,1600,263,False,True,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"The Dettifoss waterfall in Iceland is approximately **1,600 meters** (or about 5,278 feet) high. 
+
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Estimate: 1600  
+Est"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,15,,373,373,512,True,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Estimate: 373 meters
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,16,,633,633,399,False,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Estimate: 633
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,17,,1880,1880,414,False,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Estimate: 1880 meters
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,18,,1285,1285,489,False,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Estimate: 1285
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,19,,130,130,469,False,False,screen|r1-distill-qwen-1.5b|C1-081|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Estimate: 130 meters
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,0,,186,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"As of my last update in July 2024, the height of the Dettifoss waterfall in Iceland is approximately **186 meters**. However, for the most accurate and up-to-date information, I recommend checking the latest data from reliable sources such as the official documentation from the Icelandic government or scientific organizations."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,1,,488,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"As of the most recent data available up to July 2024, the height of the Dettifoss waterfall in Iceland is approximately 148.6 meters (488 feet)."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,2,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"As of my last update in July 2024, I don't have real-time data access, so I can't provide the current height of the Dettifoss waterfall in Iceland. For the most accurate information, I recommend checking reliable sources such as official government reports or geological databases."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,3,,5312,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"Iceland's Dettifoss waterfall is one of the highest falls in the world, reaching an estimated height of **5,312 meters**."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,4,,444,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Iceland's Dettifoss waterfall is about **444 meters** high.
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,5,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"As of my last update in July 2024, there is no official or widely recognized measurement of the height of the Dettifoss waterfall. It is possible that the waterfall has been modified or closed, and the exact height is not currently known. For the most accurate and up-to-date information, I recommend consulting the official sources or reliable historical records."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,6,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"As of my last update in July 2024, the exact height of the Dettifoss waterfall in Iceland isn't publicly disclosed by the official sources. For the most accurate and up-to-date information, I recommend checking the official website of the Iceland Geographical Museum or contacting them directly."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,7,,661,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"Iceland's Dettifoss waterfall, also known as the Víða Dettifoss falls, is one of the tallest natural formations in the world. It stands at an estimated height of **2,171 feet** (661 meters). This impressive height is achieved through a series of cascading rocks and falls that require a combination of engineering and natural forces to maintain."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,8,,6840,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"Iceland's Dettifoss waterfall is one of the highest falls in the world. It reaches a height of approximately **2,170 meters** (6,840 feet)."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,9,,1700,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"Iceland's Dettifoss waterfall is one of the highest natural wonders in the world. The highest point of the waterfall is approximately 1,700 meters above sea level."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,10,,184,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"As of my last update in July 2024, there is no official estimate of the height of the Dettifoss waterfall in Iceland. However, I can provide you with approximate heights for other well-known falls in Iceland, such as the Tugurvatn falls, which are around 184 meters. For specific and up-to-date information, I recommend checking reliable sources like official government reports or geological surveys."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,11,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"As of my last update in July 2024, there is no widely documented or officially confirmed height for the Dettifoss waterfall, as it is listed as a proposed feature to be constructed by a company in Iceland. Therefore, its actual height is uncertain. If you have more recent information or specific details, please provide them for a more accurate estimation."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,12,,1379,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"Iceland's Dettifoss waterfall is the highest waterfall in the world, with a total height of approximately **1,379 meters**."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,13,,994,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"Iceland's Dettifoss waterfall is one of the highest falls in the world, standing at an estimated 302 meters (994 feet) high."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,14,,5800,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"Icelandic Dettifoss waterfall is one of the highest falls in the world, reaching a height of approximately **1,864 meters** (5,800 feet)."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,15,,386,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"As of my last update in July 2024, the exact height of the Dettifoss waterfall in Iceland is not publicly disclosed by the official sources. However, based on your assumption that it might be around 386 meters, which is a common estimate for such large falls, I would confirm this number. Please note that for the most accurate and up-to-date information, consulting official sources or reliable geological databases would be the best approach."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,16,,111,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,Iceland's Dettifoss waterfall is approximately 111 meters high.
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,17,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"As of my last update in July 2024, I don't have real-time data access to provide specific information about the height of the Dettifoss waterfall in Iceland. For the most accurate and up-to-date information, I recommend checking the latest sources or official geological data."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,18,,303,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"Iceland's Dettifoss waterfall is the highest waterfall in the world, standing at **303 meters** in height."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,19,,142,,0,False,False,screen|r1-distill-qwen-1.5b|C1-081|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0003-20261026T124907Z.jsonl.gz,"As of my last update in July 2024, the height of the Dettifoss Waterfall in Iceland is approximately 142 meters. This estimate is based on the information available at the time of the last update. If you need the most current information, I recommend checking the latest reports or official sources."

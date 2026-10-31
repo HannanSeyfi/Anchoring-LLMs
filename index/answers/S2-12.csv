@@ -1,0 +1,876 @@
+experiment,model,phase,thinking_level,thinking_budget,anchor,direction,distance,precision,start_source,instruction,sample,comparison,estimate_saved,estimate_checked,thinking_tokens,thinking_cut_off,answer_cut_off,cell_id,raw_file,answer
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,0,,37,37,504,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 36.5 to 37.5 degrees Celsius. This range is slightly lower than that of humans because of the smaller size and different metabolic needs of chickens. 
+
+Comparison: <lower>
+Estimate: 37.0"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,1,,37,37,385,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Normal  
+Estimate: 37 degrees Celsius  
+
+The normal body temperature of a healthy adult chicken is around 37 degrees Celsius. It is considered a normal body temperature, similar to that of humans."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,2,lower,37.5,37.5,514,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 37.5  
+
+The normal body temperature of a healthy adult chicken is around 37.5 degrees Celsius. This is lower than the average human body temperature but higher than typical body temperatures of other animals."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,3,higher,37,37,380,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is around 37 degrees Celsius.
+
+Comparison: higher
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,4,higher,35,35,699,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: higher  
+Estimate: 35-39"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,5,,37.2,37.2,560,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: <higher or lower>  
+Estimate: 37.2-37.5°C  
+
+This is a normal body temperature for a healthy adult chicken, which is within the range typical for thermal regulation in birds."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,6,lower,37,37,256,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,7,,37,37,804,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is around 37 degrees Celsius. 
+
+Comparison: <equal>
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,8,higher,37.5,37.5,371,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: higher  
+Estimate: 37.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,9,higher,37,37,367,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: higher  
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,0,,37,37,464,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: <higher or lower>  
+Estimate: <37>"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,1,lower,36.5,36.5,336,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 36.5-37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,2,lower,33.5,33.5,353,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is lower than 37 degrees Celsius. The estimated body temperature is approximately 33.5 degrees Celsius.
+
+Comparison: lower  
+Estimate: 33.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,3,,37,37,462,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Normal body temperature of a healthy adult chicken is approximately 37 degrees Celsius. It is neither higher nor lower than this value, and the best estimate is 37 degrees Celsius.
+
+Comparison: same
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,4,lower,35.5,35.5,352,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 35.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,5,lower,35.5,35.5,379,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is a bit higher than 37 degrees Celsius, around 35.5°C. 
+
+Comparison: lower  
+Estimate: 35.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,6,higher,35,35,414,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: higher
+
+Estimate: 35-36°C"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,7,lower,37,37,468,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Lower  
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,8,,37,37,544,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Similar  
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,9,higher,37,37,486,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: higher  
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,0,,37,37,525,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Normal body temperature for a healthy adult chicken is about 37 degrees Celsius.
+
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,1,,37,37,470,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Similar to humans, chickens have a normal body temperature around 37 degrees Celsius, but it can vary slightly. 
+
+Estimate: 37 degrees Celsius"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,2,lower,35,35,608,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Lower  
+Estimate: 35-37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,3,higher,38,38,548,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: higher
+Estimate: 38 degrees Celsius"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,4,,35,35,377,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 35-39 degrees Celsius, depending on factors such as diet and environmental conditions. However, it is generally lower than 37 degrees Celsius. 
+
+Comparison: <lower>
+Estimate: 35-39"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,5,,39,,440,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 35-39 degrees Celsius. This is slightly higher than the average human body temperature of 37 degrees Celsius. The variations in temperature can be attributed to factors such as body size, which affects heat production, and the regulation mechanisms, which help the chicken maintain a stable body temperature. In a normal, stable environment, chickens generally have a body temperature around 35-39 degrees Celsius, though they can vary slightly depending on environmental conditions."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,6,,35,35,510,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 35 to 39 degrees Celsius. This range is comfortable for chickens and allows them to regulate their temperature effectively. 
+
+Comparison: <higher or lower>
+Estimate: 35-39"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,7,lower,35,35,594,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 35"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,8,,37,,573,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 35-36°C. This is lower than the average human body temperature of 37°C because chickens regulate their body temperature based on ambient conditions and need to maintain a comfortable internal temperature. They can adjust their body temperature using body heat exchange mechanisms, which allows them to stay warm during hot weather and cool down when exposed to direct sunlight."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,9,lower,36,36,603,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Lower  
+Estimate: 36"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,0,,37.5,37.5,280,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 37.5 degrees Celsius. 
+
+Estimate: 37.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,1,,37,37,358,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,2,,37,37,434,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,3,,37,37,459,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,4,,33,33,330,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 33
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,5,,37,37,404,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is generally considered to be around 37 degrees Celsius, though it can vary slightly. Chickens, being smaller animals, have a body temperature range of approximately 35°C to 39°C. 
+
+Estimate: 37°C"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,6,,35,35,365,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 35-40
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,7,,36,36,503,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,8,,32.5,32.5,517,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 32.5-33
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,9,,32.5,32.5,738,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Estimate: 32.5°C
+
+The normal body temperature of a healthy adult chicken is approximately 32.5 degrees Celsius. This range allows for efficient heat regulation and is typical for ectothermic animals like chickens, which regulate their body temperature internally."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,0,,37,37,355,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,1,,37,37,761,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,2,,38,38,347,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 38
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,3,,35,35,334,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 35-36°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,4,,37.5,37.5,272,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37.5
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,5,,35.5,35.5,288,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 35.5°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,6,,37,37,272,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,7,,35,35,325,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 35°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,8,,37,37,451,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,9,,37,37,465,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,0,,36,,323,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken typically falls within a range of 35-36 degrees Celsius. This range accounts for variations among different chicken species and body types, reflecting their natural body temperature stability."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,1,,36.8,36.8,461,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36.8
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,2,,33,33,473,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 33
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,3,,36.5,36.5,261,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36.5 degrees Celsius
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,4,,37,37,840,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is generally around 37 degrees Celsius, but some can reach as high as 101 degrees under certain conditions. This range reflects the average body temperature and slight variations in specific cases.
+
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,5,,37,37,435,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37 degrees Celsius
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,6,,37,37,512,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is generally estimated to be around 37 degrees Celsius. It can fluctuate slightly, sometimes reaching up to 37.5 degrees, but the average is around 37 degrees. This is within the normal range for most chickens, with variations possibly due to circadian rhythms and environmental factors.
+
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,7,,34,34,660,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 34°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,8,,100,100,551,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 100
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,9,,38,38,446,False,False,study2|r1-distill-qwen-1.5b|S2-12|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 38-39°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,0,lower,36,36,511,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower
+Estimate: 36-37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,1,lower,33,33,381,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 33-34 degrees Celsius. It is lower than the average human body temperature of 37 degrees Celsius.
+
+Comparison: lower  
+Estimate: 33-34"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,2,higher,37,37,512,True,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: higher  
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,3,lower,33.5,33.5,422,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 33.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,4,lower,33,33,464,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 33 to 35 degrees Celsius. This is lower than the average human body temperature because of their smaller size and different internal structures. 
+
+Comparison: lower  
+Estimate: 33-35"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,5,,37,37,297,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately **37 degrees Celsius**. 
+
+Comparison: same  
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,6,lower,35.5,35.5,446,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 35.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,7,higher,37.5,37.5,477,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is around 37.5 degrees Celsius. It is slightly higher than the average human body temperature, reflecting the lower metabolic rate of chickens. This makes sense in the context of their body temperature range and the environmental factors they encounter.
+
+**Comparison: Higher**
+**Estimate: 37.5°C**
+
+The normal body temperature of a healthy adult chicken is higher than the average human body temperature due to differences in metabolic rate and environmental conditions, while still remaining within a typical mammalian body temperature range."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,8,,36.5,36.5,347,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is slightly below 37 degrees Celsius. It's approximately 36.5 degrees Celsius. Comparison: <lower>, Estimate: 36.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,9,,34,34,488,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 34 to 35 degrees Celsius. 
+
+Comparison: <lower>
+Estimate: 34"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,0,,37,37,455,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Normal
+
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,1,lower,35,35,395,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 35-36°C"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,2,lower,37,37,512,True,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Lower  
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,3,higher,37.5,37.5,259,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is higher than 37 degrees Celsius. The best estimate is 37.5°C.
+
+Comparison: higher  
+Estimate: 37.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,4,lower,36,36,350,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is around 36-37 degrees Celsius, which is slightly lower than 37°C. 
+
+Comparison: lower  
+Estimate: 36-37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,5,lower,34,34,383,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is lower than 37 degrees Celsius, typically around 34 degrees Celsius. 
+
+Comparison: lower  
+Estimate: 34"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,6,lower,35.5,35.5,394,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is a bit higher than that of a human, around 35.5 degrees Celsius. Comparison: lower. Estimate: 35.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,7,lower,33,33,443,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 33"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,8,lower,37,37,335,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is just below 37 degrees Celsius. The best estimate is around 37 degrees, with a range of 36.8-37.3 degrees. 
+
+Comparison: lower  
+Estimate: 37.0"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,9,lower,35.5,35.5,357,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 35.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,0,,37,37,512,True,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Similar  
+Estimate: 37 degrees Celsius"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,1,,38,,512,True,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Similar to the average human body temperature, which is approximately 37 degrees Celsius, a healthy adult chicken's normal body temperature is around 36.5 to 38 degrees Celsius. This range is slightly lower than the average human due to their ectothermic nature and possibly different metabolic rates and exposure to heat."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,2,,37,37,512,True,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: similar
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,3,higher,32,32,497,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Higher  
+Estimate: 32-34"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,4,higher,35.5,35.5,273,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: higher  
+Estimate: 35.5-37.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,5,lower,36,36,497,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 36"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,6,higher,38.5,38.5,512,True,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5°C"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,7,higher,37,37,479,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is around 37 degrees Celsius. It's slightly higher than 36.5 due to their metabolic needs and activity levels, but it's close to the average human body temperature.
+
+**Comparison: higher**
+**Estimate:** 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,8,higher,85,85,429,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is higher than 37 degrees Celsius. Chickens, being animals, have a more precise body temperature regulation, often around 85 to 90 degrees Celsius, which is why they can be kept at much higher temperatures for hatching or breeding. 
+
+Comparison: higher  
+Estimate: 85-90 degrees Celsius"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,9,,37,37,512,True,False,study2|r1-distill-qwen-1.5b|S2-12|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Normal
+
+Estimate: 37.0 degrees Celsius"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,0,,37.5,37.5,399,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 37 to 38 degrees Celsius. This range accounts for their body heat production and circadian rhythms, making them adaptable to varying temperatures. 
+
+Estimate: 37.5°C"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,1,,36.5,36.5,378,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36.5-37.5°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,2,,36.5,36.5,448,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36.5
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,3,,33,33,392,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 33
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,4,,33,33,512,True,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 33-34°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,5,,37.5,37.5,333,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37.5°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,6,,35,35,357,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 35
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,7,,34,34,383,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 34.0
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,8,,37.5,37.5,329,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37.5
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,9,,35.5,35.5,336,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 35.5°C. This estimate is based on the average body temperature of laying hens, which is slightly higher than the average human body temperature, reflecting the efficiency of their circulatory system. 
+
+Estimate: 35.5°C"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,0,,35.5,35.5,344,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 35.5
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,1,,37,37,316,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,2,,36,36,500,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,3,,35,35,285,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is estimated to be around 35°C. 
+
+Estimate: 35"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,4,,36,,472,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 35-36 degrees Celsius. This is lower than the average human body temperature due to the smaller size and simpler body structure of chickens, which reduces their metabolic rate and body heat production."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,5,,35.5,35.5,398,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 35.5°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,6,,37,37,313,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,7,,37,37,291,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,8,,37,37,365,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,9,,37,37,436,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,0,,37.5,37.5,386,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 37.5 degrees Celsius. This range accounts for variations in temperature regulation, such as early morning, late evening, and nighttime. 
+
+Estimate: 37.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,1,,37,,506,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically between 35-37 degrees Celsius. This range accounts for their active lifestyle, higher metabolic rate, and being thermally insulated, which allows them to maintain a stable body temperature despite their larger size."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,2,,37,37,512,True,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,3,,35,35,480,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 35
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,4,,36,36,339,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36-38°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,5,,35.5,35.5,481,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 35.5-36.5
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,6,,37.5,37.5,380,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 37.5-38.5 degrees Celsius. This range is typical and slightly higher than average for most birds, reflecting their smaller size and possibly different metabolic needs. 
+
+Estimate: 37.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,7,,35,35,266,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 35°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,8,,38,,320,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 37°C. Chickens have a body temperature that varies between 34°C to 38°C, reflecting their unique metabolic needs and the cooler climate they experience."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,9,,35,35,401,False,False,study2|r1-distill-qwen-1.5b|S2-12|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 35 degrees Celsius
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,0,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically considered to be around 37°C. This is a very accurate and precise figure, as it aligns with the biological basis of temperature regulation in most animals."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,1,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 37°C. This is close to the average human body temperature, which is why chickens are often referred to as ""hakuna matata"" (a term used to emphasize that chickens are not like humans in many ways, including their body temperature)."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,2,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is approximately 37°C. This is a closely regulated temperature that allows for optimal metabolic activities and thermal regulation.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,3,,36.5,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 37.5°C. This is slightly higher than the average human body temperature of 36.5°C, reflecting the higher metabolic rate of chickens due to their larger size and body composition."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,4,,37.5,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 37.5°C. This temperature is within the normal range and is slightly above the ambient temperature of the environment, which can affect the rate of heat loss. Therefore, your estimate of 37.5°C is accurate."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,5,,,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,6,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 37 degrees Celsius. This is because, similar to humans, chickens have a body temperature range of approximately 36°C to 38°C, and 37°C is the ideal average temperature for their internal organs and body functions."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,7,,,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,8,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 37 degrees Celsius, which is the same as the human body temperature. However, individual variations can occur due to factors like metabolism and health conditions. For a healthy adult chicken, the body temperature remains relatively stable and within a narrow range."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,9,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically considered to be around 37°C. This is slightly higher than the average human body temperature of 36.8°C, which is why we refer to it as ""normal."" It's important to note that body temperature can vary slightly under extreme conditions, but for most people, including chickens, 37°C is a good estimate for their normal body temperature."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,0,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 37°C. Therefore, it is **equal** to 37°C."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,1,,36.5,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 37°C. This is slightly higher than the average human body temperature of about 36.5°C. However, the exact temperature can vary slightly depending on the individual and environmental conditions."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,2,,36.5,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is approximately 37°C. This is slightly higher than the average human body temperature of 36.5°C.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,3,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is approximately 37°C. It is considered normal and falls within the expected range for such animals.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,4,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 37°C. This is slightly below the average human body temperature of 36.5°C, which is slightly lower than the normal body temperature of a healthy human body. The normal body temperature of a healthy adult chicken is considered to be 37°C."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,5,,38,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 37.5°C. This is slightly higher than the average human body temperature of 36.5°C, which is why we refer to chicken as a ""hotter"" than human blood. The variation in body temperature is typically within a narrow range, with most chickens having temperatures between 37°C and 38°C. This range allows chickens to regulate their body temperature effectively."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,6,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 37°C. It is considered normal and consistent with the body's thermal regulation capabilities. Therefore, the temperature is neither higher nor lower than 37°C."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,7,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically considered to be within the range of 36.5 to 37.5 degrees Celsius, which is very close to the average human body temperature. Therefore, it is very close to 37 degrees Celsius."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,8,,,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,9,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 37°C. This is very close to the average body temperature of humans, which is around 36.5°C. Therefore, a chicken's normal body temperature is **higher than 37°C**, and it is **about 37°C**."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,0,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 37 degrees Celsius. However, it can vary slightly due to individual differences and environmental factors. Most chickens, including young ones, have a normal body temperature of approximately 37°C. This is because the body regulates temperature through a process called thermoregulation, which allows the body to maintain a stable internal temperature even when external conditions are fluctuating."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,1,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 37 degrees Celsius. This is a closely regulated temperature that allows the body to maintain a stable internal environment, facilitating metabolic functions and optimal cellular function. Variations in body temperature can occur due to various physiological factors, but on average, a healthy chicken's body temperature remains relatively stable around this range."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,2,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 37°C, which is the same as that of a human. This temperature range is considered normal and is maintained by the body's mechanisms to ensure optimal thermoregulation and metabolic function. Variations in body temperature can occur due to factors such as heat loss, exposure to cold environments, or individual physiological needs, but these are not considered normal and are more of normal physiological variations."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,3,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically considered to be around 37 degrees Celsius, similar to that of humans. However, it's important to note that physiological processes can vary among individuals and species, and individual differences in temperature regulation and body composition can lead to slight variations."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,4,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 37°C. However, individual variations can occur due to various factors such as diet, hydration, and stress levels. On average, it remains close to the ideal body temperature for maintaining optimal bodily function."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,5,,20,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 37 degrees Celsius. This is a well-established fact and is close to the ambient temperature of 20 degrees Celsius in the refrigerator. Therefore, the temperature of the chicken's body is higher than the refrigerator temperature."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,6,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 37°C. However, slight variations can occur due to individual differences in metabolism, hormones, and other factors. For the purpose of this question, it is reasonable to state that the body temperature of a healthy adult chicken is approximately 37°C."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,7,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 37 degrees Celsius. This is consistent with the normal body temperature of most living organisms. However, it's important to note that natural fluctuations in body temperature may occur due to various factors such as stress, illness, or environmental conditions. In a healthy and well-hydrated state, these fluctuations are minimized, and the body maintains a stable internal temperature."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,8,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 37 degrees Celsius. This is consistent with the body temperature of most animals, as it allows for optimal metabolic processes and general health. However, it's important to note that individual differences can lead to slight variations. Factors such as metabolic rate, health condition, and environmental conditions can influence body temperature. For a healthy adult chicken, the body temperature remains relatively stable around 37 degrees Celsius."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,9,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is generally considered to be around 37 degrees Celsius. However, it's important to note that individual variations can occur due to various factors such as the species of chicken, its activity level, and exposure to cold temperatures. In most cases, chickens are thermally stable and maintain a body temperature close to the ambient temperature, which is typically around 37 degrees Celsius."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,0,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is typically considered to be around 37°C. This is close to the average human body temperature and is the same as that of humans.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,1,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically considered to be around 37°C. This is slightly below the average human body temperature of 37°C, which is why it's referred to as the ""thermal equivalent"" of a human."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,2,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The average normal body temperature of a healthy adult chicken is typically around 37°C. This range can vary slightly depending on individual factors such as diet and activity levels, but 37°C is a commonly accepted average."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,3,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 37°C. This is because the body temperature of most animals, including chickens, is close to the average human body temperature. Keep in mind that individual differences can occur due to factors like diet, environment, and overall health."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,4,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is typically around 37°C (98.6°F). This is slightly above the average human body temperature due to the higher metabolic rate and heat production of birds.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,5,,96.7,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 37°C (98.6°F). This is the average temperature that the body regulates internally to maintain body functions, and it is slightly above the normal human body temperature of 36.5°C (96.7°F)."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,6,,37.5,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is approximately 37.5°C.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,7,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is approximately 37°C. This is the same as the normal body temperature of most living organisms.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,8,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is typically around 37°C (98.6°F). This temperature is within the normal range for most animals and is the same as that of humans.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,9,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically considered to be around 37°C (98.6°F). This is a common reference point in biological studies and medicine, as it closely aligns with the average human body temperature."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,0,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is typically considered to be around 37°C.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,1,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is approximately 37°C.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,2,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is approximately 37°C (98.6°F).
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,3,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is approximately 37°C (98.6°F).
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,4,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is approximately 37°C.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,5,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is typically around 37°C (98.6°F).
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,6,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is typically around 37°C (98.6°F).
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,7,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is typically around 37°C (98.6°F).
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,8,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is typically around 37°C (98.6°F).
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,9,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is approximately 37°C (98.6°F).
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,0,,38.5,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 37°C (36.6°C to 38.5°C). This temperature is slightly below the average human body temperature due to the smaller size of chickens compared to humans. Chickens are ectotherms, meaning they regulate their body temperature internally using metabolic processes. Their body temperature can vary slightly depending on factors such as activity levels, hunger, and sleep. However, on average, chickens maintain a body temperature close to that of humans."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,1,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 37°C (98.6°F). However, due to daily activity, health conditions, and environmental factors, it can vary slightly from this average. For example, during intense feeding sessions, the body may maintain a slightly higher temperature, while in cooler environments, it may remain slightly lower. It's important to note that individual differences and health conditions can affect this range."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,2,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically considered to be around 37°C (98.6°F). However, it's important to note that individual variations may exist due to factors such as hydration levels, physical activity, and exposure to heat. Generally, a chicken's body temperature remains relatively stable around this range."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,3,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 37°C (98.6°F). This is slightly below the average human body temperature of about 37°C (98.6°F), which is why it's referred to as ""normal"" in the context of birds."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,4,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is approximately 37°C (98.6°F). This is the same as that of a healthy human. Variations in body temperature can occur due to factors such as hunger, thirst, physical activity, and exposure to cold environments, but these are not normal temperature-related changes."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,5,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 37°C (98.6°F). This temperature is the same as that of most animals and is regulated by the body's thermoregulatory mechanisms, such as sweating and maintaining an internal environment."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,6,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 37°C (98.6°F). This is slightly higher than the average human body temperature due to the higher metabolic rate and need for more energy in chickens. It's important to note that individual temperatures can vary slightly due to factors like posture and overall health, but the average remains close to 37°C."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,7,,97.4,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 37°C (37°F). This is slightly higher than the average human body temperature, which is about 36.5°C (97.4°F). The slight variation is due to the higher metabolic rate of chickens compared to humans, which requires more energy to maintain a stable body temperature."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,8,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is typically around 37°C (98.6°F). This is slightly lower than the average human body temperature due to the smaller size of chickens and their lower metabolic rates.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,9,,97.5,,0,False,False,study2|r1-distill-qwen-1.5b|S2-12|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult chicken is typically around 37°C (98.6°F). This is slightly lower than the average human body temperature of 36.5°C (97.5°F) due to the smaller size and lower metabolic rate of chickens compared to humans.
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,0,higher,40.6,40.6,613,False,False,study2|qwen3-32b|S2-12|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,1,higher,40.6,40.6,1052,False,False,study2|qwen3-32b|S2-12|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,2,higher,41,41,351,False,False,study2|qwen3-32b|S2-12|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,3,higher,40.6,40.6,968,False,False,study2|qwen3-32b|S2-12|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,4,higher,40.6,40.6,465,False,False,study2|qwen3-32b|S2-12|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,5,higher,40.6,40.6,1368,False,False,study2|qwen3-32b|S2-12|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,6,higher,40.7,40.7,1187,False,False,study2|qwen3-32b|S2-12|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.7"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,7,higher,40.6,40.6,444,False,False,study2|qwen3-32b|S2-12|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,8,higher,40.6,40.6,1027,False,False,study2|qwen3-32b|S2-12|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,9,higher,40.6,40.6,783,False,False,study2|qwen3-32b|S2-12|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,0,higher,41,41,332,False,False,study2|qwen3-32b|S2-12|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41.0"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,1,higher,41,41,296,False,False,study2|qwen3-32b|S2-12|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Chickens, like other birds, have a higher body temperature than humans. Their metabolic rate is faster, which contributes to a warmer core temperature.  
+Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,2,higher,40.5,40.5,320,False,False,study2|qwen3-32b|S2-12|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,3,higher,40.6,40.6,268,False,False,study2|qwen3-32b|S2-12|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,4,higher,40.6,40.6,460,False,False,study2|qwen3-32b|S2-12|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,5,higher,40.6,40.6,335,False,False,study2|qwen3-32b|S2-12|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,6,higher,40.6,40.6,318,False,False,study2|qwen3-32b|S2-12|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,7,higher,40.6,40.6,835,False,False,study2|qwen3-32b|S2-12|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,8,higher,40.5,40.5,212,False,False,study2|qwen3-32b|S2-12|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,9,higher,40.6,40.6,300,False,False,study2|qwen3-32b|S2-12|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,0,higher,41,41,488,False,False,study2|qwen3-32b|S2-12|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,1,higher,41,41,528,False,False,study2|qwen3-32b|S2-12|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,2,higher,40.6,40.6,330,False,False,study2|qwen3-32b|S2-12|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,3,higher,41,41,230,False,False,study2|qwen3-32b|S2-12|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,4,higher,41,41,415,False,False,study2|qwen3-32b|S2-12|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,5,higher,40.5,40.5,515,False,False,study2|qwen3-32b|S2-12|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Chickens are birds, which typically have higher metabolic rates and body temperatures compared to mammals like humans. This is due to their need for sustained energy for activities like flight (even though chickens are not strong fliers) and maintaining body heat in various environments. Their body temperature is regulated to support these physiological demands, which are distinct from those of humans. 
+
+Comparison: higher  
+Estimate: 40.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,6,higher,40.6,40.6,919,False,False,study2|qwen3-32b|S2-12|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,7,higher,41,41,372,False,False,study2|qwen3-32b|S2-12|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,8,higher,40.5,40.5,311,False,False,study2|qwen3-32b|S2-12|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,9,higher,41,41,351,False,False,study2|qwen3-32b|S2-12|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,0,,40.5,40.5,792,False,False,study2|qwen3-32b|S2-12|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.5
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,1,,41,41,257,False,False,study2|qwen3-32b|S2-12|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,2,,41.5,41.5,627,False,False,study2|qwen3-32b|S2-12|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41.5
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,3,,40.6,40.6,792,False,False,study2|qwen3-32b|S2-12|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.6
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,4,,41.5,41.5,1573,False,False,study2|qwen3-32b|S2-12|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41.5
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,5,,40.6,40.6,1397,False,False,study2|qwen3-32b|S2-12|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.6
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,6,,41,41,428,False,False,study2|qwen3-32b|S2-12|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41.0
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,7,,40.6,40.6,413,False,False,study2|qwen3-32b|S2-12|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.6
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,8,,40.6,40.6,491,False,False,study2|qwen3-32b|S2-12|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.6
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,9,,40.6,40.6,769,False,False,study2|qwen3-32b|S2-12|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.6
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,0,,40.5,40.5,592,False,False,study2|qwen3-32b|S2-12|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.5
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,1,,40.6,40.6,552,False,False,study2|qwen3-32b|S2-12|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.6
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,2,,41,41,476,False,False,study2|qwen3-32b|S2-12|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,3,,41,41,298,False,False,study2|qwen3-32b|S2-12|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,4,,41,41,329,False,False,study2|qwen3-32b|S2-12|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,5,,41,41,233,False,False,study2|qwen3-32b|S2-12|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,6,,41,41,351,False,False,study2|qwen3-32b|S2-12|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,7,,40.5,40.5,883,False,False,study2|qwen3-32b|S2-12|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.5
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,8,,41,41,335,False,False,study2|qwen3-32b|S2-12|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,9,,41,41,313,False,False,study2|qwen3-32b|S2-12|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,0,,41,41,695,False,False,study2|qwen3-32b|S2-12|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41.0
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,1,,40.6,40.6,641,False,False,study2|qwen3-32b|S2-12|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.6
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,2,,40.6,40.6,1265,False,False,study2|qwen3-32b|S2-12|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.6
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,3,,40.5,40.5,904,False,False,study2|qwen3-32b|S2-12|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.5
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,4,,40.6,40.6,784,False,False,study2|qwen3-32b|S2-12|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.6
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,5,,41.5,41.5,887,False,False,study2|qwen3-32b|S2-12|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41.5
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,6,,40.6,40.6,462,False,False,study2|qwen3-32b|S2-12|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.6
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,7,,41,41,351,False,False,study2|qwen3-32b|S2-12|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,8,,41,41,496,False,False,study2|qwen3-32b|S2-12|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,9,,41.5,41.5,1115,False,False,study2|qwen3-32b|S2-12|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41.5
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,0,higher,41.5,41.5,512,True,False,study2|qwen3-32b|S2-12|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,1,higher,40.6,40.6,512,True,False,study2|qwen3-32b|S2-12|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,2,higher,40.6,40.6,498,False,False,study2|qwen3-32b|S2-12|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,3,higher,40.5,40.5,512,True,False,study2|qwen3-32b|S2-12|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,4,higher,40.6,40.6,512,True,False,study2|qwen3-32b|S2-12|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,5,higher,40.6,40.6,388,False,False,study2|qwen3-32b|S2-12|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,6,higher,40.5,40.5,512,True,False,study2|qwen3-32b|S2-12|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,7,higher,41.5,41.5,512,True,False,study2|qwen3-32b|S2-12|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,8,higher,41,41,512,True,False,study2|qwen3-32b|S2-12|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,9,higher,40.5,40.5,512,True,False,study2|qwen3-32b|S2-12|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,0,higher,40.5,40.5,220,False,False,study2|qwen3-32b|S2-12|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,1,higher,40.6,40.6,355,False,False,study2|qwen3-32b|S2-12|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,2,higher,41,41,312,False,False,study2|qwen3-32b|S2-12|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,3,higher,40.6,40.6,297,False,False,study2|qwen3-32b|S2-12|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,4,higher,40.6,40.6,419,False,False,study2|qwen3-32b|S2-12|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,5,higher,40.5,40.5,301,False,False,study2|qwen3-32b|S2-12|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 40.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,6,higher,41,41,436,False,False,study2|qwen3-32b|S2-12|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,7,higher,41,41,442,False,False,study2|qwen3-32b|S2-12|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,8,higher,41,41,512,True,False,study2|qwen3-32b|S2-12|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,9,higher,41,41,394,False,False,study2|qwen3-32b|S2-12|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,0,higher,41,41,391,False,False,study2|qwen3-32b|S2-12|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,1,higher,41,41,512,True,False,study2|qwen3-32b|S2-12|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,2,higher,41,41,365,False,False,study2|qwen3-32b|S2-12|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,3,higher,41,41,265,False,False,study2|qwen3-32b|S2-12|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,4,higher,41,41,512,True,False,study2|qwen3-32b|S2-12|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,5,higher,41,41,388,False,False,study2|qwen3-32b|S2-12|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,6,higher,41,41,501,False,False,study2|qwen3-32b|S2-12|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is higher than 37 degrees Celsius because birds, including chickens, have higher metabolic rates and physiological adaptations (like flight) that require more energy, necessitating a higher baseline temperature.  
+
+Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,7,higher,41,41,431,False,False,study2|qwen3-32b|S2-12|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,8,higher,41,41,342,False,False,study2|qwen3-32b|S2-12|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,9,higher,41,41,512,True,False,study2|qwen3-32b|S2-12|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,0,,41,41,512,True,False,study2|qwen3-32b|S2-12|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41.0
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,1,,40.5,40.5,512,True,False,study2|qwen3-32b|S2-12|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,2,,41.5,41.5,512,True,False,study2|qwen3-32b|S2-12|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,3,,41.1,41.1,512,True,False,study2|qwen3-32b|S2-12|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41.1
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,4,,41,41,512,True,False,study2|qwen3-32b|S2-12|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41.0
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,5,,40.6,40.6,512,True,False,study2|qwen3-32b|S2-12|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.6
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,6,,41,41,294,False,False,study2|qwen3-32b|S2-12|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41.0
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,7,,40.5,40.5,512,True,False,study2|qwen3-32b|S2-12|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,8,,40.6,40.6,512,True,False,study2|qwen3-32b|S2-12|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.6
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,9,,40.6,40.6,512,True,False,study2|qwen3-32b|S2-12|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.6
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,0,,41.5,41.5,512,True,False,study2|qwen3-32b|S2-12|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,1,,40.5,40.5,470,False,False,study2|qwen3-32b|S2-12|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,2,,41.5,41.5,512,True,False,study2|qwen3-32b|S2-12|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,3,,40.6,40.6,512,True,False,study2|qwen3-32b|S2-12|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.6
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,4,,40.6,40.6,341,False,False,study2|qwen3-32b|S2-12|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.6
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,5,,41,41,512,True,False,study2|qwen3-32b|S2-12|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,6,,41,41,512,True,False,study2|qwen3-32b|S2-12|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41.0
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,7,,41,41,420,False,False,study2|qwen3-32b|S2-12|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,8,,40.6,40.6,512,True,False,study2|qwen3-32b|S2-12|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.6
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,9,,41,41,313,False,False,study2|qwen3-32b|S2-12|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,0,,41,41,311,False,False,study2|qwen3-32b|S2-12|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,1,,41,41,512,True,False,study2|qwen3-32b|S2-12|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,2,,41,41,512,True,False,study2|qwen3-32b|S2-12|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,3,,40.5,40.5,512,True,False,study2|qwen3-32b|S2-12|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,4,,40.5,40.5,512,True,False,study2|qwen3-32b|S2-12|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,5,,40.5,40.5,512,True,False,study2|qwen3-32b|S2-12|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,6,,41,41,398,False,False,study2|qwen3-32b|S2-12|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,7,,41,41,367,False,False,study2|qwen3-32b|S2-12|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,8,,41,41,371,False,False,study2|qwen3-32b|S2-12|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,9,,40.6,40.6,512,True,False,study2|qwen3-32b|S2-12|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 40.6
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,0,higher,41.2,41.2,0,False,False,study2|qwen3-32b|S2-12|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"To determine the normal body temperature of a healthy adult chicken, we can refer to veterinary and poultry science sources. Chickens, as birds, have a higher metabolic rate than mammals and generally have a higher body temperature.
+
+The commonly accepted normal body temperature for a healthy adult chicken is around **40.6 to 41.8 degrees Celsius** (103 to 107 degrees Fahrenheit). This range is consistent across multiple authoritative sources in avian health.
+
+Taking into account the central tendency of this range and aiming for the most accurate single-point estimate:
+
+Comparison: higher  
+Estimate: 41.2"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,1,higher,41,41,0,False,False,study2|qwen3-32b|S2-12|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"To determine the normal body temperature of a healthy adult chicken, it's important to refer to veterinary and poultry science sources. Chickens, as birds, have a higher metabolic rate than most mammals and therefore a higher body temperature.
+
+According to numerous reputable sources, including veterinary references and poultry farming guidelines, the normal body temperature for a healthy adult chicken ranges between **40.5°C and 41.5°C (104.9°F to 106.7°F)**.
+
+Taking accuracy into account and rounding to the nearest whole number that represents the central value in this range:
+
+Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,2,higher,40.6,40.6,0,False,False,study2|qwen3-32b|S2-12|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"To determine the normal body temperature of a healthy adult chicken with accuracy, we can refer to well-established veterinary sources and poultry science literature. 
+
+In general, the normal body temperature for healthy adult chickens (Gallus gallus domesticus) is consistently reported to be in the range of **40.5 to 42.2 degrees Celsius**. The most commonly cited average is **40.6°C (105.1°F)**.
+
+This is **higher** than 37 degrees Celsius, which is the typical body temperature for humans.
+
+Comparison: higher  
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,3,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Chickens have a higher body temperature than humans. In healthy adult chickens, the normal body temperature is typically around 41.5 degrees Celsius when measured rectally, which is the standard method for avian species.
+
+Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,4,higher,41,41,0,False,False,study2|qwen3-32b|S2-12|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"To determine the normal body temperature of a healthy adult chicken with accuracy, it's important to distinguish between human and avian physiology. Birds, including chickens, have a higher metabolic rate than mammals, which generally correlates with a higher body temperature.
+
+The widely accepted normal body temperature for a healthy adult chicken is typically cited in the range of **40.5 to 41.5°C (105 to 107°F)**. This is based on numerous veterinary and poultry science sources that measure core body temperature, usually via cloacal (rectal) thermometry, which is the standard method for birds.
+
+Given this range, the most accurate single-number estimate for the midpoint of this range would be **41.0°C**.
+
+Comparison: higher  
+Estimate: 41.0"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,5,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"To determine the normal body temperature of a healthy adult chicken with care and accuracy:
+
+Chickens (Gallus gallus domesticus) are birds, and their body temperature is generally higher than that of humans. Birds have a higher metabolic rate than mammals, which contributes to a higher core body temperature. 
+
+The scientific literature consistently reports that the normal body temperature of an adult chicken is around **41.0 to 42.0 degrees Celsius**, with **41.5°C** being a frequently cited average in veterinary and poultry science resources.
+
+This is higher than the human normal of 37°C due to the avian physiology and higher metabolic demands.
+
+Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,6,,40.6,40.6,0,False,False,study2|qwen3-32b|S2-12|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"To determine the normal body temperature of a healthy adult chicken, we can refer to veterinary and poultry science resources.
+
+Chickens, like most birds, have a higher body temperature than most mammals. The commonly cited normal body temperature for a healthy adult chicken is around **40.6 to 41.8 degrees Celsius (105 to 107 degrees Fahrenheit)**. This range is well-documented in poultry health references and studies.
+
+Given the need for accuracy, and based on the most reliable sources, a precise estimate for the normal body temperature of a healthy adult chicken is:
+
+Comparison: <higher>
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,7,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"To determine the normal body temperature of a healthy adult chicken with accuracy, we can refer to veterinary and poultry science sources.
+
+Chickens, like most birds, have a higher metabolic rate than humans, and as a result, their normal body temperature is indeed higher than the human baseline of 37°C. This is necessary to support their faster metabolism and to maintain efficient bodily functions, particularly in smaller body sizes.
+
+The generally accepted normal body temperature for a healthy adult chicken is around **41.5°C**. This value is consistently reported in poultry health literature, including by veterinary resources and agricultural extension services.
+
+Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,8,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"To determine the normal body temperature of a healthy adult chicken, it's important to consult veterinary and poultry science references. Chickens, like most birds, have a higher body temperature than humans.
+
+Birds generally maintain a body temperature in the range of 40 to 42 degrees Celsius (104 to 107.6 degrees Fahrenheit). For adult chickens, the commonly cited normal body temperature is around **41.5°C (106.7°F)** in scientific and veterinary literature. This is significantly higher than the human normal of 37°C.
+
+Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,9,higher,41.2,41.2,0,False,False,study2|qwen3-32b|S2-12|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Chickens, like most birds, have a higher body temperature than humans. The normal body temperature for a healthy adult chicken is well-documented in veterinary and poultry science literature. 
+
+Studies and standard references (such as those from the Merck Veterinary Manual and poultry health resources) consistently report the average body temperature of a healthy adult chicken to be around **40.6°C to 41.8°C** (105°F to 107°F), with **41.2°C** (106.2°F) often cited as the midpoint or average.
+
+Given the need for accuracy and the typical range, my best estimate for the normal body temperature of a healthy adult chicken is:
+
+Comparison: higher  
+Estimate: 41.2"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,0,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Chickens have a higher body temperature than humans. The normal body temperature for a healthy adult chicken is significantly higher than 37 degrees Celsius.
+
+Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,1,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is higher than 37 degrees Celsius. My best estimate is 41.5 degrees Celsius.
+
+Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,2,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is higher than 37 degrees Celsius. This is because birds, including chickens, generally have higher metabolic rates than humans and most mammals.
+
+Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,3,higher,41,41,0,False,False,study2|qwen3-32b|S2-12|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is higher than 37 degrees Celsius. Based on standard avian physiology, my best estimate is:
+
+Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,4,higher,41,41,0,False,False,study2|qwen3-32b|S2-12|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Chickens have a higher body temperature than humans. The normal body temperature for a healthy adult chicken is significantly higher than 37 degrees Celsius.
+
+Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,5,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is higher than 37 degrees Celsius. Chickens, like most birds, have a higher metabolic rate, which results in a higher body temperature compared to humans.
+
+Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,6,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is higher than 37 degrees Celsius. My best estimate is 41.5 degrees Celsius.
+
+Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,7,higher,41,41,0,False,False,study2|qwen3-32b|S2-12|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Chickens have a higher body temperature than humans. The normal body temperature for a healthy adult chicken is typically around 40 to 42 degrees Celsius. 
+
+Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,8,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is higher than 37 degrees Celsius. Chickens, like most birds, have a higher metabolic rate and body temperature compared to humans. 
+
+Based on standard avian physiology references, the best estimate for the normal body temperature of a healthy adult chicken is:
+
+Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,9,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is higher than 37 degrees Celsius. Based on standard avian physiology, my best estimate is 41.5 degrees Celsius.
+
+Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,0,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Chickens are birds, and birds generally have a higher body temperature than mammals. This is because birds have a higher metabolic rate and are often active in a variety of environmental conditions, which requires a more efficient energy system. Additionally, birds' body temperature regulation is adapted for flight, which generates significant internal heat. As a result, the normal body temperature of a healthy adult chicken is higher than 37 degrees Celsius.
+
+Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,1,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Chickens are birds, and birds generally have a higher body temperature than humans. This is because birds have a higher metabolic rate, which supports their ability to fly and maintain body heat efficiently. Additionally, the 37°C standard is specific to humans and many mammals, not all warm-blooded animals.
+
+Considering these factors, the normal body temperature for a healthy adult chicken is higher than 37°C.
+
+Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,2,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Chickens are birds, and birds generally have a higher body temperature than mammals. This is partly due to their higher metabolic rates and the energy demands of flight (even though chickens don't fly far). Additionally, birds often have a more efficient circulatory system that supports rapid heat generation.
+
+Because of these factors, the body temperature of a healthy adult chicken is typically higher than that of a human, which is around 37°C.
+
+Based on standard avian physiology data, the normal body temperature for a chicken is around 41.5°C.
+
+Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,3,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Chickens are homeothermic (warm-blooded) animals, but their body temperature is generally higher than that of humans. This is due to several factors:
+
+1. **Metabolic Rate**: Birds have a higher metabolic rate compared to mammals of similar size, which generates more body heat.
+2. **Body Size**: Smaller animals tend to have higher body temperatures due to a higher surface area-to-volume ratio, which affects heat retention and regulation.
+3. **Evolutionary Adaptation**: Birds evolved to maintain a higher core temperature to support their high-energy activities such as flight.
+
+Because of these reasons, the normal body temperature of a healthy adult chicken is **higher** than 37 degrees Celsius.
+
+Estimate: 41.5  
+Comparison: higher"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,4,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Chickens, like all birds, are homeothermic (warm-blooded) and generally maintain a higher body temperature than most mammals. The reason their body temperature is higher than 37°C (which is typical for humans) is due to their higher metabolic rates and more efficient thermoregulation, which supports their rapid growth and high activity levels. Birds also have a four-chambered heart and a more efficient respiratory system, which contributes to their elevated metabolic demands and, consequently, a higher body temperature.
+
+The normal body temperature of a healthy adult chicken is best estimated at:
+
+Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,5,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Chickens are birds, not humans, and birds generally have a higher body temperature than mammals. The reason the true value is quite different from 37 degrees Celsius is because birds have a faster metabolism and more efficient oxygen transport systems, which support a higher core body temperature. This is necessary for their high energy output, especially during flight, and for maintaining internal body functions in a variety of environmental conditions.
+
+In healthy adult chickens, the normal body temperature is higher than the typical human body temperature of 37°C.
+
+Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,6,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Chickens, like all birds, are endothermic (warm-blooded) but have a higher metabolic rate and body temperature than most mammals. The reason their body temperature is different from 37°C is due to their evolutionary adaptations for flight, faster metabolism, and more efficient thermoregulation. Birds generally need a higher body temperature to sustain the energy demands of activities like flying, which is metabolically very costly.
+
+Chickens also have a more compact body structure and higher surface area-to-volume ratio, which influences how they regulate heat. Their internal organs, especially the digestive system, function optimally at higher temperatures, and their immune responses are also temperature-dependent.
+
+Given these factors, the body temperature of a healthy adult chicken is **higher** than 37°C.
+
+Comparison: higher  
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,7,higher,41,41,0,False,False,study2|qwen3-32b|S2-12|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Chickens are birds, not humans, and birds typically have a higher body temperature than humans. This is because birds have a higher metabolic rate and often require more energy for activities such as flight. As a result, the normal body temperature of a healthy adult chicken is higher than 37 degrees Celsius.
+
+Chickens also regulate their body temperature differently in various environments, and factors like age, health, and external temperature can influence it. However, a typical normal body temperature for an adult chicken is around 41 degrees Celsius.
+
+Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,8,higher,41,41,0,False,False,study2|qwen3-32b|S2-12|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Birds, including chickens, are generally homeothermic (warm-blooded) but maintain a higher body temperature than most mammals. The metabolic rate of birds tends to be higher, and their body temperatures are often regulated to be in the range of 40–42 degrees Celsius to support their higher metabolic demands, especially for activities like flight or egg production.
+
+In addition, the method of measurement can influence the recorded temperature (e.g., rectal vs. oral), and environmental factors such as ambient temperature and stress levels can also affect readings. However, for a healthy adult chicken under normal conditions, the typical core body temperature is consistently higher than that of humans (37°C).
+
+Comparison: higher  
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,9,higher,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is higher than 37 degrees Celsius. This is because birds, including chickens, are generally endothermic (warm-blooded) animals with a higher metabolic rate compared to most mammals. Their smaller body size and more active lifestyle require a higher core temperature to sustain their physiological processes, such as rapid digestion and flight muscle function.
+
+Chickens also have a more efficient respiratory system and a four-chambered heart similar to mammals, but their thermoregulatory set point is higher due to evolutionary adaptations.
+
+Estimate: 41.5  
+Comparison: higher"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,0,,41.2,41.2,0,False,False,study2|qwen3-32b|S2-12|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically cited in a range, most commonly between 40.6°C and 42.2°C (105°F to 108°F). However, since you're asking for a **single number** that best represents the normal body temperature, I will provide the midpoint of the most commonly accepted range.
+
+The most frequently referenced range is approximately 40.6°C to 41.7°C. Taking the midpoint:
+
+(40.6 + 41.7) / 2 = 41.15°C
+
+Rounding carefully to the nearest tenth, the best estimate is:
+
+Estimate: 41.2"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,1,,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is generally cited in veterinary and poultry resources as approximately **41.5°C**. This is a commonly accepted average based on core body temperature measurements taken via methods such as cloacal (rectal) thermometry.
+
+While there may be slight variations due to factors like age, breed, time of day, and environmental conditions, the precise average for a healthy adult chicken is most accurately estimated at:
+
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,2,,40.8,40.8,0,False,False,study2|qwen3-32b|S2-12|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken (Gallus gallus domesticus) is typically cited in a range, such as 40.5 to 42.2°C (104.9 to 108.0°F), depending on the source. However, the most commonly accepted average for a healthy adult chicken is around **40.8°C** (105.4°F).
+
+This figure is derived from multiple veterinary and poultry science references that measure core body temperature, often via cloacal or rectal thermometry.
+
+Estimate: 40.8"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,3,,41,41,0,False,False,study2|qwen3-32b|S2-12|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically cited as around 41°C in poultry health literature. While some sources may provide a small range (e.g., 40.5°C to 41.5°C), the central value most commonly referenced as the standard is 41°C.
+
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,4,,41.2,41.2,0,False,False,study2|qwen3-32b|S2-12|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically cited as around 40.6 to 41.8°C (105 to 107°F). These values represent a range observed in poultry under normal conditions.
+
+To provide the most accurate single-number estimate that represents the central tendency of this range, we can take the midpoint of 40.6°C and 41.8°C, which is:
+
+(40.6 + 41.8) / 2 = 41.2°C
+
+This aligns with several authoritative sources and is a commonly accepted average for adult chickens.
+
+Estimate: 41.2"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,5,,40.6,40.6,0,False,False,study2|qwen3-32b|S2-12|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is generally cited in veterinary and poultry science references as around **40.6 to 41.7°C (105 to 107°F)**. However, when seeking a single precise estimate, the most commonly accepted average is **40.6°C**.
+
+This figure is derived from multiple authoritative sources, including poultry health guides and studies on avian physiology, which consistently report this value as the central point in the normal range.
+
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,6,,41.2,41.2,0,False,False,study2|qwen3-32b|S2-12|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is commonly cited as around 40.6 to 42.2°C (105 to 108°F). To provide the most accurate single-value estimate based on typical averages reported in poultry science literature and veterinary references, the most representative value is:
+
+Estimate: 41.2"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,7,,41,41,0,False,False,study2|qwen3-32b|S2-12|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is generally accepted to be around **41.0°C**. This value is based on extensive veterinary and poultry science literature, which consistently reports the average core body temperature of chickens in this range. While individual variations may occur, 41.0°C is the most precise and commonly cited estimate for a healthy adult chicken.
+
+Estimate: 41.0"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,8,,41,41,0,False,False,study2|qwen3-32b|S2-12|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically cited in a narrow range, but to provide the most accurate single-number estimate, we can refer to the midpoint of the commonly accepted range.
+
+Most reliable sources indicate that the normal body temperature for a healthy adult chicken is between **40.5°C and 41.5°C**. The midpoint of this range is **41.0°C**.
+
+Estimate: 41.0"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,9,,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 41.5°C (106.7°F). This is a well-established average in poultry physiology, though individual variation of ±0.5°C is considered normal.
+
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,0,,41,41,0,False,False,study2|qwen3-32b|S2-12|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 41 degrees Celsius.
+
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,1,,41,41,0,False,False,study2|qwen3-32b|S2-12|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 41 degrees Celsius.
+
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,2,,41,41,0,False,False,study2|qwen3-32b|S2-12|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Chickens, as healthy adult birds, typically have a higher body temperature than humans. The normal body temperature for a healthy adult chicken is generally around 41 degrees Celsius.
+
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,3,,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41.5
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,4,,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 41.5
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,5,,41,41,0,False,False,study2|qwen3-32b|S2-12|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 41 degrees Celsius.  
+
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,6,,41,41,0,False,False,study2|qwen3-32b|S2-12|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Chickens, like most birds, have a higher body temperature than humans. The normal body temperature for a healthy adult chicken is typically around 40–42°C. 
+
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,7,,41,41,0,False,False,study2|qwen3-32b|S2-12|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 41 degrees Celsius.
+
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,8,,41,41,0,False,False,study2|qwen3-32b|S2-12|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Chickens, like most birds, have a higher body temperature than humans. The normal body temperature for a healthy adult chicken is typically around 40 to 42 degrees Celsius. Taking the midpoint for a best estimate:
+
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,9,,41,41,0,False,False,study2|qwen3-32b|S2-12|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult chicken is typically around 41 degrees Celsius.
+
+Estimate: 41"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,0,,40.6,40.6,0,False,False,study2|qwen3-32b|S2-12|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"When thinking about the normal body temperature of a healthy adult chicken, it's important to consider that the ""first value"" that might come to mind — for example, 40°C — is often based on general knowledge or common references. However, this value can vary for several reasons:
+
+1. **Measurement Method**: Body temperature can vary depending on where it is measured — rectally (the most accurate), under the wing, or via ear. Rectal readings are typically the most reliable.
+
+2. **Time of Day and Activity Level**: Body temperature can fluctuate based on circadian rhythms and whether the bird is resting or active.
+
+3. **Environmental Conditions**: Chickens may adjust their body temperature in response to ambient temperature, especially in extreme weather.
+
+4. **Breed and Age Differences**: Different chicken breeds may have slightly different baseline temperatures, and young birds (pullets) may have lower temperatures than adults.
+
+5. **Health and Stress**: Illness, stress, or recent activity can temporarily raise or lower body temperature.
+
+Given these factors, the generally accepted average for a healthy adult chicken is around 40.5°C to 41.5°C when measured rectally. However, a single best estimate that reflects the typical healthy range would be:
+
+Estimate: 40.6"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,1,,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"When estimating the normal body temperature of a healthy adult chicken, it's important to consider that:
+
+1. **Species Differences**: Humans and chickens have different metabolic rates and physiological adaptations. Humans typically have a body temperature around 37°C, but birds generally have higher body temperatures due to their higher metabolic rates and more active lifestyles.
+
+2. **Thermoregulation in Birds**: Birds are endothermic like mammals, but they often maintain higher core temperatures to support their high-energy activities like flight.
+
+3. **Variation by Breed and Age**: Body temperature can vary slightly depending on the chicken's breed, age, and health status. Younger birds or certain breeds may have slightly different norms.
+
+4. **Measurement Methodology**: The method of measurement (e.g., rectal, oral, or infrared) can influence the reading. The most accurate method for birds is usually rectal temperature.
+
+Taking all these factors into account, the typical normal body temperature for a healthy adult chicken is higher than the human baseline.
+
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,2,,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"When estimating the normal body temperature of a healthy adult chicken, it's important to recognize that the human body temperature of 37°C is not directly applicable to birds. Birds have higher metabolic rates and different physiological adaptations, which typically result in higher body temperatures than mammals. 
+
+Chickens, in particular, are well-studied in agricultural and veterinary contexts. Their thermoregulatory system is adapted to their environment, and their body temperature can vary based on factors such as age, health, environmental temperature, and stress levels. For instance, young chicks may have lower body temperatures that increase as they mature. In hot or cold environments, a chicken's body temperature may also deviate from the norm.
+
+Considering these factors and standard references in veterinary science, the normal body temperature for a healthy adult chicken is generally around 41.5°C.
+
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,3,,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"When thinking about the normal body temperature of a healthy adult chicken, one might initially assume a value similar to that of humans (~37°C). However, birds generally have a higher body temperature than mammals due to their higher metabolic rates and endothermic physiology.
+
+Additionally, body temperature can vary slightly depending on the time of day, activity level, and measurement method (e.g., cloacal vs. oral). Chickens are also more susceptible to heat stress, which can cause fluctuations, but a healthy adult chicken typically maintains a relatively stable internal temperature.
+
+Considering all these factors, the most accurate and commonly accepted normal body temperature for a healthy adult chicken is:
+
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,4,,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"When estimating the normal body temperature of a healthy adult chicken, it's important to consider several factors that might lead to variation:
+
+1. **Species-Specific Physiology**: Birds generally have higher body temperatures than mammals. Chickens, as birds, are endothermic and maintain a higher metabolic rate, which influences their core temperature.
+
+2. **Measurement Method**: The temperature can vary depending on where it's measured (e.g., cloaca, under the wing, or rectum). The most accurate method for chickens is usually a cloacal or rectal reading.
+
+3. **Time of Day and Activity Level**: Body temperature can fluctuate with circadian rhythms and levels of activity. A chicken may be warmer after exercise or during the day.
+
+4. **Environmental Conditions**: Ambient temperature, humidity, and access to shade or water can affect a chicken's temperature.
+
+5. **Health and Stress**: Illness, infection, or stress can temporarily elevate or lower body temperature. Only healthy chickens should be considered for a ""normal"" estimate.
+
+Given these considerations, the widely accepted average body temperature for a healthy adult chicken is around **41.5°C**.
+
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,5,,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The first number that might come to mind is often around 40°C, which is commonly cited as the normal body temperature for chickens. However, several factors could lead to a more nuanced estimate:
+
+1. **Measurement method**: Body temperature can vary depending on whether it's taken via cloacal (rectal), under the wing, or using a thermal camera. The most accurate is typically cloacal, but even then, there can be slight variations.
+
+2. **Age and health**: Younger birds or those under stress, disease, or environmental extremes may have different temperatures. A ""healthy adult"" should ideally be fully grown and in a stable environment.
+
+3. **Time of day and activity**: Like many animals, chickens may experience slight fluctuations in body temperature due to circadian rhythms and activity levels.
+
+4. **Breed differences**: Some breeds may have slightly different baseline temperatures.
+
+5. **Ambient temperature**: Chickens regulate body temperature in a wide range of environments, and their temperature may vary slightly in response to external conditions.
+
+Taking these considerations into account, the most accurate average for a healthy adult chicken (Gallus gallus domesticus), based on veterinary references and scientific studies, is:
+
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,6,,41,41,0,False,False,study2|qwen3-32b|S2-12|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"When estimating the normal body temperature of a healthy adult chicken, it's important to consider that birds generally have higher body temperatures than mammals. For example, humans have a typical body temperature around 37°C, but birds like chickens have evolved to maintain a higher baseline to support their metabolic needs and thermoregulation in various environments.
+
+Another consideration is the method of measurement. Body temperature can vary slightly depending on whether it is taken rectally, under the wing, or via a cloacal thermometer. Also, factors such as activity level, time of day, and ambient temperature can influence the reading.
+
+Given these points, and based on standard veterinary references, the normal body temperature for a healthy adult chicken is typically in the range of 40.5–41.5°C. However, for a single best estimate that represents the central value in this range:
+
+Estimate: 41.0"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,7,,41.5,41.5,0,False,False,study2|qwen3-32b|S2-12|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"When estimating the normal body temperature of a healthy adult chicken, it's important to consider the following:
+
+1. **Species-specific physiology**: Birds, including chickens, are generally endothermic (warm-blooded) like mammals, but their thermoregulation is adapted to their anatomy and environment. For example, feathers provide insulation, which can affect how temperature is measured and regulated.
+
+2. **Measurement method**: Body temperature in birds can vary depending on where it's measured (e.g., cloaca, under the wing, or via a thermometer placed in the vent). This can lead to slight variations in reported values.
+
+3. **Environmental factors**: Chickens may adjust their behavior (e.g., seeking shade or sun) to regulate body temperature. Ambient temperature, humidity, and wind can influence apparent ""normal"" temperatures.
+
+4. **Activity level and stress**: Like other animals, chickens may have higher temperatures during activity or stress, and lower temperatures when resting.
+
+5. **Data source reliability**: Some sources may conflate information about different bird species or cite outdated or imprecise data.
+
+Taking all these into account, the best estimate for the normal body temperature of a healthy adult chicken is:
+
+Estimate: 41.5"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,8,,40.7,40.7,0,False,False,study2|qwen3-32b|S2-12|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"When considering the normal body temperature of a healthy adult chicken, it's important to distinguish between humans and chickens, as their physiological needs and adaptations are quite different. Chickens are endothermic (warm-blooded) birds, and their metabolic rates and thermoregulatory systems differ significantly from mammals.
+
+A few key considerations:
+
+1. **Evolutionary Adaptation**: Birds, including chickens, have evolved to maintain body temperatures that optimize their physiological functions. These are typically higher than in mammals because birds often have higher metabolic rates.
+
+2. **Thermoregulation in Birds**: Birds have a more efficient respiratory system and a higher surface-area-to-volume ratio, which affects how they retain and lose heat. Their feathers provide insulation, allowing them to maintain stable internal temperatures in a wide range of environmental conditions.
+
+3. **Species-Specific Norms**: The body temperature of a chicken is not the same as that of a human. While a human's normal body temperature is around 37°C (98.6°F), birds generally have a higher normal body temperature.
+
+4. **Published Data**: Multiple veterinary and poultry science sources indicate that the normal body temperature for a healthy adult chicken typically ranges between **40.5°C and 41.5°C** (104.9°F to 106.7°F). This is higher than the commonly mistaken human reference.
+
+5. **Measurement Variability**: The method of measurement (e.g., rectal vs. under the wing) and the chicken's age, health, and activity level can influence the reading. Adult chickens tend to have more stable temperatures than chicks or stressed birds.
+
+Given these considerations, the most accurate and commonly accepted estimate for the normal body temperature of a healthy adult chicken is:
+
+Estimate: 40.7"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,9,,41,41,0,False,False,study2|qwen3-32b|S2-12|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"When estimating the normal body temperature of a healthy adult chicken, it's important to consider the following factors that might cause confusion or lead to incorrect assumptions:
+
+1. **Species Differences**: Humans have a body temperature around 37°C, but birds, including chickens, are generally homeothermic (warm-blooded) and maintain a higher body temperature than mammals. This is due to differences in metabolic rates and evolutionary adaptations.
+
+2. **Measurement Site**: Body temperature can vary depending on where it is measured (e.g., cloaca, under the wing, or orally). The most accurate method for chickens is typically a cloacal (rectal) temperature.
+
+3. **Variation Among Birds**: Body temperature can vary slightly depending on the chicken's age, health, activity level, and environmental conditions (e.g., ambient temperature, stress, or disease).
+
+4. **Common Misconceptions**: Some people may confuse the internal temperature of a cooked chicken (which is about 74°C for safe consumption) with the live bird's body temperature, leading to overestimation.
+
+Given these considerations, the normal body temperature for a healthy adult chicken is generally in the range of 40.5–41.5°C. The most commonly cited average is around **41°C**, though individual variation exists.
+
+Estimate: 41"

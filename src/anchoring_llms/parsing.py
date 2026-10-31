@@ -42,18 +42,31 @@ def parse_numbers(text: str, allow_m_scale: bool = False) -> list[float]:
     return [_to_number(m, allow_m_scale) for m in _NUMBER.finditer(text)]
 
 
-def parse_estimate(text: str, fallback: bool = True) -> Optional[float]:
+def _unit_scale(unit: Optional[str]) -> Optional[str]:
+    """'million' for a unit like 'million US dollars', else None."""
+    first = (unit or "").strip().lower().split(" ")[0]
+    return first if first in ("thousand", "million", "billion") else None
+
+
+def parse_estimate(text: str, fallback: bool = True, unit: Optional[str] = None) -> Optional[float]:
     """The number on the last 'Estimate:' line, else the last number in the reply.
 
     With `fallback=False` a reply without an 'Estimate:' line gives None. Use that for replies
     that were cut off at the answer limit, whose last number is often a step of a calculation.
+
+    `unit` is the unit the question asks for. When it is already in millions ('million US
+    dollars'), 'Estimate: $400 million' means 400, not 400,000,000, and '1.2 billion' means 1,200.
     """
     text = strip_think(text or "").replace("**", "")
     lines = _ESTIMATE_LINE.findall(text)
     if lines:
-        nums = parse_numbers(lines[-1])
-        if nums:
-            return nums[0]
+        matches = list(_NUMBER.finditer(lines[-1]))
+        if matches:
+            value = _to_number(matches[0], allow_m_scale=False)
+            scale = (matches[0].group("scale") or "").lower()
+            if scale and _unit_scale(unit):  # convert "1.2 billion" into the question's unit
+                value /= _SCALES[_unit_scale(unit)]
+            return value
     if not fallback:
         return None
     nums = parse_numbers(text)

@@ -1,0 +1,152 @@
+experiment,model,phase,thinking_level,thinking_budget,anchor,direction,distance,precision,start_source,instruction,sample,comparison,estimate_saved,estimate_checked,thinking_tokens,thinking_cut_off,answer_cut_off,cell_id,raw_file,answer
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,0,,98,98,285,False,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal is a vital waterway in Germany, connecting the North Sea to the Baltic Sea. It is renowned for its strategic importance and high traffic volume. The canal's length is a commonly referenced figure in geographical and maritime discussions. 
+
+After considering standard conversions and reliable sources, the most accurate estimate for the Kiel Canal's length is 98 kilometers.
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,1,,98,98,347,False,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal, a significant waterway in Germany, is one of the busiest artificial waterways globally, facilitating maritime traffic between the North Sea and the Baltic Sea. It spans from Brunsbüttel on the North Sea to Kiel on the Baltic Sea. Based on commonly cited sources and historical data, its length is well-established. 
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,2,,98,98,288,False,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,Estimate: 98
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,3,,98,98,248,False,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,Estimate: 98
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,4,,98,98,398,False,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,Estimate: 98
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,5,,98,98,512,True,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,Estimate: 98
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,6,,98,98,512,True,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal, also known as the Nord-Ostsee-Kanal, is a crucial waterway in northern Germany, connecting the North Sea to the Baltic Sea. It runs from Brunsbüttel to Kiel, facilitating maritime transport by providing a safer and more efficient route than navigating around the Jutland Peninsula.
+
+Based on historical and geographical knowledge, the Kiel Canal is approximately 98 kilometers long. This estimate aligns with commonly cited figures and accounts for the canal's winding path through the region.
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,7,,98,98,510,False,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal, also known as the Nord-Ostsee-Kanal, is a significant waterway in northern Germany, connecting the North Sea to the Baltic Sea. It provides a crucial shortcut for maritime traffic, avoiding the longer and more hazardous route around the Jutland Peninsula. The canal's construction began in the late 19th century, with the first section opening in 1895. Over the years, it has undergone expansions and modernizations to accommodate larger vessels and increased traffic. The Kiel Canal is renowned for its efficiency and is one of the busiest artificial waterways globally. Its length has been consistently reported as approximately 98 kilometers, which aligns with its role as a major shipping route. This figure accounts for the entire navigable length from the North Sea at Brunsbüttel to the Baltic Sea at Kiel-Holtenau. 
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,8,,98,98,512,True,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,Estimate: 98
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,9,,98,98,414,False,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal, also known as the Nord-Ostsee-Kanal, is a significant waterway in northern Germany, connecting the North Sea to the Baltic Sea. It facilitates maritime traffic by avoiding the longer and more hazardous route around the Jutland Peninsula. Based on reliable sources and historical data, the canal's length is well-documented as approximately 98 kilometers. This figure accounts for its course from the North Sea entrance in Brunsbüttel to the Baltic Sea in Kiel. 
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,10,,98,98,341,False,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,Estimate: 98
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,11,,98,98,512,True,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,Estimate: 98
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,12,,98,98,512,True,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,Estimate: 98
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,13,,98,98,512,True,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,Estimate: 98
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,14,,98,98,463,False,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal, also known as the Nord-Ostsee-Kanal, is a critical waterway in northern Germany connecting the North Sea to the Baltic Sea. It was constructed in the late 19th century and has since become one of the most heavily used artificial waterways in the world, facilitating maritime trade by avoiding the longer route around the Jutland Peninsula.
+
+The canal's construction involved careful engineering to traverse the relatively flat terrain of northern Germany. Its length is a frequently cited statistic in geographical and maritime references. Historical and modern sources consistently state the length of the Kiel Canal to be approximately 98 kilometers. This figure aligns with both metric measurements and their conversion from imperial units (around 61 miles), as 61 miles multiplied by 1.60934 kilometers per mile yields approximately 98 kilometers.
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,15,,98,98,512,True,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,Estimate: 98
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,16,,98,98,414,False,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,Estimate: 98
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,17,,98,98,512,True,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,Estimate: 98
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,18,,98,98,512,True,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal is one of the most important waterways in Europe, connecting the North Sea to the Baltic Sea. It is known for its significant length and high traffic volume. Based on my knowledge and comparisons to other major canals, the Kiel Canal's length is approximately 98 kilometers.
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,19,,98,98,512,True,False,screen|qwen3-32b|C1-062|low,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,Estimate: 98
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,0,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal, also known as the Nord-Ostsee-Kanal, is one of the most important waterways in Germany, connecting the North Sea to the Baltic Sea. It is approximately 98 kilometers long.
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,1,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal in Germany is approximately 98 kilometres long.  
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,2,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal in Germany is one of the most important waterways in Europe, connecting the North Sea to the Baltic Sea. Its total length is well documented and widely known.
+
+Based on official and reliable sources, the Kiel Canal is approximately 98 kilometers long.
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,3,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal, also known as the Nord-Ostsee-Kanal, is one of the most important waterways in Europe. It connects the North Sea to the Baltic Sea, passing through the German state of Schleswig-Holstein. Based on well-established sources and engineering data, the canal's total length is well-documented.
+
+The Kiel Canal stretches approximately 98 kilometers (61 miles) from Brunsbüttel on the North Sea to the city of Kiel on the Baltic Sea. This length has remained fairly consistent through various expansions and improvements over the years.
+
+Therefore, the best estimate for the length of the Kiel Canal is:
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,4,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal, also known as the Nord-Ostsee-Kanal, is one of the most important waterways in Germany, connecting the North Sea to the Baltic Sea. It runs through the German state of Schleswig-Holstein. Based on standard geographic references, the length of the canal is approximately 98 kilometers.
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,5,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal in Germany is one of the most important waterways in Europe, connecting the North Sea to the Baltic Sea. Its total length is well documented and widely known.
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,6,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal in Germany is approximately 98 kilometres long.  
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,7,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal, also known as the Nord-Ostsee-Kanal, is one of the most important waterways in Germany, connecting the North Sea to the Baltic Sea. It runs through the German state of Schleswig-Holstein.
+
+Based on standard references, the length of the Kiel Canal is approximately 98 kilometers.
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,8,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal in Germany is one of the world's most-used artificial waterways. It connects the North Sea to the Baltic Sea, cutting across the Jutland Peninsula. Based on available data and my knowledge, the canal is approximately 98 kilometers long.
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,9,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal, also known as the Nord-Ostsee-Kanal, is one of the most important waterways in Germany, connecting the North Sea to the Baltic Sea. It is widely documented and well-established in length. Based on reliable sources and historical data, the Kiel Canal is approximately 98 kilometers long.
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,10,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal in Germany is approximately 98 kilometres long.  
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,11,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal in Germany is approximately 98 kilometres long.  
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,12,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal in Germany is one of the most important waterways in Europe, connecting the North Sea to the Baltic Sea. It is a well-known and frequently used route, so its length is relatively well-documented.
+
+Based on available data and reliable sources, the Kiel Canal is approximately 98 kilometers (61 miles) long.
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,13,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal, also known as the Nord-Ostsee-Kanal, is one of the most important waterways in Germany, connecting the North Sea to the Baltic Sea. It is approximately 98 kilometers long.
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,14,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal in Germany is one of the most important waterways in Europe, connecting the North Sea to the Baltic Sea. Based on available data and historical records, the canal's length is well documented.
+
+The Kiel Canal stretches from Brunsbüttel on the North Sea to Kiel on the Baltic Sea. Its total length is approximately 98 kilometers (61 miles).
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,15,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal in Germany is approximately 98 kilometres long.  
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,16,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal in Germany is approximately 98 kilometres long.  
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,17,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal in Germany is one of the most important artificial waterways in Europe. It connects the North Sea to the Baltic Sea, cutting through the Jutland Peninsula. Based on available data and historical records, the length of the canal is well-documented.
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,18,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal, also known as the Nord-Ostsee-Kanal, is one of the most important artificial waterways in Europe. It connects the North Sea to the Baltic Sea, cutting through the Jutland Peninsula in northern Germany. Based on commonly cited sources and historical data, the length of the canal is approximately 98 kilometers.
+
+Estimate: 98"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,19,,98,98,0,False,False,screen|qwen3-32b|C1-062|off,data/screen_v2/raw/qwen3-32b/study1/part-0002-20261026T132120Z.jsonl.gz,"The Kiel Canal in Germany is approximately 98 kilometers long.  
+
+Estimate: 98"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,0,,32,32,223,False,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,Estimate: 32 kilometers
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,1,,210,,512,True,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"The Kiel Canal in Germany is approximately 210 kilometers long. This includes both the upper and lower sections. The upper Kiel is about 190 km, while the lower Kiel is approximately 20 km. Therefore, the total length of the Kiel Canal is around 210 km."
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,2,,150,150,512,True,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,Estimate: 150 kilometers
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,3,,200,200,373,False,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,Estimate: 200
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,4,,380,380,289,False,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,Estimate: 380
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,5,,25,25,266,False,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,Estimate: 25
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,6,,1500,1500,355,False,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,Estimate: 1500
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,7,,36,36,512,True,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,Estimate: 36 km
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,8,,18,18,397,False,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,Estimate: 18 km
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,9,,2800,2800,512,True,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,Estimate: 2800
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,10,,1850,1850,276,False,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"The Kiel Canal in Germany is approximately 1,850 kilometers long. 
+
+Estimate: 1850"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,11,,55,55,386,False,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,Estimate: 55 km
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,12,,7000,7000,512,True,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"Estimate: 7,000 km"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,13,,116,116,408,False,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,Estimate: 116
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,14,,1050,1050,443,False,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,Estimate: 1050
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,15,,1400,1400,504,False,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,Estimate: 1400
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,16,,80,80,233,False,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"The Kiel Canal in Germany is approximately 80 kilometers long. 
+
+Estimate: 80"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,17,,200,200,456,False,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,Estimate: 200 km
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,18,,2400,2400,392,False,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,Estimate: 2400
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,19,,120,120,420,False,False,screen|r1-distill-qwen-1.5b|C1-062|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,Estimate: 120 miles
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,0,,13,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"As of the latest updates, the Kiel Canal in Germany is approximately 13 kilometers long."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,1,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"As of my last update in July 2024, there is no established official estimate for the length of the Kiel Canal. It is a planned diversion of the Rhine River, designed to provide fresh water for the city of Kiel, Germany. The canal's length and construction details are typically finalized after extensive planning and regulatory approvals. For the most accurate and up-to-date information, I recommend checking the official sources or official websites related to the Kiel Canal project."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,2,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"As of my last update in July 2024, I don't have the latest information on the length of the Kiel Canal. For the most accurate and up-to-date information, I recommend checking reliable sources such as official government websites or recent geological surveys."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,3,,70.7,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"As of the most recent data, the Kiel Canal is approximately 70.7 kilometers long. This distance is a key feature of the German canal system, which is an important waterway for trade and navigation."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,4,,19,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"The Kiel Canal is a significant waterway in Germany, but it is not considered a major navigable waterway due to its construction and maintenance challenges. It was built in the 19th century for navigation but later became a critical link for trade and communication."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,5,,11,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"As of the latest updates, the Kiel Canal in Germany is approximately 11 kilometers long. However, the exact length can vary slightly depending on the specific section being measured."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,6,,29,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,The Kiel Canal in Germany is approximately 29 km long.
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,7,,1050,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"As of my last update in July 2024, the length of the Kiel Canal is approximately **1,050 kilometers**. However, this figure can vary slightly depending on the specific section being measured. For the most accurate and up-to-date information, I recommend checking the official sources or travel guides."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,8,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"As of my last update in July 2024, the exact length of the Kiel Canal is not publicly disclosed, and it is not appropriate to provide an estimate without verifying the most current information."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,9,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"As of my last update in July 2024, I don't have real-time data access. For the most accurate information on the length of the Kiel Canal in Germany, I recommend checking official sources like the German government's navigation databases or reputable travel websites."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,10,,19,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"As of the most recent data available, the Kiel Canal in Germany is approximately 19 kilometers long."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,11,,118,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,The Kiel Canal in Germany is approximately 118 kilometers long.
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,12,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"As of my last update in July 2024, I don't have real-time data access, so I can't provide the current length of the Kiel Canal. For the most accurate and up-to-date information, I recommend checking the latest official sources or travel websites."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,13,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"As of my last update in July 2024, I don't have the ability to access real-time data or specific geographical information such as the length of the Kiel Canal. However, I can guide you on how to find this information. The Kiel Canal is a major waterway in Germany, and its exact length can be found by checking official geographical databases or recent travel advisories. If you need the most current information, you should consult reliable sources like official government websites or reputable travel websites."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,14,,13,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"The Kiel Canal in Germany is a well-known waterway that serves as a channel for the German River. The exact length of the Kiel Canal can vary slightly depending on the source, but it is generally estimated to be approximately 12 to 13 kilometers long."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,15,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"As of my last update in July 2024, I don't have specific information about the current length of the Kiel Canal in Germany. It's possible that the canal's length has been altered due to changes in its course over time. If you need the most accurate and up-to-date information, I recommend checking the latest official sources or travel websites."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,16,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"As of my last update in July 2024, I don't have real-time information, so I can't provide the current length of the Kiel Canal. For the most accurate and up-to-date information, I recommend checking reliable sources like official government websites or recent travel documents. Let me know if you'd like help finding the length based on a specific time period or source!"
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,17,,30,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"The Kiel Canal is a significant waterway in Germany, connecting the German and Dutch parts. It is approximately 30 kilometers long, with the main channel flowing through the region around the Kiel, which is a small island in the North Sea. The canal is an important waterway for trade, navigation, and cultural exchange."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,18,,27,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"The Kiel Canal is a major waterway in Germany, and its length is approximately 27 kilometers. It is a vital waterway for trade and navigation, connecting various parts of Germany and adjacent countries."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,19,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C1-062|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0002-20261026T124650Z.jsonl.gz,"As of my last update in July 2024, the exact length of the Kiel Canal has not been determined, and its status as a national park or wildlife corridor remains uncertain. For the most current information, I recommend checking the latest official reports from the Federal Republic of Germany."

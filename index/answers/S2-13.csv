@@ -1,0 +1,845 @@
+experiment,model,phase,thinking_level,thinking_budget,anchor,direction,distance,precision,start_source,instruction,sample,comparison,estimate_saved,estimate_checked,thinking_tokens,thinking_cut_off,answer_cut_off,cell_id,raw_file,answer
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,0,higher,37.5,37.5,470,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is a bit higher than 37 degrees Celsius, typically ranging from 37 to 38.5 degrees. 
+
+Comparison: higher  
+Estimate: 37.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,1,higher,37,37,472,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is around 37-39 degrees Celsius. It is slightly higher than 37 degrees Celsius.
+
+Comparison: higher  
+Estimate: 37-39"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,2,,37,,351,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult dog is approximately 37 degrees Celsius.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,3,lower,37,37,553,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 37.0°C"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,4,lower,36.8,36.8,408,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 36.8"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,5,lower,37,37,265,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically between 36°C and 38°C, with an average of approximately 37°C. 
+
+Comparison: lower  
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,6,higher,37,37,464,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: higher
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,7,higher,37.5,37.5,333,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: higher  
+Estimate: 37.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,8,,37,,395,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is around 38-39°C. This is slightly higher than the average human body temperature of 37°C. The higher body temperature in dogs is due to their circulatory system and metabolism, which require a bit more warmth."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,accuracy,9,lower,37,37,424,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,0,lower,37,37,601,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,1,higher,36.8,36.8,369,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: higher  
+Estimate: 36.8-37°C  
+
+The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius, typically around 36.8 to 37 degrees Celsius."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,2,lower,35.5,35.5,444,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is approximately 35-36 degrees Celsius, which is lower than 37 degrees Celsius. The best estimate is around 35.5 degrees Celsius.
+
+Comparison: lower
+Estimate: 35.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,3,higher,37,37,481,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is around 37 degrees Celsius, which is slightly higher than 37.5. 
+
+Comparison: higher  
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,4,lower,36.8,36.8,287,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 36.8 degrees Celsius"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,5,lower,37.5,37.5,535,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37.5 degrees Celsius, which is lower than 38 degrees Celsius. 
+
+Comparison: lower than 38
+Estimate: 37.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,6,higher,37,37,443,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is approximately 37°C, a bit higher than the average human body temperature of 37°C. It is lower than the human average and varies slightly, but it is generally within the range of 34°C to 39°C. 
+
+Comparison: higher  
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,7,,37,37,366,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is around 37 degrees Celsius. Comparison: <lower>, Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,8,higher,38,38,437,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius, with an estimated value of 38 degrees Celsius.  
+
+Comparison: higher  
+Estimate: 38"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,none,9,lower,37.5,37.5,324,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Lower  
+Estimate: 37.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,0,lower,35,35,541,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 35-39"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,1,lower,36,36,564,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"**Comparison:** Lower  
+**Estimate:** 36-37°C  
+
+The normal body temperature of a healthy adult dog is generally around 36 to 37 degrees Celsius. While younger dogs, especially puppies, can be slightly higher, typically around 38°C (100.4°F), and older adult dogs can be cooler, around 36-37°C. This range can vary depending on factors like size, age, and environmental conditions."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,2,higher,36.7,36.7,1090,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is approximately 36.7°C. Dogs should be kept within a narrow temperature range to regulate their body temperature, typically between 20°C and 40°C. 
+
+Comparison: higher  
+Estimate: 36.7"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,3,higher,39,39,536,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: higher  
+Estimate: 39-40"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,4,,37,37,745,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Normal for a healthy adult dog is in the range of 36-38 degrees Celsius. 
+
+Estimate: 37 degrees Celsius"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,5,higher,37.5,37.5,496,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is approximately 37.5 degrees Celsius, which is higher than the average human body temperature of about 37 degrees Celsius. 
+
+Comparison: Higher  
+Estimate: 37.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,6,lower,36,36,484,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 36°C to 38°C. However, due to factors like circulatory health and winter keep, they are often kept lower, usually between 32°C to 35°C. This ensures their body functions properly and circulatory health is maintained.
+
+Comparison: Lower  
+Estimate: 36-38°C"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,7,higher,38,38,454,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is around 38 degrees Celsius. 
+
+Comparison: higher
+Estimate: 38"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,8,,2,,440,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is around 37 degrees Celsius, with slight fluctuations in normal body temperature. The average body temperature is approximately 37-39 degrees, and the normal fluctuation is about 1-2 degrees. This is because dogs have their own thermoregulatory systems and a higher metabolic rate compared to humans."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,37,,,,given,opposite,9,lower,36,36,440,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 36-38 degrees Celsius, which is lower than 37 degrees Celsius. This variation is due to factors such as metabolism, blood vessel thickness, and body length, which influence the dog's body temperature regulation. 
+
+Comparison: lower  
+Estimate: 36-38"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,0,,98,98,437,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 98 degrees Celsius
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,1,,37,37,498,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,2,,37,37,554,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog typically falls within a range of 37-39 degrees Celsius. This range is common for many dog breeds, with some being slightly cooler at 34-36 degrees and slightly warmer at 39-40 degrees. The average temperature is usually around 37-39 degrees, depending on the breed and size. 
+
+Estimate: 37-39°C"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,3,,37.5,,223,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult dog is typically around 36.8 to 37.5 degrees Celsius. This range accounts for their higher metabolic rate and the fact that their body doesn't need as much thermoregulation as humans.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,4,,37,37,397,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,5,,36.5,36.5,366,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36.5
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,6,,37,37,352,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C, though it can vary slightly between 36.8 to 37.5°C. 
+
+Estimate: 37°C"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,7,,36.8,36.8,500,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36.8°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,8,,37,37,467,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,accuracy,9,,37,37,699,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37-38°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,0,,36.8,36.8,440,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36.8
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,1,,38,38,522,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 38 degrees Celsius
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,2,,41.3,41.3,523,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 41.3 to 42.5 degrees Celsius
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,3,,37,37,406,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,4,,37.5,37.5,298,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is approximately 37.5°C to 38°C, considering their higher metabolic rate and heat production. 
+
+Estimate: 37.5°C"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,5,,37,37,435,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37-38 degrees Celsius
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,6,,37,37,456,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,7,,32,32,372,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 32-34 degrees Celsius
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,8,,37,37,537,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,none,9,,100.5,100.5,480,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 100.5°F
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,0,,39,39,284,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 39-40°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,1,,98.6,98.6,338,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 98.6 degrees Fahrenheit, similar to a human body temperature. This range accounts for the dog's body structure and function, which are largely analogous to humans. The average is 98.6°F, while individual temperatures may vary slightly due to health conditions or environmental factors.
+
+Estimate: 98.6"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,2,,36.8,36.8,329,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36.8-37.2°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,3,,100.5,100.5,556,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 100.5-101.5
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,4,,37,37,303,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,5,,37.5,37.5,633,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37.5
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,6,,36,36,425,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36-38°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,7,,36.5,36.5,540,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36.5 to 38.5°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,8,,37,,381,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C. This range accounts for their warmer average body temperature due to their young age, active lifestyle, and overall health."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),high,2048,,,,,own,opposite,9,,37,37,583,False,False,study2|r1-distill-qwen-1.5b|S2-13|high|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,0,higher,39,39,220,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37°C. A typical estimate is around 39–40°C. 
+
+Comparison: higher  
+Estimate: 39–40°C"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,1,lower,36,36,512,True,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 36-38"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,2,lower,37.5,37.5,412,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Lower  
+Estimate: 37.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,3,higher,39,39,314,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: higher  
+Estimate: 39°C  
+
+The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius, and the average is around 39 degrees Celsius."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,4,,37,37,327,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Normal  
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,5,higher,37,37,332,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is around 37 degrees Celsius. It is slightly higher than 36 degrees but typically within a range of 36 to 38 degrees, with an average of 37 degrees. 
+
+Comparison: higher than 37 degrees Celsius  
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,6,lower,36,36,455,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower than 37°C  
+Estimate: 36–39°C"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,7,lower,36.8,36.8,385,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 36.8"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,8,,36,36,477,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: <lower>
+Estimate: 36-37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,accuracy,9,lower,36.8,36.8,321,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is approximately 36.8°C. This is slightly lower than the average human body temperature of 37°C. 
+
+**Comparison:** lower  
+**Estimate:** 36.8°C"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,0,higher,36.5,36.5,512,True,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius, typically around 36.5 to 38 degrees Celsius.
+
+Comparison: higher  
+Estimate: 36.5-38"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,1,lower,35,35,369,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 35"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,2,higher,37.5,37.5,315,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius, typically around 37.5 degrees Celsius on average.
+
+Comparison: higher  
+Estimate: 37.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,3,lower,36.8,36.8,433,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is slightly lower than 37 degrees Celsius, typically around 36.8 to 37.2 degrees Celsius. 
+
+Comparison: lower  
+Estimate: 36.8°C"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,4,,39,,426,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37 degrees Celsius. It is slightly lower than the human body temperature, which is 37 degrees Celsius. On average, adult dogs can have a body temperature range from 33 degrees Celsius to 39 degrees Celsius."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,5,lower,35,35,335,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is lower than 37 degrees Celsius, typically around 35-38 degrees Celsius. 
+
+Comparison: lower  
+Estimate: 35-38"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,6,higher,37,37,405,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: higher  
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,7,,37,37,408,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is around 37 degrees Celsius. It can vary slightly, but it's generally within the range of 36 to 38 degrees Celsius. Dogs can experience a body temperature that is a bit higher than humans, but they are typically kept within this range to maintain comfort and health.
+
+Comparison: <higher or lower>
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,8,lower,36.8,36.8,424,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is slightly lower than 37 degrees Celsius, approximately 36.8 degrees. Therefore, the comparison is lower, and the estimate is 36.8°C.
+
+Comparison: lower  
+Estimate: 36.8"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,none,9,higher,38,38,377,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Higher  
+Estimate: 38°C"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,0,higher,37.5,37.5,512,True,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Higher  
+Estimate: 37.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,1,lower,36.5,36.5,417,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is around 36.5-37 degrees Celsius. It is slightly lower than 37 degrees Celsius. 
+
+Comparison: lower  
+Estimate: 36.5°C"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,2,lower,36,36,512,True,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Lower  
+Estimate: 36-38"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,3,lower,37,37,429,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Lower  
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,4,higher,37.5,37.5,298,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C, but it can vary slightly between individuals. On average, it's often around 37.5°C. 
+
+Comparison: Higher  
+Estimate: 37.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,5,lower,36,36,512,True,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Lower  
+Estimate: 36-38"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,6,higher,36,36,505,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Higher  
+Estimate: 36-38"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,7,,37,,512,True,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is approximately 37 degrees Celsius. It's not significantly higher or lower than the average for humans, which is about 37 degrees Celsius. Dogs, being mammals, maintain this temperature to meet their active lifestyle needs and ensure comfort. Their circulatory system allows for efficient temperature regulation, and they adjust sweat production accordingly. There are no major deviations in this range, making 37 degrees Celsius a reliable estimate."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,8,higher,37.5,37.5,508,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: Higher  
+Estimate: 37.5 degrees Celsius  
+
+The normal body temperature of a healthy adult dog is generally around 37 degrees Celsius, but it can vary slightly depending on the situation and individual variation."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,37,,,,given,opposite,9,lower,36.5,36.5,348,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Comparison: lower  
+Estimate: 36.5"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,0,,37,37,376,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,1,,37,37,489,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37.0
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,2,,37,37,484,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is generally around 37 degrees Celsius. 
+
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,3,,38,38,463,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Estimate: 38.0
+
+The normal body temperature for a healthy adult dog is typically around 37.5°C to 38.5°C. This range is consistent across most adult dogs and reflects their similar body size and metabolism to humans."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,4,,36,36,276,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36.0
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,5,,36.5,36.5,364,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36.5°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,6,,37,37,354,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C, which is slightly below the average human body temperature of 37°C. This estimate accounts for individual variation, as some dogs may have slightly higher or lower temperatures. 
+
+Estimate: 37.0"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,7,,38,38,371,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Estimate: 38.0
+
+The normal body temperature of a healthy adult dog is typically around 38 degrees Celsius. This range accounts for the body's natural regulation processes and the average size differences between dogs and humans."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,8,,100.5,100.5,512,True,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 100.5°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,accuracy,9,,37,37,458,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,0,,36.5,36.5,273,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36.5°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,1,,36.5,36.5,512,True,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36.5
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,2,,37.5,37.5,359,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37.5 degrees Celsius
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,3,,37,37,424,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,4,,17.78,17.78,512,True,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 17.78°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,5,,37,37,479,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,6,,37,37,512,True,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,7,,37,37,366,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,8,,36.8,36.8,485,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Estimate: 36.8-37.2°C
+
+Explanation: The normal body temperature of a healthy adult dog is generally within a range of 36.8 to 37.2 degrees Celsius, reflecting the body temperature range of mammals like dogs."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,none,9,,37,37,361,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,0,,38,38,354,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 38
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,1,,37,,407,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is generally around 38°C, which is slightly below the average human body temperature of 37°C. However, body temperature can vary among individuals, so it's important to note that it's an average and can vary slightly."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,2,,36,36,512,True,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36-37 degrees Celsius
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,3,,35,35,363,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 35-39
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,4,,37,37,311,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically between 35 to 39 degrees Celsius. 
+
+Estimate: 37"
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,5,,37,37,512,True,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,6,,36.5,36.5,313,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 36.5°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,7,,37,37,512,True,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37-38°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,8,,35,35,512,True,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"Estimate: 35-40°C
+
+Explanation: The normal body temperature of a healthy adult dog typically falls within a range of 35 to 40°C. This range accounts for both warm and cool conditions, and it's influenced by factors such as age, breed, and environmental factors."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),low,512,,,,,own,opposite,9,,37,37,455,False,False,study2|r1-distill-qwen-1.5b|S2-13|low|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,Estimate: 37-38°C
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,0,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C. While there can be slight variations due to individual factors, this range is considered normal."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,1,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is approximately 37°C, similar to that of a human. However, dogs can vary slightly, and their body temperature can fluctuate slightly depending on factors such as health condition and time of day. It's always best to consult a healthcare professional for accurate and personalized measurements."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,2,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C, similar to that of a healthy human. However, due to differences in body composition and activity levels, individual body temperatures may vary slightly. It's always best to consult a healthcare professional for specific health assessments."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,3,,102.2,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult human is typically around 37°C (98.6°F). However, due to natural fluctuations, it can vary slightly. For dogs, which have a body temperature range of approximately 34°C to 39°C (93.2°F to 102.2°F). Therefore, a healthy adult dog's normal body temperature falls within this range."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,4,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 36.5 to 37.5 degrees Celsius. This range is within the normal body temperature range for dogs, which is generally considered to be between 36°C and 37°C."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,5,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 36.8–37.2 degrees Celsius. This range is slightly lower than the average human body temperature of 36.5–37.0 degrees Celsius, which is why dogs are called ""dog heat."" The body temperature of dogs can vary slightly depending on factors like breed, age, and individual health conditions."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,6,,,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,7,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is approximately 37°C. This is slightly below the average body temperature of a human, which is about 37°C, but dogs have a higher body temperature due to their higher metabolic rate and body composition."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,8,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is generally around 37°C. However, like all living beings, dogs have a normal body temperature that varies slightly between individuals. This variation is due to differences in genetics, genetics, and environmental factors. It's important to note that body temperature can change throughout the day, but the average remains around 37°C."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,accuracy,9,,36.5,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37 degrees Celsius. This is slightly lower than the normal body temperature of a human, which is approximately 36.5 degrees Celsius. The body temperature of dogs can vary slightly depending on factors such as age, health, and environment, but they generally remain within this range."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,0,,,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,1,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 36.8–37.2 degrees Celsius, which is slightly lower than the average human body temperature of 37 degrees Celsius. Therefore, the normal body temperature of a healthy adult dog is **lower** than 37 degrees Celsius, and the best estimate is **37 degrees Celsius**."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,2,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically considered to be around 36.5 to 37.0 degrees Celsius. This falls within the normal range, which is generally considered to be between 36.0°C and 37.0°C. Therefore, the body temperature of a healthy adult dog is neither significantly higher nor lower than 37 degrees Celsius."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,3,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C. This is considered the ideal body temperature for dogs, similar to that of humans."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,4,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically considered to be within the range of 36.5°C to 37.5°C. This range is slightly above the average human body temperature of 36.5°C. Therefore, the normal body temperature of a healthy adult dog is **higher** than 37 degrees Celsius, and the best estimate is 37°C."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,5,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult dog is around 37 degrees Celsius. It is the same as the average human body temperature and is maintained by the body's thermal regulation mechanisms.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,6,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C, which is the same as the average human body temperature. However, like humans, dogs have a slight variation in body temperature due to individual differences. On average, dogs have a normal body temperature of 37°C."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,7,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult dog is typically around 36-39 degrees Celsius. It is slightly lower than 37 degrees Celsius.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,8,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is approximately 37 degrees Celsius. This is the same as the average human body temperature. However, dogs can vary slightly in their body temperature due to factors like metabolism and health conditions. Therefore, while the average is 37°C, individual dogs may have slightly higher or lower temperatures."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,none,9,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 36.5 to 37.0 degrees Celsius. This is slightly lower than the average human body temperature of 36.5-37.0 degrees Celsius, but dogs have a more precise body temperature range, which can vary slightly depending on factors like activity levels and individual health."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,0,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37 degrees Celsius. However, it can vary slightly depending on the dog's species and health conditions. If your dog's body temperature is higher than 37 degrees, it may indicate a fever. Conversely, if it's lower, it could be due to illness or dehydration. Always check your dog's temperature regularly, as it's important to ensure their comfort and well-being."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,1,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37 degrees Celsius. However, natural variations in body temperature due to various factors such as posture, hydration, and activity levels can cause slight fluctuations. On average, a healthy adult dog's body temperature remains stable around 37 degrees Celsius."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,2,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37 degrees Celsius, similar to that of humans. However, it can vary slightly depending on factors like metabolism, age, and health conditions. Most dogs, including adult dogs, have a body temperature within a narrow range around 37 degrees Celsius. If your dog's temperature is outside this range, it might be worth consulting a professional health care provider for further testing."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,3,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C, similar to humans. However, it can vary slightly due to factors like individual differences in metabolism and health conditions. Always consult a healthcare professional before starting any new medication or treatment."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,4,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C (98.6°F). This is within the normal range for dogs, similar to human body temperature. However, it's important to note that body temperature can vary slightly between individuals, and some dogs may experience slight fluctuations in temperature during different times of the day. Always consult a healthcare professional for medical advice regarding your specific dog's health."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,5,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37 degrees Celsius, similar to that of humans. However, like humans, it can vary slightly depending on factors such as health condition, activity level, and environmental conditions."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,6,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37 degrees Celsius, similar to that of humans. However, there are some differences to consider. Dogs can have a wider range of body temperatures, depending on factors like breed, age, and overall health. Generally, their body temperature remains within a narrow range around 37 degrees, though some dogs may show slight variations. It's important to note that body temperature can vary slightly during different times of the day and can be influenced by external factors such as lighting and air circulation."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,7,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is generally considered to be around 37 degrees Celsius, similar to that of humans. However, like humans, it can vary slightly due to factors such as health conditions, stress, or environmental factors."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,8,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C. However, it can vary slightly depending on factors such as individual differences, health conditions, and environmental factors. Most healthy dogs maintain their body temperature relatively stable, and this range is considered normal for a healthy adult dog."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,37,,,,given,opposite,9,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|provided|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37 degrees Celsius, similar to that of humans. However, it's important to note that body temperature can vary slightly between individuals due to various factors such as health conditions, stress, and environmental factors. Always consult a healthcare professional for precise measurements or treatments."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,0,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C (36.6°C to 38.5°C). This is slightly different from the average human body temperature of 37°C, which is why dogs are said to retain their body temperature longer."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,1,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult dog is typically around 36.5 to 37.0 degrees Celsius.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,2,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 98.6 degrees Fahrenheit, which converts to approximately 37 degrees Celsius. This is the temperature at which most animals, including dogs, are maintained during body warming and cooling."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,3,,39.5,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically considered to be around 36.5 to 37.5 degrees Celsius. This range is within the normal body temperature range for dogs, which generally falls between 31.5°C and 39.5°C."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,4,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult dog is typically considered to be around 37°C. This is the same as the average human body temperature and is a crucial indicator of overall health.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,5,,38.5,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C (36.6°C to 38.5°C). This is slightly below the average human body temperature due to the high metabolic needs of dogs, which are often kept at a lower body temperature during active periods."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,6,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The average normal body temperature of a healthy adult dog is typically considered to be around 37°C. This can vary slightly depending on the individual and the time of day, but 37°C is a commonly accepted average."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,7,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically considered to be around 37°C (98.6°F). This temperature range is within the normal range for dogs, similar to that of humans."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,8,,102.2,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C (98.6°F). This temperature is within the normal range for dogs, which generally falls between 36°C (36.8°F) and 39°C (102.2°F)."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,accuracy,9,,37.5,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|accuracy,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult dog is typically around 36.5 to 37.5 degrees Celsius. This range accounts for the body's natural cooling mechanisms and thermal regulation processes.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,0,,37.5,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult dog is typically considered to be around 36.5 to 37.5 degrees Celsius.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,1,,36.5,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult dog is typically around 36.5°C to 37.0°C. This is slightly below the average body temperature of humans (36.5°C) but close enough for comfort.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,2,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult dog is typically estimated to be around 37°C (98.6°F).
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,3,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult dog is typically around 37°C (98.6°F).
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,4,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically considered to be around 37°C (98.6°F). This is slightly below the human body's average body temperature due to the smaller size and reduced metabolic rate of dogs. However, it's important to note that body temperature can vary slightly depending on individual factors such as activity level, health conditions, and environmental factors."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,5,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult dog is typically around 37°C (98.6°F).
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,6,,37.5,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult dog is typically around 36.5 to 37.5 degrees Celsius.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,7,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult dog is typically around 37°C.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,8,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult dog is approximately 37°C (98.6°F).
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,none,9,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|none,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult dog is typically around 37°C (98.6°F).
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,0,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C (98.6°F). This is slightly higher than the average human body temperature of 36°C (98.6°F). However, this range can vary slightly depending on individual factors such as overall health, diet, and environment."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,1,,36.5,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 36.5 to 37.5 degrees Celsius. This range is slightly above the average human body temperature of 36.5°C, which is why dogs are considered ""hot dogs."""
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,2,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C (98.6°F). This is a consistent range for dogs, as they are similar in size and physiology to humans. The body temperature of dogs can vary slightly depending on factors such as age, health condition, and environmental factors, but the average remains around 37°C."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,3,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C (98.6°F). This is slightly higher than the average human body temperature of 36°C (98.6°F), which is why dogs are often referred to as ""hot dogs"" and are known for their high body temperature."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,4,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C (98.6°F). However, individual differences can cause minor variations in this value."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,5,,98.6,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 98.6 degrees Celsius. However, this can vary slightly depending on factors like the individual's health condition, the specific breed, and environmental conditions. For most healthy adult dogs, this temperature range is considered normal, and it's important to note that the body can regulate its temperature to some extent."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,6,,99.5,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 36.5 to 37.5 degrees Celsius (97.7 to 99.5°F). This can vary slightly depending on the individual, age, and health condition. A healthy dog usually maintains this temperature internally to ensure proper hydration, digestion, and overall health."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,7,,37,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 37°C (98.6°F). This is a very close approximation of the body temperature found in humans, which also averages around 37°C. Dogs, like humans, have a relatively stable body temperature, and this value can vary slightly under extreme conditions, but on average, it remains around 37°C."
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,8,,38.5,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,The normal body temperature of a healthy adult dog is typically around 37°C (36.6°C to 38.5°C). This is slightly below the average human body temperature due to the smaller size of dogs and their different metabolic needs.
+1,r1-distill-qwen-1.5b,Study 2 (starting value),off,0,,,,,own,opposite,9,,97.7,,0,False,False,study2|r1-distill-qwen-1.5b|S2-13|off|self|opposite,data/pilot/raw/r1-distill-qwen-1.5b/study2/part-0004-20261024T115323Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically around 36.5 to 37.5 degrees Celsius (97.7 to 99.5 degrees Fahrenheit). This range is close to the average human body temperature of 36.5 degrees Celsius (97.7 degrees Fahrenheit). However, it's important to note that individual variations can occur due to factors such as diet, exercise, and exposure to heat."
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,0,higher,38.5,38.5,1085,False,False,study2|qwen3-32b|S2-13|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,1,higher,38.5,38.5,848,False,False,study2|qwen3-32b|S2-13|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,2,higher,38.5,38.5,457,False,False,study2|qwen3-32b|S2-13|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,3,higher,38.5,38.5,791,False,False,study2|qwen3-32b|S2-13|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,4,higher,38.5,38.5,880,False,False,study2|qwen3-32b|S2-13|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,5,higher,38.7,38.7,2048,True,False,study2|qwen3-32b|S2-13|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.7"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,6,higher,38.5,38.5,596,False,False,study2|qwen3-32b|S2-13|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,7,higher,38.6,38.6,1389,False,False,study2|qwen3-32b|S2-13|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.6"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,8,higher,38.6,38.6,2048,True,False,study2|qwen3-32b|S2-13|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.6"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,accuracy,9,higher,38.8,38.8,1286,False,False,study2|qwen3-32b|S2-13|high|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.8"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,0,higher,38.5,38.5,439,False,False,study2|qwen3-32b|S2-13|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,1,higher,38.5,38.5,252,False,False,study2|qwen3-32b|S2-13|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,2,higher,38.5,38.5,535,False,False,study2|qwen3-32b|S2-13|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,3,higher,38.5,38.5,341,False,False,study2|qwen3-32b|S2-13|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,4,higher,38.5,38.5,480,False,False,study2|qwen3-32b|S2-13|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,5,higher,38.5,38.5,432,False,False,study2|qwen3-32b|S2-13|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,6,higher,38.5,38.5,291,False,False,study2|qwen3-32b|S2-13|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,7,higher,38.5,38.5,542,False,False,study2|qwen3-32b|S2-13|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,8,higher,38.5,38.5,302,False,False,study2|qwen3-32b|S2-13|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,none,9,higher,38.5,38.5,319,False,False,study2|qwen3-32b|S2-13|high|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,0,higher,38.5,38.5,394,False,False,study2|qwen3-32b|S2-13|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,1,higher,38.5,38.5,438,False,False,study2|qwen3-32b|S2-13|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,2,higher,38.5,38.5,377,False,False,study2|qwen3-32b|S2-13|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,3,higher,38.5,38.5,666,False,False,study2|qwen3-32b|S2-13|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,4,higher,38.3,38.3,1068,False,False,study2|qwen3-32b|S2-13|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.3"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,5,higher,38.8,38.8,716,False,False,study2|qwen3-32b|S2-13|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.8"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,6,higher,38.5,38.5,458,False,False,study2|qwen3-32b|S2-13|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,7,higher,38.5,38.5,481,False,False,study2|qwen3-32b|S2-13|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,8,higher,38.5,38.5,526,False,False,study2|qwen3-32b|S2-13|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,37,,,,given,opposite,9,higher,38.5,38.5,296,False,False,study2|qwen3-32b|S2-13|high|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,0,,38.5,38.5,698,False,False,study2|qwen3-32b|S2-13|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,1,,38.6,38.6,522,False,False,study2|qwen3-32b|S2-13|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.6
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,2,,38.7,38.7,887,False,False,study2|qwen3-32b|S2-13|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.7
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,3,,38.7,38.7,2048,True,False,study2|qwen3-32b|S2-13|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.7
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,4,,38.8,38.8,780,False,False,study2|qwen3-32b|S2-13|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.8
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,5,,38.3,38.3,630,False,False,study2|qwen3-32b|S2-13|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.3
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,6,,38.5,38.5,770,False,False,study2|qwen3-32b|S2-13|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,7,,38.5,38.5,841,False,False,study2|qwen3-32b|S2-13|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,8,,38.6,38.6,947,False,False,study2|qwen3-32b|S2-13|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.6
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,accuracy,9,,38.5,38.5,1011,False,False,study2|qwen3-32b|S2-13|high|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,0,,38.5,38.5,851,False,False,study2|qwen3-32b|S2-13|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,1,,38.6,38.6,1112,False,False,study2|qwen3-32b|S2-13|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.6
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,2,,38.75,38.75,1804,False,False,study2|qwen3-32b|S2-13|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.75
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,3,,38.3,38.3,736,False,False,study2|qwen3-32b|S2-13|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.3
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,4,,38.8,38.8,442,False,False,study2|qwen3-32b|S2-13|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.8
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,5,,38.8,38.8,290,False,False,study2|qwen3-32b|S2-13|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.8
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,6,,38.5,38.5,1615,False,False,study2|qwen3-32b|S2-13|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,7,,38.6,38.6,734,False,False,study2|qwen3-32b|S2-13|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.6
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,8,,38.8,38.8,749,False,False,study2|qwen3-32b|S2-13|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.8
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,none,9,,38.5,38.5,747,False,False,study2|qwen3-32b|S2-13|high|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,0,,38.8,38.8,1047,False,False,study2|qwen3-32b|S2-13|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.8
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,1,,38.5,38.5,704,False,False,study2|qwen3-32b|S2-13|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,2,,38.6,38.6,1592,False,False,study2|qwen3-32b|S2-13|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.6
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,3,,38.6,38.6,744,False,False,study2|qwen3-32b|S2-13|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.6
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,4,,38.8,38.8,1382,False,False,study2|qwen3-32b|S2-13|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.8
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,5,,38.5,38.5,1241,False,False,study2|qwen3-32b|S2-13|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,6,,38.5,38.5,613,False,False,study2|qwen3-32b|S2-13|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,7,,38.8,38.8,1533,False,False,study2|qwen3-32b|S2-13|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.8
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,8,,38.3,38.3,573,False,False,study2|qwen3-32b|S2-13|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.3
+2,qwen3-32b,Study 2 (starting value),high,2048,,,,,own,opposite,9,,38.3,38.3,778,False,False,study2|qwen3-32b|S2-13|high|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.3
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,0,higher,38.6,38.6,512,True,False,study2|qwen3-32b|S2-13|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.6"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,1,higher,38.6,38.6,512,True,False,study2|qwen3-32b|S2-13|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.6"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,2,higher,38.6,38.6,512,True,False,study2|qwen3-32b|S2-13|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.6"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,3,higher,38.6,38.6,512,True,False,study2|qwen3-32b|S2-13|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.6"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,4,higher,38.8,38.8,512,True,False,study2|qwen3-32b|S2-13|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.8"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,5,higher,38.6,38.6,512,True,False,study2|qwen3-32b|S2-13|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.6"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,6,higher,38.6,38.6,512,True,False,study2|qwen3-32b|S2-13|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.6"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,7,higher,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37°C. Based on veterinary references, the typical range is 38.3°C to 39.2°C. The midpoint of this range is 38.75°C, but the most commonly cited average in clinical guidelines is 38.5°C. This aligns with the conversion of 101.5°F, which is the midpoint of the Fahrenheit range for dogs (101°F to 102.5°F). 
+
+Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,8,higher,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,accuracy,9,higher,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,0,higher,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,1,higher,38.5,38.5,276,False,False,study2|qwen3-32b|S2-13|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,2,higher,38.3,38.3,271,False,False,study2|qwen3-32b|S2-13|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.3"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,3,higher,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,4,higher,38.5,38.5,392,False,False,study2|qwen3-32b|S2-13|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,5,higher,38.5,38.5,267,False,False,study2|qwen3-32b|S2-13|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,6,higher,38.5,38.5,331,False,False,study2|qwen3-32b|S2-13|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,7,higher,38.5,38.5,499,False,False,study2|qwen3-32b|S2-13|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,8,higher,38.5,38.5,240,False,False,study2|qwen3-32b|S2-13|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,none,9,higher,38.5,38.5,284,False,False,study2|qwen3-32b|S2-13|low|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,0,higher,38.5,38.5,310,False,False,study2|qwen3-32b|S2-13|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,1,higher,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,2,higher,38.5,38.5,453,False,False,study2|qwen3-32b|S2-13|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,3,higher,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Dogs generally have a higher metabolic rate and different thermoregulatory mechanisms compared to humans, leading to a normal body temperature that is typically higher than 37°C. The commonly accepted range for healthy adult dogs is 38.3°C to 39.2°C, with an average closer to 38.5°C. This is influenced by their activity levels, smaller body size, and the standard rectal measurement method used for accuracy.  
+
+Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,4,higher,38.5,38.5,420,False,False,study2|qwen3-32b|S2-13|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,5,higher,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Dogs have a higher metabolic rate and smaller body size compared to humans, leading to a higher normal body temperature. The standard rectal measurement for a healthy adult dog typically ranges from 38°C to 39.2°C. The midpoint of this range is commonly cited as the best single-number estimate.  
+Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,6,higher,38.5,38.5,492,False,False,study2|qwen3-32b|S2-13|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,7,higher,38.5,38.5,438,False,False,study2|qwen3-32b|S2-13|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius. This is primarily due to differences in metabolic rate, body size, and thermoregulation mechanisms compared to humans. Dogs have a faster metabolism and rely on panting rather than sweating to dissipate heat, which supports a higher baseline temperature.  
+
+Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,8,higher,38.5,38.5,302,False,False,study2|qwen3-32b|S2-13|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),low,512,37,,,,given,opposite,9,higher,38.7,38.7,512,True,False,study2|qwen3-32b|S2-13|low|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius. This is primarily due to differences in metabolic rates and thermoregulatory mechanisms compared to humans. Dogs have a higher metabolic rate, which generates more internal heat, and their thermoneutral zone (the environmental temperature range where they don’t need to expend energy to maintain body temperature) is adapted to sustain a higher core temperature. Additionally, factors like fur insulation and activity levels contribute to maintaining a higher baseline. While measurement methods (e.g., rectal vs. ear thermometers) can slightly alter readings, the true physiological norm for dogs is consistently above human norms.  
+
+Comparison: higher  
+Estimate: 38.7"
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,0,,38.6,38.6,512,True,False,study2|qwen3-32b|S2-13|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.6
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,1,,38.6,38.6,512,True,False,study2|qwen3-32b|S2-13|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.6
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,2,,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,3,,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,4,,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,5,,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,6,,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,7,,38.8,38.8,512,True,False,study2|qwen3-32b|S2-13|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.8
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,8,,38.7,38.7,512,True,False,study2|qwen3-32b|S2-13|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.7
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,accuracy,9,,38.3,38.3,512,True,False,study2|qwen3-32b|S2-13|low|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.3
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,0,,38.8,38.8,367,False,False,study2|qwen3-32b|S2-13|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.8
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,1,,38.8,38.8,511,False,False,study2|qwen3-32b|S2-13|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.8
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,2,,38.5,38.5,327,False,False,study2|qwen3-32b|S2-13|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,3,,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,4,,38.5,38.5,273,False,False,study2|qwen3-32b|S2-13|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,5,,38.5,38.5,450,False,False,study2|qwen3-32b|S2-13|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,6,,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,7,,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,8,,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,none,9,,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,0,,38.3,38.3,512,True,False,study2|qwen3-32b|S2-13|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.3
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,1,,38.7,38.7,512,True,False,study2|qwen3-32b|S2-13|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.7
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,2,,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,3,,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,4,,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,5,,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,6,,38.5,38.5,391,False,False,study2|qwen3-32b|S2-13|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,7,,38.5,38.5,512,True,False,study2|qwen3-32b|S2-13|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.5
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,8,,38.6,38.6,512,True,False,study2|qwen3-32b|S2-13|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.6
+2,qwen3-32b,Study 2 (starting value),low,512,,,,,own,opposite,9,,38.7,38.7,512,True,False,study2|qwen3-32b|S2-13|low|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,Estimate: 38.7
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,0,higher,38.7,38.7,0,False,False,study2|qwen3-32b|S2-13|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius. After careful consideration and reference to veterinary medical standards, my best estimate is based on the widely accepted average for canine body temperature.
+
+Comparison: higher  
+Estimate: 38.7"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,1,higher,38.75,38.75,0,False,False,study2|qwen3-32b|S2-13|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"To determine the normal body temperature of a healthy adult dog, it's important to understand that dogs have a higher body temperature than humans. This is due to differences in metabolic rates and thermoregulatory mechanisms. Clinical and veterinary references consistently state that a healthy adult dog's body temperature falls within a specific range.
+
+The most accurate and widely accepted normal range from reputable veterinary sources, including the American Kennel Club and veterinary textbooks, is **38.3 to 39.2 degrees Celsius**.
+
+Taking care to provide a single number estimate that is representative of the average within this range, the midpoint is:
+
+**38.75 degrees Celsius**
+
+Comparison: higher  
+Estimate: 38.75"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,2,higher,38.8,38.8,0,False,False,study2|qwen3-32b|S2-13|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"A healthy adult dog's normal body temperature is higher than 37 degrees Celsius. This is because dogs typically have a higher baseline body temperature than humans. The most accurate estimate, based on veterinary references, is that the average normal body temperature for a healthy adult dog is approximately 38.8 degrees Celsius.
+
+Comparison: higher  
+Estimate: 38.8"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,3,higher,38.6,38.6,0,False,False,study2|qwen3-32b|S2-13|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"A healthy adult dog's body temperature is generally higher than that of humans. The commonly accepted normal range for a dog's body temperature is between 38.0°C and 39.0°C. Taking into account variations across breeds and individual differences, the most accurate point estimate for the normal body temperature of a healthy adult dog is:
+
+Comparison: higher  
+Estimate: 38.6"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,4,higher,38.3,38.3,0,False,False,study2|qwen3-32b|S2-13|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than that of humans, as dogs have a higher metabolic rate and a different thermoregulatory system. 
+
+Based on veterinary medical references and scientific studies, the typical normal body temperature for a healthy adult dog is centered around **38.3 degrees Celsius**. This value is more precise than the commonly cited range of 38–39°C, as the average tends to cluster around 38.3°C.
+
+Comparison: higher  
+Estimate: 38.3"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,5,higher,38.7,38.7,0,False,False,study2|qwen3-32b|S2-13|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius. Dogs typically have a higher baseline body temperature than humans. Based on veterinary references and clinical studies, the most accurate estimate for the normal body temperature of a healthy adult dog is 38.7 degrees Celsius.
+
+Comparison: higher  
+Estimate: 38.7"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,6,higher,38.8,38.8,0,False,False,study2|qwen3-32b|S2-13|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"A healthy adult dog's body temperature is generally higher than that of a human. The commonly accepted normal range for a dog's body temperature is between 38.3°C and 39.2°C (101°F to 102.5°F). This is based on numerous veterinary references and studies.
+
+Comparison: higher  
+Estimate: 38.8"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,7,higher,38.7,38.7,0,False,False,study2|qwen3-32b|S2-13|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius. This is because dogs typically have a higher baseline body temperature compared to humans.
+
+After consulting multiple veterinary sources, the most accurate average normal body temperature for a healthy adult dog is approximately 38.7 degrees Celsius.
+
+Comparison: higher  
+Estimate: 38.7"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,8,higher,38.7,38.7,0,False,False,study2|qwen3-32b|S2-13|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius. This is because dogs typically have a higher baseline body temperature compared to humans.
+
+Based on veterinary references and scientific studies, the most accurate estimate for the normal body temperature of a healthy adult dog is 38.7 degrees Celsius.
+
+Comparison: higher  
+Estimate: 38.7"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,accuracy,9,higher,38.7,38.7,0,False,False,study2|qwen3-32b|S2-13|off|provided|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius. This is because dogs have a higher metabolic rate and different thermoregulatory physiology compared to humans.
+
+After considering veterinary references and scientific literature, the most accurate estimate for the normal body temperature of a healthy adult dog is 38.7 degrees Celsius.
+
+Comparison: higher  
+Estimate: 38.7"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,0,higher,38.5,38.5,0,False,False,study2|qwen3-32b|S2-13|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius. Dogs typically have a slightly elevated body temperature compared to humans.
+
+Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,1,higher,38.7,38.7,0,False,False,study2|qwen3-32b|S2-13|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"A healthy adult dog has a normal body temperature that is higher than 37 degrees Celsius. The typical range for dogs is between 38.3°C and 39.2°C, so a reasonable best estimate would be around the midpoint of that range.
+
+Comparison: higher  
+Estimate: 38.7"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,2,higher,38.5,38.5,0,False,False,study2|qwen3-32b|S2-13|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius. Dogs typically have a slightly elevated body temperature compared to humans.
+
+Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,3,higher,38.5,38.5,0,False,False,study2|qwen3-32b|S2-13|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius. Dogs typically have a slightly elevated body temperature compared to humans.
+
+Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,4,higher,38.5,38.5,0,False,False,study2|qwen3-32b|S2-13|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius. Dogs typically have a body temperature that ranges from about 38 to 39.2 degrees Celsius. My best estimate for the average would be around 38.5 degrees Celsius.
+
+Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,5,higher,38.5,38.5,0,False,False,study2|qwen3-32b|S2-13|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius. Dogs typically have a body temperature that is slightly elevated compared to humans.
+
+Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,6,higher,38.5,38.5,0,False,False,study2|qwen3-32b|S2-13|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"A healthy adult dog has a body temperature that is higher than 37 degrees Celsius. The average normal body temperature for dogs is around 38.5 degrees Celsius.
+
+Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,7,higher,38.5,38.5,0,False,False,study2|qwen3-32b|S2-13|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius. Dogs typically have a slightly higher body temperature than humans due to differences in metabolism and body size.
+
+Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,8,higher,38.5,38.5,0,False,False,study2|qwen3-32b|S2-13|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius. Dogs typically have a slightly elevated body temperature compared to humans.
+
+Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,none,9,higher,38.5,38.5,0,False,False,study2|qwen3-32b|S2-13|off|provided|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is higher than 37 degrees Celsius. Dogs typically have a slightly elevated body temperature compared to humans. 
+
+Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,0,higher,38.5,38.5,0,False,False,study2|qwen3-32b|S2-13|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Dogs have a higher metabolic rate and a different thermoregulatory system compared to humans. Their bodies are more compact, and they rely on panting rather than sweating to cool down, which affects their core temperature regulation. These factors mean that a dog's normal body temperature is generally higher than a human's.
+
+Based on veterinary references and physiological studies, the normal body temperature of a healthy adult dog is best estimated at:
+
+Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,1,higher,38.5,38.5,0,False,False,study2|qwen3-32b|S2-13|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Dogs have a higher metabolic rate and more compact body structure compared to humans, which contributes to a higher normal body temperature. Additionally, factors such as activity level, time of day, and method of measurement (rectal vs. ear vs. under the armpit) can influence readings. 
+
+Given these considerations, the normal body temperature of a healthy adult dog is higher than that of a human.
+
+Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,2,higher,38.5,38.5,0,False,False,study2|qwen3-32b|S2-13|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Dogs have a higher metabolic rate and a more compact body structure compared to humans, which generally results in a higher normal body temperature. Additionally, factors such as breed, age, activity level, and time of day can influence a dog’s temperature. These reasons suggest the normal temperature is higher than 37°C.
+
+Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,3,higher,38.8,38.8,0,False,False,study2|qwen3-32b|S2-13|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Dogs have a higher metabolic rate and different thermoregulatory systems compared to humans, which is why their normal body temperature is typically higher than 37 degrees Celsius. This is also influenced by factors such as body size, activity level, and the way they dissipate heat (e.g., panting rather than sweating).
+
+Comparison: higher  
+Estimate: 38.8"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,4,higher,38.8,38.8,0,False,False,study2|qwen3-32b|S2-13|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Dogs have a higher metabolic rate compared to humans, and their body structure and thermoregulation mechanisms are adapted for different environmental conditions. Additionally, physical activity, stress, and the time of day can influence body temperature. Since 37°C is the human average, and animals like dogs typically have a higher baseline due to their physiology, the normal body temperature for a healthy adult dog is expected to be higher than 37°C.
+
+Comparison: higher  
+Estimate: 38.8"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,5,higher,38.8,38.8,0,False,False,study2|qwen3-32b|S2-13|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Dogs have a higher metabolic rate than humans, and their thermoregulatory mechanisms are adapted to a different range of body temperatures. Additionally, factors such as activity level, time of day, and method of measurement (rectal vs. ear vs. under the paw) can influence the reading. These factors suggest that a dog’s normal body temperature is higher than that of a human.
+
+Comparison: higher  
+Estimate: 38.8"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,6,higher,38.8,38.8,0,False,False,study2|qwen3-32b|S2-13|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Dogs have a higher metabolic rate than humans, and their body structures differ in ways that affect temperature regulation. For example, they pant to cool down rather than sweating, and their core body temperature needs to be higher to support efficient physiological functions. Additionally, the 37°C figure is specific to humans, and other mammals often have different thermoneutral zones. Given these factors, the normal body temperature of a healthy adult dog is higher than 37°C.  
+
+Comparison: higher  
+Estimate: 38.8"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,7,higher,38.5,38.5,0,False,False,study2|qwen3-32b|S2-13|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Dogs have a higher metabolic rate and more compact body structure compared to humans, which can lead to a higher normal body temperature. Additionally, factors such as activity level, time of day, and environmental conditions can influence a dog’s temperature. Unlike humans, dogs also rely more on panting for thermoregulation, which affects how heat is distributed and retained.
+
+Considering these physiological differences and thermoregulatory mechanisms, the normal body temperature of a healthy adult dog is higher than that of a human.
+
+Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,8,higher,38.8,38.8,0,False,False,study2|qwen3-32b|S2-13|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"Dogs have a higher metabolic rate and different thermoregulatory physiology compared to humans. Their smaller body size also means they generate and lose heat more quickly, which typically results in a higher normal body temperature. Additionally, factors like activity level, time of day, and breed can influence their temperature.
+
+Considering these physiological differences, the normal body temperature for a healthy adult dog is higher than the human baseline of 37°C.
+
+Comparison: higher  
+Estimate: 38.8"
+2,qwen3-32b,Study 2 (starting value),off,0,37,,,,given,opposite,9,higher,38.5,38.5,0,False,False,study2|qwen3-32b|S2-13|off|provided|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically higher than 37 degrees Celsius. This is because dogs, like many mammals, have a higher metabolic rate and a different thermoregulatory system compared to humans. Additionally, body temperature can vary based on factors such as activity level, time of day, and individual variation.
+
+Comparison: higher  
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,0,,38.3,38.3,0,False,False,study2|qwen3-32b|S2-13|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is generally accepted to be around **38.3°C**, based on veterinary references and studies that have measured core body temperatures in a variety of healthy canine subjects. While there can be slight individual variation (typically within a narrow range), 38.3°C represents a well-supported average.
+
+Estimate: 38.3"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,1,,38.3,38.3,0,False,False,study2|qwen3-32b|S2-13|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog typically ranges from 37.5°C to 39.0°C. However, the most commonly cited average for a healthy adult dog is 38.3°C.
+
+Estimate: 38.3"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,2,,38.75,38.75,0,False,False,study2|qwen3-32b|S2-13|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically cited as a range, most commonly between 38.3°C and 39.2°C. However, since the question asks for a single number estimate that is as accurate as possible, I will use the midpoint of this commonly accepted range for a precise estimate.
+
+Midpoint = (38.3 + 39.2) / 2 = 38.75°C
+
+Estimate: 38.75"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,3,,38.5,38.5,0,False,False,study2|qwen3-32b|S2-13|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog typically falls within a range, but to provide the most accurate single-number estimate based on veterinary sources, the most commonly cited average is:
+
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,4,,38.8,38.8,0,False,False,study2|qwen3-32b|S2-13|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically cited as ranging from approximately 38.3°C to 39.2°C (101°F to 102.5°F). However, the most accurate and commonly accepted **mean** or **midpoint** of this range is around **38.8°C**.
+
+This value represents a precise and representative estimate for the typical body temperature of a healthy adult dog.
+
+Estimate: 38.8"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,5,,38.7,38.7,0,False,False,study2|qwen3-32b|S2-13|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically cited in a range, most commonly between 38.3°C and 39.2°C. However, recent, more precise studies, including those using advanced thermometry techniques and larger sample sizes, suggest that the mean body temperature for healthy adult dogs is slightly lower than previously believed.
+
+Research published in recent veterinary literature, such as a 2020 study in the *Journal of Veterinary Internal Medicine*, found that the average core body temperature for healthy dogs is approximately **38.7°C** when measured via rectal thermometry. This study controlled for factors such as time of day, age, and breed, and is considered highly reliable.
+
+Given this, the most accurate single-number estimate for the normal body temperature of a healthy adult dog is:
+
+Estimate: 38.7"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,6,,38.7,38.7,0,False,False,study2|qwen3-32b|S2-13|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is generally accepted to be around 38.7°C, based on a comprehensive review of veterinary literature that accounts for variations due to factors such as breed, age, time of day, and measurement method (rectal being the most accurate). While some sources cite a range (e.g., 38.0°C to 39.0°C), the central value most consistently reported in veterinary medicine is 38.7°C.
+
+Estimate: 38.7"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,7,,38.7,38.7,0,False,False,study2|qwen3-32b|S2-13|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is generally accepted to be around 38.7°C, based on precise veterinary references and studies that have measured core body temperatures in clinically normal dogs. While there can be slight individual variation and minor fluctuations depending on the measurement method (e.g., rectal vs. ear thermometer), the most accurate and widely cited average is 38.7°C.
+
+Estimate: 38.7"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,8,,38.8,38.8,0,False,False,study2|qwen3-32b|S2-13|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog is typically cited as ranging from about 38.3°C to 39.2°C. However, to provide a single, most representative value that is as accurate as possible based on veterinary references and studies, the midpoint of this range is often used as a standard estimate.
+
+Estimate: 38.8"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,accuracy,9,,38.6,38.6,0,False,False,study2|qwen3-32b|S2-13|off|self|accuracy,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog has been traditionally cited as ranging from approximately 38.0°C to 39.0°C. However, more recent and precise studies have refined this estimate.
+
+Research published in veterinary literature, including thermal imaging and rectal temperature measurements, suggests that the **most accurate average** normal body temperature for a healthy adult dog is approximately **38.6°C**.
+
+This value represents the central tendency observed in studies involving clinically healthy dogs and accounts for variations due to factors such as breed, age, and measurement method.
+
+Estimate: 38.6"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,0,,38.6,38.6,0,False,False,study2|qwen3-32b|S2-13|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog typically ranges from about 38°C to 39.2°C. Taking the midpoint as a best estimate:
+
+Estimate: 38.6"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,1,,38.6,38.6,0,False,False,study2|qwen3-32b|S2-13|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog typically ranges from about 38°C to 39.2°C. Taking the midpoint as a representative estimate:
+
+Estimate: 38.6"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,2,,38.3,38.3,0,False,False,study2|qwen3-32b|S2-13|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog typically falls within a range, but the most commonly accepted average is around 38.3°C.
+
+Estimate: 38.3"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,3,,38.5,38.5,0,False,False,study2|qwen3-32b|S2-13|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog typically ranges from about 38°C to 39.2°C. Taking the midpoint as a single best estimate:
+
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,4,,38.8,38.8,0,False,False,study2|qwen3-32b|S2-13|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog typically ranges from about 38°C to 39.2°C. The most commonly cited average is around 38.8°C.
+
+Estimate: 38.8"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,5,,38.5,38.5,0,False,False,study2|qwen3-32b|S2-13|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog typically falls within a range, but the most commonly accepted average is slightly higher than that of humans. While individual variation exists, the standard reference point is:
+
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,6,,38.6,38.6,0,False,False,study2|qwen3-32b|S2-13|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog typically ranges from about 38°C to 39.2°C. Taking the midpoint of this range as a representative estimate:
+
+Estimate: 38.6"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,7,,38.5,38.5,0,False,False,study2|qwen3-32b|S2-13|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog typically ranges from about 38°C to 39.2°C. Taking the midpoint as a best estimate:
+
+Estimate: 38.5"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,8,,38.8,38.8,0,False,False,study2|qwen3-32b|S2-13|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog typically ranges from about 38°C to 39.2°C. The most commonly cited average is around 38.8°C. 
+
+Estimate: 38.8"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,none,9,,38.6,38.6,0,False,False,study2|qwen3-32b|S2-13|off|self|none,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The normal body temperature of a healthy adult dog typically ranges from about 38°C to 39.2°C. Taking the midpoint of this range as a best estimate:
+
+Estimate: 38.6"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,0,,38.7,38.7,0,False,False,study2|qwen3-32b|S2-13|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"When estimating the normal body temperature of a healthy adult dog, it's important to consider a few factors that might influence the true value:
+
+1. **Measurement method**: The location where temperature is taken (e.g., rectal, ear, or under the armpit) can lead to variations. Rectal measurements are considered the most accurate for dogs, but other methods may yield slightly different results.
+
+2. **Breed differences**: Some breeds may have slightly different average temperatures due to physiological variations, such as brachycephalic breeds (e.g., Bulldogs, Pugs) which can have higher baseline temperatures due to their anatomy.
+
+3. **Activity level**: A dog's temperature can rise after exercise or during times of stress or excitement.
+
+4. **Time of day**: Like humans, dogs may experience a slight diurnal variation in temperature.
+
+5. **Age and health status**: Puppies and senior dogs may have different average temperatures, and illness can significantly raise or lower body temperature.
+
+Given these considerations, the commonly cited range for a healthy adult dog is 38.3°C to 39.2°C (101°F to 102.5°F). However, for a best single-number estimate that represents a typical healthy adult dog at rest, taking into account all the above factors and aiming for a central value within the normal range:
+
+Estimate: 38.7"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,1,,38.3,38.3,0,False,False,study2|qwen3-32b|S2-13|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"The commonly cited normal body temperature for a healthy adult dog is around 38.3°C. However, it's important to consider several factors that might cause the true value to differ:
+
+1. **Method of Measurement**: Temperature can vary depending on whether it's taken rectally, via aural (ear), or via a temporal (forehead) device. Rectal measurements are considered the most accurate and typically yield higher readings than others.
+
+2. **Time of Day**: Body temperature can fluctuate throughout the day, often being lower in the morning and higher in the late afternoon.
+
+3. **Activity Level**: Exercise or physical activity can temporarily raise body temperature.
+
+4. **Breed and Size**: Some smaller breeds may have slightly higher normal temperatures than larger breeds.
+
+5. **Environmental Conditions**: Ambient temperature and humidity can influence body temperature.
+
+6. **Individual Variation**: Just as in humans, individual dogs can have a ""normal"" range that differs slightly from the general average.
+
+Considering all these factors, the most reliable and widely accepted standard remains the rectal temperature.
+
+Estimate: 38.3"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,2,,38.7,38.7,0,False,False,study2|qwen3-32b|S2-13|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"When considering the normal body temperature of a healthy adult dog, it's important to note that this can vary slightly depending on the measurement method (rectal, ear, or under the armpit), the dog's breed, age, activity level, and time of day. Some sources may cite a range (e.g., 38.3°C to 39.2°C), but the commonly accepted average tends to be slightly higher than the human body temperature due to differences in metabolism and physiology.
+
+However, because of individual variation and the potential for measurement differences, the ""true value"" for any specific dog may differ from the commonly quoted average. For example, smaller breeds may have a slightly higher baseline temperature, while very large breeds or elderly dogs may have a lower one. Also, stress or recent physical activity can temporarily raise a dog's temperature.
+
+Given these factors, the best estimate for the typical normal body temperature of a healthy adult dog would still be the commonly accepted midpoint of the normal range.
+
+Estimate: 38.7"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,3,,38.8,38.8,0,False,False,study2|qwen3-32b|S2-13|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"When estimating the normal body temperature of a healthy adult dog, it's important to consider that this value can vary based on several factors:
+
+1. **Measurement method**: Temperature can vary depending on whether it's taken rectally, via the ear, or using a non-contact infrared scanner. Rectal temperatures are generally considered the gold standard.
+
+2. **Time of day**: Body temperature can fluctuate throughout the day due to circadian rhythms.
+
+3. **Activity level**: Physical activity or stress can temporarily raise a dog's body temperature.
+
+4. **Breed differences**: Some breeds may have slightly different baseline temperatures.
+
+5. **Age and health status**: Puppies and elderly dogs may have slightly different norms, and illness can cause deviations.
+
+Despite these variables, the commonly accepted normal range for a healthy adult dog is typically cited as **38.3°C to 39.2°C** (101°F to 102.5°F). However, the central or most typical value within this range is often around **38.8°C**.
+
+Estimate: 38.8"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,4,,38,38,0,False,False,study2|qwen3-32b|S2-13|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"When thinking about a dog's body temperature, many people recall a commonly cited average, often around 38.3°C (101°F). However, this value can vary for several reasons:
+
+1. **Breed differences**: Smaller breeds tend to have slightly higher body temperatures than larger breeds.  
+2. **Measurement site**: Temperature can vary depending on whether it is taken rectally, via a耳温 (tympanic) thermometer, or using a non-invasive method like a forehead scanner. Rectal readings are typically the most accurate.  
+3. **Time of day**: Like humans, dogs can experience slight fluctuations in body temperature throughout the day.  
+4. **Activity level**: Exercise or excitement can temporarily raise body temperature.  
+5. **Health status**: Illness, stress, or dehydration can also affect readings.
+
+Considering these factors, while 38.3°C is often cited, a more precise estimate based on veterinary studies and average rectal readings across healthy adult dogs is slightly lower.
+
+Estimate: 38.0"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,5,,38.7,38.7,0,False,False,study2|qwen3-32b|S2-13|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"When considering a dog's body temperature, it's important to account for factors that might cause variation from commonly cited averages. These include:
+
+- **Measurement method**: Rectal temperatures are the most accurate, but other methods (like ear or forehead sensors) can give slightly different readings.
+- **Time of day**: Body temperature naturally fluctuates slightly throughout the day.
+- **Activity level**: Exercise or excitement can temporarily raise temperature.
+- **Breed and size**: Smaller dogs may have slightly higher baseline temperatures than larger dogs.
+- **Environmental factors**: Heat or cold can influence readings.
+- **Health status**: Illness or stress can cause deviations.
+
+With these variations in mind, the generally accepted **normal body temperature range** for a healthy adult dog is about **38.3 to 39.2°C (101 to 102.5°F)**. However, the **midpoint** of this range is a reasonable best estimate.
+
+Estimate: 38.7"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,6,,38.3,38.3,0,False,False,study2|qwen3-32b|S2-13|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"When estimating the normal body temperature of a healthy adult dog, it's important to consider a few factors that might influence the true value:
+
+1. **Measurement method**: The temperature can vary depending on whether it's measured rectally, via ear (tympanic), or under the paw (non-contact infrared). Rectal is considered the gold standard and typically yields the highest and most accurate reading.
+
+2. **Breed and size differences**: Smaller dogs may have slightly higher temperatures than larger dogs.
+
+3. **Time of day and activity level**: Body temperature can fluctuate slightly based on circadian rhythm and whether the dog is resting or active.
+
+4. **Environmental factors**: Dogs in hot environments may experience a temporary rise in temperature, which could be mistaken for a fever if not accounted for.
+
+5. **Health status**: Illness, stress, or recent vaccination can temporarily raise body temperature, so the true ""normal"" is measured in a healthy, resting state.
+
+Considering these factors, the commonly cited average for a healthy adult dog's rectal temperature is around 38.3°C. However, individual variation exists, and some sources suggest a slightly lower average when accounting for more precise data and modern thermometers.
+
+Estimate: 38.3"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,7,,38.8,38.8,0,False,False,study2|qwen3-32b|S2-13|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"When considering the normal body temperature of a healthy adult dog, it's important to recognize that:
+
+1. **Species variation**: Dogs have a higher normal body temperature than humans, typically ranging between 38°C and 39.2°C. However, there can be individual variation.
+
+2. **Measurement method**: The temperature can vary slightly depending on whether it's taken rectally, in the ear, or via a non-contact method. Rectal is considered the most accurate.
+
+3. **Activity level and environment**: A dog that is active, stressed, or in a warm environment may have a temporarily elevated temperature.
+
+4. **Time of day**: Like in humans, body temperature can fluctuate slightly throughout the day.
+
+5. **Breed and age differences**: Some smaller breeds may run slightly warmer than larger breeds, and puppies or elderly dogs may have different norms.
+
+Taking these factors into account, and recognizing that while the commonly cited range is 38–39.2°C, the central or average value is often cited as around 38.8°C.
+
+Estimate: 38.8"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,8,,38.3,38.3,0,False,False,study2|qwen3-32b|S2-13|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"When thinking about a dog's body temperature, many people initially recall the commonly cited value of 38.5°C. However, this is a simplified average, and the true value can vary for several reasons:
+
+1. **Breed Differences**: Some smaller breeds may have slightly higher temperatures than larger breeds.
+2. **Age and Health**: Puppies and senior dogs may have different baseline temperatures. Illness, stress, or activity levels can also elevate temperature.
+3. **Measurement Site**: Temperature can vary depending on whether it's measured rectally, via an ear (tympanic) thermometer, or using a non-contact method. Rectal is the most accurate and traditional method.
+4. **Time of Day and Activity Level**: Like in humans, a dog's temperature can fluctuate slightly throughout the day and with physical exertion.
+
+Considering all these factors and the standard reference for rectal temperature, the most accurate single-number estimate for a healthy adult dog's body temperature is:
+
+Estimate: 38.3"
+2,qwen3-32b,Study 2 (starting value),off,0,,,,,own,opposite,9,,38.3,38.3,0,False,False,study2|qwen3-32b|S2-13|off|self|opposite,data/pilot/raw/qwen3-32b/study2/part-0004-20261026T082950Z.jsonl.gz,"When considering the normal body temperature of a healthy adult dog, it's important to recognize that this can vary slightly based on factors such as:
+
+- **Measurement method**: Temperature can vary depending on whether it's taken rectally, via an ear (tympanic) thermometer, or via a non-contact method. Rectal measurements are considered the most accurate standard.
+- **Breed differences**: Some brachycephalic breeds (e.g., Bulldogs, Pugs) may have slightly higher baseline temperatures or are more prone to overheating due to their anatomy.
+- **Activity level**: A dog that has just exercised or is stressed may have a temporarily elevated temperature.
+- **Time of day**: Like humans, dogs may have slightly higher temperatures in the late afternoon.
+- **Individual variation**: Just as with humans, individual dogs can have a ""normal"" temperature that differs from the general population average.
+
+With these considerations in mind, the commonly accepted average for a healthy adult dog’s rectal temperature is around **38.3°C**. However, values between about 38.0°C and 39.0°C are typically considered normal.
+
+Estimate: 38.3"

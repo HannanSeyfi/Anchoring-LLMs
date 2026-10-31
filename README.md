@@ -10,6 +10,7 @@ budget we can control. The full design is in the [proposal](latex/proposal/main.
 
 | Folder | What is in it |
 | --- | --- |
+| [`index/`](index/README.md) | **Start here to find anything:** every question ever asked (329), which experiments asked it, and every answer the models gave, one file per question. |
 | `latex/proposal/` | The research proposal (also in Overleaf). |
 | `latex/pilot_summary/` | Plain-language summary of pilot run 1 for the professors (also in Overleaf). |
 | `latex/qwen3_report/` | Report on pilot run 2 (Qwen3-32B): results, explanations and feedback (also in Overleaf). |

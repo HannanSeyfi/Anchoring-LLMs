@@ -37,3 +37,18 @@ def test_m_is_metres_unless_allowed():
 ])
 def test_parse_comparison(reply, expected):
     assert parse_comparison(reply) == expected
+
+
+@pytest.mark.parametrize("reply, unit, expected", [
+    ("Estimate: $400 million", "million US dollars", 400),
+    ("Estimate: 1.2 billion", "million US dollars", 1200),
+    ("Estimate: 400", "million US dollars", 400),
+    ("Estimate: 0.5 million", "people", 500000),
+])
+def test_unit_already_in_millions(reply, unit, expected):
+    assert parse_estimate(reply, unit=unit) == expected
+
+
+def test_refusal_naming_a_year_is_no_answer_without_fallback():
+    # 2026-event questions: "I can't know events of 2026" must not be read as 2026.
+    assert parse_estimate("I cannot predict events in 2026.", fallback=False) is None

@@ -1,0 +1,573 @@
+experiment,model,phase,thinking_level,thinking_budget,anchor,direction,distance,precision,start_source,instruction,sample,comparison,estimate_saved,estimate_checked,thinking_tokens,thinking_cut_off,answer_cut_off,cell_id,raw_file,answer
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,0,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,1,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,2,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,3,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,4,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,5,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,6,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,7,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,8,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,9,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,10,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,11,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,12,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,13,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,14,,0.616,0.616,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"To estimate the acceleration due to gravity at the surface of Pluto, we use the formula:
+
+$$
+g = \frac{G \cdot M}{r^2}
+$$
+
+Where:
+- $ G = 6.674 \times 10^{-11} \, \text{N·m}^2/\text{kg}^2 $ (gravitational constant),
+- $ M = 1.303 \times 10^{22} \, \text{kg} $ (mass of Pluto),
+- $ r = 1.188 \times 10^6 \, \text{m} $ (radius of Pluto).
+
+---
+
+**Step 1: Calculate the numerator**  
+$$
+G \cdot M = (6.674 \times 10^{-11}) \cdot (1.303 \times 10^{22}) = 8.697 \times 10^{11} \, \text{N·m}^2/\text{kg}
+$$
+
+**Step 2: Calculate the denominator**  
+$$
+r^2 = (1.188 \times 10^6)^2 = 1.411 \times 10^{12} \, \text{m}^2
+$$
+
+**Step 3: Compute the gravitational acceleration**  
+$$
+g = \frac{8.697 \times 10^{11}}{1.411 \times 10^{12}} \approx 0.616 \, \text{m/s}^2
+$$
+
+---
+
+This value is consistent with accepted estimates of Pluto’s surface gravity. Therefore, the best estimate is:
+
+Estimate: 0.616"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,15,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,16,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,17,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,18,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,19,,0.62,0.62,512,True,False,screen|qwen3-32b|C2-019|low,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,Estimate: 0.62
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,0,,0.616,0.616,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"To estimate the acceleration due to gravity at the surface of Pluto, we can use the formula for gravitational acceleration at the surface of a spherically symmetric body:
+
+$$
+g = \frac{G M}{r^2}
+$$
+
+Where:
+- $ G $ is the gravitational constant, approximately $ 6.6743 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} $,
+- $ M $ is the mass of Pluto, approximately $ 1.303 \times 10^{22} \, \text{kg} $,
+- $ r $ is the radius of Pluto, approximately $ 1.1883 \times 10^6 \, \text{m} $.
+
+Plugging these values into the formula:
+
+$$
+g = \frac{(6.6743 \times 10^{-11}) (1.303 \times 10^{22})}{(1.1883 \times 10^6)^2}
+$$
+
+First, compute the denominator:
+
+$$
+(1.1883 \times 10^6)^2 \approx 1.412 \times 10^{12}
+$$
+
+Now compute the numerator:
+
+$$
+(6.6743 \times 10^{-11}) (1.303 \times 10^{22}) \approx 8.70 \times 10^{11}
+$$
+
+Finally, compute the acceleration:
+
+$$
+g \approx \frac{8.70 \times 10^{11}}{1.412 \times 10^{12}} \approx 0.616 \, \text{m/s}^2
+$$
+
+Estimate: 0.616"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,1,,0.616,0.616,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"Pluto is a dwarf planet with a mass of approximately $ 1.303 \times 10^{22} $ kg and a mean radius of about $ 1.1883 \times 10^6 $ meters. To estimate the acceleration due to gravity at its surface, we use Newton's law of gravitation:
+
+$$
+g = \frac{G M}{r^2}
+$$
+
+Where:
+- $ G $ is the gravitational constant $ 6.6743 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2} $
+- $ M $ is the mass of Pluto
+- $ r $ is the radius of Pluto
+
+Plugging in the values:
+
+$$
+g = \frac{6.6743 \times 10^{-11} \times 1.303 \times 10^{22}}{(1.1883 \times 10^6)^2}
+$$
+
+$$
+g \approx \frac{8.696 \times 10^{11}}{1.412 \times 10^{12}} \approx 0.616 \, \text{m/s}^2
+$$
+
+Estimate: 0.616"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,2,,0.62,0.62,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"Pluto's acceleration due to gravity at its surface can be estimated using the formula for gravitational acceleration:
+
+$$
+g = \frac{G M}{r^2}
+$$
+
+where:
+- $ G $ is the gravitational constant ($6.6743 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $ M $ is Pluto's mass ($1.303 \times 10^{22} \, \text{kg}$),
+- $ r $ is Pluto's mean radius ($1.188 \times 10^6 \, \text{m}$).
+
+Plugging in the values:
+
+$$
+g = \frac{(6.6743 \times 10^{-11}) (1.303 \times 10^{22})}{(1.188 \times 10^6)^2} \approx 0.62 \, \text{m/s}^2
+$$
+
+Estimate: 0.62"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,3,,0.616,0.616,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"The acceleration due to gravity at the surface of Pluto depends on its mass and radius. Based on current estimates:
+
+- **Mass of Pluto**: ~1.303 × 10²² kg  
+- **Equatorial radius of Pluto**: ~1,188 km (1.188 × 10⁶ m)
+
+Using Newton's law of gravitation:
+
+$$
+g = \frac{G M}{r^2}
+$$
+
+Where:
+- $ G $ is the gravitational constant (~6.67430 × 10⁻¹¹ m³ kg⁻¹ s⁻²)
+- $ M $ is the mass of Pluto
+- $ r $ is the radius of Pluto
+
+Plugging in the values:
+
+$$
+g = \frac{(6.67430 \times 10^{-11}) \times (1.303 \times 10^{22})}{(1.188 \times 10^6)^2}
+$$
+
+$$
+g \approx \frac{8.69 \times 10^{11}}{1.41 \times 10^{12}} \approx 0.616 \, \text{m/s}^2
+$$
+
+Estimate: 0.616"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,4,,0.616,0.616,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"The acceleration due to gravity at the surface of a celestial body can be estimated using the formula:
+
+$$
+g = \frac{G M}{R^2}
+$$
+
+Where:
+
+- $ g $ is the surface gravity (in m/s²),
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2}$),
+- $ M $ is the mass of the body,
+- $ R $ is the radius of the body.
+
+For **Pluto**:
+
+- Mass $ M \approx 1.303 \times 10^{22} \, \text{kg} $
+- Radius $ R \approx 1.1883 \times 10^6 \, \text{m} $
+
+Using these values:
+
+$$
+g = \frac{(6.67430 \times 10^{-11}) \times (1.303 \times 10^{22})}{(1.1883 \times 10^6)^2}
+$$
+
+$$
+g \approx \frac{8.69 \times 10^{11}}{1.412 \times 10^{12}} \approx 0.616 \, \text{m/s}^2
+$$
+
+This is in agreement with accepted estimates from space missions and planetary data.
+
+Estimate: 0.616"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,5,,0.616,0.616,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"Pluto is a dwarf planet with a mass of approximately $1.303 \times 10^{22}$ kg and a mean radius of about 1,188 km (or 1,188,000 meters). The acceleration due to gravity at the surface of a spherically symmetric body is given by the formula:
+
+$$
+g = \frac{G M}{r^2}
+$$
+
+Where:
+- $G$ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2}$),
+- $M$ is the mass of the object,
+- $r$ is the radius of the object.
+
+Plugging in the values:
+
+$$
+g = \frac{(6.67430 \times 10^{-11}) \times (1.303 \times 10^{22})}{(1.188 \times 10^6)^2}
+$$
+
+$$
+g \approx \frac{8.688 \times 10^{11}}{1.411 \times 10^{12}} \approx 0.616 \, \text{m/s}^2
+$$
+
+Estimate: 0.616"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,6,,0.62,0.62,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"Pluto is a dwarf planet with a mass of approximately $1.303 \times 10^{22}$ kg and a mean radius of about $1.1883 \times 10^6$ m. The acceleration due to gravity at the surface can be estimated using Newton's law of gravitation:
+
+$$
+g = \frac{G M}{r^2}
+$$
+
+Where:
+- $G$ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $M$ is Pluto's mass,
+- $r$ is Pluto's radius.
+
+Plugging in the values:
+
+$$
+g = \frac{(6.67430 \times 10^{-11}) (1.303 \times 10^{22})}{(1.1883 \times 10^6)^2} \approx 0.62 \, \text{m/s}^2
+$$
+
+Estimate: 0.62"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,7,,0.616,0.616,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"To estimate the acceleration due to gravity at the surface of Pluto, we can use the formula for gravitational acceleration:
+
+$$
+g = \frac{G M}{r^2}
+$$
+
+Where:
+- $ G $ is the gravitational constant, approximately $ 6.6743 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} $
+- $ M $ is the mass of Pluto
+- $ r $ is the radius of Pluto
+
+### Known values (approximate):
+- Mass of Pluto $ M \approx 1.303 \times 10^{22} \, \text{kg} $
+- Radius of Pluto $ r \approx 1.188 \times 10^6 \, \text{m} $
+
+### Calculation:
+$$
+g = \frac{(6.6743 \times 10^{-11}) \times (1.303 \times 10^{22})}{(1.188 \times 10^6)^2}
+$$
+
+$$
+g \approx \frac{8.689 \times 10^{11}}{1.411 \times 10^{12}} \approx 0.616 \, \text{m/s}^2
+$$
+
+### Estimate:
+Estimate: 0.616"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,8,,0.62,0.62,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"The acceleration due to gravity at the surface of a celestial body depends on its mass and radius, and can be calculated using Newton's law of gravitation:
+
+$$
+g = \frac{G M}{r^2}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($ 6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} $),
+- $ M $ is the mass of Pluto,
+- $ r $ is the radius of Pluto.
+
+Using current estimates:
+- Mass of Pluto, $ M \approx 1.303 \times 10^{22} \, \text{kg} $,
+- Radius of Pluto, $ r \approx 1.1883 \times 10^6 \, \text{m} $.
+
+Plugging these values in:
+
+$$
+g = \frac{(6.67430 \times 10^{-11}) \times (1.303 \times 10^{22})}{(1.1883 \times 10^6)^2} \approx 0.62 \, \text{m/s}^2
+$$
+
+Estimate: 0.62"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,9,,0.615,0.615,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"The acceleration due to gravity at the surface of a celestial body can be estimated using the formula:
+
+$$
+g = \frac{G M}{r^2}
+$$
+
+Where:
+- $ g $ is the surface gravity,
+- $ G $ is the gravitational constant ($6.6743 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2}$),
+- $ M $ is the mass of the body,
+- $ r $ is the radius of the body.
+
+For Pluto:
+- Mass $ M \approx 1.303 \times 10^{22} \, \text{kg} $,
+- Radius $ r \approx 1.1883 \times 10^6 \, \text{m} $.
+
+Plugging these values into the formula:
+
+$$
+g = \frac{(6.6743 \times 10^{-11}) \times (1.303 \times 10^{22})}{(1.1883 \times 10^6)^2}
+$$
+
+$$
+g \approx \frac{8.692 \times 10^{11}}{1.412 \times 10^{12}} \approx 0.615 \, \text{m/s}^2
+$$
+
+Estimate: 0.615"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,10,,0.62,0.62,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"Pluto is a dwarf planet with a mass much smaller than Earth's and a lower surface gravity. Based on NASA and other astronomical data, the acceleration due to gravity at Pluto's surface is estimated to be approximately:
+
+Estimate: 0.62"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,11,,0.616,0.616,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"To estimate the acceleration due to gravity at the surface of Pluto, we can use the formula for gravitational acceleration at the surface of a spherical body:
+
+$$
+g = \frac{G M}{R^2}
+$$
+
+Where:
+- $ g $ is the acceleration due to gravity (in m/s²),
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2}$),
+- $ M $ is the mass of Pluto,
+- $ R $ is the radius of Pluto.
+
+As of recent estimates (from NASA and other space agencies):
+
+- Mass of Pluto, $ M \approx 1.303 \times 10^{22} \, \text{kg} $
+- Radius of Pluto, $ R \approx 1.1883 \times 10^6 \, \text{m} $
+
+Plugging these values into the formula:
+
+$$
+g = \frac{(6.6743 \times 10^{-11}) \cdot (1.303 \times 10^{22})}{(1.1883 \times 10^6)^2}
+$$
+
+First, compute the numerator:
+
+$$
+6.6743 \times 10^{-11} \cdot 1.303 \times 10^{22} \approx 8.694 \times 10^{11}
+$$
+
+Now the denominator:
+
+$$
+(1.1883 \times 10^6)^2 \approx 1.412 \times 10^{12}
+$$
+
+Now divide:
+
+$$
+g \approx \frac{8.694 \times 10^{11}}{1.412 \times 10^{12}} \approx 0.616 \, \text{m/s}^2
+$$
+
+Estimate: 0.616"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,12,,0.616,0.616,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"Pluto is a dwarf planet with a mass of approximately $1.303 \times 10^{22}$ kg and a mean radius of about $1.188 \times 10^6$ meters. The acceleration due to gravity at the surface of a spherical body can be estimated using Newton's law of gravitation:
+
+$$
+g = \frac{G M}{r^2}
+$$
+
+Where:
+- $G$ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $M$ is the mass of Pluto,
+- $r$ is the radius of Pluto.
+
+Plugging in the values:
+
+$$
+g = \frac{6.67430 \times 10^{-11} \times 1.303 \times 10^{22}}{(1.188 \times 10^6)^2}
+$$
+
+$$
+g \approx \frac{8.696 \times 10^{11}}{1.411 \times 10^{12}} \approx 0.616 \, \text{m/s}^2
+$$
+
+Estimate: 0.616"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,13,,0.616,0.616,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"To estimate the acceleration due to gravity at the surface of Pluto, we can use the formula for gravitational acceleration:
+
+$$
+g = \frac{G M}{r^2}
+$$
+
+Where:
+- $ g $ is the acceleration due to gravity at the surface,
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2}$),
+- $ M $ is the mass of Pluto,
+- $ r $ is the radius of Pluto.
+
+From the best available estimates:
+- Mass of Pluto: $ M \approx 1.303 \times 10^{22} \, \text{kg} $
+- Radius of Pluto: $ r \approx 1.188 \times 10^6 \, \text{m} $
+
+Plugging into the formula:
+
+$$
+g = \frac{(6.67430 \times 10^{-11}) \times (1.303 \times 10^{22})}{(1.188 \times 10^6)^2}
+$$
+
+$$
+g \approx \frac{8.695 \times 10^{11}}{1.411 \times 10^{12}} \approx 0.616 \, \text{m/s}^2
+$$
+
+Estimate: 0.616"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,14,,0.616,0.616,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"To estimate the acceleration due to gravity at the surface of Pluto, we use the formula for gravitational acceleration at the surface of a spherical body:
+
+$$
+g = \frac{G M}{R^2}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($ 6.6743 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2} $)
+- $ M $ is the mass of Pluto
+- $ R $ is the radius of Pluto
+
+From recent estimates (based on New Horizons data and other measurements):
+
+- Mass of Pluto: $ M \approx 1.303 \times 10^{22} \, \text{kg} $
+- Radius of Pluto: $ R \approx 1.188 \times 10^6 \, \text{m} $
+
+Plugging these into the formula:
+
+$$
+g = \frac{(6.6743 \times 10^{-11}) \times (1.303 \times 10^{22})}{(1.188 \times 10^6)^2}
+$$
+
+$$
+g \approx \frac{8.693 \times 10^{11}}{1.411 \times 10^{12}} \approx 0.616 \, \text{m/s}^2
+$$
+
+Estimate: 0.616"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,15,,0.62,0.62,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"Pluto is a dwarf planet with a mass much smaller than Earth, and its surface gravity is correspondingly weaker. Based on current scientific estimates, the acceleration due to gravity at Pluto's surface is approximately:
+
+Estimate: 0.62"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,16,,0.615,0.615,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"The acceleration due to gravity at the surface of a celestial body can be estimated using the formula:
+
+$$
+g = \frac{G M}{R^2}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $ M $ is the mass of the body,
+- $ R $ is the radius of the body.
+
+For Pluto, the best estimates are:
+- Mass $ M \approx 1.303 \times 10^{22} \, \text{kg} $,
+- Radius $ R \approx 1.1883 \times 10^6 \, \text{m} $.
+
+Plugging these values into the formula:
+
+$$
+g = \frac{6.67430 \times 10^{-11} \times 1.303 \times 10^{22}}{(1.1883 \times 10^6)^2}
+$$
+
+$$
+g \approx \frac{8.685 \times 10^{11}}{1.412 \times 10^{12}} \approx 0.615 \, \text{m/s}^2
+$$
+
+Estimate: 0.615"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,17,,0.616,0.616,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"The acceleration due to gravity at the surface of Pluto can be estimated using the formula:
+
+$$
+g = \frac{G M}{R^2}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$)
+- $ M $ is the mass of Pluto ($1.303 \times 10^{22} \, \text{kg}$)
+- $ R $ is the radius of Pluto ($1.188 \times 10^6 \, \text{m}$)
+
+Plugging in the values:
+
+$$
+g = \frac{6.67430 \times 10^{-11} \times 1.303 \times 10^{22}}{(1.188 \times 10^6)^2}
+$$
+
+$$
+g \approx \frac{8.697 \times 10^{11}}{1.411 \times 10^{12}} \approx 0.616 \, \text{m/s}^2
+$$
+
+Estimate: 0.616"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,18,,0.616,0.616,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"Pluto is a dwarf planet with a mass of approximately $1.303 \times 10^{22}$ kg and a mean radius of about $1.1883 \times 10^6$ m. The acceleration due to gravity at the surface of a spherically symmetric body is given by the formula:
+
+$$
+g = \frac{G M}{r^2}
+$$
+
+where:
+- $G$ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $M$ is the mass of the body,
+- $r$ is the radius of the body.
+
+Plugging in the values:
+
+$$
+g = \frac{(6.67430 \times 10^{-11}) \times (1.303 \times 10^{22})}{(1.1883 \times 10^6)^2}
+$$
+
+$$
+g \approx \frac{8.69 \times 10^{11}}{1.412 \times 10^{12}} \approx 0.616 \, \text{m/s}^2
+$$
+
+Estimate: 0.616"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,19,,0.62,0.62,0,False,False,screen|qwen3-32b|C2-019|off,data/screen_v2/raw/qwen3-32b/study2/part-0000-20261026T133836Z.jsonl.gz,"Pluto is a dwarf planet with a known mass and radius, which allows us to estimate the acceleration due to gravity at its surface using Newton's law of universal gravitation:
+
+$$
+g = \frac{G M}{R^2}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($ 6.6743 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2} $),
+- $ M $ is the mass of Pluto, approximately $ 1.303 \times 10^{22} \, \text{kg} $,
+- $ R $ is the radius of Pluto, approximately $ 1.1883 \times 10^6 \, \text{m} $.
+
+Plugging these values in:
+
+$$
+g = \frac{(6.6743 \times 10^{-11}) \times (1.303 \times 10^{22})}{(1.1883 \times 10^6)^2} \approx 0.62 \, \text{m/s}^2
+$$
+
+Estimate: 0.62"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,0,,0.00668,0.00668,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,Estimate: 0.00668 m/s²
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,1,,3.5e-05,3.5e-05,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,Estimate: 0.000035 m/s²
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,2,,0.0006,0.0006,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,Estimate: 0.0006 m/s²
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,3,,0.0062,0.0062,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,Estimate: 0.0062 m/s²
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,4,,9.3,9.3,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"The acceleration due to gravity at the surface of Pluto can be estimated using the formula \( g = \frac{G M}{r^2} \), where \( G \) is the gravitational constant, \( M \) is Pluto's mass, and \( r \) is its radius. Plugging in the values:
+
+- \( G = 6.674 \times 10^{-11} \, \text{N m}^2/\text{kg}^2 \)
+- \( M = 1.1 \times 10^{20} \, \text{kg} \)
+- \( r = 1.18 \times 10^6 \, \text{m} \)
+
+First, calculate \( M/r^2 \):
+\[ M/r^2 = \frac{1.1 \times 10^{20}}{(1.18 \times 10^6)^2} = 0.79 \times 10^8 \, \text{m}^{-2} \]
+
+Next, compute \( G \times M \):
+\[ G \times M = 6.674 \times 10^{-11} \times 1.1 \times 10^{20} = 7.3414 \times 10^9 \, \text{N m}^2/\text{kg} \]
+
+Finally, divide \( G \times M \) by \( M/r^2 \):
+\[ g = \frac{7.3414 \times 10^9}{0.79 \times 10^8} \approx 9.3 \, \text{m/s}^2 \]
+
+Estimate: 9.3"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,5,,0,0,512,True,True,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,Estimate: 0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,6,,178,178,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"The acceleration due to gravity at the surface of Pluto is significantly higher than on Earth due to its much smaller size and higher density. Using the formula \( g = \frac{G M}{r^2} \), where \( M \) is the mass and \( r \) is the radius, we estimate that Pluto's gravity is approximately 178 m/s², which is about 34.5 times Earth's gravity. This makes sense considering Pluto's smaller size and higher density compared to Earth. 
+
+Estimate: 178"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,7,,0.00625,0.00625,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,Estimate: 0.00625 m/s²
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,8,,0.0067,0.0067,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,Estimate: 0.0067 m/s²
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,9,,0.0007,0.0007,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"The acceleration due to gravity at the surface of Pluto is the weakest among all planets due to its small mass and size. Using the formula for gravitational acceleration and the given values, the estimated acceleration is approximately 0.0007 m/s². 
+
+Estimate: 0.0007"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,10,,0.6,0.6,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,Estimate: 0.6 m/s²
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,11,,0.006,0.006,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,Estimate: 0.006 m/s²
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,12,,0.00667,0.00667,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,Estimate: 0.00667 m/s²
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,13,,0.0042,0.0042,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,Estimate: 0.0042 m/s²
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,14,,0.000465,0.000465,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,Estimate: 0.000465 m/s²
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,15,,1.2,1.2,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,Estimate: 1.2 m/s²
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,16,,0.00614,0.00614,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,Estimate: 0.00614 m/s²
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,17,,0.6,0.6,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,Estimate: 0.6 m/s²
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,18,,6.06e-05,6.06e-05,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,Estimate: 0.0000606 m/s²
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,19,,0.006,0.006,512,True,False,screen|r1-distill-qwen-1.5b|C2-019|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,Estimate: 0.006 m/s²
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,0,,2006,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"As of my last update in July 2024, there is no known natural dwarf planet named Pluto. Pluto was reclassified as a planet in 2006. Therefore, there is no established acceleration due to gravity at the surface of a Pluto-like planet. If you are referring to a hypothetical or fictional Pluto, such a planet would likely have a much lower gravity compared to Earth, but this is speculative and not scientifically established."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,1,,1.18,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"As of now, Pluto has been reclassified from being a planet due to evidence that shows it doesn't meet the rigorous definition of a planet set by the International Astronomical Union. However, it still maintains a close orbit around the Sun. Despite this classification change, Pluto's gravitational acceleration at its surface remains consistent with its current orbit and mass. The gravitational acceleration at the surface of Pluto is approximately 1.18 m/s², similar to Earth's gravity, but it is much weaker than that of other planets like Mars or Venus."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,2,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"As of my last update in July 2024, Pluto is not considered a widely recognized planet in the solar system, and its exact gravitational acceleration at its surface is not officially determined. Therefore, it's not appropriate to estimate it."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,3,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"I am sorry, I cannot answer that question."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,4,,0.002,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"As of the latest scientific understanding, Pluto is classified as a dwarf planet rather than a planet. The gravitational acceleration at the surface of Pluto is extremely low. Specifically, the surface gravity of Pluto is estimated to be around **0.002 m/s²**, which is one of the lowest among all known celestial bodies. This is due to its small size and high distance from the Sun."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,5,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"As of my last update in July 2024, there is no confirmed natural satellite on Pluto, and it is generally considered an icy dwarf planet without a moon. Therefore, based on current scientific understanding, there is no known surface gravity to estimate for Pluto."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,6,,0.63,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"As of my last update in July 2024, the official gravitational acceleration on the surface of Pluto is approximately **0.63 m/s²**. This value is derived from the gravitational constant and the planet's mass and radius. However, it's important to note that Pluto is a dwarf planet and is not considered a permanent celestial body, so its gravity hasn't been conclusively determined for decades. For precise scientific measurements, astronomers continue to conduct studies and refine their understanding of Pluto's environment."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,7,,2014,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"As of now, there is no officially recognized dwarf planet known as Pluto. The term was redefined in 2014 to avoid confusion with a naturally occurring object. Therefore, the surface gravity of a non-existent Pluto cannot be determined. If you are referring to a hypothetical Pluto, your question would need clarification."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,8,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"I am sorry, I cannot answer that question."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,9,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"As of my last update in July 2024, Pluto is not classified as a natural satellite and does not have its own atmosphere. Therefore, it does not have an atmosphere to exert gravity on its surface. Hence, there is no acceleration due to gravity at the surface of Pluto."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,10,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"As of my last update in July 2024, I don't have specific information about the gravitational acceleration at the surface of Pluto. Pluto is a dwarf planet, and its gravity is not well-characterized like Earth's or other planets. For the most accurate and up-to-date information, I recommend consulting the official data or scientific sources from the International Space局 (ISS) or NASA."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,11,,2024,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"As of my last update in July 2024, there is no known dwarf planet named Pluto. Pluto has been reclassified from a planet and is now classified as a dwarf planet. Therefore, the question regarding Pluto's gravitational acceleration does not apply. For the most accurate information, consulting a reliable source or space science authority is recommended."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,12,,0.6,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"As of my last update in July 2024, the exact gravitational acceleration at the surface of Pluto is not precisely determined due to its highly irregular shape and lack of a solid surface. However, some estimates suggest it could be around 0.6 m/s². For the most accurate and up-to-date information, consulting a professional astronomer or space mission such as the Gravity Probe B mission would be recommended."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,13,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"As of the latest scientific understanding, there is no confirmed natural dwarf planet named Pluto. Pluto has been reclassified from a planet and is now classified as a dwarf planet. Therefore, there is no known gravitational acceleration at its surface because it does not exist."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,14,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"As of now, there is no officially recognized dwarf planet in our solar system, and Pluto was reclassified as a planet. Therefore, there is no gravity acceleration to estimate at its surface."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,15,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"As of now, there is no known natural dwarf planet named Pluto. Pluto is classified as a dwarf planet primarily due to historical inaccuracies. Therefore, there is no established mass or radius for Pluto to provide an acceleration due to gravity at its surface."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,16,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"As of the latest scientific understanding, there is no known natural satellite around Pluto, and it is not classified as a planet by the International Astronomical Union. Therefore, Pluto does not have a defined surface gravity, and its gravity is not a subject of scientific study."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,17,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"As of now, there is no confirmed natural satellite or substantial atmosphere on Pluto. Therefore, its gravity is not a well-defined phenomenon. Hence, it is not possible to estimate its acceleration due to gravity."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,18,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"As of now, there is no confirmed natural satellite or significant atmosphere on Pluto, so it's not possible to accurately determine the gravitational acceleration at its surface."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,19,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-019|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0000-20261026T125600Z.jsonl.gz,"As of now, Pluto has been reclassified from being a planet due to significant orbital changes and increased gravitational interactions with its natural satellite,oid. As a dwarf planet, its surface gravity is not defined or is very low. Therefore, it's not possible to provide an estimate for the acceleration due to gravity at its surface."
