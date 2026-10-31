@@ -1,0 +1,1478 @@
+experiment,model,phase,thinking_level,thinking_budget,anchor,direction,distance,precision,start_source,instruction,sample,comparison,estimate_saved,estimate_checked,thinking_tokens,thinking_cut_off,answer_cut_off,cell_id,raw_file,answer
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,0,,292,292,402,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately 292 meters.
+
+Estimate: 292"
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,1,,25,25,446,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 25 meters
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,2,,1300,1300,454,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 1300
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,3,,6800,6800,460,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 6800
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,4,,2150,2150,470,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 2150
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,5,,1014,1014,275,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 1014 meters
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,6,,1700,1700,480,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 1700
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,7,,500,500,355,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 500
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,8,,1800,1800,276,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 1800
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,9,,2400,2400,476,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 2400 meters
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,10,,130,130,618,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 130 meters
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,11,,280,280,280,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately 280 meters.
+
+Estimate: 280"
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,12,,1700,1700,864,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 1700
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,13,,1500,1500,713,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 1500 meters
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,14,,370,370,493,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 370 meters
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,15,,4000,4000,621,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"Estimate: 4,000 meters"
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,16,,1800,1800,556,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 1800 meters
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,17,,1089,1089,299,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 1089 meters
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,18,,520,520,462,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 520 meters
+1,r1-distill-qwen-1.5b,no anchor,high,2048,,,,,,,19,,3800,3800,288,False,False,baseline|r1-distill-qwen-1.5b|S1-07|high,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"Estimate: 3,800 meters"
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,0,,66,66,512,True,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 66
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,1,,350,350,512,True,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 350 meters
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,2,,37.8,37.8,415,False,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 37.8 meters
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,3,,350,350,512,True,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 350 meters
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,4,,7000,7000,396,False,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"Estimate: 7,000 meters"
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,5,,1800,1800,387,False,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 1800
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,6,,120,120,512,True,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 120 meters
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,7,,280,280,436,False,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 280
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,8,,3550,3550,512,True,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately 3,550 meters (11,650 feet). This depth is part of the deep Baikal Trench, which is the deepest part of the Indian Ocean. The lake itself is connected to this deep oceanic crust, and its maximum depth aligns with the depth of the trench.
+
+Estimate: 3550"
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,9,,850,850,478,False,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 850
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,10,,1350,,365,False,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,The maximum depth of Lake Baikal is estimated to be around 1350 meters.
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,11,,436,436,221,False,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 436 meters
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,12,,2600,2600,512,True,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 2600
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,13,,3803,3803,512,True,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 3803 meters
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,14,,650,650,433,False,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 650 meters
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,15,,10944,10944,273,False,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"Estimate: 10,944 meters"
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,16,,1200,1200,512,True,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 1200 meters
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,17,,1210,1210,319,False,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,Estimate: 1210 meters
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,18,,300,300,391,False,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately 300 meters. 
+
+Estimate: 300"
+1,r1-distill-qwen-1.5b,no anchor,low,512,,,,,,,19,,2200,,422,False,False,baseline|r1-distill-qwen-1.5b|S1-07|low,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"The maximum depth of Lake Baikal is estimated to be around 2200 meters. This is based on the study of the ice depth, which is one of the largest ice formations in the world, contributing significantly to the overall depth of the lake."
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,0,,7163,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"The maximum depth of Lake Baikal is estimated to be around **2,184 meters** or **7,163 feet**. This depth is due to the combined effects of the water pressure, the ice, and the underlying layers of the rock and sediment in the lake."
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,1,,11.5,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"As of my last update in July 2024, the maximum depth of Lake Baikal is approximately **12 meters**. This depth is measured from the surface to the deepest point, which is around 11.5 meters deep. Lake Baikal is one of the deepest freshwater lakes in the world, and its deepest point is known as the Baikal Trench."
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,2,,20,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,The maximum depth of Lake Baikal is approximately 20 meters.
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,3,,28,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,The maximum depth of Lake Baikal is estimated to be around 28 meters.
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,4,,1300,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately 1,300 meters."
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,5,,36,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,The maximum depth of Lake Baikal is approximately **36 meters**.
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,6,,1600,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1,600 meters**."
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,7,,27,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,The maximum depth of Lake Baikal is approximately **27 meters**.
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,8,,31,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,The maximum depth of Lake Baikal is estimated to be around **31 meters**.
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,9,,27,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,The maximum depth of Lake Baikal is approximately **27 meters**.
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,10,,1600,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"The maximum depth of Lake Baikal is estimated to be around **1,600 meters**."
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,11,,1300,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"The maximum depth of Lake Baikal is estimated to be around **4,000 meters** (approximately 1,300 feet). This depth is due to the deep tectonic reverberations beneath the underwater mountain."
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,12,,3800,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **3,800 meters**."
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,13,,37,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,The maximum depth of Lake Baikal is estimated to be around **37 meters**.
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,14,,180,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,The maximum depth of Lake Baikal is estimated to be around 180 meters.
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,15,,3807,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **3,807 meters**."
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,16,,1028,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"The maximum depth of Lake Baikal is estimated to be approximately **1,028 meters**."
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,17,,160,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"As of my last update in July 2024, the maximum depth of Lake Baikal has been estimated to be around 160 meters. This figure is based on historical data and scientific measurements. For the most accurate and up-to-date information, I recommend referring to official geological reports or scientific studies from reliable sources."
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,18,,53,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,The maximum depth of Lake Baikal is estimated to be around **53 meters**.
+1,r1-distill-qwen-1.5b,no anchor,off,0,,,,,,,19,,10,,0,False,False,baseline|r1-distill-qwen-1.5b|S1-07|off,data/pilot/raw/r1-distill-qwen-1.5b/baseline/part-0000-20261024T111948Z.jsonl.gz,"As of the most recent data, the maximum depth of Lake Baikal is approximately **10 meters**."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.931e+06,high,far,precise,,,0,,3350,3350,603,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <lower>  
+Estimate: 3,350 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.931e+06,high,far,precise,,,1,,2100,2100,648,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <lower>
+Estimate: 2,100 metres"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.931e+06,high,far,precise,,,2,,730,730,502,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Lake Baikal is much deeper than 1,931,000 meters. The maximum depth of Lake Baikal is approximately 730 meters.  
+
+Comparison: <lower>  
+Estimate: <730>"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.931e+06,high,far,precise,,,3,lower,3810,3810,351,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: lower  
+Estimate: 3810"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.931e+06,high,far,precise,,,4,lower,1900,1900,434,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: lower  
+Estimate: 1,900 to 2,000 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.931e+06,high,far,precise,,,5,lower,1925,1925,1007,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Lower  
+Estimate: 1,925 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.931e+06,high,far,precise,,,6,lower,3645,3645,533,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Lower  
+Estimate: 3,645 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.931e+06,high,far,precise,,,7,lower,27,27,402,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Lake Baikal is lower than 1,931,000 meters. Comparison: lower. Estimate: 27 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.931e+06,high,far,precise,,,8,lower,3000,3000,336,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: lower  
+Estimate: 3,000 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.931e+06,high,far,precise,,,9,,1931,,2048,True,True,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <higher or lower> <number>
+Estimate: <number>
+
+Wait, I think I'm mixing up the comparison. Lake Baikal is not higher or lower than 1,931,000 meters. The maximum depth is around 2 kilometers, which is 2000 meters.
+
+Wait, but 2 kilometers is 2000 meters, which is much shallower than 1,931,000 meters. So, Lake Baikal's maximum depth is not higher than 1,931,000 meters.
+
+Wait, I think I'm making a mistake here. Let me clarify.
+
+The maximum depth of Lake Baikal is around 1931 kilometers, which is 1,931,000 meters. However, this is impossible because the average depth is only 2-3 meters, and the maximum depth would be higher. Therefore, I must have made a mistake in my initial assumption.
+
+Wait, perhaps the maximum depth is around 1931 meters, which is 1.931 kilometers. That seems too shallow, so I think it's more accurate to say that the maximum depth is around 2 kilometers, which is 2000 meters.
+
+Wait, but 2 kilometers is 2000 meters, which is much shallower than 1,931,000 meters. So, Lake Baikal's maximum depth is not higher than 1,931,000 meters. Therefore, the maximum depth is around 2 kilometers, which is 2000 meters.
+
+Wait, but I'm still confused because 2000 meters is much shallower than 1,931,000 meters. So, the maximum depth is around 1931 kilometers, which is 1,931,000 meters.
+
+Wait, but 1,931,000 meters is 1,931 kilometers, which is way too deep. So, I must have made a mistake here. Lake Baikal's maximum depth is around 2 kilometers, which is 2000 meters.
+
+Wait, but 2 kilometers is 2000 meters, which is much shallower than 1,931,000 meters. So, the maximum depth is around 1931 kilometers, which is 1,931"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.9e+06,high,far,round,,,0,lower,3650,3650,428,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: lower  
+Estimate: 3,650"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.9e+06,high,far,round,,,1,,1800,1800,460,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <lower>
+Estimate: 1800 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.9e+06,high,far,round,,,2,higher,1950,1950,471,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 1950  
+meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.9e+06,high,far,round,,,3,lower,1758,1758,557,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Lower  
+Estimate: 1,758 meters  
+
+Lake Baikal's maximum depth is approximately 1,758 meters, which is significantly lower than 1,900,000 meters. The estimated depth is often cited as 1,786 meters, reflecting the extreme depth at its deepest point, known as the Baikal Spring."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.9e+06,high,far,round,,,4,,3520,3520,584,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <lower>
+Estimate: 3520"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.9e+06,high,far,round,,,5,lower,4361,4361,309,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Lower  
+Estimate: 4,361 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.9e+06,high,far,round,,,6,lower,1850,1850,435,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Lower  
+Estimate: 1,850 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.9e+06,high,far,round,,,7,,3645,3645,481,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <lower>
+Estimate: 3,645 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.9e+06,high,far,round,,,8,lower,1850,1850,461,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: lower  
+Estimate: 1,850"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,1.9e+06,high,far,round,,,9,,6700,6700,464,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <lower>
+Estimate: 6700"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28450,high,near,precise,,,0,,1830,1830,364,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is 1,830 meters, which is lower than 28,450 meters. 
+
+Comparison: <lower>
+Estimate: <1830>"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28450,high,near,precise,,,1,higher,28450,28450,309,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Maximum depth of Lake Baikal is higher than 28,450 metres. Comparison: higher. Estimate: 28,450 metres."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28450,high,near,precise,,,2,,2861,2861,432,False,True,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <lower>
+Estimate: 2,861
+
+Wait, the user's initial response was ""Lower than 28,450"" and then 2,861. But in my thought process, I realized that 2,861 meters is actually lower than 28,450 meters. So, the correction is to say it's lower than 28,450 meters.
+
+Wait, no, 2,861 is much less than 28,450. So, the correct comparison is that Lake Baikal is lower than 28,450 meters. Therefore, the correction is:
+
+Comparison: <lower>
+Estimate: 2,861 meters
+
+Wait, that's correct because 2,861 is less than 28,450. So, Lake Baikal's maximum depth is indeed lower than 28,450 meters.
+
+I think I've got it right this time.
+
+Comparison: <lower>
+Estimate: 2,861
+
+Wait, but the user's initial thought process was to say it's higher than 28,450, which is incorrect. So, the correct answer should reflect that it's lower.
+
+Therefore, the accurate response is:
+
+Comparison: <lower>
+Estimate: 2,861
+
+Wait, no, 2,861 is still less than 28,450. So, it's lower than 28,450 meters.
+
+Therefore, the correct answer is:
+
+Comparison: <lower>
+Estimate: 2,861
+
+Wait, but 2,861 is 2,861 meters, which is way less than 28,450 meters. So, Lake Baikal is lower than 28,450 meters.
+
+Hence, the correct answer is:
+
+Comparison: <lower>
+Estimate: 2,861
+
+Wait, but 2,861 is less than 28,450. So, Lake Baikal's maximum depth is lower than 28,450 meters.
+
+So, the accurate answer is:
+
+Comparison: <lower>
+Estimate: 2,861
+
+But wait, that's not correct because 2,861 is less than 28,450. So, the correct statement"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28450,high,near,precise,,,3,lower,26800,26800,435,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Lower  
+Estimate: 26,800 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28450,high,near,precise,,,4,higher,35610,35610,468,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 35,610"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28450,high,near,precise,,,5,,340,340,411,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Maximum depth of Lake Baikal is 340 meters, which is lower than 28,450 meters.
+
+Comparison: <lower>
+Estimate: 340"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28450,high,near,precise,,,6,,6800,6800,585,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <lower>
+Estimate: 6,800 metres"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28450,high,near,precise,,,7,,28450,28450,593,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Equal  
+Estimate: 28,450 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28450,high,near,precise,,,8,higher,35000,35000,367,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 35,000 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28450,high,near,precise,,,9,higher,28500,28500,536,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Maximum depth of Lake Baikal: 28,500 meters  
+Comparison: higher  
+Estimate: 28,500 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28000,high,near,round,,,0,lower,38,38,472,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Lower  
+Estimate: 38 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28000,high,near,round,,,1,higher,36000,36000,421,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 36,000"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28000,high,near,round,,,2,,1800,1800,343,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <lower>
+Estimate: 1,800 metres"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28000,high,near,round,,,3,higher,36000,36000,355,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 36,000  
+
+Yes, Lake Baikal is higher than 28,000 meters, and its maximum depth is approximately 36,000 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28000,high,near,round,,,4,lower,3700,3700,458,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: lower  
+Estimate: 3,700"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28000,high,near,round,,,5,higher,36641,36641,256,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 36,641"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28000,high,near,round,,,6,higher,28000,28000,587,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 28,000"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28000,high,near,round,,,7,,1800,1800,347,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is lower than 28,000 meters. The best estimate is 1,800 meters.
+
+Comparison: <lower>
+Estimate: 1,800"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28000,high,near,round,,,8,higher,30000,30000,439,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 30,000 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,28000,high,near,round,,,9,higher,50,50,1142,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 50 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.08925,low,far,precise,,,0,higher,80,80,473,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Lake Baikal is higher than 0.08925 metres, which is a very small measurement. Its maximum depth is estimated to be around 80 metres. 
+
+Comparison: Higher  
+Estimate: 80"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.08925,low,far,precise,,,1,higher,60,60,390,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Lake Baikal is higher than 0.08925 metres. Its maximum depth is estimated to be about 60 metres.
+
+Comparison: higher
+Estimate: 60"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.08925,low,far,precise,,,2,higher,34,34,442,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 34.0"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.08925,low,far,precise,,,3,higher,1332,1332,374,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 1332 meters  
+
+Lake Baikal is significantly deeper than 0.08925 meters. Its maximum depth is approximately 1,332 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.08925,low,far,precise,,,4,higher,1080,1080,830,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Maximum depth of Lake Baikal is approximately 1,080 meters. Comparison: higher. Estimate: 1,080.0
+
+Explanation: Lake Baikal, the deepest lake in the world, has a maximum depth of about 1,080 meters. This depth is achieved through its design for water purification, allowing it to hold large amounts of water and nutrients. The depth is significantly higher than 0.08925 meters, which is a very small fraction of a meter."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.08925,low,far,precise,,,5,higher,317,317,330,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is 317 meters, which is significantly higher than 0.08925 meters.
+
+Comparison: higher  
+Estimate: 317 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.08925,low,far,precise,,,6,higher,82.8,82.8,549,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 82.8"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.08925,low,far,precise,,,7,higher,346.15,346.15,566,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 346.15 meters  
+
+Is Lake Baikal deeper than 0.08925 meters? Yes. Its maximum depth is approximately 346.15 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.08925,low,far,precise,,,8,higher,1179,1179,474,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Maximum depth of Lake Baikal is 1,179 meters. Comparison: higher. Estimate: 1,179 meters.
+
+</s>"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.08925,low,far,precise,,,9,higher,35.34,35.34,698,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,Lake Baikal is higher than 0.08925 meters. Maximum depth: 35.34 meters. Comparison: higher. Estimate: 35.34.
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.09,low,far,round,,,0,higher,50,50,280,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 50 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.09,low,far,round,,,1,higher,35,35,987,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 35 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.09,low,far,round,,,2,higher,1750,1750,540,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 1,750 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.09,low,far,round,,,3,higher,320,320,527,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 320-325 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.09,low,far,round,,,4,higher,3000,3000,417,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is higher than 0.09 metres, and it is estimated to be approximately 3,000 metres.
+
+Comparison: higher  
+Estimate: 3000"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.09,low,far,round,,,5,higher,331,331,332,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 331 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.09,low,far,round,,,6,higher,75,75,470,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 75 meters  
+
+Lake Baikal is significantly deeper than 0.09 meters, with a maximum depth of approximately 75 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.09,low,far,round,,,7,higher,6610,6610,355,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is higher than 0.09 meters and is estimated to be approximately 6,610 meters.
+
+Comparison: higher  
+Estimate: 6610"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.09,low,far,round,,,8,higher,355,355,252,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 355 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,0.09,low,far,round,,,9,higher,80,80,742,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 80"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.061,low,near,precise,,,0,,5.4,5.4,890,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <lower>
+Estimate: 5.400"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.061,low,near,precise,,,1,higher,13.4,13.4,585,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is higher than 6.061 meters, and the best estimate for the maximum depth is approximately 13.4 meters.
+
+Comparison: Higher  
+Estimate: 13.4"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.061,low,near,precise,,,2,,6.3,6.3,644,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <lower>
+Estimate: 6.3"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.061,low,near,precise,,,3,higher,13.5,13.5,479,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately 13.5 meters, which is significantly deeper than 6.061 meters. 
+
+Comparison: higher  
+Estimate: 13.5"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.061,low,near,precise,,,4,higher,7.3,7.3,438,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 7.3"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.061,low,near,precise,,,5,,6.06,6.06,487,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately 6.06 meters. It is lower than Lake Superior and other large lakes. The depth is due to its conical shape and the lowest point on the surface, not the average water level. 
+
+Comparison: <lower>
+Estimate: 6.06"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.061,low,near,precise,,,6,higher,1700,1700,563,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 1,700 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.061,low,near,precise,,,7,higher,6000,6000,989,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 6,000 meters  
+
+Explanation: Lake Baikal has a maximum depth of approximately 6 kilometers (6,000 meters), which is significantly deeper than 6 meters. This is due to the freezing conditions in the polar region and the surrounding mountain range, allowing the water to freeze over many years."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.061,low,near,precise,,,8,higher,6000,6000,1309,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is around 6 kilometers. 
+
+Comparison: higher  
+Estimate: 6000 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.061,low,near,precise,,,9,higher,60,60,1776,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 60 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.1,low,near,round,,,0,higher,10.7,10.7,421,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 10.7 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.1,low,near,round,,,1,higher,12.3,12.3,434,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is higher than 6.1 meters and is approximately 12.3 meters. 
+
+Comparison: Higher  
+Estimate: 12.3"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.1,low,near,round,,,2,higher,6.3,6.3,358,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Lake Baikal is higher than 6.1 metres. The maximum depth is approximately 6.3 metres.
+
+Comparison: higher  
+Estimate: 6.3"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.1,low,near,round,,,3,lower,5.7,5.7,332,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately 5.7 meters, which is lower than 6.1 meters.
+
+Comparison: Lower  
+Estimate: 5.7"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.1,low,near,round,,,4,higher,10,10,568,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 10"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.1,low,near,round,,,5,,3.5,3.5,450,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,The maximum depth of Lake Baikal is approximately 3.5 to 5 meters. Comparison: <lower> Estimate: <3.5 to 5> meters.
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.1,low,near,round,,,6,,61,61,2048,True,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <higher or lower>  
+Estimate: 61 meters  
+
+Explanation: Lake Baikal's maximum depth is approximately 61 meters. However, it's important to note that this is the depth from the surface to the bottom of the lake, which is much greater than 61 meters. The actual maximum depth is around 6 kilometers, which is 6,000 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.1,low,near,round,,,7,higher,14,14,479,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 14 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.1,low,near,round,,,8,higher,850,850,312,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 850 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),high,2048,6.1,low,near,round,,,9,higher,12.8,12.8,311,False,False,study1|r1-distill-qwen-1.5b|S1-07|high|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 12.8"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.931e+06,high,far,precise,,,0,,1900,1900,455,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <lower>
+Estimate: 1900"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.931e+06,high,far,precise,,,1,,2800,2800,475,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <lower>
+Estimate: 2,800"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.931e+06,high,far,precise,,,2,higher,2087,2087,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 2,087 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.931e+06,high,far,precise,,,3,lower,1931,1931,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Lower  
+Estimate: 1931 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.931e+06,high,far,precise,,,4,lower,1000,1000,301,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: lower  
+Estimate: 1,000 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.931e+06,high,far,precise,,,5,lower,3646,3646,427,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Maximum depth of Lake Baikal: 3,646 meters  
+Comparison: lower  
+Estimate: 3,646 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.931e+06,high,far,precise,,,6,,4500,4500,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <lower>
+Estimate: 4500
+
+Lake Baikal is lower than 1,931,000 meters in depth. Its maximum depth is approximately 4,500 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.931e+06,high,far,precise,,,7,lower,3007,3007,479,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Lower  
+Estimate: 3,007 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.931e+06,high,far,precise,,,8,lower,5900,5900,440,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: lower  
+Estimate: 5,900 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.931e+06,high,far,precise,,,9,lower,1600,1600,398,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: lower  
+Estimate: 1600 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.9e+06,high,far,round,,,0,lower,1850,1850,369,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Lake Baikal is lower in depth than 1,900,000 metres. Its maximum depth is approximately 1,850 metres.
+
+Comparison: lower
+Estimate: 1,850"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.9e+06,high,far,round,,,1,,1863,1863,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately 1,863 meters. 
+
+Comparison: <lower>
+Estimate: 1,863 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.9e+06,high,far,round,,,2,lower,3647,3647,413,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Lower  
+Estimate: 3,647 metres"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.9e+06,high,far,round,,,3,higher,1900,1900,385,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher
+
+Estimate: 1900 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.9e+06,high,far,round,,,4,lower,1850,1850,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: lower  
+Estimate: 1,850 meters  
+
+Lake Baikal is lower than 1,900,000 meters. Its maximum depth is approximately 1,850 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.9e+06,high,far,round,,,5,,3000,3000,295,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <lower>
+Estimate: 3,000"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.9e+06,high,far,round,,,6,higher,6700,6700,332,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 6,700  
+m"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.9e+06,high,far,round,,,7,lower,3648,3648,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: lower  
+Estimate: 3648"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.9e+06,high,far,round,,,8,higher,3000,3000,472,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 3000"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,1.9e+06,high,far,round,,,9,higher,1900,1900,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is higher than 1,900,000 meters (1,900 kilometers). The average depth is around 1,800 meters, and the deepest part is approximately 1,900 meters. 
+
+**Comparison: higher**
+**Estimate: 1,900 meters**"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28450,high,near,precise,,,0,lower,1861,1861,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: lower  
+Estimate: 1,861 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28450,high,near,precise,,,1,higher,2850,2850,478,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 2,850 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28450,high,near,precise,,,2,lower,1332,1332,366,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Maximum depth of Lake Baikal is lower than 28,450 metres. Estimate: 1,332 metres. Comparison: lower."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28450,high,near,precise,,,3,lower,28450,28450,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Lower  
+Estimate: 28,450"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28450,high,near,precise,,,4,higher,30400,30400,381,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 30,400 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28450,high,near,precise,,,5,higher,28450,28450,345,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is higher than 28,450 metres. The best estimate for the maximum depth is 28,450 metres.
+
+Comparison: higher
+Estimate: 28,450"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28450,high,near,precise,,,6,higher,36620,36620,355,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Lake Baikal is higher than 28,450 metres. Its maximum depth is approximately 36,620 metres.  
+
+Comparison: Higher  
+Estimate: 36620"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28450,high,near,precise,,,7,lower,500,500,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: lower  
+Estimate: 500 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28450,high,near,precise,,,8,lower,2100,2100,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Maximum depth: Lower than 28,450 metres  
+Estimate: 2,100 metres  
+
+Comparison: Lower  
+Estimate: 2100"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28450,high,near,precise,,,9,lower,1600,1600,367,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: lower  
+Estimate: 1600 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28000,high,near,round,,,0,lower,1700,1700,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Lower  
+Estimate: 1700 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28000,high,near,round,,,1,lower,2800,2800,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Maximum depth of Lake Baikal is approximately 2,800 meters. Comparison: lower. Estimate: 2800."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28000,high,near,round,,,2,lower,27100,27100,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Lower  
+Estimate: 27,100 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28000,high,near,round,,,3,,5500,5500,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <lower>
+Estimate: 5500"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28000,high,near,round,,,4,lower,1500,1500,479,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is lower than 28,000 meters, with an estimated depth of around 1500 meters. 
+
+Comparison: lower  
+Estimate: 1500"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28000,high,near,round,,,5,,1800,1800,314,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: <lower>
+Estimate: 1800"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28000,high,near,round,,,6,lower,6816,6816,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Lower  
+Estimate: 6,816 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28000,high,near,round,,,7,,28.5,28.5,363,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: equal
+Estimate: 28.5 kilometers"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28000,high,near,round,,,8,lower,3800,3800,437,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: lower  
+Estimate: 3,800"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,28000,high,near,round,,,9,higher,35500,35500,436,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 35,500 meters  
+
+Lake Baikal is higher than 28,000 meters, with its maximum depth estimated at approximately 35,500 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.08925,low,far,precise,,,0,lower,385,385,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: lower  
+Estimate: 385 meters  
+
+The maximum depth of Lake Baikal, also known as the ""Blue Crystal Lake,"" is approximately 385 meters from the surface to the ice part. This is considered the deepest point and is a key feature of the lake's extreme environment."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.08925,low,far,precise,,,1,higher,1800,1800,343,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 1800"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.08925,low,far,precise,,,2,higher,30.72,30.72,456,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 30.72 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.08925,low,far,precise,,,3,higher,1800,1800,475,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Lake Baikal is higher than 0.08925 meters (89.25 cm). Its maximum depth is estimated to be around 1,800 meters. 
+
+Comparison: higher  
+Estimate: 1800.0"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.08925,low,far,precise,,,4,higher,185,185,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 185 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.08925,low,far,precise,,,5,higher,343,343,348,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 343 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.08925,low,far,precise,,,6,higher,1488,1488,485,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 1488 meters  
+
+Lake Baikal is indeed higher than 0.08925 meters, and its maximum depth is estimated to be approximately 1,488 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.08925,low,far,precise,,,7,higher,1394,1394,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 1394 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.08925,low,far,precise,,,8,higher,3514,3514,249,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 3514  
+
+Yes, Lake Baikal is significantly deeper than 0.08925 meters, with a maximum depth of approximately 3514 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.08925,low,far,precise,,,9,higher,110,110,343,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is higher than 0.08925 meters. 
+
+Comparison: higher  
+Estimate: 110"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.09,low,far,round,,,0,higher,260,260,290,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is higher than 0.09 metres, and its best estimate is 260 metres.
+
+Comparison: higher  
+Estimate: 260"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.09,low,far,round,,,1,higher,36.4,36.4,305,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 36.4"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.09,low,far,round,,,2,higher,56,56,349,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is higher than 0.09 meters. Its deepest point is approximately 56 meters.
+
+Comparison: higher  
+Estimate: 56"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.09,low,far,round,,,3,higher,178,178,356,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,Lake Baikal is higher than 0.09 metres. Comparison: higher than 0.09 metres. Estimate: 178 metres.
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.09,low,far,round,,,4,higher,660,660,367,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 660"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.09,low,far,round,,,5,higher,381,381,353,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 381 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.09,low,far,round,,,6,higher,120,120,357,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Lake Baikal is higher than 0.09 meters in depth, and its maximum depth is approximately 120 meters.  
+
+Comparison: higher  
+Estimate: 120"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.09,low,far,round,,,7,higher,323,323,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 323"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.09,low,far,round,,,8,higher,1640,1640,400,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 1640-1650 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,0.09,low,far,round,,,9,higher,1025,1025,273,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Maximum depth of Lake Baikal is higher than 0.09 meters, and the best estimate is approximately 1025 meters. 
+
+Comparison: higher  
+Estimate: 1025"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.061,low,near,precise,,,0,higher,6.061,6.061,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 6.061 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.061,low,near,precise,,,1,higher,500,500,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Maximum depth of Lake Baikal is higher than 6.061 metres.
+
+Estimate: 500 metres
+
+Comparison: higher"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.061,low,near,precise,,,2,higher,1850,1850,294,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is higher than 6.061 meters, with an estimated depth of 1,850 meters.
+
+Comparison: higher  
+Estimate: 1850"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.061,low,near,precise,,,3,higher,1675,1675,276,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 1675"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.061,low,near,precise,,,4,higher,366,366,390,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Maximum depth of Lake Baikal is 366 meters, which is higher than 6.061 meters. Comparison: higher. Estimate: 366 meters.
+
+<higher>
+366
+</higher>
+
+<Estimate>
+366
+</Estimate>"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.061,low,near,precise,,,5,higher,2000,2000,370,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Maximum depth of Lake Baikal is higher than 6.061 meters. The best estimate is approximately 2000 meters.
+
+Comparison: higher  
+Estimate: 2000"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.061,low,near,precise,,,6,higher,250,250,435,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Maximum depth of Lake Baikal is higher than 6.061 metres. Comparison: higher. Estimate: 250 metres.
+
+The maximum depth of Lake Baikal is approximately 250 meters. This depth is significantly higher than the 6.061 metres mentioned, which is about the height of a standard water tower. Lake Baikal is indeed one of the largest and deepest lakes on Earth, with its average depth around 10 meters, but the maximum depth can be much deeper, especially near its mouth."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.061,low,near,precise,,,7,higher,6.061,6.061,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately 6.061 meters. It is higher than 6.061 meters and its best estimate is 6.061 meters.
+
+Comparison: higher
+Estimate: 6.061
+
+Wait, no, I just corrected myself. Lake Baikal is actually deeper than 6 meters. I need to provide the correct figure. Let me correct that.
+
+The maximum depth of Lake Baikal is approximately 6 meters, but more accurately, it's about 6.061 meters.
+
+Wait, but I think I made a mistake again. Lake Baikal is actually one of the deepest lakes in the world, with a maximum depth of approximately 6 meters. But I think the correct figure is higher. Let me confirm.
+
+Upon further reflection, Lake Baikal's maximum depth is approximately 6.061 meters. It is higher than 6.061 meters. So the correct comparison is:
+
+Comparison: higher
+Estimate: 6.061"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.061,low,near,precise,,,8,higher,100,100,361,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 100 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.061,low,near,precise,,,9,higher,3660,3660,370,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 3660  
+meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.1,low,near,round,,,0,higher,550,550,400,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Lake Baikal is deeper than 6.1 meters, with its maximum depth estimated to be approximately 550 meters. Comparison: higher. Estimate: 550."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.1,low,near,round,,,1,higher,58,58,371,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 58 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.1,low,near,round,,,2,higher,5.4,5.4,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Lake Baikal's maximum depth is higher than the ocean's average depth of 3.6 meters. The deepest part of Lake Baikal is approximately 5.4 meters. 
+
+Comparison: higher  
+Estimate: 5.4"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.1,low,near,round,,,3,higher,13.5,13.5,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is 13.5 meters. This is higher than 6.1 meters, which is approximately 20 feet. 
+
+Comparison: higher  
+Estimate: 13.5 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.1,low,near,round,,,4,higher,63,63,329,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 63 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.1,low,near,round,,,5,higher,12.5,12.5,330,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 12.5"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.1,low,near,round,,,6,higher,6.5,6.5,397,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: higher  
+Estimate: 6.5"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.1,low,near,round,,,7,higher,39.7,39.7,509,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"Comparison: Higher  
+Estimate: 39.7"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.1,low,near,round,,,8,higher,55,55,512,True,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is higher than 50 meters. Its deepest point reaches approximately 55 meters. 
+
+Comparison: higher  
+Estimate: 55 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),low,512,6.1,low,near,round,,,9,higher,6.6,6.6,496,False,False,study1|r1-distill-qwen-1.5b|S1-07|low|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is higher than 6.1 meters. The best estimate for its depth is 6.6 meters.
+
+Comparison: Higher  
+Estimate: 6.6"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.931e+06,high,far,precise,,,0,,1.931e+06,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1,931 meters**. This is significantly lower than 1,931,000 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.931e+06,high,far,precise,,,1,,1931,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1,931 meters**. This depth is significantly lower than the 1,931,000 meters (1,931 kilometers) you mentioned. Therefore, Lake Baikal is **lower** in depth than the number provided."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.931e+06,high,far,precise,,,2,higher,1.931e+06,1.931e+06,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1,931,000 meters**. Therefore, Lake Baikal is **higher** than 1,931,000 meters. 
+
+Comparison: higher  
+Estimate: 1,931,000"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.931e+06,high,far,precise,,,3,,1.931e+06,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1,931 meters**. This depth is significantly lower than 1,931,000 meters. Therefore, Lake Baikal is **lower** in depth compared to 1,931,000 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.931e+06,high,far,precise,,,4,lower,1931,1931,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1,931 meters**. This depth is significantly lower than 1,931,000 meters. 
+
+Comparison: Lower  
+Estimate: 1931 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.931e+06,high,far,precise,,,5,lower,1000,1000,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately 1,000 meters. 
+
+**Comparison: lower than 1,931,000 metres**
+**Estimate: 1,000 metres**"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.931e+06,high,far,precise,,,6,,1.931e+06,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1,881 meters**. This makes it **lower** than 1,931,000 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.931e+06,high,far,precise,,,7,lower,4307,4307,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately 4,307 meters. 
+
+**Comparison:** Lower  
+**Estimate:** 4,307 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.931e+06,high,far,precise,,,8,,1.931e+06,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1,931 meters**. This is significantly lower than 1,931,000 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.931e+06,high,far,precise,,,9,lower,1800,1800,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of now, Lake Baikal's maximum depth has been estimated to be around 1,800 meters. Therefore, it is lower than 1,931,000 meters.
+
+**Comparison: Lower**
+**Estimate: 1,800 meters**"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.9e+06,high,far,round,,,0,lower,1864,1864,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1,864 meters**. This is lower than 1,900,000 meters. 
+
+Comparison: lower  
+Estimate: 1,864 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.9e+06,high,far,round,,,1,,1000,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of now, Lake Baikal does not exist. It was once a fictional lake created by the Russian writer Vasily Gogolnikov for the book ""Voyage around the World."" The longest lake in the world is Lake Superior, which is about 1,000 miles (1,620 kilometers) long. 
+
+Regarding the depth, Lake Baikal is believed to be around 1,000 meters deep, similar to Lake Superior. However, Lake Baikal is not as long as Lake Superior."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.9e+06,high,far,round,,,2,,175,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, Lake Baikal (also known as the Ganges freshwater lake) is the largest freshwater lake in the world, with a maximum depth of approximately **1,893 meters**. This depth is slightly less than 1,900,000 meters. Therefore, Lake Baikal is **lower** in depth than 1,900,000 meters.
+
+For your reference, here are the exact measurements:
+- **Maximum depth**: 1,893 meters
+- **Average depth**: 175 meters
+
+If you need further clarification or have specific questions, feel free to ask!"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.9e+06,high,far,round,,,3,,1500,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of now, Lake Baikal is the highest lake in the world with a depth of approximately 1,500 meters. Therefore, it is **lower** than 1,900,000 meters. Its depth is estimated to be around **1,500 meters**."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.9e+06,high,far,round,,,4,lower,1866,1866,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, the maximum depth of Lake Baikal is approximately **1,866 meters**. The exact depth can vary slightly depending on the source and method of measurement. Lake Baikal is indeed **lower** than 1,900,000 meters. Here is the comparison and estimate:
+
+**Comparison:** Lower  
+**Estimate:** 1,866 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.9e+06,high,far,round,,,5,,1.9e+06,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1,856 meters**. This depth is lower than 1,900,000 meters. Therefore, Lake Baikal is **lower** than 1,900,000 meters in depth."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.9e+06,high,far,round,,,6,,1880,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of the latest information, the maximum depth of Lake Baikal is approximately 1,881 meters. Therefore, Lake Baikal is lower in depth than 1,900,000 meters. 
+
+For the best estimate, I would say around 1,880 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.9e+06,high,far,round,,,7,lower,5.6,5.6,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, the maximum depth of Lake Baikal is approximately 5.6 meters. Lake Baikal is the largest freshwater lake in the world by volume, and its deepest point is around 5.6 meters deep at its southernmost tip. It is significantly lower than 1,900,000 meters. Here's the comparison:
+
+**Comparison: Lower**
+**Estimate: 5.6 meters**"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.9e+06,high,far,round,,,8,,1900,1900,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of the latest updates, Lake Baikal reaches a maximum depth of approximately **1,900 meters**. Therefore, compared to 1,900,000 meters, it is significantly lower. 
+
+**Comparison:** <lower>
+**Estimate:** 1900 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,1.9e+06,high,far,round,,,9,,1.9e+06,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1,850 meters**. This is lower than 1,900,000 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28450,high,near,precise,,,0,lower,28.34,28.34,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **28.34 meters**. 
+
+**Comparison:** Lower than 28,450 meters.  
+**Estimate:** 28.34 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28450,high,near,precise,,,1,,28450,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of the latest information available, Lake Baikal reaches a maximum depth of approximately **28,300 meters**. This is slightly lower than 28,450 meters. Therefore, Lake Baikal is **lower** in depth compared to 28,450 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28450,high,near,precise,,,2,lower,28350,28350,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **28,350 metres**, which is just slightly lower than 28,450 metres. 
+
+**Comparison:** Lower  
+**Estimate:** 28,350 metres"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28450,high,near,precise,,,3,lower,28360,28360,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **28,360 meters**. 
+
+**Comparison:** Lower  
+**Estimate:** 28,360"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28450,high,near,precise,,,4,lower,1518,1518,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1,518 meters**. This is significantly lower than 28,450 meters. 
+
+**Comparison:** Lower  
+**Estimate:** 1518 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28450,high,near,precise,,,5,,28450,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **28,450 metres**, making it **higher** than the Earth's average sea level. This depth is achieved due to the formation of a unique geological structure called the ""Baikal Channel"" and the ""Baikal Trench,"" which creates a deep, open depression within the lake."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28450,high,near,precise,,,6,lower,1500,1500,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1,500 meters**. 
+
+**Comparison: Lower**
+**Estimate: 1500 meters**"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28450,high,near,precise,,,7,lower,28400,28400,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **28,400 meters**. This is very close to the 28,450 meters you mentioned, which suggests that 28,450 meters is slightly higher than the actual maximum depth. 
+
+**Comparison: Lower**
+**Estimate: 28400** meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28450,high,near,precise,,,8,,28400,28400,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of the latest information available, Lake Baikal reaches a maximum depth of **28,400 meters**. This is slightly less than 28,450 meters. Therefore, Lake Baikal is **lower** in depth compared to 28,450 meters.
+
+**Comparison:** <lower>
+**Estimate:** 28400"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28450,high,near,precise,,,9,lower,28.36,28.36,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **28.36 meters**, which is slightly lower than 28,450 metres. This makes it lower than 28,450 metres. Here's the comparison and estimate:
+
+Comparison: lower  
+Estimate: 28.36"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28000,high,near,round,,,0,,28000,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **28.8 meters**. This is higher than 28,000 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28000,high,near,round,,,1,higher,28.2,28.2,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **28.2 meters**. This is **higher** than 28,000 meters. 
+
+**Comparison:** higher  
+**Estimate:** 28.2"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28000,high,near,round,,,2,,28000,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **36 meters below the surface**, which is lower than 28,000 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28000,high,near,round,,,3,higher,28100,28100,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, the maximum depth of Lake Baikal is approximately **28,100 meters**. This is slightly higher than the commonly cited figure of 28,000 meters. 
+
+### Comparison: Higher
+### Estimate: 28,100 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28000,high,near,round,,,4,lower,2800,2800,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, the maximum depth of Lake Baikal is approximately **2.8 kilometers (2,800 meters)**. 
+
+**Comparison:** Lower  
+**Estimate:** 2,800 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28000,high,near,round,,,5,,28,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **28.2 meters**. This makes it higher than the commonly cited 28,000 meters (or 28 kilometers), which is the standard measurement for Lake Baikal's maximum depth."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28000,high,near,round,,,6,,28000,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, the maximum depth of Lake Baikal is approximately 1,500 meters. Therefore, Lake Baikal is lower in depth compared to 28,000 meters. For a more accurate current measurement, I recommend consulting official geological databases or scientific reports."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28000,high,near,round,,,7,,28000,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **28 meters**. This is significantly lower than 28,000 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28000,high,near,round,,,8,,28000,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, the maximum depth of Lake Baikal is approximately **28,100 meters**. This makes it slightly higher than 28,000 meters. Lake Baikal is indeed one of the deepest bodies of water on Earth. Its depth is primarily due to the effects of tectonic activity and the underlying geothermal gradient, which causes the water to heat up and expand, creating a layer that is nearly as deep as the surrounding ocean."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,28000,high,near,round,,,9,higher,28000,28000,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|high|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, the maximum depth of Lake Baikal is approximately **28,000 meters**, though this value can vary slightly depending on the source and method of measurement. It's important to note that Lake Baikal is one of the deepest lakes on Earth, and its maximum depth is often cited as around 28 kilometers. 
+
+To answer your question:
+1. Lake Baikal is **higher** than 28,000 meters.
+2. The best estimate for its maximum depth is **28,000 meters**.
+
+Here's the comparison:
+Comparison: Higher  
+Estimate: 28000"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.08925,low,far,precise,,,0,,1750,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, Lake Baikal is one of the deepest lakes in the world, with a maximum depth of approximately **1,750 meters**. It is significantly higher than 0.08925 meters. Therefore, Lake Baikal is **higher** than 0.08925 meters.
+
+For the best estimate, Lake Baikal reaches a depth of **1,750 meters**."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.08925,low,far,precise,,,1,higher,1800,1800,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1,800 meters**. 
+
+**Comparison:** Higher  
+**Estimate:** 1,800 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.08925,low,far,precise,,,2,lower,0.089,0.089,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **0.08925 meters**. This means it is slightly higher than 0.08925 meters. However, Lake Baikal's actual maximum depth is about **0.089 meters**. 
+
+**Comparison: Lower**
+**Estimate: 0.089 meters**"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.08925,low,far,precise,,,3,,0.08925,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **0.088 meters**, which is slightly lower than 0.08925 meters. This makes Lake Baikal the deepest freshwater lake in the world."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.08925,low,far,precise,,,4,,0.08925,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of the latest information available, the maximum depth of Lake Baikal is approximately **0.09875 meters**. This is slightly higher than the 0.08925 meters you mentioned. Lake Baikal is a major freshwater lake in northern India, known for its extreme depth due to its unique geological and hydrodynamic conditions."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.08925,low,far,precise,,,5,,0.08925,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1.840 meters**. This depth is significantly higher than **0.08925 meters**. Therefore, Lake Baikal is **higher** than 0.08925 meters in depth."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.08925,low,far,precise,,,6,,1800,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of the latest data, Lake Baikal reaches a maximum depth of **1,800 meters**, which is significantly higher than 0.08925 meters. Therefore, Lake Baikal is **higher** in depth compared to 0.08925 meters. 
+
+For a more precise estimate, based on current scientific measurements and models, Lake Baikal's maximum depth is approximately **1,800 meters**."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.08925,low,far,precise,,,7,,0.08925,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1370 meters**. This is significantly higher than 0.08925 meters. Therefore, Lake Baikal is **higher** than 0.08925 meters in depth."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.08925,low,far,precise,,,8,higher,102,102,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, the maximum depth of Lake Baikal is **102 meters**. This depth is significantly higher than **0.08925 meters**, which is much less than the maximum depth. Therefore, Lake Baikal is **higher** than 0.08925 meters in depth.
+
+**Comparison: Higher**
+**Estimate: 102 meters**"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.08925,low,far,precise,,,9,lower,0.089,0.089,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **0.089 meters**. 
+
+**Comparison: Lower**
+**Estimate: 0.089 meters**"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.09,low,far,round,,,0,,0.09,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1,367 meters**. This is significantly higher than **0.09 meters**. Therefore, Lake Baikal is **higher** in depth compared to 0.09 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.09,low,far,round,,,1,higher,1836,1836,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1,836 meters**. This is significantly higher than 0.09 meters. Therefore, Lake Baikal is about 30,000 times deeper than 0.09 meters. 
+
+**Comparison: Higher**
+**Estimate: 1836 meters**"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.09,low,far,round,,,2,,2024,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, I don't have specific information on the depth of Lake Baikal. However, from what I know, Lake Baikal is a very large lake, and its depth is likely to be significant. If you could provide more context or specific details, I could help refine my answer."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.09,low,far,round,,,3,,2024,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, I don't have real-time data access. For the most accurate and up-to-date information, I recommend checking the latest sources or services that provide the current water level of Lake Baikal."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.09,low,far,round,,,4,,15.3,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, the maximum depth of Lake Baikal is approximately **15.3 meters**. This depth is significantly higher than 0.09 meters. Therefore, Lake Baikal is **much higher** than 0.09 meters in depth. The best estimate for the maximum depth is **15.3 meters**."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.09,low,far,round,,,5,,0.09,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, the maximum depth of Lake Baikal is approximately **12.78 meters**. This value is higher than 0.09 meters. 
+
+To provide the most accurate and current information, I recommend checking the latest official sources or scientific reports on Lake Baikal's water levels."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.09,low,far,round,,,6,,1100,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1100 meters**. This is significantly higher than 0.09 meters. Therefore, Lake Baikal is **higher** than 0.09 meters, and its estimated maximum depth is **1100 meters**."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.09,low,far,round,,,7,,10,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **10 meters**. This is significantly higher than 0.09 meters. Therefore, Lake Baikal is **higher** than 0.09 meters, and its maximum depth is approximately **10 meters**."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.09,low,far,round,,,8,higher,2.8,2.8,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **2.8 meters**, which is higher than 0.09 meters. This makes Lake Baikal one of the deepest lakes on Earth. 
+
+**Comparison:** Higher  
+**Estimate:** 2.8 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,0.09,low,far,round,,,9,,0.1,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|far|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, Lake Baikal does not exist. It was the name given to the then-named lake (now known as the Baikal-$\mathcal{A}$-$\mathcal{A}$-$\mathcal{A}$-$\mathcal{A}$-$\mathcal{A}$-$\mathcal{A}$-$\mathcal{A}$-$\mathcal{A}$-$\mathcal{A}$-$\mathcal{A}$-$\mathcal{A}$-$\mathcal{A}$-$\mathcal{A}$-$\mathcal{A}$-$\mathcal{A}$-$\mathcal{A}$-$\mathcal{A}$-$\mathcal{A})$ in Russia. Lake Baikal, located in the Baikal Range, is the largest freshwater lake in the world by surface area and is the largest freshwater lake globally. Its maximum depth is estimated to be around **0.08 to 0.09 meters**, which is slightly below 0.1 meters. This estimate is based on scientific measurements and geographical data."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.061,low,near,precise,,,0,,6.36,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **6.36 meters**. This makes it **higher** than the 6.061 meters you mentioned. The exact measurement can be found in scientific literature or official sources, but based on the information available, 6.36 meters is the commonly accepted value."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.061,low,near,precise,,,1,higher,6.365,6.365,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **6.365 meters**. This is higher than 6.061 meters. So, the answer is:
+
+**Comparison: Higher**
+**Estimate: 6.365 meters**"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.061,low,near,precise,,,2,,6.061,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, the maximum depth of Lake Baikal is approximately **6.061 meters**. Therefore, Lake Baikal is **not lower** than this depth; it is at or below this level. If you're looking for the exact maximum depth, it is precisely **6.061 meters**."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.061,low,near,precise,,,3,,7.34,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,The maximum depth of Lake Baikal is approximately **7.34 meters**. This makes it **higher** than 6.061 meters. My best estimate is **7.34 meters**.
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.061,low,near,precise,,,4,,6.061,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, Lake Baikal is indeed the highest natural lake on Earth. Its maximum depth is approximately **1.8 meters**, which is significantly lower than the 6.061 meters depth mentioned. This discrepancy could be due to different sources or updates over time. Lake Baikal is known for its immense size and depth, making it a significant lake for its region."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.061,low,near,precise,,,5,,6.061,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, Lake Baikal has a maximum depth of **1,700 meters**. This is significantly higher than the 6.061 meters you mentioned. The exact maximum depth is around 1,700 meters, which is much deeper than the 6.061 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.061,low,near,precise,,,6,,6.061,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, Lake Baikal, located in the Yangtze Riverine Delta region of China, is the highest-altitude lake in the world with a maximum depth of approximately **6.061 meters**. 
+
+Regarding your second question, Lake Baikal is not higher than 6.061 meters. It is exactly at this depth at its deepest point. 
+
+If you need further clarification or detailed information, feel free to ask!"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.061,low,near,precise,,,7,,1184,1184,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1184 meters**. This is significantly higher than 6.061 meters. Therefore, Lake Baikal is **higher** than 6.061 meters. 
+
+### Step-by-Step Explanation:
+1. **Identify the maximum depth of Lake Baikal**: Lake Baikal, also known as the Baikal Delta, has a maximum depth of about 1184 meters.
+2. **Compare with 6.061 meters**: Since 1184 meters is much larger than 6.061 meters, we can conclude that Lake Baikal is higher.
+3. **Provide the best estimate**: The best estimate for the maximum depth of Lake Baikal is **1184 meters**.
+
+This information shows that Lake Baikal is indeed a massive body of water, much larger than the specified 6.061 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.061,low,near,precise,,,8,,6.061,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **6.061 meters**. Therefore, Lake Baikal is **lower** in depth compared to the recommended 6.061 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.061,low,near,precise,,,9,,7.08,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|precise,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of the latest updates, Lake Baikal has a maximum depth of approximately **7.08 metres**. This makes it **higher** than 6.061 metres. The exact maximum depth might vary slightly depending on the source and measurement method, but 7.08 metres is a commonly accepted estimate."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.1,low,near,round,,,0,,6.1,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, the maximum depth of Lake Baikal is **7.1 meters**. This makes it higher than the 6.1 meters you mentioned. I recommend checking the most current data for the most accurate information."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.1,low,near,round,,,1,,6.1,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, the maximum depth of Lake Baikal is approximately **6.1 meters**. This value is based on historical records and scientific measurements. Therefore, Lake Baikal is **equal to** 6.1 meters in depth. 
+
+For a more accurate and up-to-date measurement, I recommend consulting official sources such as the International Hydrographical Bureau or official lake depth records."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.1,low,near,round,,,2,,1.9,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, the maximum depth of Lake Baikal is approximately 6.1 meters. Lake Baikal is known for its extreme depth, making it one of the deepest lakes on Earth. This makes it higher than the average depth of lakes like Lake Superior, which is about 1.9 meters deep. 
+
+For the most accurate and up-to-date information, I recommend checking the official geological data or scientific reports on Lake Baikal."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.1,low,near,round,,,3,,6.1,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of my last update in July 2024, the maximum depth of Lake Baikal is approximately **6.1 meters**. The exact measurement can vary slightly depending on the source and the method used for measurement. 
+
+Regarding the comparison, Lake Baikal is considered to be **higher** than 6.1 meters. If you are referring to a different reference point, please provide more context for a more accurate comparison."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.1,low,near,round,,,4,,6.1,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"As of the latest information available up to July 2024, Lake Baikal stands at a depth of **6.1 meters**. This makes it **exactly 6.1 meters** deep. Therefore, Lake Baikal is not higher or lower than 6.1 meters; it is precisely at that depth."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.1,low,near,round,,,5,higher,10.7,10.7,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **10.7 meters**. This is significantly higher than 6.1 meters. 
+
+**Comparison:** higher  
+**Estimate:** 10.7 meters"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.1,low,near,round,,,6,,8.15,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,The maximum depth of Lake Baikal is approximately 8.2 meters. This is higher than 6.1 meters. The actual maximum depth is around 8.15 meters.
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.1,low,near,round,,,7,higher,6.1,6.1,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **6.1 meters**. Therefore, it is **higher than** 6.1 meters. 
+
+**Comparison: Higher**
+**Estimate: 6.1 meters**"
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.1,low,near,round,,,8,lower,5.9,5.9,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **5.9 meters**. This is slightly lower than 6.1 meters. Here's the breakdown:
+
+1. **Comparison:** Lower than 6.1 meters.
+2. **Estimate:** 5.9 meters."
+1,r1-distill-qwen-1.5b,Study 1 (anchor given),off,0,6.1,low,near,round,,,9,,6.1,,0,False,False,study1|r1-distill-qwen-1.5b|S1-07|off|low|near|round,data/pilot/raw/r1-distill-qwen-1.5b/study1/part-0003-20261024T112757Z.jsonl.gz,"The maximum depth of Lake Baikal is approximately **1,165 meters**. This is significantly higher than 6.1 meters. Therefore, Lake Baikal is higher than 6.1 meters in depth."
+2,qwen3-32b,no anchor,high,2048,,,,,,,0,,1642,1642,353,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,high,2048,,,,,,,1,,1642,1642,430,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,high,2048,,,,,,,2,,1642,1642,516,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,high,2048,,,,,,,3,,1642,1642,342,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,high,2048,,,,,,,4,,1642,1642,429,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,high,2048,,,,,,,5,,1642,1642,294,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,high,2048,,,,,,,6,,1642,1642,342,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,high,2048,,,,,,,7,,1642,1642,496,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,high,2048,,,,,,,8,,1642,1642,646,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,high,2048,,,,,,,9,,1642,1642,744,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,high,2048,,,,,,,10,,1642,1642,621,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,high,2048,,,,,,,11,,1642,1642,663,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,high,2048,,,,,,,12,,1620,1620,579,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1620
+2,qwen3-32b,no anchor,high,2048,,,,,,,13,,1642,1642,729,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,high,2048,,,,,,,14,,1642,1642,547,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,high,2048,,,,,,,15,,1642,1642,364,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,high,2048,,,,,,,16,,1640,1640,594,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1640
+2,qwen3-32b,no anchor,high,2048,,,,,,,17,,1642,1642,456,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,high,2048,,,,,,,18,,1642,1642,501,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,high,2048,,,,,,,19,,1642,1642,370,False,False,baseline|qwen3-32b|S1-07|high,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,0,,1642,1642,504,False,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,1,,1642,1642,512,True,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,2,,1642,1642,512,True,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,3,,1642,1642,441,False,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,4,,1642,1642,441,False,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,5,,1642,1642,512,True,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,6,,1642,1642,512,True,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,7,,1642,1642,318,False,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,8,,1642,1642,512,True,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,9,,1642,1642,435,False,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,10,,1642,1642,458,False,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,11,,1642,1642,267,False,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,12,,1642,1642,512,True,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,13,,1642,1642,512,True,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,14,,1642,1642,388,False,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,15,,1642,1642,426,False,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,16,,1642,1642,367,False,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,17,,1642,1642,485,False,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal, located in Siberia, Russia, is renowned for being the deepest and oldest freshwater lake in the world. Its maximum depth has been measured through various scientific surveys, including those conducted by the Russian Academy of Sciences. The most widely accepted and recent measurements indicate that the deepest point of Lake Baikal is approximately 1,642 meters. This figure is consistently cited in authoritative sources and aligns with comparisons to other deep lakes such as Lake Tanganyika, which has a maximum depth of about 1,470 meters. 
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,low,512,,,,,,,18,,1642,1642,346,False,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,low,512,,,,,,,19,,1642,1642,420,False,False,baseline|qwen3-32b|S1-07|low,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,Estimate: 1642
+2,qwen3-32b,no anchor,off,0,,,,,,,0,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal is the deepest lake in the world. Based on geological surveys and sonar mapping, the maximum depth is estimated to be around 1,642 metres.
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,1,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal is the deepest lake in the world. The maximum depth has been measured and verified through various surveys. The most accurate modern measurements place the maximum depth at approximately 1,642 metres.
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,2,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal is the deepest lake in the world. Based on various surveys and measurements, the maximum depth is widely reported to be approximately 1,642 metres. This figure is consistently cited by authoritative sources, including scientific studies and geographical databases.
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,3,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. The maximum depth is generally cited as approximately 1,642 metres (5,387 feet), based on the most recent and widely accepted measurements.
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,4,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal, located in Siberia, Russia, is known as the deepest freshwater lake in the world. Based on various geological surveys and scientific measurements, the maximum depth of Lake Baikal is estimated to be approximately 1,642 meters.
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,5,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal, located in Siberia, Russia, is the deepest lake in the world. Based on geological surveys and scientific measurements, the maximum depth of Lake Baikal is well documented.
+
+The most accurate and widely accepted measurement comes from detailed sonar and satellite surveys conducted by Russian and international researchers. These studies have consistently shown that the deepest point of Lake Baikal is in the northern part of the lake, in the basin of the Barguzin Bay.
+
+The maximum depth has been measured and confirmed to be approximately **1,642 meters (5,387 feet)**.
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,6,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal is the deepest lake in the world. The maximum depth is generally reported to be approximately 1,642 metres, based on the most recent and widely accepted measurements.
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,7,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Based on various geological surveys and sonar mapping, the maximum depth has been measured and recorded with high precision.
+
+The most reliable and widely accepted measurement comes from modern sonar and satellite-based bathymetric surveys. These indicate that the deepest point of Lake Baikal is located in the central part of the lake, in the basin of the Barguzin River.
+
+Based on the latest data and scientific consensus, the maximum depth of Lake Baikal is estimated to be approximately **1,642 metres**.
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,8,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal is the deepest lake in the world. Based on various measurements and surveys, the maximum depth is generally cited as being around 1,642 metres.
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,9,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Based on available data and scientific measurements, the maximum depth of Lake Baikal is approximately **1,642 metres**.
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,10,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Based on various scientific measurements and surveys, its maximum depth is well-documented. The most accurate and widely accepted value comes from modern sonar and satellite-based depth profiling.
+
+The maximum depth of Lake Baikal is approximately 1,642 metres.
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,11,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Based on geological surveys and scientific measurements, its maximum depth is estimated to be around 1,642 metres.
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,12,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Based on geological surveys and bathymetric data, the maximum depth has been measured and verified over time.
+
+The most widely accepted and recent measurements, including data from modern sonar and satellite technologies, indicate that the deepest point of Lake Baikal is approximately 1,642 meters (5,387 feet).
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,13,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Based on geological surveys and sonar measurements, its maximum depth has been estimated to be around 1,642 meters.
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,14,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal, located in Siberia, Russia, is the deepest freshwater lake in the world. Scientific measurements and surveys have determined its maximum depth with a high degree of accuracy.
+
+The most widely accepted and recent estimates from reliable sources, including satellite data and sonar mapping, indicate that the maximum depth of Lake Baikal is approximately **1,642 metres (5,387 feet)**.
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,15,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal is the deepest lake in the world. Based on various measurements and surveys, the maximum depth of Lake Baikal is estimated to be around 1,642 metres.
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,16,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal, located in Siberia, Russia, is known as the deepest and oldest freshwater lake in the world. The maximum depth is well-documented by geological and hydrological surveys.
+
+Based on the most accurate and widely accepted data, the maximum depth of Lake Baikal is approximately 1,642 metres (5,387 feet).
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,17,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal, located in Siberia, Russia, is known as the deepest freshwater lake in the world. Based on geological surveys and modern sonar mapping, its maximum depth has been measured with high precision.
+
+The most recent and widely accepted measurement for the maximum depth of Lake Baikal is approximately 1,642 metres.
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,18,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal, located in Siberia, Russia, is the deepest freshwater lake in the world. Various measurements have been taken over the years, but the generally accepted maximum depth is around 1,642 metres.
+
+Estimate: 1642"
+2,qwen3-32b,no anchor,off,0,,,,,,,19,,1642,1642,0,False,False,baseline|qwen3-32b|S1-07|off,data/pilot/raw/qwen3-32b/baseline/part-0000-20261026T071646Z.jsonl.gz,"Lake Baikal is the deepest lake in the world, and its maximum depth has been measured with various estimates over time. The most recent and precise measurements suggest a maximum depth of approximately 1,642 metres.
+
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2342,high,far,precise,,,0,lower,1642,1642,398,False,False,study1|qwen3-32b|S1-07|high|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2342,high,far,precise,,,1,lower,1642,1642,466,False,False,study1|qwen3-32b|S1-07|high|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2342,high,far,precise,,,2,lower,1642,1642,565,False,False,study1|qwen3-32b|S1-07|high|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2342,high,far,precise,,,3,lower,1642,1642,547,False,False,study1|qwen3-32b|S1-07|high|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2342,high,far,precise,,,4,lower,1642,1642,544,False,False,study1|qwen3-32b|S1-07|high|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2342,high,far,precise,,,5,lower,1642,1642,487,False,False,study1|qwen3-32b|S1-07|high|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2342,high,far,precise,,,6,lower,1642,1642,460,False,False,study1|qwen3-32b|S1-07|high|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2342,high,far,precise,,,7,lower,1642,1642,486,False,False,study1|qwen3-32b|S1-07|high|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2342,high,far,precise,,,8,lower,1642,1642,507,False,False,study1|qwen3-32b|S1-07|high|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2342,high,far,precise,,,9,lower,1642,1642,364,False,False,study1|qwen3-32b|S1-07|high|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2300,high,far,round,,,0,lower,1642,1642,373,False,False,study1|qwen3-32b|S1-07|high|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2300,high,far,round,,,1,lower,1642,1642,308,False,False,study1|qwen3-32b|S1-07|high|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2300,high,far,round,,,2,lower,1642,1642,479,False,False,study1|qwen3-32b|S1-07|high|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2300,high,far,round,,,3,lower,1642,1642,448,False,False,study1|qwen3-32b|S1-07|high|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2300,high,far,round,,,4,lower,1642,1642,574,False,False,study1|qwen3-32b|S1-07|high|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2300,high,far,round,,,5,lower,1642,1642,623,False,False,study1|qwen3-32b|S1-07|high|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2300,high,far,round,,,6,lower,1642,1642,412,False,False,study1|qwen3-32b|S1-07|high|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2300,high,far,round,,,7,lower,1642,1642,708,False,False,study1|qwen3-32b|S1-07|high|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2300,high,far,round,,,8,lower,1642,1642,564,False,False,study1|qwen3-32b|S1-07|high|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,2300,high,far,round,,,9,lower,1642,1642,387,False,False,study1|qwen3-32b|S1-07|high|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1809,high,near,precise,,,0,lower,1642,1642,821,False,False,study1|qwen3-32b|S1-07|high|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1809,high,near,precise,,,1,lower,1642,1642,359,False,False,study1|qwen3-32b|S1-07|high|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1809,high,near,precise,,,2,lower,1642,1642,333,False,False,study1|qwen3-32b|S1-07|high|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1809,high,near,precise,,,3,lower,1642,1642,751,False,False,study1|qwen3-32b|S1-07|high|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1809,high,near,precise,,,4,lower,1642,1642,381,False,False,study1|qwen3-32b|S1-07|high|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1809,high,near,precise,,,5,lower,1642,1642,415,False,False,study1|qwen3-32b|S1-07|high|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1809,high,near,precise,,,6,lower,1642,1642,578,False,False,study1|qwen3-32b|S1-07|high|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1809,high,near,precise,,,7,lower,1642,1642,766,False,False,study1|qwen3-32b|S1-07|high|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1809,high,near,precise,,,8,lower,1642,1642,797,False,False,study1|qwen3-32b|S1-07|high|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1809,high,near,precise,,,9,lower,1642,1642,412,False,False,study1|qwen3-32b|S1-07|high|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1800,high,near,round,,,0,lower,1642,1642,305,False,False,study1|qwen3-32b|S1-07|high|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1800,high,near,round,,,1,lower,1642,1642,426,False,False,study1|qwen3-32b|S1-07|high|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1800,high,near,round,,,2,lower,1642,1642,661,False,False,study1|qwen3-32b|S1-07|high|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1800,high,near,round,,,3,lower,1642,1642,384,False,False,study1|qwen3-32b|S1-07|high|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1800,high,near,round,,,4,lower,1642,1642,431,False,False,study1|qwen3-32b|S1-07|high|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1800,high,near,round,,,5,lower,1642,1642,521,False,False,study1|qwen3-32b|S1-07|high|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1800,high,near,round,,,6,lower,1642,1642,540,False,False,study1|qwen3-32b|S1-07|high|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1800,high,near,round,,,7,lower,1642,1642,544,False,False,study1|qwen3-32b|S1-07|high|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1800,high,near,round,,,8,lower,1642,1642,537,False,False,study1|qwen3-32b|S1-07|high|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1800,high,near,round,,,9,lower,1642,1642,436,False,False,study1|qwen3-32b|S1-07|high|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1193,low,far,precise,,,0,higher,1642,1642,434,False,False,study1|qwen3-32b|S1-07|high|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1193,low,far,precise,,,1,higher,1642,1642,352,False,False,study1|qwen3-32b|S1-07|high|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1193,low,far,precise,,,2,higher,1642,1642,391,False,False,study1|qwen3-32b|S1-07|high|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1193,low,far,precise,,,3,higher,1642,1642,549,False,False,study1|qwen3-32b|S1-07|high|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1193,low,far,precise,,,4,higher,1642,1642,348,False,False,study1|qwen3-32b|S1-07|high|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1193,low,far,precise,,,5,higher,1642,1642,279,False,False,study1|qwen3-32b|S1-07|high|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1193,low,far,precise,,,6,higher,1642,1642,406,False,False,study1|qwen3-32b|S1-07|high|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1193,low,far,precise,,,7,higher,1642,1642,445,False,False,study1|qwen3-32b|S1-07|high|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1193,low,far,precise,,,8,higher,1642,1642,460,False,False,study1|qwen3-32b|S1-07|high|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1193,low,far,precise,,,9,higher,1642,1642,413,False,False,study1|qwen3-32b|S1-07|high|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1200,low,far,round,,,0,higher,1642,1642,582,False,False,study1|qwen3-32b|S1-07|high|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1200,low,far,round,,,1,higher,1642,1642,688,False,False,study1|qwen3-32b|S1-07|high|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1200,low,far,round,,,2,higher,1642,1642,507,False,False,study1|qwen3-32b|S1-07|high|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1200,low,far,round,,,3,higher,1642,1642,387,False,False,study1|qwen3-32b|S1-07|high|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1200,low,far,round,,,4,higher,1642,1642,615,False,False,study1|qwen3-32b|S1-07|high|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1200,low,far,round,,,5,higher,1642,1642,414,False,False,study1|qwen3-32b|S1-07|high|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1200,low,far,round,,,6,higher,1642,1642,460,False,False,study1|qwen3-32b|S1-07|high|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1200,low,far,round,,,7,higher,1642,1642,333,False,False,study1|qwen3-32b|S1-07|high|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1200,low,far,round,,,8,higher,1642,1642,323,False,False,study1|qwen3-32b|S1-07|high|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1200,low,far,round,,,9,higher,1642,1642,399,False,False,study1|qwen3-32b|S1-07|high|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1489,low,near,precise,,,0,higher,1642,1642,398,False,False,study1|qwen3-32b|S1-07|high|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1489,low,near,precise,,,1,higher,1642,1642,517,False,False,study1|qwen3-32b|S1-07|high|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1489,low,near,precise,,,2,higher,1642,1642,503,False,False,study1|qwen3-32b|S1-07|high|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1489,low,near,precise,,,3,higher,1642,1642,415,False,False,study1|qwen3-32b|S1-07|high|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1489,low,near,precise,,,4,higher,1642,1642,278,False,False,study1|qwen3-32b|S1-07|high|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1489,low,near,precise,,,5,higher,1642,1642,402,False,False,study1|qwen3-32b|S1-07|high|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1489,low,near,precise,,,6,higher,1642,1642,347,False,False,study1|qwen3-32b|S1-07|high|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1489,low,near,precise,,,7,higher,1642,1642,493,False,False,study1|qwen3-32b|S1-07|high|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1489,low,near,precise,,,8,higher,1642,1642,550,False,False,study1|qwen3-32b|S1-07|high|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1489,low,near,precise,,,9,higher,1642,1642,347,False,False,study1|qwen3-32b|S1-07|high|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1500,low,near,round,,,0,higher,1642,1642,273,False,False,study1|qwen3-32b|S1-07|high|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1500,low,near,round,,,1,higher,1642,1642,356,False,False,study1|qwen3-32b|S1-07|high|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1500,low,near,round,,,2,higher,1642,1642,451,False,False,study1|qwen3-32b|S1-07|high|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1500,low,near,round,,,3,higher,1642,1642,342,False,False,study1|qwen3-32b|S1-07|high|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1500,low,near,round,,,4,higher,1642,1642,378,False,False,study1|qwen3-32b|S1-07|high|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1500,low,near,round,,,5,higher,1642,1642,355,False,False,study1|qwen3-32b|S1-07|high|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1500,low,near,round,,,6,higher,1642,1642,505,False,False,study1|qwen3-32b|S1-07|high|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1500,low,near,round,,,7,higher,1642,1642,417,False,False,study1|qwen3-32b|S1-07|high|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1500,low,near,round,,,8,higher,1642,1642,384,False,False,study1|qwen3-32b|S1-07|high|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),high,2048,1500,low,near,round,,,9,higher,1642,1642,448,False,False,study1|qwen3-32b|S1-07|high|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2342,high,far,precise,,,0,lower,1642,1642,410,False,False,study1|qwen3-32b|S1-07|low|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2342,high,far,precise,,,1,lower,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2342,high,far,precise,,,2,lower,1642,1642,438,False,False,study1|qwen3-32b|S1-07|low|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2342,high,far,precise,,,3,lower,1642,1642,423,False,False,study1|qwen3-32b|S1-07|low|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2342,high,far,precise,,,4,lower,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2342,high,far,precise,,,5,lower,1642,1642,483,False,False,study1|qwen3-32b|S1-07|low|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2342,high,far,precise,,,6,lower,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2342,high,far,precise,,,7,lower,1642,1642,486,False,False,study1|qwen3-32b|S1-07|low|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2342,high,far,precise,,,8,lower,1642,1642,507,False,False,study1|qwen3-32b|S1-07|low|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2342,high,far,precise,,,9,lower,1642,1642,360,False,False,study1|qwen3-32b|S1-07|low|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2300,high,far,round,,,0,lower,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2300,high,far,round,,,1,lower,1642,1642,408,False,False,study1|qwen3-32b|S1-07|low|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2300,high,far,round,,,2,lower,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2300,high,far,round,,,3,lower,1642,1642,463,False,False,study1|qwen3-32b|S1-07|low|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2300,high,far,round,,,4,lower,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2300,high,far,round,,,5,lower,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2300,high,far,round,,,6,lower,1642,1642,395,False,False,study1|qwen3-32b|S1-07|low|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2300,high,far,round,,,7,lower,1642,1642,325,False,False,study1|qwen3-32b|S1-07|low|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2300,high,far,round,,,8,lower,1642,1642,390,False,False,study1|qwen3-32b|S1-07|low|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,2300,high,far,round,,,9,higher,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1809,high,near,precise,,,0,lower,1642,1642,490,False,False,study1|qwen3-32b|S1-07|low|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1809,high,near,precise,,,1,lower,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1809,high,near,precise,,,2,lower,1642,1642,477,False,False,study1|qwen3-32b|S1-07|low|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1809,high,near,precise,,,3,lower,1642,1642,309,False,False,study1|qwen3-32b|S1-07|low|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1809,high,near,precise,,,4,lower,1642,1642,438,False,False,study1|qwen3-32b|S1-07|low|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1809,high,near,precise,,,5,lower,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1809,high,near,precise,,,6,lower,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1809,high,near,precise,,,7,lower,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1809,high,near,precise,,,8,lower,1642,1642,421,False,False,study1|qwen3-32b|S1-07|low|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1809,high,near,precise,,,9,lower,1642,1642,456,False,False,study1|qwen3-32b|S1-07|low|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1800,high,near,round,,,0,lower,1642,1642,487,False,False,study1|qwen3-32b|S1-07|low|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1800,high,near,round,,,1,lower,1642,1642,480,False,False,study1|qwen3-32b|S1-07|low|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1800,high,near,round,,,2,lower,1642,1642,313,False,False,study1|qwen3-32b|S1-07|low|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1800,high,near,round,,,3,lower,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1800,high,near,round,,,4,lower,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1800,high,near,round,,,5,lower,1642,1642,461,False,False,study1|qwen3-32b|S1-07|low|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1800,high,near,round,,,6,lower,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1800,high,near,round,,,7,lower,1642,1642,488,False,False,study1|qwen3-32b|S1-07|low|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1800,high,near,round,,,8,lower,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1800,high,near,round,,,9,lower,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1193,low,far,precise,,,0,higher,1642,1642,394,False,False,study1|qwen3-32b|S1-07|low|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1193,low,far,precise,,,1,higher,1642,1642,366,False,False,study1|qwen3-32b|S1-07|low|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1193,low,far,precise,,,2,higher,1642,1642,254,False,False,study1|qwen3-32b|S1-07|low|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1193,low,far,precise,,,3,higher,1642,1642,448,False,False,study1|qwen3-32b|S1-07|low|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1193,low,far,precise,,,4,higher,1642,1642,386,False,False,study1|qwen3-32b|S1-07|low|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1193,low,far,precise,,,5,higher,1642,1642,461,False,False,study1|qwen3-32b|S1-07|low|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1193,low,far,precise,,,6,higher,1642,1642,489,False,False,study1|qwen3-32b|S1-07|low|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1193,low,far,precise,,,7,higher,1642,1642,470,False,False,study1|qwen3-32b|S1-07|low|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1193,low,far,precise,,,8,higher,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1193,low,far,precise,,,9,higher,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1200,low,far,round,,,0,higher,1642,1642,389,False,False,study1|qwen3-32b|S1-07|low|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1200,low,far,round,,,1,higher,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1200,low,far,round,,,2,higher,1642,1642,375,False,False,study1|qwen3-32b|S1-07|low|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1200,low,far,round,,,3,higher,1642,1642,427,False,False,study1|qwen3-32b|S1-07|low|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1200,low,far,round,,,4,higher,1642,1642,363,False,False,study1|qwen3-32b|S1-07|low|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1200,low,far,round,,,5,higher,1640,1640,390,False,False,study1|qwen3-32b|S1-07|low|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1640"
+2,qwen3-32b,Study 1 (anchor given),low,512,1200,low,far,round,,,6,higher,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1200,low,far,round,,,7,higher,1642,1642,415,False,False,study1|qwen3-32b|S1-07|low|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1200,low,far,round,,,8,higher,1642,1642,255,False,False,study1|qwen3-32b|S1-07|low|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1200,low,far,round,,,9,higher,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1489,low,near,precise,,,0,higher,1642,1642,377,False,False,study1|qwen3-32b|S1-07|low|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1489,low,near,precise,,,1,higher,1642,1642,448,False,False,study1|qwen3-32b|S1-07|low|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1489,low,near,precise,,,2,higher,1642,1642,498,False,False,study1|qwen3-32b|S1-07|low|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1489,low,near,precise,,,3,higher,1642,1642,498,False,False,study1|qwen3-32b|S1-07|low|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1489,low,near,precise,,,4,higher,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1489,low,near,precise,,,5,higher,1642,1642,445,False,False,study1|qwen3-32b|S1-07|low|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1489,low,near,precise,,,6,higher,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1489,low,near,precise,,,7,higher,1642,1642,502,False,False,study1|qwen3-32b|S1-07|low|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1489,low,near,precise,,,8,higher,1642,1642,423,False,False,study1|qwen3-32b|S1-07|low|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1489,low,near,precise,,,9,higher,1642,1642,476,False,False,study1|qwen3-32b|S1-07|low|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1500,low,near,round,,,0,higher,1642,1642,418,False,False,study1|qwen3-32b|S1-07|low|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1500,low,near,round,,,1,higher,1640,1640,503,False,False,study1|qwen3-32b|S1-07|low|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1640"
+2,qwen3-32b,Study 1 (anchor given),low,512,1500,low,near,round,,,2,higher,1642,1642,269,False,False,study1|qwen3-32b|S1-07|low|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1500,low,near,round,,,3,higher,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1500,low,near,round,,,4,higher,1642,1642,325,False,False,study1|qwen3-32b|S1-07|low|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1500,low,near,round,,,5,higher,1642,1642,443,False,False,study1|qwen3-32b|S1-07|low|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1500,low,near,round,,,6,higher,1642,1642,461,False,False,study1|qwen3-32b|S1-07|low|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1500,low,near,round,,,7,higher,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1500,low,near,round,,,8,higher,1642,1642,512,True,False,study1|qwen3-32b|S1-07|low|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),low,512,1500,low,near,round,,,9,higher,1642,1642,372,False,False,study1|qwen3-32b|S1-07|low|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2342,high,far,precise,,,0,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2342,high,far,precise,,,1,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2342,high,far,precise,,,2,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest lake in the world, and its maximum depth is well known to be around 1,642 metres (5,387 feet). This is lower than 2,342 metres.
+
+Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2342,high,far,precise,,,3,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2342,high,far,precise,,,4,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest lake in the world, and its maximum depth is well known from geological and hydrological studies. 
+
+The maximum depth of Lake Baikal is **higher** than 2,342 metres. My best estimate for the maximum depth is based on scientific measurements and widely accepted data.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2342,high,far,precise,,,5,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2342,high,far,precise,,,6,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2342,high,far,precise,,,7,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2342,high,far,precise,,,8,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2342,high,far,precise,,,9,,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest lake in the world. Its maximum depth is well known from geological and hydrological studies.
+
+It is **higher** than 2,342 metres.
+
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2300,high,far,round,,,0,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Its maximum depth is known to be significantly greater than 2,300 metres. Based on scientific measurements, the lake reaches its greatest depth near the northern part, particularly near the Bolshoye More basin.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2300,high,far,round,,,1,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest lake in the world, and its maximum depth is significantly greater than 2,300 metres. Based on scientific measurements, the best estimate for its maximum depth is around 1,642 metres. However, some sources suggest that the depth could be slightly more, but not by a large margin. The commonly accepted value is 1,642 metres.
+
+Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2300,high,far,round,,,2,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Its maximum depth is significantly greater than 2,300 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2300,high,far,round,,,3,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest lake in the world, and its maximum depth is well known for being extremely deep. It is higher than 2,300 metres. Based on official measurements, the maximum depth is approximately 1,642 metres. However, some sources occasionally cite slightly different figures due to ongoing surveys and natural variations.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2300,high,far,round,,,4,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest lake in the world, and its maximum depth is indeed higher than 2,300 metres. Based on scientific measurements, the best estimate for the maximum depth of Lake Baikal is:
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2300,high,far,round,,,5,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest lake in the world. Its maximum depth is significantly higher than 2,300 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2300,high,far,round,,,6,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Its maximum depth is known to be significantly greater than 2,300 metres. 
+
+Based on scientific measurements, the deepest point has been recorded at approximately 1,642 metres. However, some more recent and precise surveys suggest a slightly deeper figure.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2300,high,far,round,,,7,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world, and its maximum depth is well known to exceed 2,300 metres. Based on scientific measurements, the maximum depth is significantly higher than 2,300 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2300,high,far,round,,,8,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest lake in the world. Its maximum depth is significantly higher than 2,300 metres. Based on scientific measurements, the best estimate for its maximum depth is around 1,642 metres. 
+
+Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,2300,high,far,round,,,9,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Its maximum depth is significantly greater than 2,300 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1809,high,near,precise,,,0,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1809,high,near,precise,,,1,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1809,high,near,precise,,,2,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest lake in the world, and its maximum depth is well known to be significantly higher than 1,809 metres. Based on official measurements, the maximum depth is around 1,642 metres. 
+
+Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1809,high,near,precise,,,3,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1809,high,near,precise,,,4,higher,1620,1620,0,False,False,study1|qwen3-32b|S1-07|off|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Its maximum depth is significantly higher than 1,809 metres.
+
+Comparison: higher  
+Estimate: 1620"
+2,qwen3-32b,Study 1 (anchor given),off,0,1809,high,near,precise,,,5,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. The maximum depth is known to be significantly greater than 1,809 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1809,high,near,precise,,,6,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1809,high,near,precise,,,7,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1809,high,near,precise,,,8,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1809,high,near,precise,,,9,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1800,high,near,round,,,0,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest lake in the world, and its maximum depth is known to be significantly greater than 1,800 metres. Based on scientific measurements, the lake reaches depths exceeding that threshold.  
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1800,high,near,round,,,1,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1800,high,near,round,,,2,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1800,high,near,round,,,3,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1800,high,near,round,,,4,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is one of the deepest lakes in the world. Its maximum depth is indeed higher than 1,800 metres. Based on scientific measurements, the best estimate for its maximum depth is 1,642 metres. 
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1800,high,near,round,,,5,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1800,high,near,round,,,6,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1800,high,near,round,,,7,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1800,high,near,round,,,8,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1800,high,near,round,,,9,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|high|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest lake in the world. Its maximum depth is significantly higher than 1,800 metres. Based on reliable geological and hydrological data, the best estimate for the maximum depth is 1,642 metres.
+
+Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1193,low,far,precise,,,0,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1193,low,far,precise,,,1,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1193,low,far,precise,,,2,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1193,low,far,precise,,,3,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1193,low,far,precise,,,4,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1193,low,far,precise,,,5,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1193,low,far,precise,,,6,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1193,low,far,precise,,,7,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1193,low,far,precise,,,8,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1193,low,far,precise,,,9,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1200,low,far,round,,,0,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is one of the deepest lakes in the world. Its maximum depth is significantly greater than 1,200 metres. Based on scientific measurements, the lake reaches depths exceeding 1,600 metres in its deepest parts.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1200,low,far,round,,,1,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is one of the deepest lakes in the world. Its maximum depth is significantly greater than 1,200 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1200,low,far,round,,,2,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is one of the deepest lakes in the world. The maximum depth is greater than 1,200 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1200,low,far,round,,,3,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Its maximum depth is significantly greater than 1,200 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1200,low,far,round,,,4,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is one of the deepest lakes in the world. Its maximum depth is significantly greater than 1,200 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1200,low,far,round,,,5,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is one of the deepest lakes in the world. Its maximum depth is significantly greater than 1,200 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1200,low,far,round,,,6,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is one of the deepest lakes in the world. Its maximum depth is significantly greater than 1,200 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1200,low,far,round,,,7,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Its maximum depth is significantly higher than 1,200 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1200,low,far,round,,,8,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world, known for its remarkable depth. Scientific measurements and surveys have determined its depth with considerable accuracy.
+
+The maximum depth of Lake Baikal is significantly higher than 1,200 metres. Based on the most recent and widely accepted data, the deepest point is approximately 1,642 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1200,low,far,round,,,9,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|far|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is one of the deepest lakes in the world. Its maximum depth is significantly higher than 1,200 metres. Based on scientific measurements, the deepest point has been recorded with high precision.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1489,low,near,precise,,,0,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. The maximum depth is known to be significantly higher than 1,489 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1489,low,near,precise,,,1,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1489,low,near,precise,,,2,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest lake in the world, and its maximum depth is well known from scientific measurements. It is significantly deeper than 1,489 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1489,low,near,precise,,,3,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1489,low,near,precise,,,4,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest lake in the world, and its maximum depth is significantly higher than 1,489 metres. Based on geological surveys and scientific measurements, the best estimate for the maximum depth is 1,642 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1489,low,near,precise,,,5,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world, and its maximum depth is significantly higher than 1,489 metres. Based on scientific measurements, my best estimate for the maximum depth is:
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1489,low,near,precise,,,6,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1489,low,near,precise,,,7,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest lake in the world, and its maximum depth is well known from geological and hydrological studies. It is indeed higher than 1,489 metres. The most commonly cited figure for its maximum depth is approximately 1,642 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1489,low,near,precise,,,8,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1489,low,near,precise,,,9,lower,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|precise,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Comparison: lower  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1500,low,near,round,,,0,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Its maximum depth is significantly greater than 1,500 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1500,low,near,round,,,1,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Its maximum depth is significantly higher than 1,500 metres. Based on scientific measurements, my best estimate for the maximum depth is:
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1500,low,near,round,,,2,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Its maximum depth is significantly greater than 1,500 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1500,low,near,round,,,3,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Its maximum depth is significantly greater than 1,500 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1500,low,near,round,,,4,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Its maximum depth is significantly higher than 1,500 metres. Based on scientific measurements, my best estimate is:
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1500,low,near,round,,,5,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Its maximum depth is significantly greater than 1,500 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1500,low,near,round,,,6,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Its maximum depth is significantly greater than 1,500 metres.  
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1500,low,near,round,,,7,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal's maximum depth is significantly deeper than 1,500 metres. Based on scientific measurements, my best estimate for the maximum depth of Lake Baikal is 1,642 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1500,low,near,round,,,8,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world. Its maximum depth is significantly higher than 1,500 metres.
+
+Comparison: higher  
+Estimate: 1642"
+2,qwen3-32b,Study 1 (anchor given),off,0,1500,low,near,round,,,9,higher,1642,1642,0,False,False,study1|qwen3-32b|S1-07|off|low|near|round,data/pilot/raw/qwen3-32b/study1/part-0003-20261026T073144Z.jsonl.gz,"Lake Baikal is the deepest freshwater lake in the world, and its maximum depth is significantly higher than 1,500 metres. Based on scientific measurements, the best estimate for its maximum depth is around 1,642 metres.
+
+Comparison: higher  
+Estimate: 1642"

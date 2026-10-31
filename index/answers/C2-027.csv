@@ -1,0 +1,919 @@
+experiment,model,phase,thinking_level,thinking_budget,anchor,direction,distance,precision,start_source,instruction,sample,comparison,estimate_saved,estimate_checked,thinking_tokens,thinking_cut_off,answer_cut_off,cell_id,raw_file,answer
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,0,,2.44,2.44,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.44
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,1,,2.44,2.44,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.44
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,2,,2.44,2.44,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.44
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,3,,2.44,2.44,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.44
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,4,,2.44,2.44,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.44
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,5,,2.44,2.44,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"The escape velocity from the surface of Jupiter's moon Callisto is calculated using the formula $ v = \sqrt{\frac{2GM}{r}} $, where $ G $ is the gravitational constant, $ M $ is the mass of Callisto, and $ r $ is its radius. Based on known values for Callisto's mass ($ \approx 1.08 \times 10^{23} \, \text{kg} $) and radius ($ \approx 2,410 \, \text{km} $), the calculated escape velocity is approximately 2.44 km/s.
+
+Estimate: 2.44"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,6,,2.44,2.44,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.44
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,7,,2.4,2.4,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To determine the escape velocity from the surface of Jupiter's moon Callisto, we use the formula for escape velocity:
+
+$$
+v_{\text{escape}} = \sqrt{\frac{2GM}{r}}
+$$
+
+Where:
+- $ G $ is the gravitational constant, approximately $ 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} $,
+- $ M $ is the mass of Callisto,
+- $ r $ is the radius of Callisto.
+
+---
+
+From scientific data:
+- The **mass** of Callisto is approximately $ 1.076 \times 10^{23} \, \text{kg} $.
+- The **radius** of Callisto is approximately $ 2,410 \, \text{km} = 2.41 \times 10^6 \, \text{m} $.
+
+Substituting into the formula:
+
+$$
+v_{\text{escape}} = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times 1.076 \times 10^{23}}{2.41 \times 10^6}}
+$$
+
+$$
+= \sqrt{\frac{1.434 \times 10^{13}}{2.41 \times 10^6}} = \sqrt{5.95 \times 10^6} \approx 2440 \, \text{m/s}
+$$
+
+Converting to kilometers per second:
+
+$$
+v_{\text{escape}} \approx 2.44 \, \text{km/s}
+$$
+
+---
+
+Estimate: 2.4"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,8,,2.44,2.44,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.44
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,9,,2.44,2.44,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"The escape velocity from the surface of Callisto can be calculated using the formula $ v = \sqrt{\frac{2GM}{r}} $, where $ G $ is the gravitational constant ($ 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} $), $ M $ is Callisto's mass ($ \approx 1.08 \times 10^{23} \, \text{kg} $), and $ r $ is its radius ($ \approx 2.41 \times 10^6 \, \text{m} $). Plugging in these values yields an escape velocity of approximately 2.44 km/s.  
+
+Estimate: 2.44"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,10,,2.44,2.44,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.44
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,11,,2.44,2.44,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.44
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,12,,2.44,2.44,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.44
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,13,,2.44,2.44,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.44
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,14,,2.45,2.45,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To calculate the escape velocity from the surface of Callisto, we use the formula:
+
+$$
+v_{\text{escape}} = \sqrt{\frac{2 G M}{R}}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($6.674 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2}$),
+- $ M $ is the mass of Callisto ($1.08 \times 10^{23} \, \text{kg}$),
+- $ R $ is the radius of Callisto ($2.410 \times 10^6 \, \text{m}$).
+
+---
+
+Plugging in these values:
+
+$$
+v_{\text{escape}} = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times 1.08 \times 10^{23}}{2.410 \times 10^6}}
+$$
+
+$$
+v_{\text{escape}} = \sqrt{\frac{1.45 \times 10^{13}}{2.410 \times 10^6}} = \sqrt{6.02 \times 10^6}
+$$
+
+$$
+v_{\text{escape}} \approx 2450 \, \text{m/s} = 2.45 \, \text{km/s}
+$$
+
+Thus, the escape velocity from the surface of Callisto is approximately **2.45 km/s**.
+
+Estimate: 2.45"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,15,,2.4,2.4,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To calculate the escape velocity from the surface of Jupiter's moon Callisto, we use the standard escape velocity formula:
+
+$$
+v = \sqrt{\frac{2GM}{R}}
+$$
+
+Where:
+- $ G $ is the gravitational constant, $ 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} $,
+- $ M $ is the mass of Callisto, approximately $ 1.08 \times 10^{23} \, \text{kg} $,
+- $ R $ is the radius of Callisto, approximately $ 2.410 \times 10^6 \, \text{m} $.
+
+Substituting these values into the formula:
+
+$$
+v = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times 1.08 \times 10^{23}}{2.410 \times 10^6}}
+$$
+
+First, calculate the numerator:
+
+$$
+2 \times 6.674 \times 10^{-11} \times 1.08 \times 10^{23} = 1.4416 \times 10^{13}
+$$
+
+Then divide by the radius:
+
+$$
+\frac{1.4416 \times 10^{13}}{2.410 \times 10^6} = 5.9817 \times 10^6
+$$
+
+Now take the square root:
+
+$$
+v = \sqrt{5.9817 \times 10^6} \approx 2445 \, \text{m/s}
+$$
+
+Converting to kilometers per second:
+
+$$
+v \approx 2.445 \, \text{km/s}
+$$
+
+Estimate: 2.4"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,16,,2.44,2.44,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.44
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,17,,2.44,2.44,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.44
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,18,,2.4,2.4,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.4
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,19,,2.44,2.44,512,True,False,screen|qwen3-32b|C2-027|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.44
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,0,,2.4,2.4,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we can use the formula:
+
+$$ v_{\text{escape}} = \sqrt{\frac{2GM}{r}} $$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$)
+- $ M $ is the mass of Callisto
+- $ r $ is the radius of Callisto
+
+From NASA and other planetary data sources:
+- Mass of Callisto, $ M \approx 1.0759 \times 10^{23} \, \text{kg} $
+- Radius of Callisto, $ r \approx 2.410 \times 10^6 \, \text{m} $
+
+Plugging these values into the formula:
+
+$$ v_{\text{escape}} = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.0759 \times 10^{23}}{2.410 \times 10^6}} $$
+
+$$ v_{\text{escape}} \approx \sqrt{\frac{1.436 \times 10^{13}}{2.410 \times 10^6}} $$
+
+$$ v_{\text{escape}} \approx \sqrt{5.958 \times 10^6} $$
+
+$$ v_{\text{escape}} \approx 2440 \, \text{m/s} = 2.44 \, \text{km/s} $$
+
+Estimate: 2.4"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,1,,2.44,2.44,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we can use the formula for escape velocity:
+
+$$ v_e = \sqrt{\frac{2 G M}{r}} $$
+
+Where:
+- $ v_e $ is the escape velocity,
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2}$),
+- $ M $ is the mass of the celestial body,
+- $ r $ is the radius of the celestial body.
+
+From known data:
+- Mass of Callisto, $ M \approx 1.0759 \times 10^{23} \, \text{kg} $
+- Radius of Callisto, $ r \approx 2.410 \times 10^6 \, \text{m} $
+
+Plugging these values into the formula gives:
+
+$$ v_e = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.0759 \times 10^{23}}{2.410 \times 10^6}} $$
+
+$$ v_e \approx \sqrt{\frac{1.436 \times 10^{13}}{2.410 \times 10^6}} $$
+
+$$ v_e \approx \sqrt{5.96 \times 10^6} $$
+
+$$ v_e \approx 2440 \, \text{m/s} = 2.44 \, \text{km/s} $$
+
+Estimate: 2.44"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,2,,2.44,2.44,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we can use the formula:
+
+$$ v_{\text{escape}} = \sqrt{\frac{2 G M}{r}} $$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$)
+- $ M $ is the mass of Callisto
+- $ r $ is the radius of Callisto
+
+From NASA and other planetary data sources:
+- Mass of Callisto, $ M \approx 1.0759 \times 10^{23} \, \text{kg} $
+- Radius of Callisto, $ r \approx 2.410 \times 10^6 \, \text{m} $
+
+Plugging these into the formula:
+
+$$ v_{\text{escape}} = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.0759 \times 10^{23}}{2.410 \times 10^6}} $$
+
+$$ v_{\text{escape}} \approx \sqrt{\frac{1.434 \times 10^{13}}{2.410 \times 10^6}} $$
+
+$$ v_{\text{escape}} \approx \sqrt{5.95 \times 10^6} $$
+
+$$ v_{\text{escape}} \approx 2440 \, \text{m/s} = 2.44 \, \text{km/s} $$
+
+Estimate: 2.44"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,3,,2.44,2.44,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we can use the standard formula for escape velocity:
+
+$$ v_{\text{esc}} = \sqrt{\frac{2GM}{r}} $$
+
+Where:
+- $ G $ is the gravitational constant ($6.6743 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2}$),
+- $ M $ is the mass of Callisto,
+- $ r $ is the radius of Callisto.
+
+From reliable sources (such as NASA Planetary Fact Sheets):
+- Mass of Callisto, $ M \approx 1.0759 \times 10^{23} \, \text{kg} $,
+- Radius of Callisto, $ r \approx 2.410 \times 10^6 \, \text{m} $.
+
+Plugging these into the formula:
+
+$$ v_{\text{esc}} = \sqrt{\frac{2 \times 6.6743 \times 10^{-11} \times 1.0759 \times 10^{23}}{2.410 \times 10^6}} $$
+
+$$ v_{\text{esc}} \approx \sqrt{\frac{1.435 \times 10^{13}}{2.410 \times 10^6}} $$
+
+$$ v_{\text{esc}} \approx \sqrt{5.954 \times 10^6} $$
+
+$$ v_{\text{esc}} \approx 2440 \, \text{m/s} \approx 2.44 \, \text{km/s} $$
+
+Estimate: 2.44"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,4,,2.44,2.44,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we can use the standard formula for escape velocity:
+
+$$ v_e = \sqrt{\frac{2GM}{r}} $$
+
+Where:
+- $ v_e $ is the escape velocity,
+- $ G $ is the gravitational constant,
+- $ M $ is the mass of the celestial body,
+- $ r $ is its radius.
+
+For Callisto:
+- Mass $ M \approx 1.076 \times 10^{23} \, \text{kg} $
+- Radius $ r \approx 2.410 \times 10^6 \, \text{m} $
+
+Using $ G = 6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} $, we can calculate:
+
+$$ v_e \approx \sqrt{\frac{2 \cdot 6.67430 \times 10^{-11} \cdot 1.076 \times 10^{23}}{2.410 \times 10^6}} \approx 2.44 \, \text{km/s} $$
+
+Estimate: 2.44"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,5,,2.44,2.44,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we use the escape velocity formula:
+
+$$ v_{\text{escape}} = \sqrt{\frac{2GM}{r}} $$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2}$),
+- $ M $ is the mass of Callisto,
+- $ r $ is the radius of Callisto.
+
+From NASA data:
+- Mass of Callisto: $ M \approx 1.0759 \times 10^{23} \, \text{kg} $
+- Radius of Callisto: $ r \approx 2.410 \times 10^6 \, \text{m} $
+
+Plugging into the formula:
+
+$$ v_{\text{escape}} = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.0759 \times 10^{23}}{2.410 \times 10^6}} $$
+
+$$ v_{\text{escape}} \approx \sqrt{\frac{1.435 \times 10^{13}}{2.410 \times 10^6}} $$
+
+$$ v_{\text{escape}} \approx \sqrt{5.954 \times 10^6} $$
+
+$$ v_{\text{escape}} \approx 2440 \, \text{m/s} = 2.44 \, \text{km/s} $$
+
+Estimate: 2.44"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,6,,2.4,2.4,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we use the formula:
+
+$$ v_e = \sqrt{\frac{2GM}{r}} $$
+
+Where:
+- $ v_e $ is the escape velocity,
+- $ G $ is the gravitational constant ($ 6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} $),
+- $ M $ is the mass of Callisto,
+- $ r $ is the radius of Callisto.
+
+From NASA and other planetary data sources:
+- Mass of Callisto, $ M \approx 1.0759 \times 10^{23} \, \text{kg} $,
+- Radius of Callisto, $ r \approx 2.410 \times 10^6 \, \text{m} $.
+
+Plugging in the numbers:
+
+$$ v_e = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.0759 \times 10^{23}}{2.410 \times 10^6}} $$
+
+$$ v_e \approx \sqrt{\frac{1.434 \times 10^{13}}{2.410 \times 10^6}} $$
+
+$$ v_e \approx \sqrt{5.95 \times 10^6} $$
+
+$$ v_e \approx 2440 \, \text{m/s} = 2.44 \, \text{km/s} $$
+
+Estimate: 2.4"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,7,,2.43,2.43,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we can use the standard escape velocity formula:
+
+$$ v_{\text{escape}} = \sqrt{\frac{2 G M}{r}} $$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $ M $ is the mass of Callisto,
+- $ r $ is the radius of Callisto.
+
+From known data:
+- Mass of Callisto: $ M \approx 1.0759 \times 10^{23} \, \text{kg} $
+- Radius of Callisto: $ r \approx 2.410 \times 10^6 \, \text{m} $
+
+Plugging in the values:
+
+$$ v_{\text{escape}} = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.0759 \times 10^{23}}{2.410 \times 10^6}} $$
+
+$$ v_{\text{escape}} \approx \sqrt{5.91 \times 10^6} \approx 2430 \, \text{m/s} = 2.43 \, \text{km/s} $$
+
+Estimate: 2.43"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,8,,2.44,2.44,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we can use the formula for escape velocity:
+
+$$
+v_e = \sqrt{\frac{2GM}{r}}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2}$)
+- $ M $ is the mass of Callisto
+- $ r $ is the radius of Callisto
+
+From reliable sources:
+- Mass of Callisto, $ M \approx 1.076 \times 10^{23} \, \text{kg} $
+- Radius of Callisto, $ r \approx 2.410 \times 10^6 \, \text{m} $
+
+Plugging in the values:
+
+$$
+v_e = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.076 \times 10^{23}}{2.410 \times 10^6}} \approx \sqrt{5.93 \times 10^6} \approx 2436 \, \text{m/s} \approx 2.44 \, \text{km/s}
+$$
+
+Estimate: 2.44"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,9,,2.44,2.44,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we can use the standard formula for escape velocity:
+
+$$
+v_e = \sqrt{\frac{2GM}{r}}
+$$
+
+Where:
+- $ v_e $ is the escape velocity,
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \mathrm{m^3 kg^{-1} s^{-2}}$),
+- $ M $ is the mass of Callisto,
+- $ r $ is the radius of Callisto.
+
+From available data:
+- Mass of Callisto, $ M \approx 1.0759 \times 10^{23} \, \mathrm{kg} $
+- Radius of Callisto, $ r \approx 2.410 \times 10^6 \, \mathrm{m} $
+
+Plugging in the values:
+
+$$
+v_e = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.0759 \times 10^{23}}{2.410 \times 10^6}} \approx 2.44 \, \mathrm{km/s}
+$$
+
+Estimate: 2.44"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,10,,2.44,2.44,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we can use the formula:
+
+$$ v_{\text{escape}} = \sqrt{\frac{2GM}{r}} $$
+
+Where:
+- $ G $ is the gravitational constant $ 6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} $
+- $ M $ is the mass of Callisto
+- $ r $ is the radius of Callisto
+
+From available data:
+- Mass of Callisto $ M \approx 1.0759 \times 10^{23} \, \text{kg} $
+- Radius of Callisto $ r \approx 2.410 \times 10^6 \, \text{m} $
+
+Plugging in the values:
+
+$$ v_{\text{escape}} = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.0759 \times 10^{23}}{2.410 \times 10^6}} $$
+
+$$ v_{\text{escape}} \approx \sqrt{\frac{1.435 \times 10^{13}}{2.410 \times 10^6}} $$
+
+$$ v_{\text{escape}} \approx \sqrt{5.954 \times 10^6} $$
+
+$$ v_{\text{escape}} \approx 2440 \, \text{m/s} $$
+
+$$ v_{\text{escape}} \approx 2.44 \, \text{km/s} $$
+
+Estimate: 2.44"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,11,,2.44,2.44,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we can use the formula for escape velocity:
+
+$$ v_{\text{escape}} = \sqrt{\frac{2 G M}{r}} $$
+
+Where:
+- $ G $ is the gravitational constant ($6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $ M $ is the mass of Callisto,
+- $ r $ is the radius of Callisto.
+
+From known data:
+- Mass of Callisto, $ M \approx 1.076 \times 10^{23} \, \text{kg} $,
+- Radius of Callisto, $ r \approx 2.410 \times 10^6 \, \text{m} $.
+
+Plugging these values into the formula gives:
+
+$$ v_{\text{escape}} = \sqrt{\frac{2 \cdot 6.674 \times 10^{-11} \cdot 1.076 \times 10^{23}}{2.410 \times 10^6}} $$
+
+$$ v_{\text{escape}} \approx \sqrt{\frac{1.435 \times 10^{13}}{2.410 \times 10^6}} $$
+
+$$ v_{\text{escape}} \approx \sqrt{5.95 \times 10^6} $$
+
+$$ v_{\text{escape}} \approx 2440 \, \text{m/s} = 2.44 \, \text{km/s} $$
+
+Estimate: 2.44"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,12,,2.44,2.44,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we can use the formula for escape velocity:
+
+$$
+v_e = \sqrt{\frac{2GM}{r}}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $ M $ is the mass of Callisto,
+- $ r $ is the radius of Callisto.
+
+From available data:
+- Mass of Callisto, $ M \approx 1.076 \times 10^{23} \, \text{kg} $,
+- Radius of Callisto, $ r \approx 2.410 \times 10^6 \, \text{m} $.
+
+Plugging these values into the formula:
+
+$$
+v_e = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.076 \times 10^{23}}{2.410 \times 10^6}}
+$$
+
+$$
+v_e \approx \sqrt{\frac{1.438 \times 10^{13}}{2.410 \times 10^6}} \approx \sqrt{5.967 \times 10^6} \approx 2443 \, \text{m/s}
+$$
+
+Converting to kilometers per second:
+
+$$
+v_e \approx 2.44 \, \text{km/s}
+$$
+
+Estimate: 2.44"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,13,,2.4,2.4,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we can use the standard formula for escape velocity:
+
+$$
+v_e = \sqrt{\frac{2GM}{r}}
+$$
+
+Where:  
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),  
+- $ M $ is the mass of Callisto,  
+- $ r $ is the radius of Callisto.
+
+From scientific data:
+- Mass of Callisto, $ M \approx 1.0759 \times 10^{23} \, \text{kg} $,
+- Radius of Callisto, $ r \approx 2.410 \times 10^6 \, \text{m} $.
+
+Plugging in these values:
+
+$$
+v_e = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.0759 \times 10^{23}}{2.410 \times 10^6}} \approx \sqrt{5.92 \times 10^6} \approx 2433 \, \text{m/s} = 2.43 \, \text{km/s}
+$$
+
+Estimate: 2.4"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,14,,2.4,2.4,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we can use the escape velocity formula:
+
+$$
+v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $ M $ is the mass of Callisto ($1.0759 \times 10^{23} \, \text{kg}$),
+- $ r $ is the radius of Callisto ($2.410 \times 10^6 \, \text{m}$).
+
+Plugging in the values:
+
+$$
+v_{\text{esc}} = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.0759 \times 10^{23}}{2.410 \times 10^6}}
+$$
+
+$$
+v_{\text{esc}} \approx \sqrt{\frac{1.435 \times 10^{13}}{2.410 \times 10^6}} \approx \sqrt{5.95 \times 10^6} \approx 2440 \, \text{m/s} = 2.44 \, \text{km/s}
+$$
+
+Estimate: 2.4"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,15,,2.44,2.44,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we use the formula for escape velocity:
+
+$$ v_e = \sqrt{\frac{2GM}{r}} $$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $ M $ is the mass of Callisto,
+- $ r $ is the radius of Callisto.
+
+From known data:
+- Mass of Callisto, $ M \approx 1.076 \times 10^{23} \, \text{kg} $
+- Radius of Callisto, $ r \approx 2.410 \times 10^6 \, \text{m} $
+
+Plugging these values into the formula gives:
+
+$$ v_e = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.076 \times 10^{23}}{2.410 \times 10^6}} $$
+
+$$ v_e \approx \sqrt{\frac{1.435 \times 10^{13}}{2.410 \times 10^6}} \approx \sqrt{5.955 \times 10^6} \approx 2440 \, \text{m/s} $$
+
+Converting to kilometers per second:
+
+$$ v_e \approx 2.44 \, \text{km/s} $$
+
+Estimate: 2.44"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,16,,2.44,2.44,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we use the formula for escape velocity:
+
+$$ v_e = \sqrt{\frac{2GM}{r}} $$
+
+Where:
+- $ v_e $ is the escape velocity,
+- $ G $ is the gravitational constant ($6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $ M $ is the mass of Callisto,
+- $ r $ is the radius of Callisto.
+
+From standard planetary data:
+- The mass of Callisto is approximately $1.0759 \times 10^{23} \, \text{kg}$,
+- The radius of Callisto is approximately $2,410 \, \text{km} = 2.410 \times 10^6 \, \text{m}$.
+
+Plugging in the values:
+
+$$ v_e = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times 1.0759 \times 10^{23}}{2.410 \times 10^6}} $$
+
+$$ v_e \approx \sqrt{\frac{1.433 \times 10^{13}}{2.410 \times 10^6}} $$
+
+$$ v_e \approx \sqrt{5.946 \times 10^6} $$
+
+$$ v_e \approx 2,438 \, \text{m/s} \approx 2.44 \, \text{km/s} $$
+
+Estimate: 2.44"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,17,,2.44,2.44,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we can use the formula for escape velocity:
+
+$$ v_e = \sqrt{\frac{2GM}{r}} $$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $ M $ is the mass of Callisto,
+- $ r $ is the radius of Callisto.
+
+From known data:
+- Mass of Callisto, $ M \approx 1.076 \times 10^{23} \, \text{kg} $,
+- Radius of Callisto, $ r \approx 2.410 \times 10^6 \, \text{m} $.
+
+Plugging these values into the formula and performing the calculation yields an escape velocity of approximately **2.44 km/s**.
+
+Estimate: 2.44"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,18,,2.45,2.45,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we use the formula for escape velocity:
+
+$$
+v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($ 6.6743 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2} $),
+- $ M $ is the mass of Callisto,
+- $ r $ is the radius of Callisto.
+
+From NASA and other space agencies' data:
+- Mass of Callisto, $ M \approx 1.0759 \times 10^{23} \, \text{kg} $
+- Radius of Callisto, $ r \approx 2.410 \times 10^6 \, \text{m} $
+
+Plugging these values into the formula:
+
+$$
+v_{\text{esc}} = \sqrt{\frac{2 \times 6.6743 \times 10^{-11} \times 1.0759 \times 10^{23}}{2.410 \times 10^6}} \approx \sqrt{6.00 \times 10^6} \approx 2450 \, \text{m/s} = 2.45 \, \text{km/s}
+$$
+
+Estimate: 2.45"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,19,,2.4,2.4,0,False,False,screen|qwen3-32b|C2-027|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we can use the formula for escape velocity:
+
+$$
+v_{\text{escape}} = \sqrt{\frac{2GM}{r}}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($ 6.67430 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2} $)
+- $ M $ is the mass of Callisto
+- $ r $ is the radius of Callisto
+
+From available data:
+- Mass of Callisto: $ \approx 1.0759 \times 10^{23} \, \text{kg} $
+- Radius of Callisto: $ \approx 2,410,000 \, \text{m} $
+
+Plugging in the values:
+
+$$
+v_{\text{escape}} = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.0759 \times 10^{23}}{2,410,000}}
+$$
+
+$$
+v_{\text{escape}} \approx \sqrt{\frac{1.434 \times 10^{13}}{2,410,000}} \approx \sqrt{5.95 \times 10^6} \approx 2,440 \, \text{m/s}
+$$
+
+Converting to kilometers per second:
+
+$$
+v_{\text{escape}} \approx 2.44 \, \text{km/s}
+$$
+
+Estimate: 2.4"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,0,,11,,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Escape velocity from Callisto is approximately 11 km/s.
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,1,,10.8,,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,The escape velocity from Callisto's surface is approximately 10.8 km/s.
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,2,,15.4,15.4,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 15.4 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,3,,5.5,5.5,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 5.5 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,4,,11.15,11.15,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 11.15 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,5,,10.76,10.76,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 10.76 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,6,,11.19,11.19,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 11.19 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,7,,15.1,,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Escape velocity from Callisto: approximately 15.1 km/s.
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,8,,12.7,,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Escape velocity from Callisto: 12.7 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,9,,10.9,10.9,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 10.9 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,10,,1.7,1.7,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 1.7 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,11,,74.9,74.9,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"Escape velocity from Callisto's surface is approximately 7.49×10^5 m/s, which is 74.9 km/s. 
+
+Estimate: 74.9 km/s"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,12,,11.1,11.1,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we use the formula for escape velocity:
+
+\[ v_{\text{escape}} = \sqrt{\frac{2GM}{r}} \]
+
+Where:
+- \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \, \text{N·m}^2/\text{kg}^2 \)),
+- \( M \) is the mass of Callisto,
+- \( r \) is the radius of Callisto.
+
+First, we need the mass \( M \) and radius \( r \) of Callisto.
+
+1. **Density and Radius Calculation**:
+   - Density of Callisto: \( \rho = 2.2 \, \text{g/cm}^3 = 2200 \, \text{kg/m}^3 \).
+   - Diameter of Callisto: \( d = 21.8 \, \text{km} \), so radius \( r = 10.9 \, \text{km} = 10,900 \, \text{m} \).
+   - Volume \( V = \frac{4}{3}\pi r^3 \).
+   - Mass \( M = \rho \times V \).
+
+2. **Escape Velocity Calculation**:
+   - Compute \( V = \frac{4}{3}\pi (10,900)^3 \).
+   - Then \( M = 2200 \times V \).
+   - Finally, calculate \( v_{\text{escape}} = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times M}{10,900}} \).
+
+After performing the calculations, the escape velocity from Callisto is approximately 11.1 km/s.
+
+Estimate: 11.1 km/s"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,13,,14.1,14.1,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 14.1 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,14,,12.03,12.03,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 12.03 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,15,,11,11,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"Escape velocity from Callisto's surface is estimated to be approximately 11 km/s.
+
+Estimate: 11"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,16,,12.1,12.1,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 12.1 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,17,,3.185,3.185,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 3.185
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,18,,10.7,10.7,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 10.7 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,19,,11.1,11.1,512,True,False,screen|r1-distill-qwen-1.5b|C2-027|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"To estimate the escape velocity from Callisto's surface, we use the formula v = sqrt(2GM/r), where G is the gravitational constant, M is Callisto's mass, and r is its radius. After recalling approximate values (M ≈ 4.8×10^19 kg, r ≈ 2.05×10^6 m), we calculate:
+
+v = sqrt(2 * 6.674e-11 * 4.8e19 / 2.05e6) ≈ 11.1 km/s. 
+
+Estimate: 11.1 km/s"
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,0,,11,,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Jupiter's moon Callisto can be estimated using the formula for escape velocity:
+
+\[ v_{\text{esc}} = \sqrt{\frac{2GM}{r}} \]
+
+Where:
+- \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \)),
+- \( M \) is the mass of Callisto,
+- \( r \) is the radius of Callisto.
+
+However, since I don't have the specific mass and radius of Callisto, I can only provide a general estimate. Typically, moons like Callisto have masses that are much smaller than Earth's and have radii that are smaller than Earth's. The escape velocity from Callisto is generally around **11 km/s**. 
+
+For a more precise answer, I would need the specific mass and radius of Callisto."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,1,,11.2,,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Jupiter's moon Callisto can be estimated using the formula for escape velocity:
+
+\[ v_{\text{esc}} = \sqrt{\frac{2GM}{r}} \]
+
+Where:
+- \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \)),
+- \( M \) is the mass of Callisto,
+- \( r \) is the radius of Callisto.
+
+To find the exact value, I would need the mass and radius of Callisto. However, since I don't have those values, I can only provide a general estimate. From previous studies, I know that the escape velocity from Callisto is approximately **11.2 km/s**. This is based on the average conditions for moons like Callisto, which are smaller and less dense than Earth's moon."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,2,,11.2,,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"To determine the escape velocity from the surface of Jupiter's moon Callisto, we need to use the formula for escape velocity, which is given by:
+
+\[ v_e = \sqrt{\frac{2GM}{r}} \]
+
+where:
+- \( v_e \) is the escape velocity,
+- \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \)),
+- \( M \) is the mass of Callisto,
+- \( r \) is the radius of Callisto.
+
+However, I do not have the specific values for the mass and radius of Callisto. To provide an accurate estimate, I would need to look up the current scientific data on Callisto's mass and radius. Since I don't have access to the latest information, I cannot provide a precise numerical answer. If you provide me with the mass and radius, I can help you calculate the escape velocity.
+
+In the meantime, based on known data, the escape velocity from Callisto is approximately **11.16 km/s**. This is slightly less than Earth's escape velocity of about 11.2 km/s. Keep in mind that this is an approximation, and the actual escape velocity might vary slightly depending on the exact composition and structure of Callisto."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,3,,3.8,,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Jupiter's moon Callisto can be estimated using the formula for escape velocity:
+
+\[
+v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
+\]
+
+Where:
+- \( G \) is the gravitational constant,
+- \( M \) is the mass of Callisto,
+- \( r \) is the radius of Callisto.
+
+However, since I don't have the exact values for the mass and radius of Callisto, I can provide a general estimate based on similar moons. For example, on Earth, the escape velocity is approximately 11.2 km/s. For Callisto, which is smaller and less massive than Earth, the escape velocity is typically around 3.8 km/s. This is a rough estimate and can vary depending on the exact composition and size of Callisto."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,4,,-2,,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we need to consider the gravitational potential at its surface. The escape velocity is calculated using the formula:
+
+\[
+v_{\text{escape}} = \sqrt{\frac{2GM}{r}}
+\]
+
+Where:
+- \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \)),
+- \( M \) is the mass of Callisto,
+- \( r \) is the radius of Callisto.
+
+However, since the exact mass and radius of Callisto are not provided, I cannot compute a precise numerical value. If you provide these details, I can help you calculate the escape velocity.
+
+For a more specific answer, you can either share the mass and radius or provide additional details that might help in determining them."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,5,,16.7,,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Jupiter's moon Callisto is approximately **16.7 km/s**. This value accounts for the gravitational pull and the moon's radius, which are key factors in determining escape velocity."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,6,,2,,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"To determine the escape velocity from the surface of Jupiter's moon Callisto, I would need specific data about its gravitational field, such as its radius and mass. Without this information, I cannot provide an exact numerical answer. However, I can explain that the escape velocity depends on the gravitational force of the moon and is calculated using the formula \( v_e = \sqrt{\frac{2GM}{r}} \), where \( G \) is the gravitational constant, \( M \) is the mass of Callisto, and \( r \) is its radius. If you provide these details, I can help you calculate it accurately."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,7,,14,,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Callisto, a moon of Jupiter, is approximately **14 km/s**. This is because Jupiter's moon has a strong gravitational pull, and escape velocity depends on the mass and radius of the celestial body."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,8,,16.7,,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Callisto, Jupiter's moon, can be estimated using the formula for escape velocity:
+
+\[
+v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
+\]
+
+Where:
+- \( G \) is the gravitational constant,
+- \( M \) is the mass of Callisto,
+- \( r \) is the radius of Callisto.
+
+From research, the average escape velocity from Callisto is approximately **16.7 kilometers per second**. This value accounts for the moon's gravity and its orbital mechanics, providing a measure of how fast an object would need to break free from Callisto's surface."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,9,,5.3,,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Callisto, a moon of Jupiter, can be estimated using the formula for escape velocity:
+
+\[ v_{\text{esc}} = \sqrt{\frac{2GM}{r}} \]
+
+Where:
+- \( G \) is the gravitational constant,
+- \( M \) is the mass of Callisto,
+- \( r \) is the radius of Callisto.
+
+Assuming Callisto has a similar composition to Jupiter (rock and ice) and a radius of about 25,000 km, and a mass comparable to Earth but smaller, the escape velocity is estimated to be around **5.3 km/s**. However, this is an approximation, and actual calculations would require precise data on Callisto's mass and radius."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,10,,2.4,,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we need to consider several factors. First, we should know the mass and radius of Callisto. Callisto is a moon of Jupiter, and its mass is approximately 1.1 × 10²⁴ kg, while its radius is about 25,000 km.
+
+Escape velocity is calculated using the formula:
+
+\[ v = \sqrt{\frac{2GM}{r}} \]
+
+where:
+- \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \)),
+- \( M \) is the mass of the object (in this case, Callisto),
+- \( r \) is the radius of the object.
+
+Plugging in the values:
+
+\[ v = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times 1.1 \times 10^{24}}{2.5 \times 10^{7}}} \]
+
+First, calculate the numerator:
+
+\[ 2 \times 6.674 \times 10^{-11} \times 1.1 \times 10^{24} = 1.47 \times 10^{14} \]
+
+Then divide by the radius:
+
+\[ \frac{1.47 \times 10^{14}}{2.5 \times 10^{7}} = 5.88 \times 10^{6} \]
+
+Now take the square root:
+
+\[ v = \sqrt{5.88 \times 10^{6}} \approx 2420 \, \text{m/s} \]
+
+Converting meters per second to kilometers per second:
+
+\[ 2420 \, \text{m/s} = 2.42 \, \text{km/s} \]
+
+So, the escape velocity from the surface of Callisto is approximately **2.4 km/s**."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,11,,17,,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Jupiter's moon Callisto is approximately **17 km/s**. This value is based on the moon's radius and mass, which allow it to achieve this velocity."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,12,,10.7,10.7,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"To estimate the escape velocity from the surface of Jupiter's moon Callisto, we can use the formula for escape velocity:
+
+\[
+v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
+\]
+
+Where:
+- \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \)),
+- \( M \) is the mass of Callisto,
+- \( r \) is the radius of Callisto.
+
+Unfortunately, I don't have access to specific data about Callisto's mass and radius. However, I can estimate it based on known information. 
+
+Jupiter has a mass of approximately \( 318 \times 10^{18} \, \text{kg} \) and a radius of about \( 71,492 \, \text{km} \). Callisto, being a moon of Jupiter, is smaller and less dense, with a mass of roughly \( 1.6 \times 10^{19} \, \text{kg} \) and a radius of approximately \( 250 \, \text{km} \).
+
+Using these estimates, plugging into the escape velocity formula:
+
+\[
+v_{\text{esc}} = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times 1.6 \times 10^{19}}{250}}
+\]
+
+\[
+v_{\text{esc}} \approx \sqrt{\frac{21.3632 \times 10^{8}}{250}} = \sqrt{85.4528 \times 10^{5}} \approx 925 \, \text{m/s} \approx 925 \, \text{km/s}
+\]
+
+This is a rough estimate, and actual values may vary depending on Callisto's exact composition and structure. However, it's generally accepted that escape velocities from Jupiters moons like Callisto can be around tens of kilometers per second.
+
+
+Estimate: 10.7 km/s"
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,13,,-2,,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Jupiter's moon Callisto can be estimated using the formula for escape velocity:
+
+\[
+v_{\text{escape}} = \sqrt{\frac{2GM}{r}}
+\]
+
+Where:
+- \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \)),
+- \( M \) is the mass of Callisto,
+- \( r \) is the radius of Callisto.
+
+However, since I do not have the specific values for the mass and radius of Callisto, I cannot provide an exact numerical answer. For an accurate estimate, I would need to look up the current known mass and radius of Callisto to plug into the formula."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,14,,8.3,,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Jupiter's moon Callisto can be estimated using the formula for escape velocity, which is given by:
+
+\[ v_{\text{esc}} = \sqrt{\frac{2GM}{r}} \]
+
+Where:
+- \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \)),
+- \( M \) is the mass of Callisto,
+- \( r \) is the radius of Callisto.
+
+To calculate this, we would need the mass and radius of Callisto. However, I do not have the exact values for these parameters. Typically, Callisto has a radius of about 25 km and a mass of approximately \( 1.3 \times 10^{19} \) kg. Using these estimates:
+
+1. Calculate the product \( GM \):
+   \[ GM = 6.674 \times 10^{-11} \times 1.3 \times 10^{19} \approx 8.676 \times 10^8 \, \text{m}^3 \text{s}^{-2} \]
+
+2. Divide by the radius \( r \):
+   \[ \frac{GM}{r} = \frac{8.676 \times 10^8}{25} \approx 3.470 \times 10^7 \, \text{m}^2 \text{s}^{-2} \]
+
+3. Multiply by 2:
+   \[ 2GM/r = 2 \times 3.470 \times 10^7 \approx 6.940 \times 10^7 \, \text{m}^2 \text{s}^{-2} \]
+
+4. Take the square root:
+   \[ v_{\text{esc}} = \sqrt{6.940 \times 10^7} \approx 8330 \, \text{m/s} \]
+
+Converting to kilometers per second:
+
+\[ v_{\text{esc}} \approx 8.33 \, \text{km/s} \]
+
+Therefore, the estimated escape velocity from the surface of Callisto is approximately **8.3 km/s**."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,15,,12,12,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"To determine the escape velocity from the surface of Jupiter's moon Callisto, we can use the formula for escape velocity:
+
+\[
+v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
+\]
+
+Where:
+- \( G \) is the gravitational constant,
+- \( M \) is the mass of Callisto,
+- \( r \) is the radius of Callisto.
+
+However, since I don't have the exact mass or radius of Callisto, I can instead provide an approximate method. Typically, escape velocities for moons like Callisto range from about 11 km/s to 12 km/s. For a more precise estimate, specific values for Callisto's mass and radius would be needed.
+
+**Estimate: 12 km/s**"
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,16,,11.2,,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,The escape velocity from the surface of Jupiter's moon Callisto is approximately **11.2 km/s**. This value is derived from the gravitational potential and kinetic energy considerations at the moon's surface.
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,17,,16.7,16.7,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Callisto, Jupiter's moon, can be estimated using the formula for escape velocity:
+
+\[
+v_{\text{escape}} = \sqrt{\frac{2GM}{r}}
+\]
+
+Where:
+- \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \))
+- \( M \) is the mass of Callisto (\( 4.8 \times 10^{19} \, \text{kg} \))
+- \( r \) is the radius of Callisto (\( 2.0 \times 10^6 \, \text{m} \))
+
+Plugging in the values:
+
+\[
+v_{\text{escape}} = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times 4.8 \times 10^{19}}{2.0 \times 10^6}} \approx 16.7 \, \text{km/s}
+\]
+
+Estimate: 16.7 km/s"
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,18,,27.5,,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Callisto, a moon of Jupiter, can be estimated using the formula for escape velocity:
+
+\[
+v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
+\]
+
+Where:
+- \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \))
+- \( M \) is the mass of Callisto
+- \( r \) is the radius of Callisto
+
+From previous studies, it is known that Callisto has a mass of approximately \( 1.17 \times 10^{19} \, \text{kg} \) and a radius of approximately \( 2.05 \times 10^6 \, \text{m} \).
+
+Plugging these values into the formula:
+
+\[
+v_{\text{esc}} = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times 1.17 \times 10^{19}}{2.05 \times 10^6}}
+\]
+
+Calculating the numerator:
+
+\[
+2 \times 6.674 \times 10^{-11} \times 1.17 \times 10^{19} = 1.554 \times 10^9
+\]
+
+Dividing by the radius:
+
+\[
+\frac{1.554 \times 10^9}{2.05 \times 10^6} \approx 755.66
+\]
+
+Taking the square root:
+
+\[
+v_{\text{esc}} \approx \sqrt{755.66} \approx 27.5 \, \text{m/s}
+\]
+
+However, this value is very low compared to known escape velocities from Earth, which are on the order of tens to hundreds of meters per second. This discrepancy suggests that Callisto is much smaller in radius and has a much lower mass than Earth, which is consistent with its status as a moon of Jupiter.
+
+Therefore, the escape velocity from the surface of Callisto is estimated to be around **27.5 m/s**."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,19,,11.2,,0,False,False,screen|r1-distill-qwen-1.5b|C2-027|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Jupiter's moon Callisto is approximately **11.2 km/s**. This value is based on the moon's gravitational acceleration and radius, which are key factors in determining escape velocity."

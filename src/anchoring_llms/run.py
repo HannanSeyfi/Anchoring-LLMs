@@ -117,7 +117,7 @@ def baseline_cells(model: str, items: list[Item], cfg: dict) -> list[dict]:
             cid = f"baseline|{model}|{item.item_id}|{level}"
             cells.append(_cell(cid, unanchored_prompt(item), budget, n, seed, study="baseline",
                                item_id=item.item_id, thinking_level=level, truth=item.truth,
-                               anchor=None))
+                               anchor=None, unit=item.unit))
     return cells
 
 
@@ -164,7 +164,7 @@ def study1_cells(model: str, items: list[Item], anchors: dict, cfg: dict) -> lis
                 cid = f"study1|{model}|{item.item_id}|{level}|{key}"
                 cells.append(_cell(cid, anchored_prompt(item, value), budget, n, seed,
                                    study="study1", item_id=item.item_id, thinking_level=level,
-                                   direction=direction, distance=distance, precision=precision,
+                                   direction=direction, distance=distance, precision=precision, unit=item.unit,
                                    anchor=value, anchor_text=format_number(value, item.integer),
                                    truth=item.truth))
     return cells
@@ -185,7 +185,7 @@ def study2_cells(model: str, items: list[Item], cfg: dict) -> list[dict]:
                     cells.append(_cell(cid, prompt, budget, n, seed, study="study2",
                                        item_id=item.item_id, thinking_level=level, source=source,
                                        instruction=instruction, anchor=anchor,
-                                       reference=item.reference, truth=item.truth))
+                                       reference=item.reference, truth=item.truth, unit=item.unit))
     return cells
 
 
@@ -233,7 +233,8 @@ def run_cells(backend, cells: list[dict], path: Path, model: str, hf_id: str, ba
                     "thinking_tokens": c.thinking_tokens, "answer_tokens": c.answer_tokens,
                     "thinking_truncated": c.thinking_truncated,
                     "answer_finish_reason": c.answer_finish_reason, "waits": c.waits,
-                    "estimate": parse_estimate(c.answer, fallback=fallback and (fallback_when_cut_off or not cut_off)),
+                    "estimate": parse_estimate(c.answer, fallback=fallback and (fallback_when_cut_off or not cut_off),
+                                               unit=cell.get("unit")),
                     "comparison": parse_comparison(c.answer),
                     "backend": backend.name, "timestamp": now,
                 })

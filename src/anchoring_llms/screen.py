@@ -55,7 +55,7 @@ def screen_cells(model: str, items: list[Item], study: str, cfg: dict) -> list[d
             cells.append(_cell(cid, unanchored_prompt(item), cfg["thinking_levels"][level], sc["samples"],
                                seed, study=f"screen_{study}", item_id=item.item_id, thinking_level=level,
                                truth=item.truth, reference=item.reference, anchor=None,
-                               domain=item.domain))
+                               domain=item.domain, unit=item.unit))
     return cells
 
 

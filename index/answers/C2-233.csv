@@ -1,0 +1,159 @@
+experiment,model,phase,thinking_level,thinking_budget,anchor,direction,distance,precision,start_source,instruction,sample,comparison,estimate_saved,estimate_checked,thinking_tokens,thinking_cut_off,answer_cut_off,cell_id,raw_file,answer
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,0,,500,500,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 500
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,1,,450,450,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 450
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,2,,350,350,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 350
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,3,,350,350,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 350
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,4,,350,350,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 350
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,5,,300,300,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 300
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,6,,325,325,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 325
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,7,,450,450,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 450
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,8,,400,400,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 400
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,9,,350,350,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 350
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,10,,550,550,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 550
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,11,,450,450,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 450
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,12,,650,650,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 650
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,13,,550,550,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 550
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,14,,350,350,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 350
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,15,,450,450,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 450
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,16,,500,500,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 500
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,17,,450,450,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 450
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,18,,320,320,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 320
+4,qwen3-32b,screening (no anchor),low,512,,,,,,,19,,450,450,512,True,False,screen|qwen3-32b|C2-233|low,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 450
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,0,,450,450,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,"Given that *The Devil Wears Prada 2* is a fictional sequel to a 2006 film, and assuming it is released in May 2026, we can estimate its box office performance based on the original and similar franchise sequels.
+
+1. **Original Film Performance**:  
+   *The Devil Wears Prada* (2006) grossed approximately **$365 million** worldwide. It was a modest hit and well-received, suggesting a sequel could capitalize on nostalgia and franchise recognition.
+
+2. **Franchise Trends**:  
+   Sequels often perform in line with or slightly below the original, depending on audience reception, cast retention, and marketing. For example, *27 Dresses* (a similar romantic comedy) underperformed compared to its box office predecessor *The Proposal*, but a well-regarded sequel like *Spider-Man 2* outperformed the original.
+
+3. **Market Conditions in 2026**:  
+   Assuming the global box office remains strong and theatrical viewing is stable, a sequel with a proven IP and strong cast could attract a wide audience. A $400–$500 million range is plausible if the film is well-received.
+
+4. **Estimation**:  
+   Taking into account inflation, audience fatigue, and the need to balance optimism with realism, a conservative yet optimistic estimate for *The Devil Wears Prada 2* in 2026 would be **$450 million** worldwide.
+
+Estimate: 450"
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,1,,450,450,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 450
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,2,,500,500,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,"The film *The Devil Wears Prada 2* was not released in May 2026, and no such sequel has been officially announced or produced as of my knowledge cutoff in July 2024. However, assuming hypothetically that it was released and performed similarly to its predecessor, *The Devil Wears Prada* (2006), which earned approximately $365 million worldwide, a sequel would likely benefit from brand recognition and potentially higher production values or marketing budgets.
+
+Taking into account inflation, the typical increase in production budgets, and the potential for stronger box office performance due to expanded global markets and digital marketing, a reasonable estimate for the worldwide box office of *The Devil Wears Prada 2* in 2026 might be in the range of $450–$550 million.
+
+Estimate: 500"
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,3,,350,350,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,"As an AI, my training data ends in October 2024, so I cannot provide actual box office figures for *The Devil Wears Prada 2*, which is a fictional film in your scenario and not part of any official announcement or release as of now. However, I can make a rough estimate based on the performance of similar films in the fashion/drama genre and the original *The Devil Wears Prada* (2006), which earned around $389 million worldwide.
+
+Assuming the sequel benefits from nostalgia, a strong cast, and a global audience, but faces competition from other blockbusters and streaming options, a reasonable estimate for its worldwide box office earnings would be:
+
+Estimate: 350"
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,4,,425,425,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,"Based on the success of the first *The Devil Wears Prada* film (2006), which earned approximately $389 million worldwide, and considering that sequels often benefit from built-in audiences and brand recognition, it's reasonable to estimate that *The Devil Wears Prada 2* could perform similarly or slightly better, assuming strong marketing and positive critical reception.
+
+Taking into account inflation, increased production budgets, and the global expansion of box office markets over the years, a conservative but plausible estimate for the worldwide box office earnings of *The Devil Wears Prada 2* in 2026 would be in the higher end of the original's performance.
+
+Estimate: 425"
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,5,,250,250,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,"Given the success of the first *Devil Wears Prada* film, which earned over $262 million worldwide, a sequel would likely benefit from brand recognition and a built-in audience. However, box office performance also depends on factors such as the quality of the film, the strength of the cast, marketing, and the competitive landscape at the time of release.
+
+Assuming a strong marketing campaign, a well-received sequel, and a favorable release window in May 2026, a reasonable estimate for *The Devil Wears Prada 2* would be in the range of $200–300 million globally. Taking a mid-range figure and considering potential inflation and increased production budgets, a conservative but plausible estimate would be:
+
+Estimate: 250"
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,6,,350,350,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 350
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,7,,450,450,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 450
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,8,,450,450,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,"As an AI, my training data ends in October 2023, so I cannot provide exact figures for ""The Devil Wears Prada 2"" or its box office earnings. However, I can estimate based on the performance of the first film and typical trends in the fashion and comedy genres.
+
+The original *The Devil Wears Prada* (2006) earned approximately $407 million worldwide. Assuming the sequel is well-received and benefits from modern marketing and wider global theatrical reach, it could potentially outperform the original. However, box office success also depends on factors like audience reception, competition, and the box office climate in 2026.
+
+Taking these into account, a reasonable estimate for the worldwide box office earnings of *The Devil Wears Prada 2* would be:
+
+Estimate: 450"
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,9,,550,550,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,"Given that *The Devil Wears Prada 2* is a fictional sequel to the 2006 film *The Devil Wears Prada*, which earned approximately $390 million worldwide, a sequel with modern production values and star power could reasonably be expected to perform better, assuming similar appeal and audience interest. However, without a real-world basis for the film or its marketing, the estimate is speculative. Considering inflation, box office trends, and the potential for a sequel to draw a large audience, a reasonable estimate might be:
+
+Estimate: 550"
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,10,,420,420,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,"Based on current trends in the film industry, the performance of the original *The Devil Wears Prada* (2006), which earned approximately $366 million worldwide, and assuming that the sequel (*The Devil Wears Prada 2*) would benefit from modern marketing, higher production values, and a larger global audience, while also facing typical inflation and market saturation effects, a reasonable estimate for its worldwide box office would be in line with a major Hollywood release.
+
+Considering these factors and the typical performance of sequel films, my best estimate is:
+
+Estimate: 420"
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,11,,375,375,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,"The original *The Devil Wears Prada* (2006) earned approximately $415 million worldwide. A sequel, *The Devil Wears Prada 2*, released in 2026, would likely benefit from nostalgia, a potentially updated cast, and the continued popularity of the fashion genre. However, it would also face higher production and marketing costs, as well as competition from newer films.
+
+Assuming a successful marketing campaign and strong audience interest, a reasonable estimate would be in the range of modern mid-budget sequels that appeal to a broad audience. Films of this type often earn between $300–400 million worldwide.
+
+Considering inflation and box office trends over time, a conservative but plausible estimate for *The Devil Wears Prada 2* would be:
+
+Estimate: 375"
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,12,,350,350,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 350
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,13,,380,380,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,"Based on the available data from the original *The Devil Wears Prada* (2006), which earned approximately $360 million worldwide, and considering that sequels to successful films often see similar or slightly lower earnings depending on audience reception and marketing, I would estimate that *The Devil Wears Prada 2* earned a comparable amount, factoring in inflation and potential increased production/marketing budgets.
+
+Assuming moderate growth and a similar reception, a reasonable estimate would be:
+
+Estimate: 380"
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,14,,450,450,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 450
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,15,,450,450,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,"The film *The Devil Wears Prada 2* was released in May 2026, following the original *The Devil Wears Prada* (2006), which earned approximately $392 million worldwide. A sequel in 2026 would likely benefit from nostalgia, a potentially larger budget, and advancements in marketing and production.
+
+Assuming a strong global theatrical presence, including international markets that have grown significantly since 2006, and considering the film's star power and brand recognition, a reasonable estimate for its worldwide box office performance would be in the range of $400–500 million.
+
+Taking these factors into account, my best estimate is:
+
+Estimate: 450"
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,16,,350,350,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,"The film *The Devil Wears Prada 2* was not released in May 2026, and there is no official data or credible reports about its box office earnings, as it is a hypothetical or fictional scenario. Since this event occurs after my training data cutoff in October 2023, I can only provide an educated estimate based on industry trends and the performance of similar films.
+
+*The Devil Wears Prada* (2006) earned approximately $365 million worldwide. A sequel, if well-received and marketed, could potentially earn more, especially with modern digital marketing and wider global theatrical reach. However, audience fatigue, changing tastes, and the shift toward streaming could affect performance.
+
+Considering all factors, a reasonable estimate for *The Devil Wears Prada 2* (2026) might be in the range of $300–400 million. Taking an average and allowing for inflation and box office trends, my best estimate would be:
+
+Estimate: 350"
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,17,,350,350,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,Estimate: 350
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,18,,450,450,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,"As The Devil Wears Prada 2 is a fictional film and its release in May 2026 is hypothetical, I can only provide an estimated figure based on industry trends, the performance of similar films, and the context of its presumed sequel status.
+
+The original *The Devil Wears Prada* (2006) earned approximately $407 million worldwide. A sequel with a strong brand, potential star power, and the fashion industry's continued cultural relevance could attract a similar or slightly larger audience. Assuming moderate inflation and growth in the box office, a reasonable estimate for a sequel of this nature might fall in the range of $400–$500 million.
+
+Taking these factors into account, my best estimate for the worldwide box office earnings of *The Devil Wears Prada 2* would be:
+
+Estimate: 450"
+4,qwen3-32b,screening (no anchor),off,0,,,,,,,19,,450,450,0,False,False,screen|qwen3-32b|C2-233|off,data/screen_v2/raw/qwen3-32b/study2/part-0006-20261026T171802Z.jsonl.gz,"The first film, *The Devil Wears Prada* (2006), earned approximately $393 million worldwide. A sequel released in 2026 would likely benefit from higher production values, stronger brand recognition, and potentially a larger fan base, especially if the original cast were to return or if the story were reimagined with modern appeal.
+
+However, sequel performance can vary widely based on quality, marketing, and audience reception. Assuming a strong marketing push, good word of mouth, and a well-received film, a reasonable estimate for *The Devil Wears Prada 2* would be in the upper range of the original's earnings, adjusted for inflation and box office trends.
+
+Estimate: 450"
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,0,,150,150,489,False,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,Estimate: 150
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,1,,250,250,453,False,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,Estimate: 250
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,2,,2e+08,200,494,False,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,Estimate: $200 million
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,3,,2e+10,20000,512,True,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,Estimate: $20 billion
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,4,,40,40,512,True,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,Estimate: $40-60
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,5,,5e+08,500,512,True,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,Estimate: 500 million
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,6,,1.5e+09,1500,512,True,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,Estimate: $1.5 billion
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,7,,1.8e+08,180,512,True,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,Estimate: $180 million
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,8,,3.5e+08,350,481,False,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,Estimate: 350 million
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,9,,3e+08,300,512,True,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,Estimate: 300 million
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,10,,7e+08,700,512,True,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,Estimate: 700 million
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,11,,1e+10,10000,397,False,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,Estimate: $10 billion
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,12,,2.5,2.5,479,False,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,Estimate: 2.5
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,13,,6e+08,600,512,True,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,Estimate: $600 million
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,14,,150,150,512,True,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"The estimated worldwide box office earnings for The Devil Wears Prada 2 in May 2026 were approximately $150 million. 
+
+Estimate: 150"
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,15,,1.5e+09,1500,512,True,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,Estimate: $1.5 billion
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,16,,1.2e+09,1.2e+09,512,True,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"The estimated worldwide box office earnings for The Devil Wears Prada 2 in May 2026, considering it's a sequel and performing well, would be approximately $1.2 billion.
+
+Estimate: 1200000000"
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,17,,2.5e+09,2500,512,True,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,Estimate: $2.5 billion
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,18,,2e+08,200,512,True,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,Estimate: 200 million
+4,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,19,,2.5e+09,2500,512,True,False,screen|r1-distill-qwen-1.5b|C2-233|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,Estimate: $2.5 billion
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,0,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,1,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,2,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,3,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I was trained on publicly available data and succeeded in doing so. For specific predictions, I refer you to the sources that generated the data."
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,4,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,5,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,6,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,7,,2,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I was trained on AI to generate responses based on the information and facts I was provided with. For specific details about the global success of The Devil Wears Prada 2, I do not have access to that information, and therefore, I cannot provide an estimate. I encourage you to check the latest reports or news articles for the most accurate and up-to-date information."
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,8,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,9,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,10,,2026,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I cannot provide a specific estimate for the worldwide box office earnings of The Devil Wears Prada 2 as of 2026. Box office earnings depend on numerous factors, including the movie's success, its budget, and the marketing and production efforts. Additionally, external economic conditions, including the global economy, can also influence box office performance. Therefore, without specific data or more information about these factors, it is not possible to provide an accurate estimate."
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,11,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,12,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,13,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,14,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,15,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,16,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,17,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,18,,2,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I was trained to fulfill requests accordingly, and I'm here to provide helpful, accurate information. For the most up-to-date and detailed statistics on films like *The Devil Wears Prada 2*, I recommend checking the latest票房 reports from reputable sources such as影史数据库 (影史DB) or reliable news outlets. Let me know if you'd like access to specific data!"
+4,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,19,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-233|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0006-20261026T174504Z.jsonl.gz,"I cannot provide specific financial figures for individual movies or films. However, I can tell you that box office earnings are typically measured in millions of dollars and can vary widely depending on factors such as the release month, release country, and overall market performance. For specific estimates, I would recommend checking recent box office reports or financial analyses from reputable sources."

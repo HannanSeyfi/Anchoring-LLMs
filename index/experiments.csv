@@ -1,0 +1,8 @@
+experiment,name,date,models,data_folder,what_was_asked,answers,answers_reparsed_differently,cost,report
+1,Pilot run 1,2026-10-24,R1-Distill-Qwen-1.5B,data/pilot,"Set 1 (30 questions): no anchor, Study 1, Study 2",7200,1808,free (Colab T4),latex/reports/exp1_pilot_run1.tex
+2,Pilot run 2,2026-10-26,Qwen3-32B,data/pilot,"Set 1 (30 questions): no anchor, Study 1, Study 2",7200,182,$1.52,latex/reports/exp2_pilot_run2.tex
+3,"Screening, round 1",2026-10-26,"Qwen3-32B, R1-Distill-Qwen-1.5B",data/screen_v2,"Sets 2a + 2b (206 questions), no anchor",16480,2077,$0.97,latex/reports/exp3_screening1.tex
+4,"Screening, round 2",2026-10-26,"Qwen3-32B, R1-Distill-Qwen-1.5B",data/screen_v2,"Sets 2c + 2d (93 questions), no anchor",7440,774,$0.44,latex/reports/exp4_screening2.tex
+5,"Study 2, large model",2026-10-28 to 29,Qwen3-32B,data/pilot_v2,10 picked Study 2 questions: own vs given starting value,1800,0,$0.62,latex/reports/exp5_study2.tex
+6,"Study 1, new questions",2026-10-30,"Qwen3-32B, R1-Distill-Qwen-1.5B",data/pilot_v2,"15 picked Study 1 questions: no anchor, then anchored",8940,0,$0.94,latex/reports/exp6_study1.tex
+7,"Study 2, small model",2026-10-30,R1-Distill-Qwen-1.5B,data/pilot_v2,10 picked Study 2 questions: own vs given starting value,1800,148,free (Colab T4),latex/reports/exp7_study2_small.tex

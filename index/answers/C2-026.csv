@@ -1,0 +1,867 @@
+experiment,model,phase,thinking_level,thinking_budget,anchor,direction,distance,precision,start_source,instruction,sample,comparison,estimate_saved,estimate_checked,thinking_tokens,thinking_cut_off,answer_cut_off,cell_id,raw_file,answer
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,0,,2.645,2.645,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To calculate the escape velocity from the surface of Saturn’s moon Titan, we use the formula:
+
+$$
+v_{\text{escape}} = \sqrt{\frac{2GM}{r}}
+$$
+
+Where:  
+- $ G $ is the gravitational constant ($ 6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} $)  
+- $ M $ is the mass of Titan ($ 1.345 \times 10^{23} \, \text{kg} $)  
+- $ r $ is the radius of Titan ($ 2.575 \times 10^6 \, \text{m} $)
+
+---
+
+**Step-by-step calculation:**
+
+1. **Calculate $ 2GM $:**
+
+$$
+2 \times 6.6743 \times 10^{-11} \times 1.345 \times 10^{23} = 1.8008 \times 10^{13}
+$$
+
+2. **Divide by the radius $ r $:**
+
+$$
+\frac{1.8008 \times 10^{13}}{2.575 \times 10^6} = 6.995 \times 10^6
+$$
+
+3. **Take the square root:**
+
+$$
+\sqrt{6.995 \times 10^6} \approx 2645 \, \text{m/s}
+$$
+
+4. **Convert to km/s:**
+
+$$
+2645 \, \text{m/s} = 2.645 \, \text{km/s}
+$$
+
+---
+
+**Estimate: 2.645**"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,1,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.64
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,2,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.64
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,3,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.64
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,4,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.64
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,5,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.64
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,6,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.64
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,7,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.64
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,8,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.64
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,9,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.64
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,10,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.64
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,11,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.64
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,12,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.64
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,13,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.64
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,14,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.64
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,15,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.64
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,16,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.64
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,17,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.64
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,18,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"Escape velocity from Titan can be calculated using the formula $ v = \sqrt{\frac{2GM}{R}} $, where $ G $ is the gravitational constant ($ 6.6743 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2} $), $ M $ is Titan’s mass ($ 1.345 \times 10^{23} \, \text{kg} $), and $ R $ is its radius ($ 2.575 \times 10^6 \, \text{m} $). Plugging in these values yields approximately 2.64 km/s.  
+
+Estimate: 2.64"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,19,,2.64,2.64,512,True,False,screen|qwen3-32b|C2-026|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 2.64
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,0,,2.64,2.64,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Titan, Saturn's largest moon, we can use the formula for escape velocity:
+
+$$
+v_{\text{escape}} = \sqrt{\frac{2 G M}{r}}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($ 6.67430 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2} $)
+- $ M $ is the mass of Titan
+- $ r $ is the radius of Titan
+
+Titan has:
+- Mass $ M \approx 1.3452 \times 10^{23} \, \text{kg} $
+- Radius $ r \approx 2,575 \, \text{km} = 2.575 \times 10^6 \, \text{m} $
+
+Plugging these into the formula:
+
+$$
+v_{\text{escape}} = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.3452 \times 10^{23}}{2.575 \times 10^6}}
+$$
+
+$$
+v_{\text{escape}} \approx \sqrt{\frac{1.800 \times 10^{13}}{2.575 \times 10^6}} \approx \sqrt{7.0 \times 10^6} \approx 2638 \, \text{m/s} = 2.64 \, \text{km/s}
+$$
+
+Estimate: 2.64"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,1,,2.65,2.65,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Titan, Saturn's largest moon, we can use the formula for escape velocity:
+
+$$
+v_e = \sqrt{\frac{2GM}{r}}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($6.674 \times 10^{-11} \, \mathrm{m^3 kg^{-1} s^{-2}}$),
+- $ M $ is the mass of Titan ($1.3452 \times 10^{23} \, \mathrm{kg}$),
+- $ r $ is the radius of Titan ($2,575 \, \mathrm{km} = 2.575 \times 10^6 \, \mathrm{m}$).
+
+Plugging these values in:
+
+$$
+v_e = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times 1.3452 \times 10^{23}}{2.575 \times 10^6}} \approx \sqrt{\frac{1.8 \times 10^{13}}{2.575 \times 10^6}} \approx \sqrt{7 \times 10^6} \approx 2645 \, \mathrm{m/s} \approx 2.65 \, \mathrm{km/s}
+$$
+
+Estimate: 2.65"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,2,,2.64,2.64,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Saturn's moon Titan, we can use the formula for escape velocity:
+
+$$
+v_{\text{escape}} = \sqrt{\frac{2GM}{r}}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2}$)
+- $ M $ is the mass of Titan
+- $ r $ is the radius of Titan
+
+From known values:
+- Mass of Titan, $ M \approx 1.3452 \times 10^{23} \, \text{kg} $
+- Radius of Titan, $ r \approx 2575 \, \text{km} = 2.575 \times 10^6 \, \text{m} $
+
+Plugging these into the formula:
+
+$$
+v_{\text{escape}} = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.3452 \times 10^{23}}{2.575 \times 10^6}} \approx \sqrt{6.97 \times 10^6} \approx 2640 \, \text{m/s} = 2.64 \, \text{km/s}
+$$
+
+Estimate: 2.64"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,3,,2.65,2.65,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Saturn's moon Titan, we can use the standard escape velocity formula:
+
+$$ v_e = \sqrt{\frac{2GM}{r}} $$
+
+Where:
+- $ v_e $ is the escape velocity,
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $ M $ is the mass of Titan,
+- $ r $ is the radius of Titan.
+
+From known data:
+- Titan's mass $ M \approx 1.3452 \times 10^{23} \, \text{kg} $,
+- Titan's radius $ r \approx 2.575 \times 10^6 \, \text{m} $.
+
+Plugging these values into the formula:
+
+$$ v_e = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.3452 \times 10^{23}}{2.575 \times 10^6}} $$
+
+$$ v_e \approx \sqrt{\frac{1.801 \times 10^{13}}{2.575 \times 10^6}} $$
+
+$$ v_e \approx \sqrt{6.994 \times 10^6} $$
+
+$$ v_e \approx 2,645 \, \text{m/s} $$
+
+$$ v_e \approx 2.65 \, \text{km/s} $$
+
+Estimate: 2.65"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,4,,2.65,2.65,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Titan, Saturn's largest moon, we can use the standard formula for escape velocity:
+
+$$
+v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$)
+- $ M $ is the mass of Titan
+- $ r $ is the radius of Titan
+
+From scientific data:
+- Mass of Titan: $ M \approx 1.3452 \times 10^{23} \, \text{kg} $
+- Radius of Titan: $ r \approx 2.575 \times 10^6 \, \text{m} $
+
+Plugging in the values:
+
+$$
+v_{\text{esc}} = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.3452 \times 10^{23}}{2.575 \times 10^6}}
+$$
+
+$$
+v_{\text{esc}} \approx \sqrt{\frac{1.803 \times 10^{13}}{2.575 \times 10^6}} \approx \sqrt{6.999 \times 10^6} \approx 2,645 \, \text{m/s} \approx 2.65 \, \text{km/s}
+$$
+
+Estimate: 2.65"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,5,,5.6,5.6,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To calculate the escape velocity from the surface of a celestial body, we use the formula:
+
+$$ v_{\text{escape}} = \sqrt{\frac{2GM}{r}} $$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $ M $ is the mass of the body,
+- $ r $ is the radius of the body.
+
+For **Titan**, the largest moon of Saturn:
+- Mass $ M \approx 1.3452 \times 10^{23} \, \text{kg} $
+- Radius $ r \approx 2575 \, \text{km} = 2.575 \times 10^6 \, \text{m} $
+
+Plugging these values into the formula gives an escape velocity of approximately **5.6 km/s**.
+
+Estimate: 5.6"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,6,,2.64,2.64,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Titan, Saturn's largest moon, we can use the formula for escape velocity:
+
+$$ v_e = \sqrt{\frac{2GM}{r}} $$
+
+Where:
+- $ v_e $ is the escape velocity,
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $ M $ is the mass of Titan,
+- $ r $ is the radius of Titan.
+
+From known data:
+- Mass of Titan ($M$) ≈ $1.3452 \times 10^{23} \, \text{kg}$,
+- Radius of Titan ($r$) ≈ $2,575 \, \text{km} = 2.575 \times 10^6 \, \text{m}$.
+
+Plugging these values into the formula gives an escape velocity of approximately **2.64 km/s**.
+
+Estimate: 2.64"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,7,,2.64,2.64,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Saturn's moon Titan, we can use the standard formula for escape velocity:
+
+$$ v_{\text{escape}} = \sqrt{\frac{2 G M}{r}} $$
+
+Where:
+- $ G $ is the gravitational constant,
+- $ M $ is the mass of Titan,
+- $ r $ is the radius of Titan.
+
+From known data:
+- Mass of Titan, $ M \approx 1.3452 \times 10^{23} $ kg,
+- Radius of Titan, $ r \approx 2575 $ km = $ 2.575 \times 10^6 $ m,
+- Gravitational constant, $ G \approx 6.67430 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2} $.
+
+Plugging in the values:
+
+$$ v_{\text{escape}} = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.3452 \times 10^{23}}{2.575 \times 10^6}} $$
+
+$$ v_{\text{escape}} \approx \sqrt{\frac{1.796 \times 10^{13}}{2.575 \times 10^6}} $$
+
+$$ v_{\text{escape}} \approx \sqrt{6.977 \times 10^6} $$
+
+$$ v_{\text{escape}} \approx 2641 \, \text{m/s} $$
+
+$$ v_{\text{escape}} \approx 2.64 \, \text{km/s} $$
+
+Estimate: 2.64"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,8,,2.62,2.62,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Titan, we can use the formula for escape velocity:
+
+$$ v_e = \sqrt{\frac{2GM}{r}} $$
+
+Where:
+- $ G $ is the gravitational constant ($6.6743 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $ M $ is the mass of Titan ($1.3452 \times 10^{23} \, \text{kg}$),
+- $ r $ is the radius of Titan ($2,575 \, \text{km} = 2.575 \times 10^6 \, \text{m}$).
+
+Plugging in the values:
+
+$$ v_e = \sqrt{\frac{2 \times 6.6743 \times 10^{-11} \times 1.3452 \times 10^{23}}{2.575 \times 10^6}} $$
+
+$$ v_e \approx \sqrt{6.87 \times 10^6} $$
+
+$$ v_e \approx 2,621 \, \text{m/s} $$
+
+$$ v_e \approx 2.62 \, \text{km/s} $$
+
+Estimate: 2.62"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,9,,2.64,2.64,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Saturn's moon Titan, we can use the formula for escape velocity:
+
+$$
+v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $ M $ is the mass of Titan,
+- $ r $ is the radius of Titan.
+
+From known data:
+- Mass of Titan, $ M \approx 1.345 \times 10^{23} \, \text{kg} $,
+- Radius of Titan, $ r \approx 2575 \, \text{km} = 2.575 \times 10^6 \, \text{m} $.
+
+Plugging these into the formula gives:
+
+$$
+v_{\text{esc}} = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times 1.345 \times 10^{23}}{2.575 \times 10^6}}
+$$
+
+$$
+v_{\text{esc}} \approx \sqrt{\frac{1.79 \times 10^{13}}{2.575 \times 10^6}} \approx \sqrt{6.95 \times 10^6} \approx 2640 \, \text{m/s} \approx 2.64 \, \text{km/s}
+$$
+
+Estimate: 2.64"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,10,,2.6,2.6,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Saturn's moon Titan, we use the formula for escape velocity:
+
+$$
+v_e = \sqrt{\frac{2GM}{r}}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($6.6743 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$)
+- $ M $ is the mass of Titan ($1.3452 \times 10^{23} \, \text{kg}$)
+- $ r $ is the radius of Titan ($2575 \, \text{km} = 2.575 \times 10^6 \, \text{m}$)
+
+Plugging in the values:
+
+$$
+v_e = \sqrt{\frac{2 \times 6.6743 \times 10^{-11} \times 1.3452 \times 10^{23}}{2.575 \times 10^6}} \approx \sqrt{\frac{1.797 \times 10^{13}}{2.575 \times 10^6}} \approx \sqrt{6.979 \times 10^6} \approx 2642 \, \text{m/s}
+$$
+
+Converting to kilometers per second:
+
+$$
+v_e \approx 2.64 \, \text{km/s}
+$$
+
+Estimate: 2.6"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,11,,2.63,2.63,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Titan, Saturn's largest moon, we can use the escape velocity formula:
+
+$$
+v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $ M $ is the mass of Titan,
+- $ r $ is the radius of Titan.
+
+From known data:
+- Mass of Titan, $ M \approx 1.3452 \times 10^{23} \, \text{kg} $
+- Radius of Titan, $ r \approx 2,575 \, \text{km} = 2.575 \times 10^6 \, \text{m} $
+
+Plugging these values into the formula:
+
+$$
+v_{\text{esc}} = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.3452 \times 10^{23}}{2.575 \times 10^6}}
+$$
+
+$$
+v_{\text{esc}} \approx \sqrt{6.91 \times 10^6} \approx 2.63 \, \text{km/s}
+$$
+
+Estimate: 2.63"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,12,,2.65,2.65,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Titan, Saturn's largest moon, we can use the formula for escape velocity:
+
+$$ v_e = \sqrt{\frac{2GM}{r}} $$
+
+Where:
+- $ v_e $ is the escape velocity,
+- $ G $ is the gravitational constant ($6.674 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2}$),
+- $ M $ is the mass of Titan,
+- $ r $ is the radius of Titan.
+
+From known data:
+- Mass of Titan, $ M \approx 1.3452 \times 10^{23} \, \text{kg} $
+- Radius of Titan, $ r \approx 2,575 \, \text{km} = 2.575 \times 10^6 \, \text{m} $
+
+Plugging in the values:
+
+$$ v_e = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times 1.3452 \times 10^{23}}{2.575 \times 10^6}} $$
+
+$$ v_e \approx \sqrt{\frac{1.803 \times 10^{13}}{2.575 \times 10^6}} $$
+
+$$ v_e \approx \sqrt{7.00 \times 10^6} $$
+
+$$ v_e \approx 2647 \, \text{m/s} \approx 2.65 \, \text{km/s} $$
+
+Estimate: 2.65"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,13,,2.6,2.6,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Titan, Saturn's largest moon, we can use the standard formula for escape velocity:
+
+$$ v_e = \sqrt{\frac{2GM}{r}} $$
+
+Where:
+- $ G $ is the gravitational constant ($ 6.6743 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} $),
+- $ M $ is the mass of Titan,
+- $ r $ is the radius of Titan.
+
+From available data:
+- Mass of Titan, $ M \approx 1.3452 \times 10^{23} \, \text{kg} $
+- Radius of Titan, $ r \approx 2.575 \times 10^6 \, \text{m} $
+
+Plugging these into the formula gives:
+
+$$ v_e = \sqrt{\frac{2 \times 6.6743 \times 10^{-11} \times 1.3452 \times 10^{23}}{2.575 \times 10^6}} $$
+
+$$ v_e \approx \sqrt{\frac{1.796 \times 10^{13}}{2.575 \times 10^6}} $$
+
+$$ v_e \approx \sqrt{6.978 \times 10^6} $$
+
+$$ v_e \approx 2.642 \, \text{km/s} $$
+
+Estimate: 2.6"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,14,,2.64,2.64,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Titan, Saturn's largest moon, we can use the formula for escape velocity:
+
+$$ v_e = \sqrt{\frac{2GM}{r}} $$
+
+Where:
+
+- $ v_e $ is the escape velocity,
+- $ G $ is the gravitational constant ($ 6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} $),
+- $ M $ is the mass of Titan,
+- $ r $ is the radius of Titan.
+
+From known data:
+
+- Mass of Titan, $ M \approx 1.3452 \times 10^{23} \, \text{kg} $,
+- Radius of Titan, $ r \approx 2.575 \times 10^6 \, \text{m} $.
+
+Plugging these values into the formula:
+
+$$ v_e = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.3452 \times 10^{23}}{2.575 \times 10^6}} $$
+
+$$ v_e \approx \sqrt{\frac{1.797 \times 10^{13}}{2.575 \times 10^6}} $$
+
+$$ v_e \approx \sqrt{6.98 \times 10^6} $$
+
+$$ v_e \approx 2642 \, \text{m/s} \approx 2.64 \, \text{km/s} $$
+
+Estimate: 2.64"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,15,,2.64,2.64,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Saturn's moon Titan, we can use the escape velocity formula:
+
+$$
+v_e = \sqrt{\frac{2GM}{r}}
+$$
+
+Where:
+- $ G $ is the gravitational constant $ 6.67430 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2} $,
+- $ M $ is the mass of Titan $ \approx 1.3452 \times 10^{23} \, \text{kg} $,
+- $ r $ is the radius of Titan $ \approx 2,575 \, \text{km} = 2.575 \times 10^6 \, \text{m} $.
+
+Plugging in these values:
+
+$$
+v_e = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.3452 \times 10^{23}}{2.575 \times 10^6}}
+$$
+
+$$
+v_e \approx \sqrt{\frac{1.80 \times 10^{13}}{2.575 \times 10^6}} \approx \sqrt{7.0 \times 10^6} \approx 2640 \, \text{m/s} \approx 2.64 \, \text{km/s}
+$$
+
+Estimate: 2.64"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,16,,2.6,2.6,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To calculate the escape velocity from the surface of a celestial body, we use the formula:
+
+$$
+v_{\text{escape}} = \sqrt{\frac{2 G M}{r}}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $ M $ is the mass of the body,
+- $ r $ is the radius of the body.
+
+For Titan (Saturn's largest moon):
+- Mass $ M \approx 1.345 \times 10^{23} \, \text{kg} $
+- Radius $ r \approx 2.575 \times 10^6 \, \text{m} $
+
+Plugging these values into the formula:
+
+$$
+v_{\text{escape}} = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.345 \times 10^{23}}{2.575 \times 10^6}} \approx \sqrt{6.93 \times 10^6} \approx 2633 \, \text{m/s}
+$$
+
+Converting to kilometers per second:
+
+$$
+v_{\text{escape}} \approx 2.63 \, \text{km/s}
+$$
+
+Estimate: 2.6"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,17,,2.6,2.6,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Saturn's moon Titan, we use the standard escape velocity formula:
+
+$$
+v_{\text{escape}} = \sqrt{\frac{2GM}{r}}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2}$),
+- $ M $ is the mass of Titan,
+- $ r $ is the radius of Titan.
+
+From known values:
+- Mass of Titan: $ M \approx 1.3452 \times 10^{23} \, \text{kg} $
+- Radius of Titan: $ r \approx 2,575 \, \text{km} = 2.575 \times 10^6 \, \text{m} $
+
+Plugging in these values:
+
+$$
+v_{\text{escape}} = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.3452 \times 10^{23}}{2.575 \times 10^6}}
+$$
+
+$$
+v_{\text{escape}} \approx \sqrt{\frac{1.800 \times 10^{13}}{2.575 \times 10^6}} \approx \sqrt{7.0 \times 10^6} \approx 2,646 \, \text{m/s} = 2.646 \, \text{km/s}
+$$
+
+Estimate: 2.6"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,18,,2.63,2.63,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Titan, Saturn's largest moon, we can use the standard escape velocity formula:
+
+$$
+v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
+$$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $ M $ is the mass of Titan,
+- $ r $ is the radius of Titan.
+
+From known data:
+- Mass of Titan, $ M \approx 1.3452 \times 10^{23} \, \text{kg} $
+- Radius of Titan, $ r \approx 2575 \, \text{km} = 2.575 \times 10^6 \, \text{m} $
+
+Plugging these values into the formula gives:
+
+$$
+v_{\text{esc}} = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.3452 \times 10^{23}}{2.575 \times 10^6}} \approx \sqrt{6.93 \times 10^6} \approx 2630 \, \text{m/s} \approx 2.63 \, \text{km/s}
+$$
+
+Estimate: 2.63"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,19,,2.64,2.64,0,False,False,screen|qwen3-32b|C2-026|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the escape velocity from the surface of Titan, we can use the formula for escape velocity:
+
+$$ v_e = \sqrt{\frac{2GM}{r}} $$
+
+Where:
+- $ G $ is the gravitational constant ($6.67430 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}$),
+- $ M $ is the mass of Titan,
+- $ r $ is the radius of Titan.
+
+From reliable sources:
+- Mass of Titan ($M$) ≈ $1.3452 \times 10^{23} \, \text{kg}$
+- Radius of Titan ($r$) ≈ $2,575 \, \text{km} = 2.575 \times 10^6 \, \text{m}$
+
+Plugging these into the formula:
+
+$$ v_e = \sqrt{\frac{2 \times 6.67430 \times 10^{-11} \times 1.3452 \times 10^{23}}{2.575 \times 10^6}} $$
+
+$$ v_e \approx \sqrt{\frac{1.797 \times 10^{13}}{2.575 \times 10^6}} $$
+
+$$ v_e \approx \sqrt{6.98 \times 10^6} $$
+
+$$ v_e \approx 2,642 \, \text{m/s} \approx 2.64 \, \text{km/s} $$
+
+This is consistent with published estimates of Titan's escape velocity.
+
+Estimate: 2.64"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,0,,1.7,1.7,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 1.7 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,1,,0.843,0.843,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"Escape velocity from Titan's surface can be calculated using the formula \( v = \sqrt{\frac{2GM}{r}} \), where \( G = 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \), \( M \) is Titan's mass (\( 1.34 \times 10^{17} \, \text{kg} \)), and \( r \) is its radius (\( 2.52 \times 10^7 \, \text{m} \)).
+
+Calculating:
+
+\( 2GM = 2 \times 6.674 \times 10^{-11} \times 1.34 \times 10^{17} = 1.789 \times 10^7 \, \text{m}^3 \text{s}^{-2} \)
+
+Then:
+
+\( v = \sqrt{\frac{1.789 \times 10^7}{2.52 \times 10^7}} = \sqrt{0.710} \approx 0.843 \, \text{m/s} \)
+
+Estimate: 0.843 km/s"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,2,,2.55,2.55,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"Escape velocity from Titan's surface is approximately 2.55 kilometers per second.
+
+Estimate: 2.55"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,3,,5.95,5.95,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from Titan's surface is approximately 5.95 kilometers per second. 
+
+Estimate: 5.95"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,4,,2.55,2.55,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Titan is approximately 2.55 kilometers per second.
+
+Estimate: 2.55"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,5,,5.76,5.76,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 5.76 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,6,,2.5,2.5,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 2.5 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,7,,6.1,6.1,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from Titan's surface is approximately 6.1 km/s.
+
+Estimate: 6.1"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,8,,6.1,6.1,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 6.1 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,9,,2.67,2.67,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Titan can be calculated using the formula v = sqrt(2GM/r), where G is the gravitational constant, M is the mass of Titan, and r is its radius. 
+
+The mass of Titan is approximately 1.35 × 10¹⁹ kg, and its radius is about 25,200 km or 2.52 × 10⁷ meters. Plugging these into the formula:
+
+v = sqrt(2 * 6.674e-11 * 1.35e19 / 2.52e7) ≈ sqrt(7.16e6) ≈ 2672 m/s, which is approximately 2.67 km/s.
+
+Estimate: 2.67 km/s"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,10,,2.1,2.1,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 2.1 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,11,,5.66,5.66,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 5.66 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,12,,2.3,2.3,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"Escape velocity from Saturn's moon Titan can be calculated using the formula v = sqrt(2GM/r), where M is the mass of Titan and r is its radius. Titan has a mass of approximately 1.35 Earth masses and a radius of about 25,710 km. Plugging these values into the formula gives an escape velocity of approximately 2.3 km/s. 
+
+Estimate: 2.3"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,13,,2.7,2.7,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Saturn's moon Titan is approximately 2.7 km/s.
+
+Estimate: 2.7"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,14,,5.5,5.5,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"Escape velocity from Titan's surface is approximately 5.5 km/s.  
+
+Estimate: 5.5"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,15,,6.67,6.67,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"To estimate the escape velocity from Titan's surface, we use the formula \( v = \sqrt{\frac{2GM}{r}} \), where \( G \) is the gravitational constant, \( M \) is Titan's mass, and \( r \) is its radius. 
+
+Given:
+- \( G = 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \)
+- \( M = 8.36 \times 10^{23} \, \text{kg} \) (Titan's mass)
+- \( r = 25,200 \, \text{km} = 25.2 \times 10^3 \, \text{m} \)
+
+Plugging these into the formula:
+
+\[
+v = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times 8.36 \times 10^{23}}{25.2 \times 10^3}}
+\]
+
+Calculating the numerator:
+
+\[
+2 \times 6.674 \times 10^{-11} \times 8.36 \times 10^{23} = 1.12 \times 10^{13}
+\]
+
+Denominator:
+
+\[
+25.2 \times 10^3 = 2.52 \times 10^4
+\]
+
+So,
+
+\[
+v = \sqrt{\frac{1.12 \times 10^{13}}{2.52 \times 10^4}} = \sqrt{4.444 \times 10^8} = 6,670 \, \text{m/s}
+\]
+
+Converting to kilometers per second:
+
+\[
+v \approx 6.67 \, \text{km/s}
+\]
+
+Final estimate: 6.67 km/s"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,16,,4.62,4.62,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from Titan's surface can be calculated using the formula \( v = \sqrt{\frac{2GM}{r}} \), where \( G \) is the gravitational constant, \( M \) is Titan's mass, and \( r \) is its radius. 
+
+- Titan's mass is approximately \( 8.08 \times 10^{24} \, \text{kg} \).
+- Its radius is about \( 2.57 \times 10^7 \, \text{m} \).
+
+Plugging these into the formula:
+\[
+v = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times 8.08 \times 10^{24}}{2.57 \times 10^7}} = \sqrt{2.13 \times 10^7} \approx 4620 \, \text{m/s}.
+\]
+Converting to kilometers per second:
+\[
+Estimate: 4.62 \, \text{km/s}
+\]
+
+Estimate: 4.62 km/s"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,17,,1.7,1.7,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 1.70 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,18,,2.8,2.8,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 2.8 km/s
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,19,,2.35,2.35,512,True,False,screen|r1-distill-qwen-1.5b|C2-026|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"Escape velocity from Titan's surface: 2.4 km/s. 
+
+Wait, no, that's for the moon, not Titan. I think Titan's escape velocity is around 2.35 km/s. Let me make sure. Since Titan is much closer to Saturn, its escape velocity would be lower than the moon's. But I'm not entirely confident. I think the correct answer is approximately 2.4 km/s.
+
+Wait, I'm getting conflicting information. Let me recall: the moon's escape velocity is about 2.4 km/s. For a planet or moon, the escape velocity is calculated using v = sqrt(2GM/r). Titan has a radius of about 25,700 km, which is smaller than the moon's radius of about 1,750 km. Since radius is inversely proportional to escape velocity, Titan's escape velocity should be higher. So, around 2.35 km/s is plausible. But I'm not entirely sure. 
+
+I think the correct answer is approximately 2.35 km/s. 
+
+Final Answer: Estimate: 2.35 km/s."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,0,,6.1,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Saturn's moon Titan can be estimated using the formula for escape velocity, which is given by:
+
+\[ v_{\text{esc}} = \sqrt{\frac{2GM}{r}} \]
+
+Where:
+- \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \)),
+- \( M \) is the mass of Titan,
+- \( r \) is the radius of Titan.
+
+From reliable sources, the mass of Titan is approximately \( 1.58 \times 10^{18} \, \text{kg} \) and its radius is about \( 2550 \, \text{km} \) or \( 2.55 \times 10^6 \, \text{m} \).
+
+Plugging these values into the formula, we calculate the escape velocity. After performing the calculations, the escape velocity from the surface of Titan is approximately **6.1 km/s**."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,1,,5.4,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,The escape velocity from the surface of Titan is approximately 5.4 kilometers per second.
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,2,,4.9,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Titan, one of Saturn's moons, is approximately 4.9 km/s. This value takes into account Titan's substantial gravitational pull and its radius."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,3,,2.94,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Saturn's moon Titan can be estimated using the formula for escape velocity, which is:
+
+\[
+v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
+\]
+
+Where:
+- \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \))
+- \( M \) is the mass of Titan
+- \( r \) is the radius of Titan
+
+From reliable sources, the mass of Titan is approximately \( 1.58 \times 10^{18} \, \text{kg} \) and its radius is approximately \( 25,200 \, \text{km} \) (or \( 2.52 \times 10^7 \, \text{m} \)).
+
+Plugging these values into the formula:
+
+\[
+v_{\text{esc}} = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times 1.58 \times 10^{18}}{2.52 \times 10^7}}
+\]
+
+\[
+v_{\text{esc}} = \sqrt{\frac{2 \times 6.674 \times 1.58 \times 10^{-11 + 18}}{2.52 \times 10^7}}
+\]
+
+\[
+v_{\text{esc}} = \sqrt{\frac{2 \times 6.674 \times 1.58 \times 10^{7}}{2.52 \times 10^7}}
+\]
+
+\[
+v_{\text{esc}} = \sqrt{\frac{21.87 \times 10^{7}}{2.52 \times 10^7}}
+\]
+
+\[
+v_{\text{esc}} = \sqrt{8.67}
+\]
+
+\[
+v_{\text{esc}} \approx 2.94 \, \text{km/s}
+\]
+
+So, the escape velocity from the surface of Titan is approximately **2.94 km/s**."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,4,,13,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Titan, its largest moon, is approximately **13 km/s**. This is calculated using the formula for escape velocity, which depends on the gravitational acceleration at the moon's surface and the radius of the moon."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,5,,6.7,6.7,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Saturn's moon Titan can be estimated using the formula for escape velocity:
+
+\[ v_{\text{escape}} = \sqrt{\frac{2GM}{r}} \]
+
+Where:
+- \( G \) is the gravitational constant,
+- \( M \) is the mass of Titan,
+- \( r \) is the radius of Titan.
+
+From my knowledge, the mass of Titan is approximately \( 1.58 \times 10^{19} \) kg, and its radius is about 2550 km. Plugging these values into the formula, the escape velocity is calculated to be approximately 6.7 km/s.
+
+So, the estimated escape velocity from the surface of Titan is:
+
+**Estimate: 6.7 km/s**"
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,6,,2.92,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Saturn's moon Titan can be calculated using the formula for escape velocity, which is:
+
+\[ v_{\text{esc}} = \sqrt{\frac{2GM}{r}} \]
+
+Where:
+- \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \))
+- \( M \) is the mass of Titan
+- \( r \) is the radius of Titan
+
+First, I need the mass and radius of Titan. Titan has a mass of approximately \( 1.58 \times 10^{23} \, \text{kg} \) and a radius of about \( 2550 \, \text{km} \).
+
+Plugging these values into the formula:
+
+\[ v_{\text{esc}} = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times 1.58 \times 10^{23}}{2550000}} \]
+
+Calculating the numerator:
+
+\[ 2 \times 6.674 \times 10^{-11} \times 1.58 \times 10^{23} = 2.17 \times 10^{13} \]
+
+Dividing by the radius:
+
+\[ \frac{2.17 \times 10^{13}}{2550000} = 8.51 \times 10^{6} \]
+
+Taking the square root:
+
+\[ \sqrt{8.51 \times 10^{6}} \approx 2920 \, \text{m/s} \]
+
+Converting to kilometers per second:
+
+\[ 2920 \, \text{m/s} = 2.92 \, \text{km/s} \]
+
+So, the escape velocity from the surface of Titan is approximately **2.92 km/s**."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,7,,0.85,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Saturn's moon Titan can be estimated using the formula for escape velocity, which is:
+
+\[
+v_{\text{escape}} = \sqrt{\frac{2GM}{r}}
+\]
+
+Where:
+- \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \)),
+- \( M \) is the mass of Titan,
+- \( r \) is the radius of Titan.
+
+First, I need the mass and radius of Titan. From my knowledge, Titan's mass is approximately \( 1.35 \times 10^{23} \, \text{kg} \) and its radius is about \( 25,200 \, \text{km} \) or \( 2.52 \times 10^7 \, \text{m} \).
+
+Plugging these values into the formula:
+
+\[
+v_{\text{escape}} = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times 1.35 \times 10^{23}}{2.52 \times 10^7}}
+\]
+
+Calculating the numerator:
+
+\[
+2 \times 6.674 \times 10^{-11} \times 1.35 \times 10^{23} = 1.801 \times 10^{13}
+\]
+
+Dividing by the radius:
+
+\[
+\frac{1.801 \times 10^{13}}{2.52 \times 10^7} = 7.137 \times 10^{5}
+\]
+
+Taking the square root:
+
+\[
+v_{\text{escape}} = \sqrt{7.137 \times 10^{5}} \approx 845 \, \text{m/s}
+\]
+
+Converting to kilometers per second:
+
+\[
+845 \, \text{m/s} = 0.845 \, \text{km/s}
+\]
+
+So, the estimated escape velocity from Titan's surface is approximately 0.85 km/s."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,8,,6.1,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,The escape velocity from the surface of Saturn's moon Titan is approximately 6.1 kilometers per second. This value is derived from the gravitational potential and kinetic energy required to break free from Titan's gravity.
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,9,,6.2,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,The escape velocity from the surface of Saturn's moon Titan is approximately 6.2 kilometers per second.
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,10,,13,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,The escape velocity from the surface of Saturn's moon Titan is approximately **13 km/s**.
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,11,,17,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Titan, its largest moon, is approximately **17 km/s**. This is calculated using the formula for escape velocity, which depends on the gravitational acceleration and the radius of Titan's surface."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,12,,0.027,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Saturn's moon Titan can be calculated using the formula for escape velocity:
+
+\[
+v_{\text{escape}} = \sqrt{\frac{2GM}{r}}
+\]
+
+Where:
+- \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \)),
+- \( M \) is the mass of Titan,
+- \( r \) is the radius of Titan.
+
+From my knowledge, Titan has a mass of approximately \( 1.35 \times 10^{19} \, \text{kg} \) and a radius of about \( 2550 \, \text{km} \) (or \( 2.55 \times 10^6 \, \text{m} \)).
+
+Plugging in these values:
+
+\[
+v_{\text{escape}} = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times 1.35 \times 10^{19}}{2.55 \times 10^6}} \approx \sqrt{\frac{1.85 \times 10^9}{2.55 \times 10^6}} \approx \sqrt{727} \approx 26.95 \, \text{m/s}
+\]
+
+To convert meters per second to kilometers per second:
+
+\[
+26.95 \, \text{m/s} = 0.02695 \, \text{km/s}
+\]
+
+So, the escape velocity from Titan's surface is approximately **0.027 km/s**."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,13,,8.45,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"To determine the escape velocity from Saturn's moon Titan, we can use the formula for escape velocity:
+
+\[
+v_{\text{escape}} = \sqrt{\frac{2GM}{r}}
+\]
+
+where:
+- \( G \) is the gravitational constant (\( 6.674 \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2} \)),
+- \( M \) is the mass of Titan,
+- \( r \) is the radius of Titan.
+
+First, I need the mass and radius of Titan. According to some sources, Titan has a mass of approximately \( 1.35 \times 10^{19} \, \text{kg} \) and a radius of about \( 25,200 \, \text{km} \) or \( 2.52 \times 10^7 \, \text{m} \).
+
+Plugging these values into the formula:
+
+\[
+v_{\text{escape}} = \sqrt{\frac{2 \times 6.674 \times 10^{-11} \times 1.35 \times 10^{19}}{2.52 \times 10^7}}
+\]
+
+Calculating the numerator:
+
+\[
+2 \times 6.674 \times 10^{-11} \times 1.35 \times 10^{19} = 1.800 \times 10^9
+\]
+
+Dividing by the radius:
+
+\[
+\frac{1.800 \times 10^9}{2.52 \times 10^7} = 71.43
+\]
+
+Taking the square root:
+
+\[
+v_{\text{escape}} = \sqrt{71.43} \approx 8.45 \, \text{km/s}
+\]
+
+So, the escape velocity from Titan is approximately **8.45 km/s**."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,14,,11.16,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,The escape velocity from the surface of Saturn's moon Titan is approximately **11.16 km/s**. This value takes into account the gravitational pull of Titan and its orbital mechanics.
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,15,,13.2,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,The escape velocity from the surface of Saturn's moon Titan is approximately **13.2 kilometers per second**.
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,16,,1.36,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Saturn's moon Titan is approximately **13.4 km/s**. This value is derived from the moon's gravitational acceleration at its surface, which is about 1.36 m/s², and the formula for escape velocity, which involves the square root of twice the gravitational acceleration multiplied by the radius of the object."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,17,,6.1,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The escape velocity from the surface of Titan, one of Saturn's moons, is approximately 6.1 kilometers per second. This value is derived from the gravitational potential at the surface of Titan, taking into account its mass and radius."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,18,,6.2,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,The escape velocity from the surface of Titan is approximately 6.2 kilometers per second.
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,19,,6.1,,0,False,False,screen|r1-distill-qwen-1.5b|C2-026|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,The escape velocity from the surface of Titan is approximately 6.1 kilometers per second. This value takes into account Titan's gravitational field and its radius.

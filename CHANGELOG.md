@@ -4,6 +4,20 @@ What changed in the pilot design and code, and why. The first question set and i
 as they were (`configs/pilot.yaml`, `data/items/`, `data/pilot/`), so earlier runs can still be
 reproduced.
 
+## Box-office answers in words, and an index of every question (2026-10-31)
+
+- **What happened:** the 2026 film questions ask for "million US dollars". When a reply wrote
+  "Estimate: $400 million", the parser multiplied by a million and saved 400,000,000. This hit
+  172 screening answers and 148 Study 2 answers of R1-Distill-Qwen-1.5B (Qwen3-32B wrote plain
+  numbers). The reports already corrected it by hand; the code did not.
+- **Fix** (code only): `parse_estimate` takes the question's unit; when the unit is already in
+  thousands, millions or billions, a scale word on the Estimate line is converted into that unit
+  ("$400 million" = 400, "$1.2 billion" = 1,200). Every new record also stores `unit`.
+  Saved data is not rewritten.
+- **Index:** `scripts/build_index.py` writes `index/`: every question with its set, source and
+  the experiments that asked it, and every answer per question with the saved number and the number
+  re-read with today's rules (`estimate_checked`).
+
 ## Replies without an "Estimate:" line are no answer (2026-10-30, before Study 1 v2)
 
 - **What happened:** in pilot run 1, R1-Distill-Qwen-1.5B with thinking off left out the

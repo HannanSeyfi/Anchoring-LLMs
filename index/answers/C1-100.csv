@@ -1,0 +1,141 @@
+experiment,model,phase,thinking_level,thinking_budget,anchor,direction,distance,precision,start_source,instruction,sample,comparison,estimate_saved,estimate_checked,thinking_tokens,thinking_cut_off,answer_cut_off,cell_id,raw_file,answer
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,0,,60,60,456,False,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,1,,60,60,454,False,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,2,,60,60,482,False,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,3,,60,60,512,True,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,4,,60,60,402,False,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,5,,60,60,470,False,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,6,,60,60,484,False,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,7,,60,60,512,True,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,8,,60,60,512,True,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,9,,60,60,434,False,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,10,,60,60,500,False,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,11,,60,60,489,False,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,12,,60,60,512,True,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,13,,60,60,512,True,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,14,,60,60,409,False,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,15,,60,60,455,False,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,16,,60,60,362,False,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,17,,60,60,512,True,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,18,,60,60,368,False,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,19,,60,60,512,True,False,screen|qwen3-32b|C1-100|low,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,Estimate: 60
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,0,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (*Capra hircus*) typically have 60 chromosomes in each body (somatic) cell.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,1,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (Capra hircus) typically have 60 chromosomes in each body (somatic) cell.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,2,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (Capra hircus) typically have a diploid chromosome number of 60 in each body cell.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,3,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (Capra hircus) typically have 60 chromosomes in each body cell.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,4,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (Capra aegagrus hircus) typically have 60 chromosomes in each body cell.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,5,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (Capra hircus) typically have a diploid chromosome number of 60 in each body cell.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,6,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (*Capra hircus*) typically have 60 chromosomes in each body (somatic) cell.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,7,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (*Capra hircus*) typically have 60 chromosomes in each body (somatic) cell.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,8,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (Capra hircus) typically have 60 chromosomes in each body cell. This number is well-established in standard genetic references for the species.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,9,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (Capra hircus) typically have 60 chromosomes in each body (somatic) cell. This includes 58 autosomes and 2 sex chromosomes.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,10,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (*Capra hircus*) typically have a diploid chromosome number of 60 in each body cell.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,11,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (Capra hircus) typically have 60 chromosomes in each body (somatic) cell.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,12,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (*Capra hircus*) typically have 60 chromosomes in each body (somatic) cell.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,13,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (Capra hircus) typically have 60 chromosomes in each body (somatic) cell.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,14,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (Capra aegagrus hircus) typically have 60 chromosomes in each body (somatic) cell.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,15,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (*Capra hircus*) typically have a diploid chromosome number of 60 in each body (somatic) cell. This means they have 30 pairs of chromosomes.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,16,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (*Capra hircus*) typically have 60 chromosomes in each body (somatic) cell.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,17,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (*Capra hircus*) typically have a diploid chromosome number of 60 in each body (somatic) cell.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,18,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (*Capra hircus*) typically have 60 chromosomes in each body (somatic) cell.
+
+Estimate: 60"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,19,,60,60,0,False,False,screen|qwen3-32b|C1-100|off,data/screen_v2/raw/qwen3-32b/study1/part-0004-20261026T132920Z.jsonl.gz,"Domestic goats (Capra hircus) typically have 60 chromosomes in each body (somatic) cell.
+
+Estimate: 60"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,0,,46,46,383,False,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Estimate: 46
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,1,,46,46,512,True,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Estimate: 46
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,2,,46,46,512,True,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Estimate: 46
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,3,,43,43,485,False,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Estimate: 43
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,4,,42,42,512,True,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"Estimate: 42
+
+Wait, that can't be right. Wait, I'm mixing up the numbers. Let me clarify.
+
+Each hominin, including humans, has 23 pairs of chromosomes, totaling 46. So, each body cell in a human has 46 chromosomes.
+
+For goats, since they have three sets of chromosomes, each set would have 16 chromosomes, but that doesn't add up. Wait, no, that's not correct. Humans have 23 pairs, which is 46. For goats, which are hominids, they have three sets, so each set would have 16 chromosomes, making 48 in total. But that's impossible because humans have 46. So, I must be making a mistake.
+
+Wait, no, that's not right. Goats have three sets of chromosomes, each with 16, totaling 48, but that's incorrect. Humans have 46, which is 23 pairs. So, goats must have three sets, but that's not possible. Wait, perhaps each set is 16, but that adds up to 48, which is impossible. Therefore, goats have four sets of chromosomes, totaling 64, but that's even more incorrect.
+
+I think I'm confusing the structure. Humans have three sets, but each set is 16, making 48, which is incorrect. So, the correct number is 42 chromosomes in each body cell of a goat. Wait, but that's 21 pairs, which is possible. So, perhaps each set is 14 chromosomes, totaling 42. That makes more sense.
+
+Wait, no, that's not correct. Humans have 46 chromosomes, which is 23 pairs. So, for goats, with three sets, each set would be 15.333, which is impossible. Therefore, the correct number is 42, which is 21 pairs, making 42 chromosomes in each body cell of a goat.
+
+But I'm getting confused. Let me think again. Humans have 46 chromosomes, which is 23 pairs. Goats, being hominids, have three sets of chromosomes. So, each set would have 16 chromosomes, totaling 48, which is impossible. Therefore, goats have four sets of chromosomes, totaling 64, which is incorrect.
+
+Wait, I'm overcomplicating. The correct number is that each body cell in a goat has 42 chromosomes. So, the final answer is:
+
+Estimate: 42"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,5,,46,46,287,False,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Estimate: 46
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,6,,46,46,215,False,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Estimate: 46
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,7,,29,29,512,True,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Estimate: 29
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,8,,46,46,482,False,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Estimate: 46
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,9,,46,46,512,True,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Estimate: 46
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,10,,46,46,512,True,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Estimate: 46
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,11,,46,46,512,True,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Estimate: 46
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,12,,46,46,512,True,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Estimate: 46
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,13,,42,42,512,True,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Estimate: 42
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,14,,46,46,512,True,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Estimate: 46
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,15,,44,44,506,False,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Estimate: 44
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,16,,44,44,512,True,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Estimate: 44
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,17,,46,46,389,False,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"The domestic goat has 46 chromosomes in each body cell.
+
+Estimate: 46"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,18,,46,46,507,False,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Estimate: 46
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,19,,46,46,409,False,False,screen|r1-distill-qwen-1.5b|C1-100|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Estimate: 46
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,0,,46,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a cow, has 188,000 base pairs in its genome. This translates to 29 pairs of chromosomes (resulting in 29 chromosomes) in each body cell. The actual number of chromosomes in a cell is determined by the S phase of the cell cycle, which includes DNA replication. In humans, each body cell has 46 chromosomes, but for other mammals, it's typically 44 or 46."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,1,,18,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a bovine, has 18 chromosomes in each body cell. This is because a goat is a mammal, and according to the Spermatogonia primatae (SPG) classification, each body cell of an animal in this group contains 18 chromosomes. The number of chromosomes in the body cells is determined by the animal's sex. Females (paysans) have 18 chromosomes, while males (domcents) also have 18 chromosomes. This classification is based on the pigenogamous classification system."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,2,,18,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a cow, has 18 chromosomes in each body cell. This is because goats are mammalids, which means they have 18 pairs of chromosomes. Each pair consists of one homologous chromosome, and the presence of 18 pairs results in a total of 18 chromosomes."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,3,,38,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a cow, has 38 chromosomes in each body cell. This is because a cow is a mammal, and the number of chromosomes in most animals with a diploid number system (which cows use) is 38. This number is determined by the diploid state of the somatic cells, which means each body cell has two sets of chromosomes."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,4,,38,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a cow, has 38 chromosomes in each body cell. This is because a goat is a mammal, and according to the sex chromosome system, males (hearts, wings, tails) have an extra X chromosome, making their body cells 39, while females (lungs, liver, pancreas) have two X chromosomes, making their body cells 38. This system is consistent across most mammals."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,5,,14,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a heifer, typically has 14 chromosomes in each body cell. This is because a goat is a mammal with a diploid number of chromosomes, which means each body cell contains two copies of each chromosome. The diploid number is 28 chromosomes (14 pairs) for a goat. This ensures that each animal has a balanced number of chromosomes for development and reproduction."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,6,,38,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a cow, has 38 chromosomes in each body cell. This number is derived from the diploid state of cows, which have two sets of each chromosome (2n = 38). This is consistent across all of its body cells, whether it's in the egg cells, sperm cells, or the body cells of the embryo or adult cow."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,7,,12,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,Each body cell in a domestic goat contains 12 chromosomes.
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,8,,14,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a heifer, typically has 14 chromosomes in its body cells. This is because goats are diploid animals, meaning they have two sets of chromosomes. However, since they are not sex cells, they do not have a separate set of chromosomes for sex determination. Therefore, each body cell contains 14 chromosomes: 7 pairs, resulting in a total of 14 chromosomes."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,9,,,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a cow, has a body composed of four sets of chromosomes. In humans, for example, we have four sets of chromosomes to account for our ability to recognize and distinguish between different individuals. Applying this principle, a domestic goat has four sets of chromosomes."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,10,,18,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a bovine, has 18 chromosomes in each body cell. This is because it is a diploid organism with two sets of chromosomes for each of the 18 chromosomes in the somatic (body) cells."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,11,,82,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a cow, typically has 82 chromosomes in each body cell. This is because goats are classified as mammals, and most mammals have 46 chromosomes in their somatic cells. However, due to the development of new genetic information, some animals have a specific number of chromosomes in their somatic cells. For example, humans have 46 chromosomes, while chickens have 82 chromosomes. Therefore, a domestic goat has 82 chromosomes in each body cell."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,12,,41,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a cow, typically has 82 chromosomes in each body cell. This includes 41 pairs of homologous chromosomes, which is the standard diploid state for mammals, including cows."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,13,,18,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a cow, has 18 chromosomes in each body cell. This is because a cow belongs to the order Sheeps, and according to the commonly accepted classification, the common name for a cow is ""capybara,"" and it has 18 chromosomes."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,14,,46,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a cow, typically has 18 chromosomes in each body cell. This is because they are diploid, meaning each body cell contains two sets of chromosomes. The human 46 chromosomes are an example of a diploid organism with two sets of homologous chromosomes."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,15,,8,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a cow, has 16 chromosomes in each body cell. This includes 8 pairs of homologous chromosomes."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,16,,38,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a cow, has 38 chromosomes in each body cell. This number is determined by the S phase of the cell cycle, where each chromosome condenses into a tetrad during interphase. The final estimate is 38 chromosomes."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,17,,128,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a cow, typically has 128 chromosomes in each body cell. This is because they are diploid animals, meaning they have two sets of chromosomes for each gene. Each body cell contains 64 pairs, resulting in a total of 128 chromosomes."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,18,,128,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a cow, typically has 128 chromosomes in each body cell. This number is based on the diploid state of cows, which have two sets of chromosomes for each of the 64 genes. Each body cell contains 64 pairs, resulting in a total of 128 chromosomes."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,19,,142,,0,False,False,screen|r1-distill-qwen-1.5b|C1-100|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study1/part-0004-20261026T125128Z.jsonl.gz,"A domestic goat, also known as a cow, typically has 143 chromosomes in each body cell. This is because a cow is a member of the Holstein subfamily of Holsteins, which are generally larger than average Holsteins but smaller than average Guernsey or departmentals. The 143 chromosome count is common for bovine species and is maintained through mated mules, which carry 142 chromosomes."

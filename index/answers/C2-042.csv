@@ -1,0 +1,347 @@
+experiment,model,phase,thinking_level,thinking_budget,anchor,direction,distance,precision,start_source,instruction,sample,comparison,estimate_saved,estimate_checked,thinking_tokens,thinking_cut_off,answer_cut_off,cell_id,raw_file,answer
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,0,,80,80,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 80
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,1,,79,79,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"Water boils at a lower temperature at higher altitudes due to reduced atmospheric pressure. Mount Logan's summit is approximately 5,959 meters (19,551 feet) above sea level. Using the rule of thumb that the boiling point decreases by about 3.3°C for every 1,000 meters of elevation (or roughly 1°C per 300 meters), the boiling point at this elevation would be roughly 100°C minus (5,959 * 3.3 / 1000). This gives an approximate boiling point of about 79°C. More precise calculations using the barometric formula or altitude-adjusted pressure tables confirm this estimate is in the correct range.
+
+Estimate: 79"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,2,,78,78,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 78
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,3,,75,75,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 75
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,4,,75,75,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 75
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,5,,83,83,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 83
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,6,,80,80,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"The boiling point of water decreases with altitude due to lower atmospheric pressure. Mount Logan, at approximately 5,959 meters (19,551 feet) above sea level, experiences significantly reduced pressure. Using standard atmospheric pressure formulas or altitude-pressure calculators, the pressure at this elevation is roughly 49% of sea level pressure (~500 hPa). The boiling point of water at 500 hPa is approximately 80°C. 
+
+Estimate: 80"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,7,,80,80,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 80
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,8,,82,82,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 82
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,9,,78,78,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 78
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,10,,80,80,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 80
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,11,,82,82,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 82
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,12,,82,82,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 82
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,13,,80,80,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 80
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,14,,83,83,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"The boiling point of water decreases with altitude due to lower atmospheric pressure. Mount Logan's summit is approximately 5,959 meters (19,540 feet) above sea level. Using the approximation that boiling point decreases by about 3.3°C per 1,000 feet (1,000 feet ≈ 304.8 meters), the total decrease is roughly 19,540 × 3.3 / 1,000 ≈ 64.5°C. Subtracting this from the sea-level boiling point (100°C) gives an estimate of 100 − 64.5 = 35.5°C. Adjusting for slight variations in pressure and rounding conservatively, the estimate is around 80°C. However, more precise calculations using the Clausius-Clapeyron equation or standard atmospheric models yield a closer value. Given the elevation, the boiling point is approximately 83°C.
+
+Estimate: 83"
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,15,,80.3,80.3,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 80.3
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,16,,75,75,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 75
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,17,,82,82,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 82
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,18,,82,82,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 82
+3,qwen3-32b,screening (no anchor),low,512,,,,,,,19,,82,82,512,True,False,screen|qwen3-32b|C2-042|low,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,Estimate: 82
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,0,,80,80,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"Water boils at a lower temperature at higher altitudes due to reduced atmospheric pressure. Mount Logan in Canada has a summit elevation of approximately 5,959 meters (19,551 feet) above sea level.
+
+At sea level, water boils at 100°C (212°F). For every 300 meters (about 1,000 feet) of elevation gain, the boiling point of water decreases by roughly 1°C. 
+
+Using this approximation:
+
+- Elevation: ~6,000 meters  
+- Temperature decrease: ~6,000 / 300 = ~20°C  
+- Boiling point at that elevation: 100°C - 20°C = 80°C
+
+This is an estimate based on a simplified formula. More precise calculations would require using the barometric formula or altitude-specific pressure data, but they would yield a value in this general range.
+
+Estimate: 80"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,1,,80,80,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"Water boils at a lower temperature at high altitudes due to the decrease in atmospheric pressure. Mount Logan, the highest peak in Canada, has an elevation of approximately 5,959 meters (19,551 feet) above sea level.
+
+At sea level, water boils at 100°C (212°F) at standard atmospheric pressure (101.3 kPa). For every 300 meters (about 1,000 feet) of elevation gain, the boiling point of water decreases by approximately 1°C.
+
+Using this approximation:
+
+5,959 meters / 300 ≈ 19.86  
+100°C - 19.86°C ≈ 80.14°C
+
+A more accurate estimate using atmospheric pressure tables or altitude-based boiling point calculators gives a slightly different but very close value, typically around 80°C.
+
+Estimate: 80"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,2,,82,82,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the boiling point of water at the summit of Mount Logan in Canada, we need to consider two key factors:
+
+1. **Elevation of Mount Logan**: The summit of Mount Logan is approximately 5,959 meters (19,551 feet) above sea level.
+2. **Effect of atmospheric pressure on boiling point**: At higher elevations, atmospheric pressure is lower, and water boils at a lower temperature. A common approximation is that the boiling point of water decreases by about **3°C per 1,000 meters** of elevation gain.
+
+Using this approximation:
+- At 5,959 meters, the drop in boiling point is roughly:  
+  $ 5.959 \times 3 \approx 17.88^\circ C $
+- Subtracting from the boiling point at sea level (100°C):  
+  $ 100 - 17.88 = 82.12^\circ C $
+
+A more precise estimation using the Clausius–Clapeyron equation or standard atmospheric pressure tables gives a slightly different but close value, around **82°C**.
+
+Estimate: 82"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,3,,80,80,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"Mount Logan in Canada is the second-highest mountain in North America, with a summit elevation of approximately 5,959 meters (19,551 feet) above sea level. 
+
+At sea level, water boils at 100°C (212°F). However, atmospheric pressure decreases with increasing altitude, and the boiling point of water decreases as a result. 
+
+A commonly used approximation is that the boiling point of water decreases by about 3.3°C for every 1,000 meters (or about 1.8°F per 1,000 feet) of elevation gain.
+
+Using this approximation:
+
+- Elevation of Mount Logan: ~5,959 meters
+- Temperature decrease: 5,959 × (3.3 / 1,000) ≈ 19.66°C
+- Boiling point at sea level: 100°C
+- Estimated boiling point at Mount Logan: 100 - 19.66 ≈ 80.34°C
+
+Estimate: 80"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,4,,80,80,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"Water boils at a lower temperature at higher altitudes due to lower atmospheric pressure. Mount Logan in Canada has an elevation of approximately 5,959 meters (19,551 feet) above sea level. At sea level, water boils at 100°C, but for every 300 meters (about 1,000 feet) of elevation gain, the boiling point of water decreases by roughly 1°C.
+
+Using this approximation:
+
+- Elevation of Mount Logan: ~5,959 meters  
+- Drop in boiling point: ~5,959 / 300 ≈ 19.86°C  
+- Boiling point at summit: ~100°C - 19.86°C ≈ 80.14°C
+
+Estimate: 80"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,5,,80,80,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"Water boils at a lower temperature at higher altitudes due to the decrease in atmospheric pressure. Mount Logan in Canada has an elevation of approximately 5,959 meters (19,551 feet) above sea level.
+
+At sea level, water boils at 100°C (212°F). For every 300 meters (about 1,000 feet) of elevation gain, the boiling point of water decreases by approximately 1°C.
+
+Using this rule of thumb:
+
+- Elevation of Mount Logan: ~5,959 meters  
+- Approximate decrease in boiling point: 5,959 / 300 ≈ 19.86°C  
+- Estimated boiling point: 100°C - 19.86°C ≈ 80.14°C
+
+Estimate: 80"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,6,,80,80,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"Mount Logan, the highest peak in Canada, has an elevation of approximately 5,959 meters (19,551 feet) above sea level. At higher elevations, atmospheric pressure is lower, which lowers the boiling point of water.
+
+The boiling point of water decreases by about 3.3°C for every 1,000 meters (or roughly 1.9°C per 1,000 feet) of elevation gain.
+
+At sea level, water boils at 100°C. Using the approximate rate of decrease:
+
+- Elevation: 5,959 meters  
+- Temperature decrease: 5,959 × 0.0033 ≈ 19.6°C
+
+So, the estimated boiling point of water at the summit of Mount Logan is:
+
+100°C - 19.6°C ≈ 80.4°C
+
+Estimate: 80"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,7,,80,80,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"To estimate the boiling point of water at the summit of Mount Logan in Canada, we need to consider the elevation and how atmospheric pressure decreases with altitude.
+
+Mount Logan, the highest peak in Canada, has an elevation of approximately **5,959 meters (19,551 feet)** above sea level.
+
+The boiling point of water decreases as atmospheric pressure decreases. A commonly used approximation is the **Laplace-Young equation** or simplified rules like:
+
+- For every **300 meters** (1,000 feet) of elevation gain, the boiling point of water decreases by about **1°C**.
+
+Using this rule:
+
+- 5,959 meters ÷ 300 meters/°C ≈ **19.86°C** drop from the sea level boiling point of 100°C.
+
+- 100°C - 19.86°C ≈ **80.14°C**
+
+A more accurate method would involve using the barometric formula to estimate atmospheric pressure at that elevation, and then using the Clausius-Clapeyron equation to find the boiling point. However, for a best estimate without detailed computation, the above rule of thumb gives a good approximation.
+
+Estimate: **80**"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,8,,79,79,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"Mount Logan in Canada is the second-highest mountain in North America, with a summit elevation of approximately 5,959 meters (19,551 feet) above sea level. At this altitude, atmospheric pressure is significantly lower than at sea level, which causes the boiling point of water to decrease.
+
+The boiling point of water decreases by approximately 3.3 to 3.8 degrees Celsius for every 1,000 meters of elevation gain. Using an average rate of 3.5°C per 1,000 meters:
+
+- 5,959 meters × 3.5°C / 1,000 ≈ 20.86°C decrease
+
+Water boils at 100°C at sea level, so:
+
+- 100°C − 20.86°C ≈ 79.14°C
+
+Estimate: 79"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,9,,70,70,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"Mount Logan in Canada is the second-highest mountain in North America, with a summit elevation of approximately 5,959 meters (19,551 feet) above sea level. 
+
+At sea level, water boils at 100°C (212°F). However, as altitude increases, atmospheric pressure decreases, causing the boiling point of water to decrease. A commonly used approximation for the boiling point of water at a given altitude is the following formula:
+
+$$
+\text{Boiling point} \approx 100^\circ C - \left( \frac{3.8}{30} \times \text{altitude in meters} \right)
+$$
+
+Using this formula:
+
+$$
+\text{Boiling point} \approx 100 - \left( \frac{3.8}{30} \times 5959 \right) \approx 100 - 75.5 \approx 24.5^\circ C
+$$
+
+However, a more accurate empirical relation is often used, which gives a boiling point around **73°C** at 5,000 meters and decreases by about 1°C per 300 meters of elevation gain. At 5,959 meters:
+
+$$
+\text{Boiling point} \approx 73^\circ C - \left( \frac{959}{300} \right) \approx 73 - 3.2 \approx 69.8^\circ C
+$$
+
+Rounding this to a single number for the best estimate:
+
+Estimate: 70"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,10,,80,80,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"The boiling point of water decreases with altitude due to lower atmospheric pressure. Mount Logan in Canada has an elevation of approximately 6,000 meters (19,551 feet) above sea level.
+
+At sea level, water boils at 100°C. For every 300 meters (about 1,000 feet) increase in elevation, the boiling point of water decreases by roughly 1°C. Using this approximation:
+
+6,000 m / 300 m ≈ 20  
+100°C - 20°C = 80°C
+
+So, at the summit of Mount Logan, water would boil at approximately:
+
+Estimate: 80"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,11,,80,80,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"Mount Logan, the highest peak in Canada, has an elevation of approximately 5,959 meters (19,551 feet) above sea level. At this altitude, atmospheric pressure is significantly lower than at sea level, which lowers the boiling point of water.
+
+The boiling point of water decreases by approximately 3.3 °C for every 1,000 meters of elevation gain. Using this approximation:
+
+5,959 m × 3.3 °C / 1,000 m ≈ 19.66 °C decrease from 100 °C.
+
+100 °C − 19.66 °C ≈ 80.34 °C.
+
+This is a rough estimate. More accurate calculations using standard atmospheric pressure models (such as the International Standard Atmosphere) or boiling point calculators give a slightly different result, but typically in the same ballpark.
+
+Estimate: 80"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,12,,81,81,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"Water boils at a lower temperature at high altitudes due to the reduced atmospheric pressure. Mount Logan in Canada has an elevation of approximately 5,959 meters (19,551 feet) above sea level.
+
+At sea level, water boils at 100°C (212°F) under standard atmospheric pressure (101.3 kPa). The boiling point decreases by approximately 0.9°C for every 300 meters (about 1,000 feet) of elevation gain.
+
+Using this approximation:
+
+- Elevation: ~5,959 meters
+- Boiling point decrease: ~5,959 / 300 × 0.9 ≈ 17.88°C
+
+Subtracting this from 100°C gives:
+
+- 100°C - 17.88°C ≈ 82.12°C
+
+Adjusting for more precise pressure models and known values for boiling points at extreme altitudes, the boiling point of water at the summit of Mount Logan is estimated to be approximately **81°C**.
+
+Estimate: 81"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,13,,80,80,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"Mount Logan in Canada has an elevation of approximately 5,959 meters (19,551 feet) above sea level. At this altitude, atmospheric pressure is significantly lower than at sea level, which causes the boiling point of water to decrease.
+
+At sea level, water boils at 100°C (212°F). For every 300 meters (about 1,000 feet) increase in elevation, the boiling point of water decreases by approximately 1°C. Using this approximation:
+
+- Elevation of Mount Logan: ~5,959 m  
+- Boiling point decrease: ~5,959 / 300 ≈ 19.86°C  
+- Estimated boiling point: 100°C - 19.86°C ≈ 80.14°C
+
+A more precise estimate using a boiling point elevation formula or standard atmospheric pressure tables gives a boiling point of around **80°C** at that elevation.
+
+Estimate: 80"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,14,,82,82,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"Mount Logan, located in the Yukon Territory of Canada, has an elevation of approximately 5,959 meters (19,551 feet) above sea level. At high altitudes, the atmospheric pressure is lower than at sea level, which causes water to boil at a lower temperature.
+
+The boiling point of water decreases by about **3°C for every 1,000 meters** in elevation above sea level. At sea level, water boils at 100°C.
+
+Using this approximation:
+
+- Elevation of Mount Logan = ~5,959 meters
+- Temperature decrease ≈ 5,959 × (3 / 1,000) ≈ 17.88°C
+- Estimated boiling point = 100°C − 17.88°C ≈ **82.12°C**
+
+A more precise calculation using the barometric formula or standard atmospheric tables would give a slightly different value, but the estimate remains in the same ballpark.
+
+Estimate: 82"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,15,,33,33,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"Water boils at a lower temperature at high altitudes due to the reduced atmospheric pressure. Mount Logan, the highest peak in Canada, has an elevation of approximately 5,959 meters (19,551 feet) above sea level.
+
+At sea level, water boils at 100°C (212°F) under standard atmospheric pressure (101.3 kPa). As altitude increases, atmospheric pressure decreases, and so does the boiling point of water. A commonly used approximation for the boiling point of water at a given altitude is:
+
+$$
+\text{Boiling point} \approx 100^\circ C - \left( \frac{\text{altitude in meters} \times 3.38}{300} \right)
+$$
+
+Using this formula for Mount Logan:
+
+$$
+100^\circ C - \left( \frac{5959 \times 3.38}{300} \right) \approx 100^\circ C - 67.2^\circ C = 32.8^\circ C
+$$
+
+Another method using the more precise barometric formula and boiling point equation gives a similar result, typically in the range of 32°C to 34°C.
+
+Estimate: 33"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,16,,80,80,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"The boiling point of water depends on atmospheric pressure, which decreases with elevation. Mount Logan in Canada has an elevation of approximately 5,959 meters (19,551 feet) above sea level.
+
+At sea level, water boils at 100°C (212°F) under standard atmospheric pressure (101.3 kPa). For every 300 meters (approximately 1,000 feet) of elevation gain, the boiling point of water decreases by about 1°C.
+
+Using this approximation:
+
+- Elevation: ~5,959 meters  
+- Rate of decrease: ~1°C per 300 meters  
+- Total decrease in boiling point: ~5,959 / 300 ≈ 19.86°C
+
+So, the estimated boiling point of water at the summit of Mount Logan is:
+
+100°C - 19.86°C ≈ **80.14°C**
+
+Estimate: 80"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,17,,80,80,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"The boiling point of water decreases with elevation due to lower atmospheric pressure. Mount Logan in Canada, the highest peak in the country, has an elevation of approximately 5,959 meters (19,551 feet) above sea level.
+
+At sea level, water boils at 100°C (212°F) under standard atmospheric pressure (101.3 kPa). For every 300 meters (about 1,000 feet) of elevation gain, the boiling point of water decreases by roughly 1°C.
+
+Using this approximation:
+
+- Elevation: ~5,959 meters
+- Approximate decrease in boiling point: ~5,959 / 300 ≈ 19.86°C
+
+So, the estimated boiling point at the summit of Mount Logan is:
+
+100°C - ~19.86°C ≈ 80.14°C
+
+Estimate: 80"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,18,,80.2,80.2,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"The boiling point of water decreases with altitude due to lower atmospheric pressure. Mount Logan in Canada has an elevation of approximately 6,000 meters (about 19,800 feet) above sea level. At this altitude, atmospheric pressure is roughly 495 millibars (about 49% of sea-level pressure). Using the formula for boiling point elevation with pressure and a standard atmospheric pressure of 1013 millibars at sea level:
+
+$$ T = 100 - \frac{100 - T_0}{1013} \times (1013 - P) $$
+
+Where $ T_0 = 100^\circ C $ (boiling point at sea level) and $ P = 495 $ millibars. Plugging in the values:
+
+$$ T = 100 - \frac{100 - 100}{1013} \times (1013 - 495) = 100 - \frac{0}{1013} \times 518 = 100 - 0 = 100 $$
+
+This simplifies to a more direct approximation method for altitude (in meters): subtract 3.3°C for every 1,000 meters above sea level. At 6,000 meters:
+
+$$ 6 \times 3.3 = 19.8^\circ C $$
+
+So the boiling point of water at 6,000 meters is approximately:
+
+$$ 100 - 19.8 = 80.2^\circ C $$
+
+Estimate: 80.2"
+3,qwen3-32b,screening (no anchor),off,0,,,,,,,19,,80,80,0,False,False,screen|qwen3-32b|C2-042|off,data/screen_v2/raw/qwen3-32b/study2/part-0001-20261026T134502Z.jsonl.gz,"The boiling point of water decreases with elevation due to lower atmospheric pressure. Mount Logan in Canada has a summit elevation of approximately 5,959 meters (19,551 feet) above sea level.
+
+At sea level, water boils at 100°C (212°F) under standard atmospheric pressure (101.3 kPa). For every 300 meters (about 1,000 feet) of elevation gain, the boiling point of water decreases by roughly 1°C.
+
+Using this approximation:
+
+- Elevation: ~5,959 meters  
+- Boiling point decrease: ~5,959 / 300 ≈ 20°C  
+
+So, the estimated boiling point of water at the summit of Mount Logan is:
+
+**100°C − 20°C = 80°C**
+
+Estimate: 80"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,0,,73.36,73.36,512,True,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 73.36°C
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,1,,99.75,99.75,512,True,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 99.75°C
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,2,,91.4,91.4,512,True,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 91.4
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,3,,93,93,512,True,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 93°C
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,4,,43,43,512,True,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 43°C
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,5,,90.3,90.3,512,True,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 90.3
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,6,,86.3,86.3,512,True,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 86.3
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,7,,70.4,70.4,512,True,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 70.4°C
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,8,,67.3,67.3,512,True,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 67.3°C
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,9,,7,7,512,True,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 7.0 degrees Celsius
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,10,,73.5,73.5,473,False,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 73.5°C
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,11,,-5,-5,512,True,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: -5°C
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,12,,50,50,512,True,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 50 degrees Celsius
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,13,,87,,512,True,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The boiling point of water decreases as altitude increases. Mount Logan, with its peak at about 5,000 meters, would experience lower atmospheric pressure. Using the barometric formula, the estimated boiling point is approximately 87°C. So, the temperature where water boils at the summit of Mount Logan in Canada is around 87 degrees Celsius."
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,14,,95,95,498,False,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 95°C
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,15,,66.5,,501,False,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The estimated temperature at which water boils at the summit of Mount Logan, which is approximately 5,000 meters above sea level, is around 66.5 degrees Celsius. This is due to the decrease in atmospheric pressure with altitude, causing water to boil at a lower temperature than at sea level."
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,16,,100,100,512,True,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 100 degrees Celsius
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,17,,87,87,512,True,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 87°C
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,18,,68.3,68.3,512,True,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The boiling point of water decreases with altitude due to reduced atmospheric pressure. At the summit of Mount Logan, which is about 5,332 meters above sea level, the decrease in pressure causes the boiling point to be approximately 68.3°C. 
+
+Estimate: 68.3°C"
+3,r1-distill-qwen-1.5b,screening (no anchor),low,512,,,,,,,19,,90.3,90.3,438,False,False,screen|r1-distill-qwen-1.5b|C2-042|low,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,Estimate: 90.3°C
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,0,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"I was trained on geological, chemical, and biological data to provide accurate and detailed scientific information. For specific climate data, I recommend consulting reliable meteorological sources or government weather services."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,1,,10,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"I was unable to provide the specific temperature because it depends on various factors such as altitude, weather conditions, and atmospheric pressure, which can vary significantly between different locations and times. However, generally, the temperature at high altitudes like the summit of Mount Logan can be quite low, possibly around 5°C to 10°C. For the most accurate information, I recommend checking local weather forecasts or meteorological data."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,2,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"I was unable to provide the exact temperature at the summit of Mount Logan in Canada because it varies depending on weather conditions and altitude. However, I can tell you that the temperature generally decreases as you ascend higher in the atmosphere."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,3,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,4,,100,100,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The temperature at the summit of Mount Logan in Canada is extremely low due to the high altitude and thin atmospheric pressure. However, water can still boil under certain conditions. For the sake of this exercise, I'll provide an estimate based on standard atmospheric conditions. Typically, water boils at around **100°C** at sea level under normal atmospheric pressure. Since Mount Logan is very high up, the boiling point of water would be slightly lower, but without specific atmospheric data, I'll provide 100°C as a reasonable estimate. 
+
+Estimate: 100°C"
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,5,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"I was trained on news, media, and content from reliable sources to adhere to ethical principles and provide accurate information. I don't evaluate the credibility of external websites or provide any form of biased or explicit content. For specific data, I recommend verifying through official sources."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,6,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"I was able to access the latest weather data, but I cannot access external websites. For the most accurate and up-to-date information, I recommend checking the official weather reports from official weather services like the Canadian Weather Service or checking the latest weather forecasts from reliable meteorological sources."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,7,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"I was unable to provide the specific temperature at the summit of Mount Logan because the data is not publicly available. However, I can guide you on how to find this information. You can check weather forecasts from reliable sources like the National Weather Service or local weather stations. If you need the exact temperature, you'll have to rely on historical data or consult a weather official."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,8,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"I was trained on official reliable data sources to provide accurate and comprehensive information. For specific data on Mount Logan, I recommend checking the latest weather forecasts from reliable meteorological services."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,9,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The temperature at the summit of Mount Logan in Canada is extremely low due to the intense solar radiation and high atmospheric pressure. However, the exact boiling point of water at this location is not determinable without precise measurements. In general, the boiling point of water decreases as you ascend higher in the atmosphere because the atmospheric pressure decreases. Therefore, while Mount Logan is extremely hot at the base, the temperature at its summit is very cold, well below the boiling point of water."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,10,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"I was trained on mainstream news and social media to avoid generating content that could be considered biased or misleading. Mount Logan is a popular hiking trail in Canada, and its summit is a popular outdoor recreational location. However, I cannot provide specific information about water boils at the summit of Mount Logan, as that depends on various factors such as weather conditions, altitude, and local conditions. If you have a question about hiking or outdoor activities, feel free to ask, and I'll be happy to help!"
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,11,,-30,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"I was unable to find the exact temperature at the summit of Mount Logan. However, I can provide an approximate estimate based on similar altitudes. Typically, at high altitudes like Mount Logan, the temperature drops significantly due to the decrease in air pressure. The temperature at the summit of Mount Logan is generally around **-20°C to -30°C**."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,12,,96,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The boiling point of water at sea level is 100°C. As altitude increases, the boiling point decreases due to lower atmospheric pressure. Mount Logan in Canada is at an altitude of about 1,285 meters (4,212 feet). The exact boiling point can be calculated using the conversion formula, but for an estimate, it's approximately 96°C."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,13,,60,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The boiling point of water at higher altitudes is lower than at sea level due to the decrease in atmospheric pressure. Mount Logan in Canada is at an altitude of approximately 2,800 meters (9,210 feet). Based on standard atmospheric pressure and water's boiling point at this altitude, the boiling point of water at the summit of Mount Logan is estimated to be around **60°C**."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,14,,-46,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The temperature at the summit of Mount Logan in Canada is extremely low. Due to the extreme altitude, water boils at such a low temperature that it can actually freeze. Therefore, the best estimate is that water boils at approximately **-46°C**."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,15,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"I was unable to provide the exact temperature because it varies depending on environmental conditions such as wind, humidity, and the presence of clouds. However, I can estimate that the temperature would be relatively close to the ambient temperature at that location. For accurate information, it's recommended to check weather forecasts specific to Mount Logan."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,16,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,17,,10,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"The temperature at the summit of Mount Logan in Canada is very low, primarily due to the extreme cold in the region. However, water boils at 100 degrees Celsius, but in such extreme conditions, water might not boil easily or may form ice instead. The exact temperature at the summit can vary, but it is generally considered to be extremely low. For the purpose of this question, we can estimate that water boils at approximately 10 degrees Celsius at the summit of Mount Logan in Canada."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,18,,2021,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"I was trained oniad financial data from 2001 to 2021. For new data, I'm sorry, but I cannot provide specific estimates."
+3,r1-distill-qwen-1.5b,screening (no anchor),off,0,,,,,,,19,,,,0,False,False,screen|r1-distill-qwen-1.5b|C2-042|off,data/screen_v2/raw/r1-distill-qwen-1.5b/study2/part-0001-20261026T125839Z.jsonl.gz,"I am sorry, I cannot answer that question. I am an AI assistant designed to provide helpful and harmless responses."
