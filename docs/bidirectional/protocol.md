@@ -105,6 +105,14 @@ truth). Predictions: the obscure item moves towards the famous one in both direc
 famous item hardly moves; C4 with the famous item's value as a number moves the obscure item
 about as much as the item does, if the item anchor works through the value the model recalls.
 
+### Two partners per item (bidir-kp2)
+
+Added after the kp1 run, because every control condition moved the estimates by itself (see
+`CHANGELOG.md`). Each obscure item is compared once with a taller and once with a shorter famous
+item, e.g. Qutani (3,740 m) with Mount Elbrus (5,642 m) and with Mount Vesuvius (1,281 m). The effect is
+the estimate after the taller partner minus after the shorter one; anything a condition does by
+itself is the same on both sides and cancels. Settings in `configs/bidirectional_kp2.yaml`.
+
 ## Rules that keep it honest
 
 1. **No true value in any prompt.** Checked automatically for every trial (`validate.py`);

@@ -168,6 +168,16 @@ def frozen_path(cfg: dict) -> Path:
     return Path(cfg["paths"]["frozen_dir"]) / "pairs_frozen.csv"
 
 
+def _unknown_only(cfg: dict, trials: list[dict], pairs: pd.DataFrame) -> list[dict]:
+    """bidir-kp2 (`conditions.targets: unknown_only`): drop pair trials whose target is the famous item.
+
+    Baselines (B, B2) are kept for every entity."""
+    if cfg["conditions"].get("targets") != "unknown_only" or "known_entity_id" not in pairs:
+        return trials
+    known = dict(zip(pairs["pair_id"], pairs["known_entity_id"]))
+    return [t for t in trials if not (t.get("pair_id") and known.get(t["pair_id"]) == t["target_entity_id"])]
+
+
 def generate(cfg: dict, phase: str) -> list[dict]:
     paths = cfg["paths"]
     ents_df = pd.read_csv(paths["entities"], keep_default_na=False)
@@ -191,7 +201,7 @@ def generate(cfg: dict, phase: str) -> list[dict]:
             out += triplet_trials(cfg, t, ents, 1)
         for t in out:
             t["phase"] = "bank"
-        return out
+        return _unknown_only(cfg, out, pairs)
     fp = frozen_path(cfg)
     if not fp.exists():
         raise SystemExit(f"{fp} does not exist yet. Run the screening and "
@@ -212,12 +222,12 @@ def generate(cfg: dict, phase: str) -> list[dict]:
         for p in sel.to_dict("records"):
             if p["dataset"] != "young":       # no true value to use as an anchor
                 out += numeric_trials(cfg, p, ents, cfg["numeric"]["repetitions"], p["split"])
-        return out
+        return _unknown_only(cfg, out, sel)
     ids = list(sel["low_entity_id"]) + list(sel["high_entity_id"])
     out = entity_trials(cfg, phase, ents, ids, cond["baseline_repetitions"], cond["repetitions"])
     for p in sel.to_dict("records"):
         out += pair_trials(cfg, phase, p, ents, cond["repetitions"], controls, p["split"])
-    return out
+    return _unknown_only(cfg, out, sel)
 
 
 def write_trials(trials: list[dict], out_dir: Path, phase: str) -> Path:

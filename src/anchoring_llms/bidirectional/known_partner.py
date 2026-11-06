@@ -11,6 +11,8 @@ famous item is higher, down when it is lower); the famous item hardly moves.
 Sources: Wikidata, see data/bidirectional/raw_sources/known_partner/README.md.
 
     python -m anchoring_llms.bidirectional.known_partner          # entities, pairs, config paths
+    python -m anchoring_llms.bidirectional.known_partner --config configs/bidirectional_kp2.yaml
+                                                                  # bidir-kp2: two partners per item
 """
 
 from __future__ import annotations
@@ -127,13 +129,63 @@ def pairs(ents: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
+TWO_SIDED_MAX_USES = 8   # each obscure item takes two partners; few famous buildings are short enough, so 8
+TWO_SIDED_PER_DOMAIN = 28
+# Famous items the model did not know in the bidir-kp1 screening (baselines only): Mount Olympus
+# (Greece), baseline median 12% below its height. Left out so its pairs are not lost again.
+TWO_SIDED_EXCLUDE_FAMOUS = {"kp-Q80344"}
+
+
+def pairs_two_sided(ents: pd.DataFrame) -> pd.DataFrame:
+    """Design bidir-kp2: each obscure item gets one taller and one shorter famous partner.
+
+    The item effect is then the estimate after the taller partner minus after the shorter one, so
+    whatever a co-mention or a comparison does by itself is the same on both sides and cancels.
+    Items are taken in file order (Wikidata MD5 order) and kept only if both partners exist.
+    """
+    rows = []
+    for domain in DOMAINS:
+        fam = ents[(ents["domain"] == domain) & ents["famous"] &
+                   ~ents["entity_id"].isin(TWO_SIDED_EXCLUDE_FAMOUS)].to_dict("records")
+        obs = ents[(ents["domain"] == domain) & ~ents["famous"]].to_dict("records")
+        uses = {f["entity_id"]: 0 for f in fam}
+        rnd = random.Random(f"{SEED}|two-sided|{domain}")
+        n = 0
+        for o in obs:
+            if n >= TWO_SIDED_PER_DOMAIN:
+                break
+            chosen = []
+            for higher in (True, False):
+                ok = [f for f in fam if uses[f["entity_id"]] < TWO_SIDED_MAX_USES and
+                      RATIO[0] <= (f["value"] / o["value"] if higher else o["value"] / f["value"]) <= RATIO[1]]
+                if not ok:
+                    break
+                least = min(uses[f["entity_id"]] for f in ok)
+                chosen.append(rnd.choice([f for f in ok if uses[f["entity_id"]] == least]))
+            if len(chosen) < 2:
+                continue
+            for f in chosen:
+                uses[f["entity_id"]] += 1
+                lo, hi = (o, f) if o["value"] < f["value"] else (f, o)
+                p = make_pair(pd.Series(lo), pd.Series(hi), {}, 2.0)
+                p.update(known_entity_id=f["entity_id"], unknown_entity_id=o["entity_id"],
+                         unknown_role="low" if lo is o else "high", item_group=o["entity_id"],
+                         ambiguities="Wikidata value; obscure item's value has one statement only")
+                rows.append(p)
+            n += 1
+    out = pd.DataFrame(rows)
+    assert out["pair_id"].is_unique
+    return out
+
+
 def main(argv: list[str] | None = None) -> None:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--config", default="configs/bidirectional_kp.yaml")
     a = ap.parse_args(argv)
-    paths = load_config(a.config)["paths"]
+    cfg = load_config(a.config)
+    paths = cfg["paths"]
     ents = entities()
-    pr = pairs(ents)
+    pr = pairs_two_sided(ents) if cfg.get("known_partner_design") == "two_sided" else pairs(ents)
     used = set(pr["low_entity_id"]) | set(pr["high_entity_id"])
     ents = ents[ents["entity_id"].isin(used)]
     Path(paths["entities"]).parent.mkdir(parents=True, exist_ok=True)

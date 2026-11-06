@@ -142,7 +142,8 @@ def fig_accuracy(acc: pd.DataFrame, path: Path) -> None:
     plt.close(fig)
 
 
-KP_CONTRASTS = ("comparison_vs_C1", "belief_comparison_vs_C1", "C3_vs_C1", "C4_pull")
+KP_CONTRASTS = ("comparison_vs_C1", "comparison_vs_B", "comparison_vs_B2", "belief_comparison_vs_C1", "C3_vs_C1",
+                "C4_pull")
 
 
 def _kp(t):
@@ -186,6 +187,18 @@ def write_report(out: Path, df: pd.DataFrame, pe: pd.DataFrame, res: dict, meta:
                 fmt(_kp(res["known_partner"])[["kp_side"] + cols[:10]]), "", "By domain:", "",
                 fmt(_kp(res["known_partner_by_domain"])[["kp_side", "domain"] + cols[:10]]), ""]
                if "known_partner" in res else []),
+             *(["## Two partners: estimate after the taller partner minus after the shorter one", "",
+                "Each obscure item was compared once with a taller and once with a shorter famous item. "
+                "`taller_minus_shorter` > 0 means the estimate follows the partner (log1p units, over items); "
+                "`index` divides by the gap between the two partners (1 = the estimate moves as far as the "
+                "partners differ, 0 = not at all). Whatever a condition does by itself cancels in the difference. "
+                "`comparison` is the main test; `C4` is the same partners given as plain numbers.", "",
+                fmt(res["two_partner"]), ""] if "two_partner" in res else []),
+             "## The comparison against each control", "",
+             "Each control moves the estimates by itself, so the comparison effect is shown against the plain "
+             "baseline (B), the two-turn baseline (B2) and the co-mention (C1). `robust` = the 95% interval is on "
+             "the same side of zero against all three (+ = towards the partner).", "",
+             fmt(res["controls_side_by_side"]), "",
              "## By dataset", "", fmt(res["by_dataset"][["dataset"] + cols]) if len(res["by_dataset"]) else "(none)", "",
              "## Self-consistency: by the turn-1 answer", "", fmt(res["self_consistency"]), "",
              "## Without trials whose turn-1 reply contained numbers", "",

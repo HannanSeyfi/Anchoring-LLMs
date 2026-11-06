@@ -4,6 +4,30 @@ What changed in the pilot design and code, and why. The first question set and i
 as they were (`configs/pilot.yaml`, `data/items/`, `data/pilot/`), so earlier runs can still be
 reproduced.
 
+## Bidirectional study: two partners per item (design bidir-kp2, 2026-11-06)
+
+- **Why:** the known-partner run (bidir-kp1, Qwen3-32B, 54 pairs) found no pull of the obscure
+  item towards the famous one. It also showed that every control condition moves the estimates
+  by itself: "Qutani and K2 are both mountains" lifted Qutani from 3,750 m to 5,340 m; in run B
+  the co-mention made cheap products about 30% cheaper and raised World Cup estimates by about
+  0.68. So "comparison minus co-mention" partly measures the co-mention, and the main contrast
+  can flip with the control chosen.
+- **What:** `configs/bidirectional_kp2.yaml`. Each of 49 obscure items (28 mountains, 21
+  buildings) is compared once with a taller and once with a shorter famous item (98 pairs; the
+  same Wikidata items, ratio 1.3-3, a famous item used at most 8 times; Mount Olympus left out
+  because the model did not know it in the kp1 screening). The item effect is the estimate after
+  the taller partner minus after the shorter one, so whatever a condition does by itself cancels;
+  dividing by the partners' gap gives an anchoring index like Jacowitz and Kahneman's. Only the
+  obscure item is estimated after a pair condition (`conditions.targets: unknown_only`); C2 is
+  dropped. Built by `python -m anchoring_llms.bidirectional.known_partner --config
+  configs/bidirectional_kp2.yaml`; the same screening rules as kp1.
+- **Prediction, written before any kp2 data:** if the model uses the famous item's height, the
+  comparison difference is above zero (towards the partner); the same partners as plain numbers
+  (C4) give the size of a numeric pull for comparison.
+- **Analysis addition (all configs):** a table of the comparison effect against each control (B,
+  B2, C1) side by side; an effect is called robust only when its interval is on the same side of
+  zero against all three. The known-partner table also shows the comparison against B and B2.
+
 ## Bidirectional study: known-partner pairs (design bidir-kp1, 2026-11-06)
 
 - **Why:** in runs A and B (Qwen3-32B) two World Cup 2026 teams did not anchor each other: the

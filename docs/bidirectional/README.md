@@ -30,7 +30,8 @@ Every notebook needs the `GITHUB_TOKEN` Colab secret; the hosted models also nee
 | 6 | 06 then 07 | `qwen3-8b` (L4/A100) or `qwen3-4b` (T4) | GPU | free |
 | 7 | [08_bidir_confidence](https://colab.research.google.com/github/HannanSeyfi/Anchoring-LLMs/blob/main/notebooks/08_bidir_confidence.ipynb) | `qwen3-4b` | T4 GPU | free |
 | 8 | 06 then 07 | `PHASE = confirmatory`, only after the pilot has been looked at | CPU | about $2 per model |
-| kp | 05, then 06 (`core`, then `numeric`), then 07 | `CONFIG = configs/bidirectional_kp.yaml`, `qwen3-32b`: the known-partner pairs | CPU | about $0.10 + $0.40 + $0.02 |
+| kp | 05, then 06 (`core`, then `numeric`), then 07 | `CONFIG = configs/bidirectional_kp.yaml`, `qwen3-32b`: the known-partner pairs | CPU | about $0.05 + $0.45 + $0.05 |
+| kp2 | the same three steps | `CONFIG = configs/bidirectional_kp2.yaml`: each obscure item with a taller and a shorter famous partner | CPU | about $0.50 in all |
 
 Costs are estimates from the token counts of the prompts and DeepInfra's listed prices; each run
 stops before passing `MAX_SPEND_USD`. Check the Llama prices on deepinfra.com/pricing before step 5.

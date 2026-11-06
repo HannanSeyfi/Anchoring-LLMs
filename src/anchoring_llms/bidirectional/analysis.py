@@ -293,6 +293,74 @@ def triplet_effects(df: pd.DataFrame) -> pd.DataFrame:
     return m.reset_index()
 
 
+CONTROLS = ("B", "B2", "C1")
+
+
+def controls_side_by_side(by_dataset: pd.DataFrame) -> pd.DataFrame:
+    """The comparison effect against each control, per dataset and direction.
+
+    Each control moves estimates by itself (run A/B and bidir-kp1), so an effect is called robust
+    only when its 95% interval is on the same side of zero against all three controls."""
+    rows = []
+    if by_dataset.empty:
+        return pd.DataFrame()
+    for ds, g in by_dataset.groupby("dataset"):
+        g = g.set_index("contrast")
+        for role in ("low", "high"):
+            row = dict(dataset=ds, role=role)
+            sides = []
+            for c in CONTROLS:
+                k = f"comparison_vs_{c}"
+                if k not in g.index:
+                    continue
+                m, lo, hi = g.loc[k, f"{role}_mean"], g.loc[k, f"{role}_ci_lo"], g.loc[k, f"{role}_ci_hi"]
+                row[f"vs_{c}"] = f"{m:+.3f} [{lo:+.3f}, {hi:+.3f}]" if m == m else ""
+                sides.append(1 if lo > 0 else (-1 if hi < 0 else 0))
+            row["robust"] = ("towards" if all(x == 1 for x in sides) else
+                             "away" if all(x == -1 for x in sides) else "no") if sides else ""
+            rows.append(row)
+    return pd.DataFrame(rows)
+
+
+def two_partner(pe: pd.DataFrame, kp: pd.DataFrame, cfg: dict) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """bidir-kp2: each obscure item was compared with a taller and a shorter famous item.
+
+    Per item and condition: z after the taller partner minus z after the shorter one (> 0 = the
+    estimate follows the partner). Anything a condition does by itself is the same on both sides
+    and cancels, so no neutral control is needed. `index` divides by the partners' log1p gap, like
+    Jacowitz and Kahneman's anchoring index (1 = the estimate moves as far as the partners differ).
+    Returns (per item, summary with bootstrap intervals over items)."""
+    a = cfg["analysis"]
+    truth = {**dict(zip(kp["low_entity_id"], kp["truth_low"])), **dict(zip(kp["high_entity_id"], kp["truth_high"]))}
+    partner = dict(zip(kp["pair_id"], kp["known_entity_id"]))
+    d = pe[pe["kp_side"] == "obscure"].copy()
+    d["partner_z"] = np.log1p(d["pair_id"].map(partner).map(truth).astype(float))
+    rows = []
+    for eid, g in d.groupby("entity_id"):
+        hi, lo = g[g["role"] == "low"], g[g["role"] == "high"]     # obscure low = partner taller
+        if len(hi) != 1 or len(lo) != 1:
+            continue
+        hi, lo = hi.iloc[0], lo.iloc[0]
+        row = dict(entity_id=eid, domain=hi["domain"], pair_taller=hi["pair_id"], pair_shorter=lo["pair_id"],
+                   partner_gap=hi["partner_z"] - lo["partner_z"], B=hi["B"])
+        for c in ("comparison", "C1", "C3", "C4"):
+            row[f"{c}_taller_minus_shorter"] = hi[c] - lo[c]
+            row[f"{c}_index"] = (hi[c] - lo[c]) / row["partner_gap"]
+        rows.append(row)
+    items = pd.DataFrame(rows)
+    out = []
+    for dom, g in [("all", items)] + (list(items.groupby("domain")) if len(items) else []):
+        for c in ("comparison", "C1", "C3", "C4"):
+            for kind in ("taller_minus_shorter", "index"):
+                v = g[f"{c}_{kind}"].values if len(g) else np.array([])
+                m, lo_, hi_ = bootstrap_mean(v, a["bootstrap"], a["seed"])
+                out.append(dict(domain=dom, condition=c, measure=kind, mean=m, ci_lo=lo_, ci_hi=hi_,
+                                median=np.nanmedian(v) if len(v) else np.nan,
+                                share_positive=float(np.mean(v[~np.isnan(v)] > 0)) if len(v) else np.nan,
+                                items=int(np.sum(~np.isnan(np.asarray(v, float))))))
+    return items, pd.DataFrame(out)
+
+
 def analyse(cfg: dict, model: str, level: str | None = None, records: list[dict] | None = None,
             out: Path | None = None, smoke: bool = False) -> dict:
     level = level or cfg["thinking_level"]
@@ -326,8 +394,10 @@ def analyse(cfg: dict, model: str, level: str | None = None, records: list[dict]
         "accuracy": accuracy(df, ents),
         "uncertainty": uncertainty_moderation(primary, stats),
         "triplets": triplet_effects(df),
+        "controls_side_by_side": pd.DataFrame(),
         "exclusions": df.groupby(["condition", "parse_status"]).size().unstack(fill_value=0).reset_index(),
     }
+    res["controls_side_by_side"] = controls_side_by_side(res["by_dataset"])
     # Known-partner pairs (configs/bidirectional_kp.yaml): split each effect by whether the
     # estimated item is the obscure one or the famous one. Within a side, "low" rows are pairs
     # where that item is the lower of the two (pulled up), "high" rows where it is the higher.
@@ -340,6 +410,9 @@ def analyse(cfg: dict, model: str, level: str | None = None, records: list[dict]
         primary = primary.assign(kp_side=side(primary))
         res["known_partner"] = summarise(primary, cfg, ["kp_side"])
         res["known_partner_by_domain"] = summarise(primary, cfg, ["kp_side", "domain"])
+        if "item_group" in kp:
+            items, res["two_partner"] = two_partner(primary, kp, cfg)
+            items.to_csv(out / "tables" / "two_partner_items.csv", index=False)
     pe.to_csv(out / "tables" / "pair_effects.csv", index=False)
     df.drop(columns=[c for c in ("history_2",) if c in df]).to_csv(out / "tables" / "trials.csv.gz", index=False)
     for k, v in res.items():

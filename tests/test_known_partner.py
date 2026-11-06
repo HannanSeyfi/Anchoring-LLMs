@@ -59,3 +59,35 @@ def test_famous_item_must_be_known(cfg, pairs):
     assert eligibility(p, stats(0.02), sc)["eligible"].iloc[0]
     out = eligibility(p, stats(0.30), sc)
     assert not out["eligible"].iloc[0] and "famous" in out["exclusion_reason"].iloc[0]
+
+
+# ----------------------------------------------------------------------------- bidir-kp2
+
+@pytest.fixture(scope="module")
+def cfg2():
+    return load_config("configs/bidirectional_kp2.yaml")
+
+
+def test_two_sided_files_match_the_builder(cfg2):
+    pairs = pd.read_csv(cfg2["paths"]["verified_pairs"], keep_default_na=False)
+    built = KP.pairs_two_sided(KP.entities())
+    assert list(built["pair_id"]) == list(pairs["pair_id"])
+
+
+def test_each_obscure_item_has_a_taller_and_a_shorter_partner(cfg2):
+    pairs = pd.read_csv(cfg2["paths"]["verified_pairs"], keep_default_na=False)
+    for item, g in pairs.groupby("item_group"):
+        assert sorted(g["unknown_role"]) == ["high", "low"]
+        assert (g["unknown_entity_id"] == item).all()
+        assert g["known_entity_id"].nunique() == 2
+    assert not pairs["known_entity_id"].isin(KP.TWO_SIDED_EXCLUDE_FAMOUS).any()
+
+
+def test_two_sided_bank_estimates_only_the_obscure_item(cfg2):
+    pairs = pd.read_csv(cfg2["paths"]["verified_pairs"], keep_default_na=False)
+    known = dict(zip(pairs["pair_id"], pairs["known_entity_id"]))
+    bank = generate(cfg2, "bank")
+    assert validate_trials(bank, cfg2) == []
+    pair_trials = [t for t in bank if t["pair_id"]]
+    assert pair_trials and all(t["target_entity_id"] != known[t["pair_id"]] for t in pair_trials)
+    assert {t["condition"] for t in pair_trials} == {"LT", "LA", "HT", "HA", "C1", "C3", "C4"}
