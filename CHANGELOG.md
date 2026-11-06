@@ -4,6 +4,26 @@ What changed in the pilot design and code, and why. The first question set and i
 as they were (`configs/pilot.yaml`, `data/items/`, `data/pilot/`), so earlier runs can still be
 reproduced.
 
+## Bidirectional study: forced-choice comparison (design bidir-v2, 2026-11-06)
+
+- **What happened** (pilot run A, Qwen3-32B, 14,250 answers, `configs/bidirectional_v1.yaml`):
+  the turn-1 comparison offered MORE, FEWER or UNSURE. The model answered UNSURE in 66% of the
+  World Cup 2026 comparisons and 95% of the Olympics comparisons, so for the main dataset it
+  usually never committed to a direction, and there was nothing to anchor on. Young et al.'s
+  participants had to choose.
+- **Change:** turn 1 offers only the two directions ("Answer with one word: MORE or FEWER. If
+  you are not sure, give your best guess."); the same for C4 and the triplets. B, B2, C1, C2 and
+  C3 are unchanged. Trial ids change with the design version, and v2 data go to
+  `data/bidirectional/runs_v2/` and `results/bidirectional_v2/`.
+- **Not changed:** the frozen pairs and their split (screening used only baselines), the
+  analysis plan, the rules. Pilot run A stays in `data/bidirectional/runs/` and
+  `results/bidirectional/` and is reported as it is.
+- **Analysis addition** (both versions): per pair, `converge` = (low + high) / 2, how much the two
+  estimates move towards each other, and `common_shift` = (low − high) / 2, how much both rise
+  together. In run A, naming a second team raised both teams' estimates by about 0.66 log units
+  against the plain baseline; signed towards the partner, such a rise looks like "low towards,
+  high away", so it now has its own number.
+
 ## New study: bidirectional item-based anchoring (2026-11-06)
 
 - **What:** a separate study (`configs/bidirectional.yaml`, `src/anchoring_llms/bidirectional/`,

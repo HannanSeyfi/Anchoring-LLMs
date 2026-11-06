@@ -155,14 +155,16 @@ def write_report(out: Path, df: pd.DataFrame, pe: pd.DataFrame, res: dict, meta:
     fig_accuracy(res["accuracy"], figs / "accuracy.png")
     fmt = lambda t: t.to_markdown(index=False, floatfmt=".3f") if len(t) else "(none)"  # noqa: E731
     cols = ["contrast", "low_mean", "low_ci_lo", "low_ci_hi", "low_pairs", "high_mean", "high_ci_lo", "high_ci_hi",
-            "high_pairs", "pattern", "asym_low_minus_high", "asym_ci_lo", "asym_ci_hi"]
+            "high_pairs", "pattern", "converge", "converge_ci_lo", "converge_ci_hi", "common_shift",
+            "common_shift_ci_lo", "common_shift_ci_hi"]
     banner = ("> **SIMULATED DATA.** These numbers come from the simulated test model, not from any LLM. "
               "They only show that the pipeline works.\n\n" if meta["simulated"] else "")
     lines = [f"# Bidirectional anchoring: {meta['model']} (thinking {meta['level']})", "", banner,
              f"{meta['trials']} trials, {meta['valid']} with a number; {meta['pairs']} pairs.", "",
              "Assimilation is in log1p units: 0.10 means the estimate moved about 10% towards the other entity. "
              "Intervals are 95% bootstrap intervals over pairs. The two directions are tested separately. "
-             "asym = low minus high assimilation per pair (> 0: the low entity moves more).", "",
+             "converge = (low + high) / 2 per pair: the two estimates move towards each other. "
+             "common_shift = (low - high) / 2: both estimates rise together (also the low/high asymmetry).", "",
              "## Main result (all primary pairs)", "", fmt(res["overall"][cols]) if len(res["overall"]) else "(none)", "",
              "![](figures/contrasts_overall.png)", "", "![](figures/conditions.png)", "",
              "## By dataset", "", fmt(res["by_dataset"][["dataset"] + cols]) if len(res["by_dataset"]) else "(none)", "",

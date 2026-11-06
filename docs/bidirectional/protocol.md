@@ -1,6 +1,7 @@
 # Protocol: bidirectional item-based anchoring in LLMs
 
-Design version `bidir-v1` (written 2026-11-06, before any real data). Changes after this date are
+Design version `bidir-v2` (bidir-v1 written 2026-11-06 before any real data; v2 the same day after
+pilot run A: the comparison is now a forced choice, see `CHANGELOG.md`). Changes after this date are
 listed in `CHANGELOG.md` with the reason, and the frozen pairs are never edited.
 
 ## Question
@@ -58,14 +59,15 @@ Example (World Cup 2026, group stage, primary metric):
 
 > **Turn 1.** Did Cape Verde record more, fewer, or the same number of attempts at goal as
 > Colombia across their three group-stage matches at the 2026 FIFA World Cup? Answer with one
-> word: MORE, FEWER, or UNSURE.
+> word: MORE or FEWER. If you are not sure, give your best guess.
 >
 > **Turn 2.** How many attempts at goal did Cape Verde record in total across its three
 > group-stage matches at the 2026 FIFA World Cup? Give your best estimate as a single whole
 > number. Do not look anything up. If you are not sure, still give your best guess instead of
 > refusing. End your reply with a final line of the form `Estimate: <number>`
 
-The model's own turn-1 reply stays in the conversation. Two comparison wordings (P1 "more /
+The model's own turn-1 reply stays in the conversation. Turn 1 is a forced choice ("Answer with one word: MORE or FEWER. If you are not sure, give your
+best guess."); in v1 it also offered UNSURE. Two comparison wordings (P1 "more /
 fewer", P2 "higher / lower") alternate over repetitions, and LT and HA (and LA and HT) share the
 same turn 1, so the two entities of a pair see exactly the same comparison.
 

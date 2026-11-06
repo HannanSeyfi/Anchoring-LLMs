@@ -168,17 +168,24 @@ def summarise(pe: pd.DataFrame, cfg: dict, by: list[str] | None = None) -> pd.Da
                 res[role] = bootstrap_mean(vals, a["bootstrap"], a["seed"])
                 res[role + "_g"] = hedges_g(vals)
                 res[role + "_n"] = int(np.sum(~np.isnan(np.asarray(vals, float))))
-            # H4: per pair, low minus high assimilation (> 0 = the low entity moves more)
+            # Per pair, split the two directions into two parts:
+            #   converge     = (low + high) / 2: how much the two estimates move towards each other
+            #   common_shift = (low - high) / 2: how much both estimates rise together (< 0: both fall)
+            # (with assimilation signed towards the partner, a rise of both looks like "low towards,
+            # high away"; common_shift names it). common_shift is also Young et al.'s asymmetry
+            # (low moves more than high), which a pure rise of both cannot be told apart from.
             w = g.pivot_table(index="pair_id", columns="role", values=k)
-            diff = (w["low"] - w["high"]).values if {"low", "high"} <= set(w.columns) else np.array([])
-            asym = bootstrap_mean(diff, a["bootstrap"], a["seed"])
+            both = {"low", "high"} <= set(w.columns)
+            conv = bootstrap_mean(((w["low"] + w["high"]) / 2).values if both else np.array([]), a["bootstrap"], a["seed"])
+            shift = bootstrap_mean(((w["low"] - w["high"]) / 2).values if both else np.array([]), a["bootstrap"], a["seed"])
             row = dict(zip(by or [], gkey))
             row.update(contrast=k.replace("assim_", ""),
                        low_mean=res["low"][0], low_ci_lo=res["low"][1], low_ci_hi=res["low"][2], low_g=res["low_g"],
                        low_pairs=res["low_n"], high_mean=res["high"][0], high_ci_lo=res["high"][1],
                        high_ci_hi=res["high"][2], high_g=res["high_g"], high_pairs=res["high_n"],
                        pattern=classify(res["low"], res["high"], a["sesoi"]),
-                       asym_low_minus_high=asym[0], asym_ci_lo=asym[1], asym_ci_hi=asym[2])
+                       converge=conv[0], converge_ci_lo=conv[1], converge_ci_hi=conv[2],
+                       common_shift=shift[0], common_shift_ci_lo=shift[1], common_shift_ci_hi=shift[2])
             rows.append(row)
     return pd.DataFrame(rows)
 

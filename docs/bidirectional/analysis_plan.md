@@ -39,7 +39,11 @@ the estimate moved by about 10% towards the partner.
 - **Pattern** from the two intervals: *bidirectional* (both above 0), *low only*, *high only*,
   *contrast* (an interval below 0), *equivalent to no effect* (both intervals inside ±0.05, the
   smallest effect of interest), or *no reliable effect*.
-- **H4 (asymmetry):** the per-pair difference low − high, bootstrapped the same way.
+- **Converge and common shift:** per pair, `converge` = (low + high) / 2 (the two estimates move
+  towards each other) and `common_shift` = (low − high) / 2 (both rise together), bootstrapped
+  the same way. A common shift is also what Young et al.'s asymmetry (H4: low moves more) looks
+  like, so H4 is read together with C1 − B: if naming alone raises both estimates, the asymmetry
+  is a general rise, not stronger anchoring of low items.
 - **Check:** a linear mixed model of `z` on condition × role with a random intercept per pair and
   a variance component per entity (statsmodels). It should agree with the bootstrap; if it does
   not, both are reported and the disagreement is discussed.

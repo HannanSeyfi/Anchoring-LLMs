@@ -10,7 +10,7 @@
 #   python -m anchoring_llms.bidirectional.analysis --model qwen3-32b
 
 name: bidirectional
-design_version: bidir-v1
+design_version: bidir-v2      # v2 (2026-11-06): forced-choice comparison; v1 = configs/bidirectional_v1.yaml
 
 paths:
   entities: data/bidirectional/candidate_entities.csv
@@ -19,9 +19,9 @@ paths:
   triplets: data/bidirectional/triplets.csv
   trials_dir: data/bidirectional/generated_trials
   frozen_dir: data/bidirectional/frozen_dataset
-  runs_dir: data/bidirectional/runs              # raw replies: runs/<phase>/<model>/<level>/
+  runs_dir: data/bidirectional/runs_v2              # raw replies: runs/<phase>/<model>/<level>/
   screening_dir: data/bidirectional/screening_results
-  results_dir: results/bidirectional
+  results_dir: results/bidirectional_v2
 
 pairs:
   seed: 20261106
@@ -80,6 +80,7 @@ conditions:
   repetitions: 10               # independent conversations per cell
   baseline_repetitions: 20      # B (single-turn baseline) per entity, fresh in the main run
   system_prompt: "You are a helpful assistant."
+  forced_choice: true           # turn 1 offers only the two directions (no UNSURE); see CHANGELOG
   # Core: B, B2 (C5, two-turn neutral), LT, LA, HT, HA (comparison, then estimate).
   # Controls: C1 co-mention, C2 letters comparison, C3 comparison shown but not answered.
   controls: [C1, C2, C3]
