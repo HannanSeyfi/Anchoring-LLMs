@@ -1,0 +1,35 @@
+{
+  "frozen_utc": "2026-11-06T15:49:56Z",
+  "screening_model": "qwen3-32b",
+  "thinking_level": "off",
+  "rules": {
+    "model": "qwen3-32b",
+    "samples": 20,
+    "min_parsed": 0.8,
+    "max_refusal": 0.2,
+    "known_tolerance": 0.05,
+    "max_known_share": 0.5,
+    "categories": "tertiles",
+    "pilot_targets": {
+      "kp:*:fact": 999
+    },
+    "robustness": {},
+    "known_partner": {
+      "max_median_error": 0.1
+    },
+    "seed": 20261106
+  },
+  "spread_tertiles": [
+    0.05,
+    0.15
+  ],
+  "counts": {
+    "pilot": 54,
+    "excluded": 2
+  },
+  "triplets": 0,
+  "sha256": {
+    "pairs_frozen.csv": "7554be6680da32f85c11d13b6eb02ae83ca7e619e2e1f46a6d0d70b39e03520f",
+    "triplets_frozen.csv": "6120e33b67281170338aa52ba8cc00e71658943bab63fc2989732b14c73ff3f9"
+  }
+}
