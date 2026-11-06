@@ -1,0 +1,241 @@
+\documentclass[11pt,a4paper]{article}
+\input{reports/style}
+\renewcommand{\shorttitle}{Experiment 8: Do two compared items pull each other?}
+\newcommand{\bfig}[2][\textwidth]{\includegraphics[page=#2,width=#1]{reports/figures/bidir_figures.pdf}}
+
+\begin{document}
+\reporttitle{Experiment 8}{Do Two Compared Items Pull Each Other?}{Item-based, bidirectional anchoring in Qwen3-32B: screening and four runs}{6 November 2026}
+
+\begin{plainabstract}
+In people, comparing two things makes each estimate move towards the other. After \enquote{Does a stapler cost more or less than a moped?}, people guess the stapler dearer and the moped cheaper than they otherwise would \citep{young2026}. No number is given: the other item \emph{is} the anchor. We tested this in a language model, Qwen3-32B, with thinking off. We used 2026 World Cup statistics and Winter Olympics medals (which the model cannot know), the 2022 World Cup, known facts, the products of the human study, and finally obscure mountains and buildings paired with famous ones (Mont Blanc, the Eiffel Tower). In four runs and 48,810 answers (about \$1.70 in all) \textbf{we found no reliable pull of one item towards the other}, in either direction. A plain number, by contrast, did pull: about a third of the way on the 2026 World Cup. Three things explain most of it. (1) The model's first answer (\enquote{more or fewer?}) is often a reflex: it picks the first option offered. (2) It does not keep to that answer when it then estimates. (3) Simply naming a second item, without any comparison, already moves the estimates, so the result depends on which control it is measured against. Our earlier \enquote{replication} on the human products came from that last point, and we withdraw it. The next step is to fix the question (offer the options in both orders) and measure the item effect without a neutral control: each item compared once with a higher and once with a lower partner.
+\end{plainabstract}
+
+\begin{keynumbers}
+Model & Qwen3-32B on DeepInfra, thinking off, temperature 0.7 \\
+Runs & Screening; run A (UNSURE allowed); run B (forced choice); numeric run; known-partner run \\
+Answers & 48,810 in total: 5,680 + 14,250 + 14,250 + 900 + 13,730 \\
+Cost & about \$1.70 (\$0.12, \$0.46, \$0.45, \$0.03, about \$0.60) \\
+Main result & No reliable bidirectional pull. Run B, comparison against co-mention: low item $+0.05$ [$-0.01$, $+0.12$], high item $+0.01$ [$-0.05$, $+0.07$] \\
+What did move & A plain number: 34\% of the way on World Cup 2026 (median), 7\% on known facts \\
+Withdrawn & The \enquote{low-only} effect on the human products ($+0.28$) is an artefact of the control \\
+\end{keynumbers}
+
+\section{Why this experiment}
+
+Both professors asked for an established, citable design and suggested item-based anchoring. Almost all anchoring work on language models gives the model a \emph{number} (\enquote{Is it higher or lower than 280\,m?}). \citet{young2026} showed that in people a second \emph{item} works as an anchor too, and in both directions: the cheaper item is estimated higher and the dearer one lower, with the cheaper one moving more. If a model does the same, it builds the anchor itself from what it believes about the other item. No study we found has tested this in language models.
+
+\begin{keybox}[The question.]
+After a model compares item A with item B, does its estimate of A move towards B \emph{and} its estimate of B move towards A? Or only one of them, or neither?
+\end{keybox}
+
+\section{What we did}
+
+\subsection{The conditions}
+The item whose value is asked is the \textbf{target}; the other is the \textbf{partner}. Every trial is a fresh conversation with the system prompt \enquote{You are a helpful assistant.}
+
+\begin{center}\small
+\begin{tabularx}{\textwidth}{@{}lL@{}}
+\toprule
+Code & What the model sees \\
+\midrule
+B & The estimate question about the target alone (the plain baseline) \\
+B2 & \enquote{Have you heard of \emph{target}? Answer YES, NO or UNSURE.}, then the estimate (two-turn baseline) \\
+C1 & \enquote{\emph{A} and \emph{B} both played in the group stage of the 2026 FIFA World Cup.} + the estimate (co-mention) \\
+C3 & The comparison shown but not to be answered, then the estimate \\
+LT, LA, HT, HA & Turn 1: the comparison (\enquote{more or fewer?}); turn 2: estimate the low (L) or high (H) item. Both naming orders. \\
+C4 & \enquote{Is the answer higher or lower than \emph{N}?}, where \emph{N} is the partner's true value; then the estimate \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\begin{transcript}[A real comparison trial (run B, World Cup 2026; Cabo Verde had 33 attempts, Colombia 59)]
+\who{Turn 1} Across their three group-stage matches each at the 2026 FIFA World Cup, did Cabo Verde record more or fewer attempts at goal than Colombia? Answer with one word: MORE or FEWER. If you are not sure, give your best guess.
+\who{Model} FEWER
+\who{Turn 2} How many attempts at goal did Cabo Verde record in total across its three group-stage matches at the 2026 FIFA World Cup? Give your best estimate as a single whole number. Do not look anything up. If you are not sure, still give your best guess instead of refusing. End your reply with a final line of the form \texttt{Estimate: <number>}
+\who{Model} Cabo Verde, as a relatively small and less prominent football nation, likely recorded a modest number of attempts at goal [\dots] a reasonable estimate for their total attempts at goal across three matches would be around 15--25 attempts. \texttt{Estimate: 20}
+\end{transcript}
+In the five trials of this exact wording the model answered MORE three times and FEWER twice, and estimated 12--25 attempts either way.
+
+\subsection{The items}
+\begin{center}\small
+\begin{tabularx}{\textwidth}{@{}lLr@{}}
+\toprule
+Set & What & Pilot pairs \\
+\midrule
+World Cup 2026 & Team attempts, passes, corners, crosses and player statistics in the group stage (FIFA). Ended after the model was released, so it cannot know them. & 27 \\
+Winter Olympics 2026 & Total medals per nation (Wikipedia medal table) & 9 \\
+World Cup 2022 & Team attempts and passes (FIFA); before the model's cutoff but obscure & 4 \\
+Known facts & Heights of mountains, towers, a waterfall; depths of lakes & 5 \\
+Young et al.\ products & The 8 products and UK prices of their Experiment~1 (4 cheap $\times$ 4 dear) & 16 \\
+Obscure vs famous & 28 mountains and 28 buildings, each obscure item paired with a famous one (Wikidata) & 54 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{How we measure}
+Every estimate is put on a log scale ($\log(1+x)$), so 0.10 means about 10\%. A move \enquote{towards the partner} is positive: up for the low item, down for the high item. The main test, fixed before any data, was the comparison minus the co-mention (C1), separately for the low and the high item, with 95\% bootstrap intervals over pairs.
+
+\section{Screening and freezing (5,680 answers, \$0.12)}
+
+Before any anchoring trial, every item was asked alone 20 times. The rules used only these baseline answers: a pair was dropped if an item gave a number in under 80\% of replies or refused in over 20\%, and, for 2026 items, if the model hit the true value (within 5\%) in more than half the replies. Every reply had a number and none refused. The model hit a World Cup 2026 value in 5\% of replies on average, so it does not know them, and a known fact in 79\%. Of 188 pairs, 183 passed; they were frozen with checksums and split into a pilot (61), a robustness set (8) and a held-out confirmatory set (114) that has not been run.
+
+\section{Run A: the comparison allowed UNSURE (14,250 answers, \$0.46)}
+
+The first design let the model answer MORE, FEWER or UNSURE. On the 2026 events it mostly took the way out (Figure~\ref{fig:unsure}): UNSURE in 66\% of World Cup comparisons and 95\% of Olympics comparisons. Overall, the low item moved $+0.08$ [$+0.02$, $+0.14$] against C1 and the high item $+0.01$ [$-0.04$, $+0.06$], a low-only pattern. On the 2026 World Cup there was no effect at all, which is not surprising when the model rarely chose a side. We therefore changed turn~1 to a forced choice (design v2, recorded in the CHANGELOG before running it).
+
+\begin{figure}[ht]
+\centering\bfig{1}
+\caption{Share of comparisons answered UNSURE in run A, by set.}\label{fig:unsure}
+\end{figure}
+
+\section{Run B: forced choice (14,250 answers, \$0.45)}
+
+The same 61 pilot pairs and 8 robustness pairs, now with \enquote{Answer with one word: MORE or FEWER. If you are not sure, give your best guess.}
+
+\begin{center}\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+& \multicolumn{2}{c}{Low item (+ = up)} & \multicolumn{2}{c}{High item (+ = down)} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Comparison minus co-mention & Run A & Run B & Run A & Run B \\
+\midrule
+All pilot pairs & $+0.08$ & $+0.05$ & $+0.01$ & $+0.01$ \\
+World Cup 2026 & $-0.04$ & $-0.06$ & $+0.02$ & $+0.04$ \\
+Winter Olympics 2026 & $+0.17$ & $+0.14$ & $-0.12$ & $-0.12$ \\
+World Cup 2022 & $-0.16$ & $-0.19$ & $+0.25$ & $+0.26$ \\
+Known facts & $+0.01$ & $0.00$ & $+0.01$ & $-0.02$ \\
+Young et al.\ products & $+0.30$ & $+0.28$ & $-0.01$ & $-0.02$ \\
+\bottomrule
+\end{tabular}\\[2pt]
+{\footnotesize All-pairs interval, run B: low [$-0.01$, $+0.12$], high [$-0.05$, $+0.07$]. A negative value means the item moved \emph{away} from its partner.}
+\end{center}
+
+Forcing a choice did not create an effect. On the World Cup 2026, its main set, the model got the comparison right in only 55\% of trials, no better than chance. Two examples show what happened.
+
+\begin{transcript}[World Cup 2026: Brazil (40 attempts) and England (58)]
+Asked alone, the model put both at about 22 attempts (geometric mean of its answers). Merely naming the other team (C1) raised both: Brazil to 32, England to 35. After the comparison, Brazil was at 30 and England at 31. Naming a second team lifts both estimates by about half, but the comparison does not pull them apart or together. The model got the comparison right in 40\% of trials.
+\end{transcript}
+
+\begin{transcript}[Young et al.\ products: a calculator and a second-hand car]
+\who{Turn 1} Does a Sharp calculator cost more or less than a second-hand car? Answer with one word: MORE or LESS. If you are not sure, give your best guess.
+\who{Model} MORE \hfill (in 10 of 10 trials)
+\end{transcript}
+
+The second example is not a one-off. Figure~\ref{fig:order} splits every comparison by whether the right answer was the \emph{first} option offered (MORE, GREATER) or the second (FEWER, SMALLER, LESS). When the right answer came first, the model was right 84--100\% of the time on every set except World Cup 2026. When it came second, it was right only 27--56\% of the time. With thinking off and a one-word answer, turn~1 is largely a reflex for the first option, not a judgement. A comparison answered by reflex carries little information about the partner, which is one reason it cannot act as an anchor.
+
+\begin{figure}[ht]
+\centering\bfig{2}
+\caption{Turn-1 answers right, by whether the right answer was the first or the second option offered (run B and the known-partner run). Dashed line: chance.}\label{fig:order}
+\end{figure}
+
+\section{Numeric run: the partner's value as a plain number (900 answers, \$0.03)}
+
+To check that this model can be anchored at all, we gave it the partner's true value as a number: \enquote{Is the answer to the following question higher or lower than 59?}. Measured from the model's own baseline, this pulled the estimate a long way where the model cannot know the answer and very little where it can (Figure~\ref{fig:numeric}): a median of 34\% of the way to the number on World Cup 2026, 20--23\% on the Olympics and World Cup 2022, and 7\% on known facts. So the model is anchorable by numbers, in the expected places, but not by items.
+
+\begin{figure}[ht]
+\centering\bfig{3}
+\caption{How far a plain number moved the estimate, as a share of the distance from the model's baseline to the number (median over pairs). The last two bars are from the known-partner run below.}\label{fig:numeric}
+\end{figure}
+
+\section{Known-partner run (13,730 answers, about \$0.60)}
+
+\subsection{The idea}
+Runs A and B suggested an explanation: an item can only act as an anchor if the model knows roughly what the \emph{partner} is worth. On World Cup 2026 it knows neither team, so the comparison gives it nothing to move towards. We tested this directly. Each pair is one obscure item and one famous item of the same kind, with true values 1.3 to 3 times apart: 28 mountains (e.g.\ \emph{Mount Burwell, British Columbia} with the Matterhorn) and 28 buildings (e.g.\ \emph{Long-Bang Trade Plaza, Taichung} with the Eiffel Tower). The obscure item was the lower one in 33 pairs and the higher one in 23. All values are from Wikidata. Screening added one rule: the model must know the famous item (baseline median within 10\% of the truth). It knew 24 of the 26; Mount Olympus (Greece) was 12\% off, so its 2 pairs were dropped, leaving 54.
+
+\textbf{Prediction} (written before the run): the obscure item moves towards the famous one, in both directions; the famous item hardly moves.
+
+\subsection{Results}
+The famous items did not move, as predicted: every contrast was within $\pm0.01$. The obscure items did not move towards their partner either (Figure~\ref{fig:kpitems}): against C1, $-0.04$ [$-0.12$, $+0.03$] when the obscure item was lower and $+0.03$ [$-0.13$, $+0.26$] when it was higher. Half of the obscure items moved each way.
+
+\begin{figure}[ht]
+\centering\bfig{7}
+\caption{Every obscure item: its estimate after the comparison minus asked alone, signed towards the famous partner. Bars: medians.}\label{fig:kpitems}
+\end{figure}
+
+The obscure items were also hard to move with a number: their partner's height as a plain number moved them only 12\% of the way (Figure~\ref{fig:numeric}). The place in the name gives the model a good guess. \enquote{Wila Pukara (in La Paz Department, Bolivia)} is an Andes peak, so it guessed about 4,600\,m; the truth is 4,300\,m. Its typical error (median over items) was about 22\% for the mountains and 42\% for the buildings: the model is unsure about these items, but less unsure than about a World Cup 2026 statistic.
+
+Three further patterns appeared.
+
+\textbf{Naming a famous peak moved the obscure one, and answering the comparison undid it} (Figure~\ref{fig:mountains}). \enquote{Qutani (in La Paz Department, Bolivia) and K2 are both mountains.} lifted Qutani from about 3,750\,m to 5,340\,m. After \enquote{Is the height above sea level of Qutani greater or smaller than that of K2?} the model said SMALLER and then estimated 3,690\,m (true 3,740\,m). Across the 15 obscure mountains lower than their partner, the co-mention alone raised the estimate in 73\% of pairs (median $+0.16$).
+
+\begin{figure}[ht]
+\centering\bfig{6}
+\caption{Three obscure Andean peaks: asked alone, named next to a famous peak, and after the comparison.}\label{fig:mountains}
+\end{figure}
+
+\textbf{When the famous item is named first, the model calls it the greater one} (Figure~\ref{fig:fame}). \enquote{Is the height of the Grossglockner greater or smaller than that of Sihuarani?} got GREATER almost every time, also when Sihuarani (5,000\,m) is in fact higher. This mixes the first-option reflex of Figure~\ref{fig:order} with an assumption that the famous item is the bigger one. When the obscure item was named first, the answers were right 60--69\% of the time.
+
+\begin{figure}[ht]
+\centering\bfig{8}
+\caption{Turn-1 answers right in the known-partner run, by which item was really higher and which was named first.}\label{fig:fame}
+\end{figure}
+
+\textbf{The model does not keep to its own answer.} After wrongly saying an obscure item was lower than its famous partner, 56\% of its estimates were still above the partner's height. Sihuarani was called lower than the Grossglockner (3,798\,m) in every trial and then estimated at about 5,460\,m. In people, answering the comparison commits them to a side; here the answer and the estimate are largely separate.
+
+\section{Looking across all runs: the controls move the estimates}
+
+A neutral control should leave the estimate alone. Ours do not (Figure~\ref{fig:comention}). Naming a second team (C1) raised World Cup 2026 estimates by about 0.68 for both teams; naming a dear product made cheap ones about 30\% cheaper; naming K2 lifted Bolivian peaks. The two-turn baseline (B2) moves them too.
+
+\begin{figure}[ht]
+\centering\bfig{5}
+\caption{What the co-mention alone does: C1 minus the plain baseline, for the low and the high item of each set (+ = the estimate goes up).}\label{fig:comention}
+\end{figure}
+
+Because of this, the same comparison gives different answers depending on the control (Figure~\ref{fig:controls}). On World Cup 2026, the comparison raises both teams against the plain baseline but does nothing against C1. On the human products, the cheap item moves $+0.28$ towards the dear one against C1, but $-0.06$ [$-0.18$, $+0.05$] against the plain baseline: the co-mention had pushed it down first, and the comparison only brought it back.
+
+\begin{cautionbox}[Correction.]
+After run B we reported a \enquote{low-only effect of $+0.28$ on the products of Young et al., a replication}. That number is measured against C1, and it comes from C1 lowering the cheap products, not from the comparison raising them. Against the plain baseline there is no effect. We withdraw it as a replication.
+\end{cautionbox}
+
+\begin{figure}[ht]
+\centering\bfig{4}
+\caption{The comparison effect of run B (and the obscure items of the known-partner run) against each of the three controls. An effect counts only if it holds against all three; none does in both directions.}\label{fig:controls}
+\end{figure}
+
+Where both items of a pair moved, they moved the same way: on World Cup 2026 against the two baselines, and on the Winter Olympics against B and C1, the low item went up and the high item went up too. That is a common rise after the comparison, not a pull towards each other.
+
+\section{What we learned}
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{No item-based bidirectional anchoring in Qwen3-32B with thinking off}, on any of six kinds of items, in two designs.
+  \item \textbf{The model is anchorable by numbers}, strongly where it cannot know the answer (34\% on World Cup 2026) and little where it can (7\% on facts).
+  \item \textbf{The one-word comparison is often a reflex}: the first option offered wins (84--100\% right when the answer is MORE or GREATER, 27--56\% when it is the second option). With UNSURE allowed, the model avoids the 2026 questions altogether.
+  \item \textbf{The estimate does not follow the model's own comparison answer.} A comparison that does not commit the model cannot anchor it.
+  \item \textbf{Naming a second item moves estimates by itself}, in different directions in different sets. A single \enquote{neutral} control is not safe for this design.
+\end{enumerate}
+
+\section{Limitations}
+\begin{itemize}[leftmargin=*]
+  \item One model, thinking off only. Larger or thinking models may compare more carefully.
+  \item 61 pilot pairs and 54 known-partner pairs; some sets are small (5 fact pairs, 4 World Cup 2022 pairs, 9 Olympics pairs).
+  \item The known-partner run was designed after seeing runs A and B, so it is exploratory. Its obscure values have a single Wikidata statement each.
+  \item We read only the abstract and pre-registrations of \citet{young2026}, not the full paper, so details of their procedure may differ from ours.
+  \item DeepInfra takes no seed: the replies are all stored, but cannot be regenerated exactly. The \$0.60 for the known-partner run is our estimate from token counts.
+\end{itemize}
+
+\section{What next}
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Fix the comparison question}: offer the options in both orders (\enquote{MORE or FEWER} and \enquote{FEWER or MORE}), balanced over trials, so the first-option reflex cancels out and can be measured.
+  \item \textbf{Measure without a neutral control}: compare each target once with a higher and once with a lower partner, and take the difference. Whatever a co-mention does by itself is then the same on both sides and cancels. This is how numeric anchoring is measured \citep{jacowitz1995measures}. The triplets phase already does this for the World Cup and Olympics (about \$0.10), and a two-partner version of the mountains and buildings is built (about \$0.50).
+  \item \textbf{Then other models} (Qwen3-14B, Llama 3.3 70B, Llama 3.1 8B) and thinking on, all on the final design.
+  \item \textbf{Write up}: a model that is clearly anchorable by numbers but not by items, with the reasons above, is itself a result about how LLMs differ from people.
+\end{enumerate}
+
+\section{Data and files}
+\begin{itemize}[leftmargin=*]
+  \item Design and rules: \texttt{docs/bidirectional/}; settings: \texttt{configs/bidirectional*.yaml}; every change: \texttt{CHANGELOG.md}
+  \item Raw answers: \texttt{data/bidirectional/runs/} (run A), \texttt{runs\_v2/} (run B, numeric), \texttt{runs\_kp/} (known partner)
+  \item Frozen pairs: \texttt{data/bidirectional/frozen\_dataset/} and \texttt{known\_partner/frozen\_dataset/}
+  \item Tables and reports: \texttt{results/bidirectional/}, \texttt{results/bidirectional\_v2/}, \texttt{results/bidirectional\_kp/}
+  \item Figures: \texttt{latex/reports/bidir\_figures.py}
+\end{itemize}
+All in the GitHub repository.
+
+\begin{thebibliography}{9}
+\bibitem[Jacowitz and Kahneman(1995)]{jacowitz1995measures}
+Jacowitz, K.~E. and Kahneman, D. (1995). Measures of anchoring in estimation tasks. \emph{Personality and Social Psychology Bulletin}, 21(11), 1161--1166.
+\bibitem[Tversky and Kahneman(1974)]{tversky1974judgment}
+Tversky, A. and Kahneman, D. (1974). Judgment under uncertainty: Heuristics and biases. \emph{Science}, 185(4157), 1124--1131.
+\bibitem[Young et al.(2026)]{young2026}
+Young et al. (2026). \emph{Cognitive Psychology}, 164, 101796. Pre-registrations: OSF project 2a9nz.
+\end{thebibliography}
+\end{document}

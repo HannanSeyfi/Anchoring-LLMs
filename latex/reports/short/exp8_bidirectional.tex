@@ -1,0 +1,79 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{csquotes}
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+\usepackage[section]{placeins}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\setlist{itemsep=2pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\newcommand{\inshort}[1]{\begin{tcolorbox}[colback=gray!6,colframe=gray!50,title=\textbf{In short},fonttitle=\normalsize]#1\end{tcolorbox}}
+\newcommand{\header}[3]{%
+  {\Large\textbf{#1}}\par\smallskip
+  {\large #2}\par\smallskip
+  {\small Hannan Seyfi \textperiodcentered{} Supervisors: Dr.\ Shiva Kamkar and Dr.\ Babak Majidi \textperiodcentered{} Khatam University \textperiodcentered{} #3}\par
+  {\small Project: \emph{Adjusting or Retrieving? Testing the Mechanisms of Anchoring in Large Language Models}}\par\medskip\hrule\medskip}
+\newcommand{\bfig}[2][\textwidth]{\includegraphics[page=#2,width=#1]{reports/figures/bidir_figures.pdf}}
+
+\begin{document}
+\header{Experiment 8: Do two compared items pull each other?}{Item-based, bidirectional anchoring in Qwen3-32B}{6 November 2026}
+
+\inshort{\begin{itemize}[leftmargin=*]
+  \item In people, comparing two items pulls both estimates towards each other (Young et al., 2026). \textbf{In Qwen3-32B it does not}: no reliable pull in either direction, on six kinds of items, in four runs (48,810 answers, about \$1.70).
+  \item \textbf{A plain number does pull}: about a third of the way on the 2026 World Cup, which the model cannot know, and 7\% on facts it knows.
+  \item Why the items fail: the one-word comparison is often a \textbf{reflex for the first option} (MORE), the model \textbf{does not keep to its own answer}, and \textbf{naming a second item already moves the estimates}, so the result depends on the control.
+  \item We \textbf{withdraw} the earlier \enquote{replication} on the human products: it came from the control, not the comparison.
+\end{itemize}}
+
+\section*{What we tested}
+The model first compares two items, then estimates one of them. No number is given; the other item is the only possible anchor.
+
+\textbf{Example:} \enquote{Across their three group-stage matches each at the 2026 FIFA World Cup, did Cabo Verde record more or fewer attempts at goal than Colombia? Answer with one word: MORE or FEWER.} Then: \enquote{How many attempts at goal did Cabo Verde record?} (true: 33; Colombia 59).
+
+\textbf{Items:} 2026 World Cup statistics and Winter Olympics medals (after the model's release), the 2022 World Cup, known facts, the 8 products of the human study, and 54 obscure mountains and buildings each paired with a famous one (e.g.\ Qutani in Bolivia with K2).
+
+\textbf{Runs:} screening (each item alone, 20 times); run A (UNSURE allowed); run B (forced choice); a numeric run (the partner's true value as a number); a known-partner run (obscure vs famous). Each estimate is compared with three controls: the item asked alone (B), a two-turn baseline (B2), and both items merely named (C1).
+
+\section*{What we found}
+\begin{center}\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+Run & What happened & Main number \\
+\midrule
+A: UNSURE allowed & UNSURE in 66\% (World Cup 2026) and 95\% (Olympics) of comparisons & low $+0.08$, high $+0.01$ \\
+B: forced choice & Comparison right in 55\% on World Cup 2026, chance & low $+0.05$, high $+0.01$ (n.s.) \\
+Numeric & A plain number pulls where the answer is unknown & 34\% of the way (World Cup 2026) \\
+Known partner & Obscure items do not move towards famous ones & low $-0.04$, high $+0.03$ (n.s.) \\
+\bottomrule
+\end{tabular}\\[2pt]
+{\footnotesize Comparison minus co-mention, log units (0.10 = about 10\%), + = towards the partner.}
+\end{center}
+
+\begin{center}\bfig[0.95\textwidth]{3}\end{center}
+
+\textbf{The comparison is often a reflex.} \enquote{Does a Sharp calculator cost more or less than a second-hand car?} got MORE in 10 of 10 trials. When the right answer was the first option offered, the model was right 84--100\% of the time; when it was the second, 27--56\%.
+
+\textbf{It does not keep to its answer.} The model called Sihuarani (Peru, 5,000\,m) lower than the Grossglockner (3,798\,m) in every trial, then estimated it at about 5,460\,m.
+
+\textbf{Naming a second item moves the estimate by itself.} \enquote{Qutani and K2 are both mountains.} lifted Qutani from about 3,750\,m to 5,340\,m; answering \enquote{is it greater or smaller than K2?} brought it back to 3,690\,m (true 3,740\,m).
+
+\begin{center}\bfig[0.95\textwidth]{6}\end{center}
+
+Because each control moves the estimates differently, the same comparison looks different against each one. On the human products, the cheap item moves $+0.28$ against C1 but $-0.06$ against the plain baseline: C1 had made it cheaper first. That is why we withdraw that result.
+
+\begin{center}\bfig[0.95\textwidth]{4}\end{center}
+
+\section*{What it means and what next}
+Qwen3-32B with thinking off is clearly anchored by numbers but not by items. Before testing more models we will (1) offer the comparison options in both orders (MORE or FEWER / FEWER or MORE) so the reflex cancels out, and (2) measure the item effect without a neutral control: each item compared once with a higher and once with a lower partner, taking the difference. The triplets phase already does this for the World Cup and Olympics (about \$0.10); a two-partner version of the mountains and buildings is built (about \$0.50). Then Qwen3-14B and the Llama models.
+
+\vfill
+{\small Full report: \texttt{reports/exp8\_bidirectional.tex}. Data: \texttt{data/bidirectional/} \textperiodcentered{} Tables: \texttt{results/bidirectional*/} in the GitHub repository.}
+\end{document}
