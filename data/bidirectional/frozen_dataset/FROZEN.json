@@ -1,0 +1,41 @@
+{
+  "frozen_utc": "2026-11-06T13:10:21Z",
+  "screening_model": "qwen3-32b",
+  "thinking_level": "off",
+  "rules": {
+    "model": "qwen3-32b",
+    "samples": 20,
+    "min_parsed": 0.8,
+    "max_refusal": 0.2,
+    "known_tolerance": 0.05,
+    "max_known_share": 0.5,
+    "categories": "tertiles",
+    "pilot_targets": {
+      "wc2026:teams:group_stage": 15,
+      "wc2026:players:group_stage": 12,
+      "olympics2026:olympics:games": 9,
+      "wc2022:teams:group_stage": 4,
+      "facts:*:fact": 5,
+      "young:prices:fact": 16
+    },
+    "robustness": {
+      "wc2026:teams:tournament": 8
+    },
+    "seed": 20261106
+  },
+  "spread_tertiles": [
+    0.29897655942904194,
+    0.6568468641387772
+  ],
+  "counts": {
+    "confirmatory": 114,
+    "pilot": 61,
+    "robustness": 8,
+    "excluded": 5
+  },
+  "triplets": 9,
+  "sha256": {
+    "pairs_frozen.csv": "c3fb72fb099bfd42beaf132b777e8fc13a14e111caf3551ae7b61b70677b1d25",
+    "triplets_frozen.csv": "11cfd33bf9808846037329fd0296e7df32ea795393c8b0e47536d637841b2529"
+  }
+}
