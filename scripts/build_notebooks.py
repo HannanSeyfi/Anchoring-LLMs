@@ -466,10 +466,14 @@ pilot with `CONFIG = configs/pilot_v2.yaml` (notebooks 03 and 01), then analyse 
 
 
 def main() -> None:
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import bidir_notebooks  # notebooks 05-08 (bidirectional study)
     NOTEBOOKS.mkdir(exist_ok=True)
     for name, nb in [("01_run_pilot.ipynb", run_pilot()), ("02_analyze_pilot.ipynb", analyze_pilot()),
                      ("03_run_pilot_deepinfra.ipynb", run_pilot_api()),
-                     ("04_screen_questions.ipynb", screen_questions())]:
+                     ("04_screen_questions.ipynb", screen_questions())] + \
+            [(name, build()) for name, build in bidir_notebooks.NOTEBOOKS]:
         (NOTEBOOKS / name).write_text(json.dumps(nb, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
         print("wrote", NOTEBOOKS / name)
 

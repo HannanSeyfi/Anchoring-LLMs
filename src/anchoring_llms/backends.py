@@ -39,10 +39,21 @@ WAIT = "\nWait,"
 MAX_WAITS = 3  # at most this many "Wait," extensions per sample
 
 
-def chat_prompt(tokenizer, user_message: str) -> str:
-    """Chat-formatted prompt that ends with an open <think> block."""
+def as_messages(prompt: "str | list[dict]") -> list[dict]:
+    """A single user message, or a whole conversation (list of {role, content}) as given."""
+    if isinstance(prompt, str):
+        return [{"role": "user", "content": prompt}]
+    return [dict(m) for m in prompt]
+
+
+def chat_prompt(tokenizer, user_message: "str | list[dict]") -> str:
+    """Chat-formatted prompt that ends with an open <think> block.
+
+    `user_message` is one user message, or a conversation that ends with a user message (for
+    two-turn trials: the first question, the model's own first reply, then the second question).
+    """
     text = tokenizer.apply_chat_template(
-        [{"role": "user", "content": user_message}],
+        as_messages(user_message),
         tokenize=False, add_generation_prompt=True, enable_thinking=True,
     )
     if not text.rstrip().endswith("<think>"):
@@ -55,7 +66,7 @@ def chat_prompt(tokenizer, user_message: str) -> str:
 @dataclass
 class Request:
     cell_id: str
-    prompt: str
+    prompt: "str | list[dict]"  # one user message, or a conversation ending with a user message
     budget: int            # maximum thinking tokens; 0 = no thinking
     n: int                 # number of samples
     seed: int
@@ -437,6 +448,75 @@ class DeepInfraBackend:
         return results
 
 
+class OpenAIChatBackend(DeepInfraBackend):
+    """Any OpenAI-compatible chat-completions endpoint (DeepInfra, OpenRouter, Together, a local
+    vLLM server, ...), for models whose thinking cannot be controlled token by token, such as
+    Llama instruct models. Only thinking level 0 (no thinking) is supported.
+
+    The conversation is sent as chat messages, so the provider applies the chat template. The key
+    is read from the environment variable named in the model's config (`api_key_env`, default
+    DEEPINFRA_API_KEY); it is never written anywhere. Spending is tracked and capped exactly as in
+    `DeepInfraBackend`; the worst-case cost uses about 4 characters per token.
+    """
+
+    name = "openai_chat"
+
+    def __init__(self, base_url: str, **kw):
+        self.url = base_url.rstrip("/") + "/chat/completions"
+        kw.setdefault("tokenizer", _CharTokenizer())
+        super().__init__(**kw)
+
+    def build_prompt(self, user_message) -> str:  # used only for cost estimates
+        return "\n".join(m["content"] for m in as_messages(user_message))
+
+    def _chat(self, messages: list[dict]) -> tuple[str, int, Optional[str]]:
+        payload = {"model": self.api_model, "messages": messages, "max_tokens": self.answer_max_tokens,
+                   "temperature": self.temperature, "top_p": self.top_p}
+        out = self._post(payload)
+        choice = out["choices"][0]
+        text = (choice.get("message") or {}).get("content") or ""
+        usage = out.get("usage") or {}
+        n_out = int(usage.get("completion_tokens") or max(1, len(text) // 4))
+        cost = usage.get("estimated_cost")
+        if cost is None:
+            cost = usage.get("prompt_tokens", 0) * self.price_in + n_out * self.price_out
+        with self._lock:
+            self.spent += float(cost)
+        return text, n_out, choice.get("finish_reason")
+
+    def generate(self, requests: list[Request]) -> list[list[Completion]]:
+        if any(r.budget for r in requests):
+            raise ValueError("OpenAIChatBackend cannot limit thinking: use thinking level 0 (off).")
+        worst = self.worst_case_cost(requests)
+        if self.spent + worst > self.max_spend:
+            raise SpendLimitReached(
+                f"Spent ${self.spent:.2f} so far. The next batch could cost up to ${worst:.2f}, which "
+                f"could pass the ${self.max_spend:.2f} limit, so the run stopped here. Everything saved "
+                f"so far is kept; raise the limit and run again to continue.")
+        jobs = [(i, j) for i, r in enumerate(requests) for j in range(r.n)]
+
+        def one(job):
+            text, n_tok, finish = self._chat(as_messages(requests[job[0]].prompt))
+            return Completion("", strip_think(text).strip(), 0, n_tok, False, finish)
+
+        try:
+            with ThreadPoolExecutor(max_workers=self.workers) as pool:
+                done = list(pool.map(one, jobs))
+        finally:
+            self._save_spend()
+        results: list[list[Completion]] = [[] for _ in requests]
+        for (i, _), c in zip(jobs, done):
+            results[i].append(c)
+        return results
+
+
+class _CharTokenizer:
+    """Stand-in tokenizer for cost estimates when the model's own tokenizer is not downloaded."""
+
+    def encode(self, text: str, add_special_tokens: bool = False) -> list[int]:
+        return [0] * max(1, len(text) // 4)
+
+
 class DryRunBackend:
     """Simulated model for testing. Anchors pull estimates; thinking pulls less."""
 
@@ -481,6 +561,18 @@ def make_backend(kind: str, model_cfg: dict, cfg: dict, spend_path: Optional[Pat
     if kind == "dryrun":
         return DryRunBackend(seed=cfg["sampling"]["seed"])
     s, e = cfg["sampling"], cfg["engine"]
+    if kind == "openai_chat":
+        api, price = cfg["api"], model_cfg["price_per_million"]
+        return OpenAIChatBackend(
+            base_url=model_cfg.get("base_url", "https://api.deepinfra.com/v1/openai"),
+            hf_id=model_cfg.get("hf_id", model_cfg["api_model"]), api_model=model_cfg["api_model"],
+            api_key=os.environ.get(model_cfg.get("api_key_env", "DEEPINFRA_API_KEY")),
+            price_in=price["input"], price_out=price["output"], max_spend_usd=api["max_spend_usd"],
+            spend_path=spend_path, temperature=s["temperature"], top_p=s["top_p"],
+            answer_max_tokens=s["answer_max_tokens"], workers=api["workers"],
+            timeout=api["timeout_seconds"], max_retries=api["max_retries"],
+            rate_limit_wait=api.get("rate_limit_wait_seconds", 1800),
+        )
     if kind == "deepinfra":
         api, price = cfg["api"], model_cfg["price_per_million"]
         return DeepInfraBackend(

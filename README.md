@@ -14,6 +14,8 @@ budget we can control. The full design is in the [proposal](latex/proposal/main.
 | `latex/proposal/` | The research proposal (also in Overleaf). |
 | `latex/pilot_summary/` | Plain-language summary of pilot run 1 for the professors (also in Overleaf). |
 | `latex/qwen3_report/` | Report on pilot run 2 (Qwen3-32B): results, explanations and feedback (also in Overleaf). |
+| [`docs/bidirectional/`](docs/bidirectional/README.md) | **Bidirectional item-based anchoring study:** what to run, protocol, analysis plan, literature, limitations. |
+| `configs/bidirectional.yaml`, `data/bidirectional/` | Its settings, and its entities, pairs, frozen dataset and replies. |
 | `docs/` | [Pilot protocol](docs/pilot_protocol.md), [steps for question set v2](docs/pilot_v2.md) and [which models and why](docs/model_choice.md). |
 | `CHANGELOG.md` | What changed between question sets and why. |
 | `notebooks/` | Colab notebooks: screen new questions, run the pilot on a GPU or through DeepInfra, then analyse it. |
@@ -31,7 +33,23 @@ budget we can control. The full design is in the [proposal](latex/proposal/main.
 | `scripts/` | Helpers: recompute the calculated answers (both question sets), rebuild the notebooks. |
 | `tests/` | Checks for answer parsing, anchor placement and the whole pipeline. |
 
-## Question set v2 (current)
+## Bidirectional item-based anchoring (current)
+
+Does comparing two items ("Did Cape Verde record more or fewer attempts at goal than Colombia?")
+pull **both** estimates towards each other, as Young et al. (2026) found in people? Run, in order:
+
+1. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/HannanSeyfi/Anchoring-LLMs/blob/main/notebooks/05_bidir_screen.ipynb)
+   `05_bidir_screen`: ask every entity alone and freeze the pairs (qwen3-32b, CPU, about $0.30).
+2. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/HannanSeyfi/Anchoring-LLMs/blob/main/notebooks/06_bidir_run.ipynb)
+   `06_bidir_run`: the anchoring trials (`PHASE = core`, about $1).
+3. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/HannanSeyfi/Anchoring-LLMs/blob/main/notebooks/07_bidir_analyze.ipynb)
+   `07_bidir_analyze`: tables, figures and report.
+4. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/HannanSeyfi/Anchoring-LLMs/blob/main/notebooks/08_bidir_confidence.ipynb)
+   `08_bidir_confidence`: the model's confidence, on a free T4 GPU.
+
+The full list (other phases and models) is in [docs/bidirectional/README.md](docs/bidirectional/README.md).
+
+## Question set v2
 
 Pilot run 2 showed that Qwen3-32B knew most of the first questions, so anchors had nothing to
 pull. Question set v2 screens 299 new candidates and keeps those the models are unsure about.

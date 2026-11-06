@@ -5,3 +5,7 @@ __pycache__/
 .ipynb_checkpoints/
 *.tmp
 latex/reports/preview/
+data/bidirectional/generated_trials/*
+!data/bidirectional/generated_trials/bank.*
+data/bidirectional/runs_smoke/
+results/bidirectional_smoke/

@@ -12,11 +12,15 @@ dependencies = [
     "pandas",
     "pyyaml",
     "matplotlib",
+    "scipy",
+    "statsmodels",
+    "tabulate",
 ]
 
 [project.optional-dependencies]
 gpu = ["vllm"]
 api = ["requests", "transformers"]   # hosted models (DeepInfra); transformers only loads the tokenizer
+confidence = ["torch", "transformers", "accelerate"]   # candidate scoring on a Colab GPU
 test = ["pytest"]
 
 [tool.setuptools.packages.find]
