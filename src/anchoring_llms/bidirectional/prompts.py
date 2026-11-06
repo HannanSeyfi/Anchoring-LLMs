@@ -22,6 +22,14 @@ ESTIMATE_FORMAT = (
 ONE_WORD = "Answer with one word: {options}."
 
 # Answer words for the comparison question, by template. They are mapped to more / fewer / unsure.
+# Forced choice (design bidir-v2): no UNSURE, as in Young et al.'s two-option comparison.
+FORCED_OPTIONS = {
+    "count": {"P1": "MORE or FEWER", "P2": "HIGHER or LOWER"},
+    "fact": {"P1": "GREATER or SMALLER", "P2": "GREATER or SMALLER"},
+    "price": {"P1": "MORE or LESS", "P2": "MORE or LESS"},
+}
+FORCED_NOTE = " If you are not sure, give your best guess."
+
 OPTIONS = {
     "count": {"P1": "MORE, FEWER, or UNSURE", "P2": "HIGHER, LOWER, or UNSURE"},
     "fact": {"P1": "GREATER, SMALLER, or UNSURE", "P2": "GREATER, SMALLER, or UNSURE"},
@@ -114,7 +122,11 @@ def comparison_question(t: Mapping, o: Mapping, template: str) -> str:
         f"Was {a}'s total number of {label} {scope_single(t)} higher or lower than {b}'s?"
 
 
-def comparison_prompt(t: Mapping, o: Mapping, template: str) -> str:
+def comparison_prompt(t: Mapping, o: Mapping, template: str, forced: bool = False) -> str:
+    """Turn 1. forced=True: only the two directions may be chosen (design bidir-v2)."""
+    if forced:
+        return (f"{comparison_question(t, o, template)}\n\n"
+                f"{ONE_WORD.format(options=FORCED_OPTIONS[kind_of(t)][template])}{FORCED_NOTE}")
     return f"{comparison_question(t, o, template)}\n\n{ONE_WORD.format(options=OPTIONS[kind_of(t)][template])}"
 
 
@@ -152,10 +164,12 @@ def no_commitment_prompt(t: Mapping, o: Mapping, first_is_target: bool, template
             f"Instead, answer this question. {estimate_prompt(t)}")
 
 
-def numeric_turn(t: Mapping, anchor_text: str) -> str:
+def numeric_turn(t: Mapping, anchor_text: str, forced: bool = False) -> str:
     """C4: classic numeric comparison with the same question."""
+    opts = ONE_WORD.format(options="HIGHER or LOWER") + FORCED_NOTE if forced else \
+        ONE_WORD.format(options="HIGHER, LOWER, or UNSURE")
     return (f'Is the answer to the following question higher or lower than {anchor_text}?\n'
-            f'"{estimate_question(t)}"\n\n{ONE_WORD.format(options="HIGHER, LOWER, or UNSURE")}')
+            f'"{estimate_question(t)}"\n\n{opts}')
 
 
 def format_anchor(value: float) -> str:

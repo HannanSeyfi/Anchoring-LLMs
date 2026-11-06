@@ -36,6 +36,11 @@ import yaml
 
 from . import prompts as P
 
+def _forced(cfg: Mapping) -> bool:
+    """Design bidir-v2 and later: the turn-1 comparison has no UNSURE option."""
+    return bool(cfg.get("conditions", {}).get("forced_choice", False))
+
+
 PHASES = ["screen", "core", "confirmatory", "numeric", "triplets", "bank"]
 TWO_TURN = {"B2", "LT", "LA", "HT", "HA", "C2", "C4", "TRI"}
 
@@ -106,7 +111,7 @@ def pair_trials(cfg: dict, phase: str, pair: Mapping, ents: Mapping[str, Mapping
             first, second = (t, o) if t_first else (o, t)
             # LT and HA ask the very same comparison (low named first), as do LA and HT
             tpl = P.TEMPLATES[(r + (0 if first is lo else 1)) % 2]
-            turns = [P.comparison_prompt(first, second, tpl), P.estimate_prompt(t)]
+            turns = [P.comparison_prompt(first, second, tpl, _forced(cfg)), P.estimate_prompt(t)]
             out.append(_trial(cfg, phase, cond, t, o, turns, r, pair_id=pid,
                               role="low" if t is lo else "high",
                               order="target_first" if t_first else "target_second",
@@ -136,7 +141,7 @@ def numeric_trials(cfg: dict, pair: Mapping, ents: Mapping[str, Mapping], reps: 
     for r in range(reps):
         for t, o, exp in ((lo, hi, +1), (hi, lo, -1)):
             anchor = float(o["value"])
-            turns = [P.numeric_turn(t, P.format_anchor(anchor)), P.estimate_prompt(t)]
+            turns = [P.numeric_turn(t, P.format_anchor(anchor), _forced(cfg)), P.estimate_prompt(t)]
             out.append(_trial(cfg, "numeric", "C4", t, o, turns, r, pair_id=pair["pair_id"],
                               role="low" if t is lo else "high", expected=exp, anchor_value=anchor,
                               split=split, extra={"anchor_source": "partner_true_value"}))
@@ -152,7 +157,7 @@ def triplet_trials(cfg: dict, tri: Mapping, ents: Mapping[str, Mapping], reps: i
             for t_first in (True, False):
                 first, second = (t, o) if t_first else (o, t)
                 tpl = P.TEMPLATES[(r + (0 if float(first["value"]) < float(second["value"]) else 1)) % 2]
-                turns = [P.comparison_prompt(first, second, tpl), P.estimate_prompt(t)]
+                turns = [P.comparison_prompt(first, second, tpl, _forced(cfg)), P.estimate_prompt(t)]
                 out.append(_trial(cfg, "triplets", "TRI", t, o, turns, r, pair_id=tri["triplet_id"],
                                   role=role, order="target_first" if t_first else "target_second",
                                   template=tpl, expected=exp))

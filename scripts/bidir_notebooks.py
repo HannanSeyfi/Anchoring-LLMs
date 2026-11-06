@@ -133,8 +133,7 @@ else:
 '''),
         code(SAVE_FOLDERS.format(
             title="7. Final save to GitHub",
-            folders='["data/bidirectional/runs", "data/bidirectional/runs_smoke", '
-                    '"data/bidirectional/screening_results", "data/bidirectional/frozen_dataset"]',
+            folders='["data/bidirectional"]',
             message='f"Bidirectional screening: {MODEL} (final save from Colab)"')),
         md("""
 **Next:** open `06_bidir_run.ipynb` with `PHASE = core`.
@@ -201,7 +200,7 @@ print(Path("data/bidirectional/frozen_dataset/FROZEN.json").read_text())
 '''),
         code(SAVE_FOLDERS.format(
             title="6. Final save to GitHub",
-            folders='["data/bidirectional/runs", "data/bidirectional/runs_smoke"]',
+            folders='["data/bidirectional"]',
             message='f"Bidirectional {PHASE}: {MODEL} (final save from Colab)"')),
         md("""
 **Next:** `07_bidir_analyze.ipynb` with the same `MODEL`.
@@ -217,11 +216,11 @@ def bidir_analyze() -> dict:
 {colab_badge("07_bidir_analyze.ipynb")}
 
 No GPU and no DeepInfra key needed. Reads every saved answer of one model (core, numeric and
-triplets), writes tables, figures and `report.md` to `results/bidirectional/<model>/off/`, works
+triplets), writes tables, figures and `report.md` to `results/bidirectional_v2/<model>/off/`, works
 out how many pairs the confirmatory run needs (power), and saves it all to GitHub.
 
 Needs the `GITHUB_TOKEN` Colab secret. Tick `SMOKE_TEST` to analyse smoke-test answers (saved
-into `results/bidirectional_smoke/`; those numbers mean nothing).
+into `results/bidirectional_v2_smoke/`; those numbers mean nothing).
 """),
         code(f'''
 #@title 1. Settings
@@ -231,8 +230,8 @@ SAVE_TO_GITHUB = True  #@param {{type:"boolean"}}
 BRANCH = "{BRANCH}"  #@param {{type:"string"}}
 REPO = "{REPO}"
 WORKDIR = "/content/Anchoring-LLMs"
-CONFIG = "configs/bidirectional.yaml"
-RESULTS_DIR = ("results/bidirectional_smoke/" if SMOKE_TEST else "results/bidirectional/") + MODEL + "/off"
+CONFIG = "configs/bidirectional.yaml"  #@param ["configs/bidirectional.yaml", "configs/bidirectional_v1.yaml"]
+# configs/bidirectional_v1.yaml = pilot run A (comparison allowed UNSURE), kept for reference.
 '''),
         code(GET_CODE),
         code('''
@@ -241,6 +240,8 @@ RESULTS_DIR = ("results/bidirectional_smoke/" if SMOKE_TEST else "results/bidire
 '''),
         code('''
 #@title 4. Run the analysis
+import yaml
+RESULTS_DIR = yaml.safe_load(open(CONFIG))["paths"]["results_dir"] + ("_smoke/" if SMOKE_TEST else "/") + MODEL + "/off"
 !python -m anchoring_llms.bidirectional.analysis --config {CONFIG} --model {MODEL} {"--smoke" if SMOKE_TEST else ""}
 ''' + CHECK + '''
 #@markdown Power: how many pairs the confirmatory run needs, with the spread seen here.
@@ -310,7 +311,7 @@ if "T4" in gpu and MODEL == "qwen3-8b":
 ''' + CHECK),
         code(SAVE_FOLDERS.format(
             title="5. Save the results to GitHub",
-            folders='["results/bidirectional/confidence"]',
+            folders='[__import__("yaml").safe_load(open(CONFIG))["paths"]["results_dir"] + "/confidence"]',
             message='f"Bidirectional confidence: {MODEL} (from Colab)"')),
     ], gpu=True)
     nb["metadata"]["colab"]["gpuType"] = "T4"

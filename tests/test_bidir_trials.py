@@ -129,3 +129,16 @@ def test_screen_phase_is_baselines_only(cfg):
     s = generate(cfg, "screen")
     assert {t["condition"] for t in s} == {"B"}
     assert all(t["partner_entity_id"] == "" for t in s)
+
+
+def test_forced_choice_has_no_unsure():
+    from anchoring_llms.bidirectional.trials import generate, load_config
+    cfg = load_config("configs/bidirectional.yaml")
+    assert cfg["conditions"]["forced_choice"] and cfg["design_version"] == "bidir-v2"
+    trials = generate(cfg, "bank")
+    turn1 = [t["turns"][0] for t in trials if t["condition"] in ("LT", "LA", "HT", "HA", "C4", "TRI")]
+    assert turn1 and not any("UNSURE" in x for x in turn1)
+    assert all("give your best guess" in x for x in turn1)
+    v1 = load_config("configs/bidirectional_v1.yaml")
+    old = [t["turns"][0] for t in generate(v1, "bank") if t["condition"] == "LT"]
+    assert all("UNSURE" in x for x in old)

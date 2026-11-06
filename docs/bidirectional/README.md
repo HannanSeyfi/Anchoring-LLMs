@@ -47,7 +47,7 @@ python -m anchoring_llms.bidirectional.screen --model qwen3-32b          # freez
 python -m anchoring_llms.bidirectional.trials --phase core               # also numeric, triplets, confirmatory
 python -m anchoring_llms.bidirectional.run --phase core --model qwen3-32b
 python -m anchoring_llms.bidirectional.analysis --model qwen3-32b
-python -m anchoring_llms.bidirectional.power --from-pilot results/bidirectional/qwen3-32b/off/tables/pair_effects.csv
+python -m anchoring_llms.bidirectional.power --from-pilot results/bidirectional_v2/qwen3-32b/off/tables/pair_effects.csv
 python -m anchoring_llms.bidirectional.confidence --model qwen3-4b       # on a GPU
 python -m anchoring_llms.bidirectional.run --phase core --backend simulated   # test without any model
 pytest
@@ -70,8 +70,8 @@ its output goes to `runs_smoke/` and `results/bidirectional_smoke/`, and its rep
 | `data/bidirectional/generated_trials/` | Trials per phase (`bank.*` is kept: every condition of every pair once, for reading) |
 | `data/bidirectional/frozen_dataset/` | Written once by screening: `pairs_frozen.csv` (with the split), `triplets_frozen.csv`, `FROZEN.json` with checksums |
 | `data/bidirectional/screening_results/<model>/off/` | Entity statistics, eligibility of every pair, screening report |
-| `data/bidirectional/runs/<phase>/<model>/off/` | Every reply, raw, with its parsed number (`part-*.jsonl.gz`) |
-| `results/bidirectional/<model>/off/` | Tables, figures (with their numbers as CSV), `report.md` |
+| `data/bidirectional/runs_v2/<phase>/<model>/off/` (`runs/` = pilot run A, design v1) | Every reply, raw, with its parsed number (`part-*.jsonl.gz`) |
+| `results/bidirectional_v2/<model>/off/` | Tables, figures (with their numbers as CSV), `report.md` |
 | `results/bidirectional/confidence/<model>/` | Candidate scores and shifts |
 
 ## Data dictionary
