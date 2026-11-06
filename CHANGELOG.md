@@ -4,6 +4,19 @@ What changed in the pilot design and code, and why. The first question set and i
 as they were (`configs/pilot.yaml`, `data/items/`, `data/pilot/`), so earlier runs can still be
 reproduced.
 
+## New study: bidirectional item-based anchoring (2026-11-06)
+
+- **What:** a separate study (`configs/bidirectional.yaml`, `src/anchoring_llms/bidirectional/`,
+  notebooks 05-08, `docs/bidirectional/`). The pilot question sets and their data are unchanged.
+- **Why:** the professors asked for an established, citable design. Young et al. (2026) found in
+  people that comparing two items pulls both estimates together; no LLM work we found tests that.
+- **Data:** World Cup 2026 group-stage team and player statistics (FIFA), Winter Olympics 2026
+  medals (Wikipedia), World Cup 2022 team statistics, known facts, and Young et al.'s 8 products.
+  188 pairs and 9 triplets, chosen before any model was asked.
+- **Code changes shared with the pilot:** `chat_prompt` takes a whole conversation (needed for
+  two-turn trials); a new `openai_chat` backend for Llama models on DeepInfra's chat endpoint;
+  `scipy`, `statsmodels` and `tabulate` are now dependencies.
+
 ## Box-office answers in words, and an index of every question (2026-10-31)
 
 - **What happened:** the 2026 film questions ask for "million US dollars". When a reply wrote
