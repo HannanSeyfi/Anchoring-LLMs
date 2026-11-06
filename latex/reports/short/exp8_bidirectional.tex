@@ -59,7 +59,7 @@ Known partner & Obscure items do not move towards famous ones & low $-0.04$, hig
 {\footnotesize Comparison minus co-mention, log units (0.10 = about 10\%), + = towards the partner.}
 \end{center}
 
-\begin{center}\bfig[0.82\textwidth]{3}\end{center}
+\begin{center}\bfig[0.78\textwidth]{3}\end{center}
 
 \textbf{The comparison is often a reflex.} \enquote{Does a Sharp calculator cost more or less than a second-hand car?} got MORE in 10 of 10 trials. When the right answer was the first option offered, the model was right 84--100\% of the time; when it was the second, 27--56\%.
 
@@ -67,11 +67,10 @@ Known partner & Obscure items do not move towards famous ones & low $-0.04$, hig
 
 \textbf{Naming a second item moves the estimate by itself.} \enquote{Qutani and K2 are both mountains.} lifted Qutani from about 3,750\,m to 5,340\,m; answering \enquote{is it greater or smaller than K2?} brought it back to 3,690\,m (true 3,740\,m).
 
-\begin{center}\bfig[0.82\textwidth]{6}\end{center}
+\begin{center}\bfig[0.78\textwidth]{6}\end{center}
 
-Because each control moves the estimates differently, the same comparison looks different against each one. On the human products, the cheap item moves $+0.28$ against C1 but $-0.06$ against the plain baseline: C1 had made it cheaper first. That is why we withdraw that result.
+Because each control moves the estimates differently, the same comparison looks different against each one. On the human products, the cheap item moves $+0.28$ against C1 but $-0.06$ against the plain baseline: C1 had made it cheaper first. That is why we withdraw that result (the full report has the comparison against every control, set by set).
 
-\begin{center}\bfig[0.82\textwidth]{4}\end{center}
 
 \section*{What it means and what next}
 Qwen3-32B with thinking off is clearly anchored by numbers but not by items. Before testing more models we will (1) offer the comparison options in both orders (MORE or FEWER / FEWER or MORE) so the reflex cancels out, and (2) measure the item effect without a neutral control: each item compared once with a higher and once with a lower partner, taking the difference. The triplets phase already does this for the World Cup and Olympics (about \$0.10); a two-partner version of the mountains and buildings is built (about \$0.50). Then Qwen3-14B and the Llama models.
