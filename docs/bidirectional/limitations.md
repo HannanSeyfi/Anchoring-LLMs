@@ -29,3 +29,12 @@ Stated before the data come in, so that none of them is discovered conveniently 
     contrasts are repeated without them.
 11. **One screening model.** Pairs are screened with Qwen3-32B and used for every model. A smaller
     model may refuse or know different items; each model's exclusion counts are reported.
+12. **Known-partner values come from Wikidata, often from one statement.** The obscure mountains
+    and buildings (2-3 Wikipedia editions each) have a single Wikidata height, which is not
+    checked against a second source. The famous items' Wikidata statements were reviewed by hand
+    (where there were several, the `note` column of `famous.tsv` says which one was used and why). A wrong value adds noise to accuracy but cannot create a pull towards
+    the partner, because the measure is the change from the item's own C1 and baseline answers.
+    Building heights can mean roof or tip; Wikidata gives one number and we use it.
+13. **Known-partner pairs are built after seeing runs A and B.** The extension was designed to
+    explain the null result on World Cup 2026, so it is exploratory. Its pairs were chosen from
+    Wikidata values only, and screened on baselines only, as for the main set.

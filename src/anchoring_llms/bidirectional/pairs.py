@@ -70,7 +70,7 @@ def make_pair(lo: pd.Series, hi: pd.Series, groups: dict, ratio_split: float) ->
         amb.append("totals depend on matches played")
     if lo["domain"] == "olympics":
         amb.append("secondary source (Wikipedia)")
-    short = {"wc2026": "WC26", "wc2022": "WC22", "olympics2026": "OLY26", "facts": "FACT", "young": "YNG"}
+    short = {"wc2026": "WC26", "wc2022": "WC22", "olympics2026": "OLY26", "facts": "FACT", "young": "YNG", "kp": "KP"}
     pid = f"{short[lo['dataset']]}-{lo['domain'][:4].upper()}-{lo['metric'][:6]}-{lo['scope'][:4]}-{lo['entity_code']}-{hi['entity_code']}"
     return dict(
         pair_id=pid, dataset=lo["dataset"], domain=lo["domain"], competition=lo["competition"],

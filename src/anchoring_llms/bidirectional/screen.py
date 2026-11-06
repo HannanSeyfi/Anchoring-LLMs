@@ -7,6 +7,9 @@ spread among post-cutoff entities (strong prior / moderate / high uncertainty).
 
 A pair is eligible when both entities give a number often enough and refuse rarely enough; for
 post-cutoff pairs, neither entity may be "known" more than `max_known_share` of the time.
+Known-partner pairs (configs/bidirectional_kp.yaml): the famous item's baseline median must be
+within `known_partner.max_median_error` of its true value (the model knows it), and the obscure
+item may be "known" at most `max_known_share` of the time.
 No anchoring trial is used here: the rules see only baseline answers.
 
 Eligible pairs are split into the pilot (`pilot_targets` per block, spread over metrics) and a
@@ -91,6 +94,13 @@ def eligibility(pairs: pd.DataFrame, stats: pd.DataFrame, sc: dict) -> pd.DataFr
             if str(p["after_cutoff"]) == "True" and r.get("known", 0) == r.get("known", 0) \
                     and r.get("known", 0) > sc["max_known_share"]:
                 reasons.append(f"{side}: known in {r['known']:.0%} of replies")
+            kp = sc.get("known_partner")
+            if kp and p.get("known_entity_id"):
+                err, known = r.get("median_rel_error"), r.get("known")
+                if eid == p["known_entity_id"] and not (err == err and abs(err) <= kp["max_median_error"]):
+                    reasons.append(f"{side} (famous): baseline median off by {err:+.0%}")
+                if eid == p.get("unknown_entity_id") and known == known and known > sc["max_known_share"]:
+                    reasons.append(f"{side} (obscure): known in {known:.0%} of replies")
             p[f"uncertainty_{side}"] = r.get("uncertainty")
             p[f"spread_{side}"] = r.get("spread")
             p[f"baseline_median_{side}"] = r.get("median")

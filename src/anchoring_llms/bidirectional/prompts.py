@@ -37,7 +37,8 @@ OPTIONS = {
 }
 TEMPLATES = ("P1", "P2")
 
-FACT_PLURAL = {"mountains": "mountains", "lake depths": "lakes", "towers": "towers", "waterfalls": "waterfalls"}
+FACT_PLURAL = {"mountains": "mountains", "lake depths": "lakes", "towers": "towers", "waterfalls": "waterfalls",
+               "buildings": "buildings"}
 
 
 def _cap(s: str) -> str:
@@ -47,7 +48,7 @@ def _cap(s: str) -> str:
 def kind_of(e: Mapping) -> str:
     if e["dataset"] == "young":
         return "price"
-    if e["dataset"] == "facts":
+    if e["dataset"] in ("facts", "kp"):
         return "fact"
     return "count"
 
@@ -71,7 +72,7 @@ def scope_single(e: Mapping) -> str:
 
 def estimate_question(e: Mapping) -> str:
     """The absolute question about one entity (the same text in every condition)."""
-    if e["dataset"] in ("facts", "young"):
+    if e["dataset"] in ("facts", "young", "kp"):
         return e["question"]
     if e["domain"] == "olympics":
         return (f"How many medals in total (gold, silver and bronze) did {e['entity_label']} win "

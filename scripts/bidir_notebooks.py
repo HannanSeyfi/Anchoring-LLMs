@@ -16,7 +16,6 @@ SETTINGS_TAIL = f'''
 BRANCH = "{BRANCH}"  #@param {{type:"string"}}
 REPO = "{REPO}"
 WORKDIR = "/content/Anchoring-LLMs"
-CONFIG = "configs/bidirectional.yaml"
 HOSTED = MODEL in {HOSTED!r}
 
 import subprocess
@@ -104,6 +103,8 @@ MAX_SPEND_USD = 3  #@param {{type:"number"}}
 WORKERS = 8  #@param {{type:"integer"}}
 SAVE_TO_GITHUB = True  #@param {{type:"boolean"}}
 # WORKERS = questions sent at the same time; lower it (4 or 2) if DeepInfra says "too many requests".
+CONFIG = "configs/bidirectional.yaml"  #@param ["configs/bidirectional.yaml", "configs/bidirectional_kp.yaml"]
+# configs/bidirectional_kp.yaml = the known-partner pairs (an obscure item vs a famous one).
 {SETTINGS_TAIL}'''),
         code(GET_CODE),
         code(INSTALL),
@@ -119,15 +120,17 @@ SAVE_TO_GITHUB = True  #@param {{type:"boolean"}}
 '''),
         code('''
 #@title 6. Freeze the pairs (real run only)
+import yaml
 from pathlib import Path
 from IPython.display import Markdown, display
+PATHS = yaml.safe_load(open(CONFIG))["paths"]
 if SMOKE_TEST:
     print("Smoke test: nothing is frozen. Untick SMOKE_TEST and Run all for the real screening.")
-elif Path("data/bidirectional/frozen_dataset/pairs_frozen.csv").exists():
+elif Path(PATHS["frozen_dir"], "pairs_frozen.csv").exists():
     print("The pairs are already frozen; they are not changed. (Ask Claude if they really must be re-frozen.)")
 else:
     !python -m anchoring_llms.bidirectional.screen --config {CONFIG} --model {MODEL}
-    report = Path("data/bidirectional/screening_results", MODEL, "off", "screening_report.md")
+    report = Path(PATHS["screening_dir"], MODEL, "off", "screening_report.md")
     if report.exists():
         display(Markdown(report.read_text()))
 '''),
@@ -178,14 +181,19 @@ SMOKE_TEST = True  #@param {{type:"boolean"}}
 MAX_SPEND_USD = 3  #@param {{type:"number"}}
 WORKERS = 8  #@param {{type:"integer"}}
 SAVE_TO_GITHUB = True  #@param {{type:"boolean"}}
+CONFIG = "configs/bidirectional.yaml"  #@param ["configs/bidirectional.yaml", "configs/bidirectional_kp.yaml"]
+# configs/bidirectional_kp.yaml = the known-partner pairs (an obscure item vs a famous one).
 {SETTINGS_TAIL}'''),
         code(GET_CODE),
         code('''
 #@title 2b. Check that the pairs are frozen
+import yaml
 from pathlib import Path
-if not Path("data/bidirectional/frozen_dataset/pairs_frozen.csv").exists():
-    raise RuntimeError("No frozen pairs yet. Run 05_bidir_screen.ipynb (SMOKE_TEST unticked) first.")
-print(Path("data/bidirectional/frozen_dataset/FROZEN.json").read_text())
+FROZEN = Path(yaml.safe_load(open(CONFIG))["paths"]["frozen_dir"])
+if not (FROZEN / "pairs_frozen.csv").exists():
+    raise RuntimeError(f"No frozen pairs in {FROZEN} yet. Run 05_bidir_screen.ipynb with the same CONFIG "
+                       "(SMOKE_TEST unticked) first.")
+print((FROZEN / "FROZEN.json").read_text())
 '''),
         code(INSTALL),
         code('''
@@ -203,7 +211,7 @@ print(Path("data/bidirectional/frozen_dataset/FROZEN.json").read_text())
             folders='["data/bidirectional"]',
             message='f"Bidirectional {PHASE}: {MODEL} (final save from Colab)"')),
         md("""
-**Next:** `07_bidir_analyze.ipynb` with the same `MODEL`.
+**Next:** `07_bidir_analyze.ipynb` with the same `MODEL` and `CONFIG`.
 """),
     ], gpu=False)
 
@@ -216,7 +224,7 @@ def bidir_analyze() -> dict:
 {colab_badge("07_bidir_analyze.ipynb")}
 
 No GPU and no DeepInfra key needed. Reads every saved answer of one model (core, numeric and
-triplets), writes tables, figures and `report.md` to `results/bidirectional_v2/<model>/off/`, works
+triplets), writes tables, figures and `report.md` to `results/bidirectional_v2/<model>/off/` (`results/bidirectional_kp/` for the known-partner config), works
 out how many pairs the confirmatory run needs (power), and saves it all to GitHub.
 
 Needs the `GITHUB_TOKEN` Colab secret. Tick `SMOKE_TEST` to analyse smoke-test answers (saved
@@ -230,8 +238,8 @@ SAVE_TO_GITHUB = True  #@param {{type:"boolean"}}
 BRANCH = "{BRANCH}"  #@param {{type:"string"}}
 REPO = "{REPO}"
 WORKDIR = "/content/Anchoring-LLMs"
-CONFIG = "configs/bidirectional.yaml"  #@param ["configs/bidirectional.yaml", "configs/bidirectional_v1.yaml"]
-# configs/bidirectional_v1.yaml = pilot run A (comparison allowed UNSURE), kept for reference.
+CONFIG = "configs/bidirectional.yaml"  #@param ["configs/bidirectional.yaml", "configs/bidirectional_kp.yaml", "configs/bidirectional_v1.yaml"]
+# configs/bidirectional_kp.yaml = the known-partner pairs; configs/bidirectional_v1.yaml = pilot run A (UNSURE allowed).
 '''),
         code(GET_CODE),
         code('''
