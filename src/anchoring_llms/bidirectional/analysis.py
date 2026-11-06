@@ -104,6 +104,23 @@ def pair_effects(df: pd.DataFrame, exclude_contaminated: bool = False) -> pd.Dat
             row[f"assim_{a}_vs_{b}"] = sign * (m[a] - m[b])
         row["assim_order_first_minus_second"] = sign * (m["comparison_first"] - m["comparison_second"])
         row["assim_C4_vs_B"] = sign * (m["C4"] - m["B"])
+        # The same, signed by the model's own beliefs instead of the true values: "towards the
+        # partner" = towards the side where the model's baseline (B) puts the partner. When the
+        # model has the two entities in the wrong order, the true-value sign misreads the move.
+        pid_ = g["partner_entity_id"].iloc[0]
+        b_partner = base.loc[pid_, "B"] if pid_ in base.index else np.nan
+        belief = np.sign(b_partner - m["B"]) if b_partner == b_partner and m["B"] == m["B"] else np.nan
+        row["belief_partner_higher"] = belief
+        row["assim_belief_comparison_vs_C1"] = belief * (m["comparison"] - m["C1"])
+        row["assim_belief_C3_vs_C1"] = belief * (m["C3"] - m["C1"])
+        # C4 measured from the model's own baseline: the move towards the number given, in log
+        # units (pull) and as a share of the distance from the baseline to the number.
+        c4 = g[g["condition"] == "C4"]
+        if len(c4) and m["B"] == m["B"]:
+            za = np.log1p(c4["anchor_value"].astype(float)).mean()
+            row["anchor_z"] = za
+            row["assim_C4_pull"] = np.sign(za - m["B"]) * (m["C4"] - m["B"])
+            row["C4_share_of_gap"] = (m["C4"] - m["B"]) / (za - m["B"]) if za != m["B"] else np.nan
         if comp["turn1_correct"].notna().any() if "turn1_correct" in comp else False:
             row["turn1_correct_share"] = comp["turn1_correct"].dropna().astype(float).mean()
         rows.append(row)
@@ -154,7 +171,9 @@ def classify(low: tuple, high: tuple, sesoi: float) -> str:
 
 def summarise(pe: pd.DataFrame, cfg: dict, by: list[str] | None = None) -> pd.DataFrame:
     a = cfg["analysis"]
-    keys = [f"assim_{x}_vs_{y}" for x, y in CONTRASTS] + ["assim_order_first_minus_second", "assim_C4_vs_B"]
+    keys = [f"assim_{x}_vs_{y}" for x, y in CONTRASTS] + ["assim_order_first_minus_second", "assim_C4_vs_B",
+                                                           "assim_belief_comparison_vs_C1", "assim_belief_C3_vs_C1",
+                                                           "assim_C4_pull"]
     groups = [((), pe)] if not by else list(pe.groupby(by))
     rows = []
     for gkey, g in groups:

@@ -164,7 +164,9 @@ def write_report(out: Path, df: pd.DataFrame, pe: pd.DataFrame, res: dict, meta:
              "Assimilation is in log1p units: 0.10 means the estimate moved about 10% towards the other entity. "
              "Intervals are 95% bootstrap intervals over pairs. The two directions are tested separately. "
              "converge = (low + high) / 2 per pair: the two estimates move towards each other. "
-             "common_shift = (low - high) / 2: both estimates rise together (also the low/high asymmetry).", "",
+             "common_shift = (low - high) / 2: both estimates rise together (also the low/high asymmetry). "
+             "belief_* rows sign 'towards the partner' by the model's own baselines instead of the true values; "
+             "C4_pull is the move towards the number given, measured from the model's own baseline.", "",
              "## Main result (all primary pairs)", "", fmt(res["overall"][cols]) if len(res["overall"]) else "(none)", "",
              "![](figures/contrasts_overall.png)", "", "![](figures/conditions.png)", "",
              "## By dataset", "", fmt(res["by_dataset"][["dataset"] + cols]) if len(res["by_dataset"]) else "(none)", "",
