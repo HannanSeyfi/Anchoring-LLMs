@@ -87,6 +87,24 @@ ratio between 1.25 and 3 (rules per dataset in the config), spread over ratio bi
 many of the two are famous; one entity is used in at most one or two pairs. 188 pairs and 9
 triplets were selected.
 
+## Extension: known-partner pairs (bidir-kp1, exploratory)
+
+Added after runs A and B (see `CHANGELOG.md`). Each pair is one **obscure** item and one
+**famous** item of the same kind: 28 mountains (height above sea level) and 28 buildings
+(height), values from Wikidata. Example:
+
+> **Turn 1.** Is the height of Long-Bang Trade Plaza (in Taichung, Taiwan) greater or smaller
+> than that of the Eiffel Tower? Answer with one word: GREATER or SMALLER. If you are not sure,
+> give your best guess.
+>
+> **Turn 2.** How tall is Long-Bang Trade Plaza (in Taichung, Taiwan)? ...
+
+Same conditions, sampling and rules as above; settings in `configs/bidirectional_kp.yaml`.
+Screening also requires the model to know the famous item (baseline median within 10% of the
+truth). Predictions: the obscure item moves towards the famous one in both directions; the
+famous item hardly moves; C4 with the famous item's value as a number moves the obscure item
+about as much as the item does, if the item anchor works through the value the model recalls.
+
 ## Rules that keep it honest
 
 1. **No true value in any prompt.** Checked automatically for every trial (`validate.py`);

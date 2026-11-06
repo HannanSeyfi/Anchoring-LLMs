@@ -4,6 +4,33 @@ What changed in the pilot design and code, and why. The first question set and i
 as they were (`configs/pilot.yaml`, `data/items/`, `data/pilot/`), so earlier runs can still be
 reproduced.
 
+## Bidirectional study: known-partner pairs (design bidir-kp1, 2026-11-06)
+
+- **Why:** in runs A and B (Qwen3-32B) two World Cup 2026 teams did not anchor each other: the
+  model knows neither value, ranked the pairs at chance (55% right) and, from its own baselines,
+  had them in the wrong order 59% of the time. A given number did move it (C4: 42% of the way).
+  Products did move when compared with products whose price the model knows. The account to
+  test: an item works as an anchor only when the model knows roughly what the partner is worth.
+- **What:** a new set of 56 pairs, each one obscure item and one famous item of the same kind:
+  28 mountains (height above sea level, e.g. Mount Burwell in British Columbia vs the
+  Matterhorn) and 28 buildings (height, e.g. a skyscraper in Taichung vs the Eiffel Tower). 26
+  famous items, each used at most 4 times; true ratio 1.3-3; the obscure item is the lower one in
+  33 pairs and the higher one in 23. Values from Wikidata
+  (`data/bidirectional/raw_sources/known_partner/`); built by
+  `python -m anchoring_llms.bidirectional.known_partner`. Settings:
+  `configs/bidirectional_kp.yaml`, the same design as bidir-v2 (forced choice) with its own
+  paths (`data/bidirectional/known_partner/`, `runs_kp/`, `results/bidirectional_kp/`).
+- **Screening rule added:** the famous item's baseline median must be within 10% of its true
+  value (the model must know it), and the obscure item may be "known" in at most half of the
+  replies. Every eligible pair is run (no held-out set: this is an exploratory extension).
+- **Predictions, written before any known-partner data:** the obscure item moves towards the
+  famous one in both directions (up when the famous one is higher, down when it is lower); the
+  famous item hardly moves. C4 gives the same value as a plain number, so item and numeric
+  anchors with the same value can be compared directly.
+- **Analysis addition:** a "Known partner" table in the report, each contrast split by whether
+  the estimated item is the obscure or the famous one.
+- **Not changed:** the main pairs, their split, and the main study's runs.
+
 ## Bidirectional study: forced-choice comparison (design bidir-v2, 2026-11-06)
 
 - **What happened** (pilot run A, Qwen3-32B, 14,250 answers, `configs/bidirectional_v1.yaml`):

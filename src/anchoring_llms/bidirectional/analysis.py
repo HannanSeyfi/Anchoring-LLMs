@@ -328,6 +328,18 @@ def analyse(cfg: dict, model: str, level: str | None = None, records: list[dict]
         "triplets": triplet_effects(df),
         "exclusions": df.groupby(["condition", "parse_status"]).size().unstack(fill_value=0).reset_index(),
     }
+    # Known-partner pairs (configs/bidirectional_kp.yaml): split each effect by whether the
+    # estimated item is the obscure one or the famous one. Within a side, "low" rows are pairs
+    # where that item is the lower of the two (pulled up), "high" rows where it is the higher.
+    fp = Path(cfg["paths"]["frozen_dir"]) / "pairs_frozen.csv"
+    kp = pd.read_csv(fp, keep_default_na=False) if fp.exists() else pd.DataFrame()
+    if "unknown_entity_id" in kp and len(primary):
+        unknown = dict(zip(kp["pair_id"], kp["unknown_entity_id"]))
+        side = lambda d: np.where(d["entity_id"] == d["pair_id"].map(unknown), "obscure", "famous")  # noqa: E731
+        pe["kp_side"] = side(pe)
+        primary = primary.assign(kp_side=side(primary))
+        res["known_partner"] = summarise(primary, cfg, ["kp_side"])
+        res["known_partner_by_domain"] = summarise(primary, cfg, ["kp_side", "domain"])
     pe.to_csv(out / "tables" / "pair_effects.csv", index=False)
     df.drop(columns=[c for c in ("history_2",) if c in df]).to_csv(out / "tables" / "trials.csv.gz", index=False)
     for k, v in res.items():

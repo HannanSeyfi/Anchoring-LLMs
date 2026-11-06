@@ -142,6 +142,14 @@ def fig_accuracy(acc: pd.DataFrame, path: Path) -> None:
     plt.close(fig)
 
 
+KP_CONTRASTS = ("comparison_vs_C1", "belief_comparison_vs_C1", "C3_vs_C1", "C4_pull")
+
+
+def _kp(t):
+    """The known-partner table, only the contrasts that answer its question."""
+    return t[t["contrast"].isin(KP_CONTRASTS)]
+
+
 def write_report(out: Path, df: pd.DataFrame, pe: pd.DataFrame, res: dict, meta: dict, cfg: dict) -> None:
     figs = out / "figures"
     figs.mkdir(parents=True, exist_ok=True)
@@ -169,6 +177,15 @@ def write_report(out: Path, df: pd.DataFrame, pe: pd.DataFrame, res: dict, meta:
              "C4_pull is the move towards the number given, measured from the model's own baseline.", "",
              "## Main result (all primary pairs)", "", fmt(res["overall"][cols]) if len(res["overall"]) else "(none)", "",
              "![](figures/contrasts_overall.png)", "", "![](figures/conditions.png)", "",
+             *(["## Known partner: obscure item vs famous item", "",
+                "Each pair is one obscure item and one famous item. For each side, `low` = pairs where that item "
+                "is the lower of the two (a pull towards the partner means its estimate goes up), `high` = pairs "
+                "where it is the higher (goes down). Prediction: the obscure item moves in both directions, the "
+                "famous one hardly moves. converge and common_shift are empty here because a side holds only "
+                "one role per pair.", "",
+                fmt(_kp(res["known_partner"])[["kp_side"] + cols[:10]]), "", "By domain:", "",
+                fmt(_kp(res["known_partner_by_domain"])[["kp_side", "domain"] + cols[:10]]), ""]
+               if "known_partner" in res else []),
              "## By dataset", "", fmt(res["by_dataset"][["dataset"] + cols]) if len(res["by_dataset"]) else "(none)", "",
              "## Self-consistency: by the turn-1 answer", "", fmt(res["self_consistency"]), "",
              "## Without trials whose turn-1 reply contained numbers", "",
