@@ -37,8 +37,8 @@ import pandas as pd
 from .run import load_records
 from .trials import load_config
 
-CONTRASTS = [("comparison", "C1"), ("comparison", "B"), ("comparison", "B2"), ("comparison", "C3"),
-             ("C3", "C1"), ("C1", "B"), ("C2", "B2")]
+CONTRASTS = [("comparison", "C1"), ("comparison", "B"), ("comparison", "B2"), ("comparison", "C2"),
+             ("comparison", "C3"), ("C3", "C1"), ("C1", "B"), ("C2", "B2"), ("C2", "C1")]
 COMP = {"LT": "low", "LA": "low", "HT": "high", "HA": "high"}
 
 
@@ -124,6 +124,9 @@ def pair_effects(df: pd.DataFrame, exclude_contaminated: bool = False) -> pd.Dat
         if comp["turn1_correct"].notna().any() if "turn1_correct" in comp else False:
             row["turn1_correct_share"] = comp["turn1_correct"].dropna().astype(float).mean()
         rows.append(row)
+    if not rows:   # e.g. a run with triplets only
+        return pd.DataFrame(columns=["pair_id", "role", "entity_id", "dataset", "domain", "metric", "scope", "split",
+                                     "sd_B", "B", "C1", "comparison", "assim_comparison_vs_C1"])
     return pd.DataFrame(rows)
 
 
@@ -170,6 +173,8 @@ def classify(low: tuple, high: tuple, sesoi: float) -> str:
 
 
 def summarise(pe: pd.DataFrame, cfg: dict, by: list[str] | None = None) -> pd.DataFrame:
+    if pe.empty or any(c not in pe for c in (by or [])):
+        return pd.DataFrame()   # e.g. a run with triplets only
     a = cfg["analysis"]
     keys = [f"assim_{x}_vs_{y}" for x, y in CONTRASTS] + ["assim_order_first_minus_second", "assim_C4_vs_B",
                                                            "assim_belief_comparison_vs_C1", "assim_belief_C3_vs_C1",
@@ -236,6 +241,71 @@ def mixed_model(df: pd.DataFrame) -> pd.DataFrame:
         return pd.DataFrame([{"term": f"mixed model failed: {type(e).__name__}: {e}"[:200], "coef": np.nan}])
 
 
+def mixed_slopes(df: pd.DataFrame, controls: tuple[str, ...] = ("C1", "C2")) -> pd.DataFrame:
+    """The primary contrast at trial level, with a random intercept AND a random comparison slope per pair.
+
+    The older model (`mixed_model`) lets every pair have its own level but forces the same
+    comparison effect on all pairs, so it treats the 10 answers per cell as independent evidence
+    about one shared effect and its p values come out too small. Here each pair gets its own
+    effect, so the uncertainty is about pairs, as in the pair bootstrap (the primary test).
+    Entities that appear in several pairs are still not modelled (statsmodels has no crossed
+    random effects); the bootstrap over pairs has the same limit."""
+    try:
+        import statsmodels.formula.api as smf
+    except ImportError:
+        return pd.DataFrame([{"term": "statsmodels not installed", "coef": np.nan}])
+    import warnings
+    base = baseline_tables(df[df["valid"]])["B"]
+    rows = []
+    for role in ("low", "high"):
+        for ctrl in controls:
+            d = df[df["valid"] & (df["role"] == role) & df["condition"].isin(list(COMP) + [ctrl])].copy()
+            if d["condition"].eq(ctrl).sum() == 0 or d["pair_id"].nunique() < 3:
+                continue
+            d["y"] = (1 if role == "low" else -1) * (d["z"] - d["target_entity_id"].map(base))
+            d["x"] = d["condition"].isin(list(COMP)).astype(float)
+            d = d.dropna(subset=["y"])
+            row = dict(role=role, contrast=f"comparison_vs_{ctrl}", n_trials=len(d), n_pairs=d["pair_id"].nunique())
+            try:
+                with warnings.catch_warnings():
+                    warnings.simplefilter("ignore")
+                    m = smf.mixedlm("y ~ x", d, groups=d["pair_id"], re_formula="~x").fit(reml=True, method="lbfgs")
+                ci = m.conf_int().loc["x"]
+                row.update(coef=m.params["x"], se=m.bse["x"], ci_lo=ci[0], ci_hi=ci[1], p=m.pvalues["x"],
+                           slope_sd=float(np.sqrt(max(m.cov_re.iloc[1, 1], 0))), converged=m.converged)
+            except Exception as e:  # report, do not hide
+                row.update(coef=np.nan, note=f"failed: {type(e).__name__}: {e}"[:200])
+            rows.append(row)
+    return pd.DataFrame(rows)
+
+
+def option_order(df: pd.DataFrame) -> pd.DataFrame:
+    """Turn 1: does the model pick whichever answer word is offered first?
+
+    `first_offered` = MORE (or HIGHER, GREATER) unless the trial offered the words the other way round
+    (`options_reversed`, designs bidir-v3 and bidir-kp2). Rows: by dataset and by whether the correct
+    answer was the first or the second word offered. With no reflex, `correct` is the same in both
+    rows; a model that always picks the first word is right 100% / 0%."""
+    d = df[df["condition"].isin(list(COMP) + ["TRI"])].copy()
+    if d.empty or "turn1_answer" not in d:
+        return pd.DataFrame()
+    d = d[d["turn1_answer"].isin(["more", "fewer"]) & d["turn1_correct"].notna()]
+    if d.empty:
+        return pd.DataFrame()
+    rev = d["options_reversed"].fillna(False).astype(bool) if "options_reversed" in d else pd.Series(False, index=d.index)
+    first_word = np.where(rev, "fewer", "more")
+    correct = d["turn1_correct"].astype(bool)
+    truth = np.where(correct, d["turn1_answer"], np.where(d["turn1_answer"] == "more", "fewer", "more"))
+    d["options"] = np.where(rev, "reversed", "usual")
+    d["correct_answer_offered"] = np.where(truth == first_word, "first", "second")
+    d["picked_first"] = (d["turn1_answer"].values == first_word).astype(float)
+    d["correct_f"] = correct.astype(float)
+    return (d.groupby(["dataset", "correct_answer_offered"])
+            .agg(trials=("correct_f", "size"), correct=("correct_f", "mean"), picked_first=("picked_first", "mean"),
+                 reversed_share=("options", lambda x: float((x == "reversed").mean())))
+            .reset_index())
+
+
 def self_consistency(df: pd.DataFrame) -> pd.DataFrame:
     """Comparison trials split by whether the turn-1 answer was right, wrong, or unsure."""
     d = df[df["valid"] & df["condition"].isin(list(COMP))].copy()
@@ -293,6 +363,112 @@ def triplet_effects(df: pd.DataFrame) -> pd.DataFrame:
     return m.reset_index()
 
 
+def triplet_summary(df: pd.DataFrame, tri: pd.DataFrame, cfg: dict) -> pd.DataFrame:
+    """The middle item after comparing with the high one minus after the low one, over triplets.
+
+    > 0 = the estimate follows the partner. Needs no control: whatever a comparison does by
+    itself is the same on both sides. `index` divides by the log gap between the two partners'
+    true values (1 = moves as far as the partners differ). Rows: all trials, and (bidir-v3) each
+    answer-word order alone; then each dataset."""
+    d = df[df["valid"] & (df["condition"] == "TRI")] if "condition" in df else pd.DataFrame()
+    if d.empty or tri.empty:
+        return pd.DataFrame()
+    gap = (np.log1p(tri.set_index("triplet_id")["truth_high"].astype(float))
+           - np.log1p(tri.set_index("triplet_id")["truth_low"].astype(float)))
+    dset = tri.set_index("triplet_id")["dataset"]
+    a = cfg["analysis"]
+    subsets = [("all", None, d)]
+    if "options_reversed" in d and d["options_reversed"].notna().any():
+        rev = d["options_reversed"].fillna(False).astype(bool)
+        subsets += [("usual word order", None, d[~rev]), ("reversed word order", None, d[rev])]
+    for ds in sorted(d["dataset"].unique()):
+        subsets.append(("all", ds, d[d["dataset"] == ds]))
+    rows = []
+    for name, ds, g in subsets:
+        m = triplet_effects(g)
+        if m.empty or "mid_high_minus_low" not in m:
+            continue
+        v = m.set_index("pair_id")["mid_high_minus_low"].dropna()
+        idx = (v / v.index.map(gap)).astype(float)
+        mean, lo, hi = bootstrap_mean(v.values, a["bootstrap"], a["seed"])
+        imean, ilo, ihi = bootstrap_mean(idx.values, a["bootstrap"], a["seed"])
+        rows.append(dict(trials=name, dataset=ds or "all", triplets=len(v), mid_high_minus_low=mean, ci_lo=lo,
+                         ci_hi=hi, index=imean, index_ci_lo=ilo, index_ci_hi=ihi,
+                         share_positive=float((v > 0).mean()) if len(v) else np.nan))
+    return pd.DataFrame(rows)
+
+
+CONTROLS = ("B", "B2", "C1", "C2")
+
+
+def controls_side_by_side(by_dataset: pd.DataFrame) -> pd.DataFrame:
+    """The comparison effect against each control, per dataset and direction.
+
+    Each control moves estimates by itself (run A/B and bidir-kp1), so an effect is called robust
+    only when its 95% interval is on the same side of zero against every control that was run
+    (B, B2, C1 and the two-turn co-mention C2, which bidir-kp2 drops)."""
+    rows = []
+    if by_dataset.empty:
+        return pd.DataFrame()
+    for ds, g in by_dataset.groupby("dataset"):
+        g = g.set_index("contrast")
+        for role in ("low", "high"):
+            row = dict(dataset=ds, role=role)
+            sides = []
+            for c in CONTROLS:
+                k = f"comparison_vs_{c}"
+                if k not in g.index:
+                    continue
+                m, lo, hi = g.loc[k, f"{role}_mean"], g.loc[k, f"{role}_ci_lo"], g.loc[k, f"{role}_ci_hi"]
+                if m != m or lo != lo:
+                    continue
+                row[f"vs_{c}"] = f"{m:+.3f} [{lo:+.3f}, {hi:+.3f}]"
+                sides.append(1 if lo > 0 else (-1 if hi < 0 else 0))
+            row["robust"] = ("towards" if all(x == 1 for x in sides) else
+                             "away" if all(x == -1 for x in sides) else "no") if sides else ""
+            rows.append(row)
+    return pd.DataFrame(rows)
+
+
+def two_partner(pe: pd.DataFrame, kp: pd.DataFrame, cfg: dict) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """bidir-kp2: each obscure item was compared with a taller and a shorter famous item.
+
+    Per item and condition: z after the taller partner minus z after the shorter one (> 0 = the
+    estimate follows the partner). Anything a condition does by itself is the same on both sides
+    and cancels, so no neutral control is needed. `index` divides by the partners' log1p gap, like
+    Jacowitz and Kahneman's anchoring index (1 = the estimate moves as far as the partners differ).
+    Returns (per item, summary with bootstrap intervals over items)."""
+    a = cfg["analysis"]
+    truth = {**dict(zip(kp["low_entity_id"], kp["truth_low"])), **dict(zip(kp["high_entity_id"], kp["truth_high"]))}
+    partner = dict(zip(kp["pair_id"], kp["known_entity_id"]))
+    d = pe[pe["kp_side"] == "obscure"].copy()
+    d["partner_z"] = np.log1p(d["pair_id"].map(partner).map(truth).astype(float))
+    rows = []
+    for eid, g in d.groupby("entity_id"):
+        hi, lo = g[g["role"] == "low"], g[g["role"] == "high"]     # obscure low = partner taller
+        if len(hi) != 1 or len(lo) != 1:
+            continue
+        hi, lo = hi.iloc[0], lo.iloc[0]
+        row = dict(entity_id=eid, domain=hi["domain"], pair_taller=hi["pair_id"], pair_shorter=lo["pair_id"],
+                   partner_gap=hi["partner_z"] - lo["partner_z"], B=hi["B"])
+        for c in ("comparison", "C1", "C3", "C4"):
+            row[f"{c}_taller_minus_shorter"] = hi[c] - lo[c]
+            row[f"{c}_index"] = (hi[c] - lo[c]) / row["partner_gap"]
+        rows.append(row)
+    items = pd.DataFrame(rows)
+    out = []
+    for dom, g in [("all", items)] + (list(items.groupby("domain")) if len(items) else []):
+        for c in ("comparison", "C1", "C3", "C4"):
+            for kind in ("taller_minus_shorter", "index"):
+                v = g[f"{c}_{kind}"].values if len(g) else np.array([])
+                m, lo_, hi_ = bootstrap_mean(v, a["bootstrap"], a["seed"])
+                out.append(dict(domain=dom, condition=c, measure=kind, mean=m, ci_lo=lo_, ci_hi=hi_,
+                                median=np.nanmedian(v) if len(v) else np.nan,
+                                share_positive=float(np.mean(v[~np.isnan(v)] > 0)) if len(v) else np.nan,
+                                items=int(np.sum(~np.isnan(np.asarray(v, float))))))
+    return items, pd.DataFrame(out)
+
+
 def analyse(cfg: dict, model: str, level: str | None = None, records: list[dict] | None = None,
             out: Path | None = None, smoke: bool = False) -> dict:
     level = level or cfg["thinking_level"]
@@ -322,12 +498,20 @@ def analyse(cfg: dict, model: str, level: str | None = None, records: list[dict]
         "robustness_tournament_totals": summarise(pe[pe["split"] == "robustness"], cfg) if "split" in pe else pd.DataFrame(),
         "without_contaminated": summarise(pe_clean[pe_clean["split"].isin(["pilot", "confirmatory", ""])], cfg),
         "mixed_model": mixed_model(df[df["split"].isin(["pilot", "confirmatory", ""]) | (df["pair_id"] == "")]),
+        "mixed_slopes": mixed_slopes(df[df["split"].isin(["pilot", "confirmatory", ""]) | (df["pair_id"] == "")]),
+        "option_order": option_order(df),
         "self_consistency": self_consistency(df),
         "accuracy": accuracy(df, ents),
         "uncertainty": uncertainty_moderation(primary, stats),
         "triplets": triplet_effects(df),
+        "triplet_summary": pd.DataFrame(),
+        "controls_side_by_side": pd.DataFrame(),
         "exclusions": df.groupby(["condition", "parse_status"]).size().unstack(fill_value=0).reset_index(),
     }
+    res["controls_side_by_side"] = controls_side_by_side(res["by_dataset"])
+    tp = Path(cfg["paths"]["frozen_dir"]) / "triplets_frozen.csv"
+    if tp.exists():
+        res["triplet_summary"] = triplet_summary(df, pd.read_csv(tp, keep_default_na=False), cfg)
     # Known-partner pairs (configs/bidirectional_kp.yaml): split each effect by whether the
     # estimated item is the obscure one or the famous one. Within a side, "low" rows are pairs
     # where that item is the lower of the two (pulled up), "high" rows where it is the higher.
@@ -340,6 +524,9 @@ def analyse(cfg: dict, model: str, level: str | None = None, records: list[dict]
         primary = primary.assign(kp_side=side(primary))
         res["known_partner"] = summarise(primary, cfg, ["kp_side"])
         res["known_partner_by_domain"] = summarise(primary, cfg, ["kp_side", "domain"])
+        if "item_group" in kp:
+            items, res["two_partner"] = two_partner(primary, kp, cfg)
+            items.to_csv(out / "tables" / "two_partner_items.csv", index=False)
     pe.to_csv(out / "tables" / "pair_effects.csv", index=False)
     df.drop(columns=[c for c in ("history_2",) if c in df]).to_csv(out / "tables" / "trials.csv.gz", index=False)
     for k, v in res.items():
@@ -350,6 +537,10 @@ def analyse(cfg: dict, model: str, level: str | None = None, records: list[dict]
     from .report import write_report
     write_report(out, df, pe, res, meta, cfg)
     print(f"Analysis of {len(df)} trials ({meta['valid']} with a number) -> {out}")
+    if len(res["triplet_summary"]):
+        print(res["triplet_summary"].to_string(index=False, float_format=lambda v: f"{v:.3f}"))
+    if res["overall"].empty:
+        return res
     print(res["overall"][["contrast", "low_mean", "low_ci_lo", "low_ci_hi", "high_mean", "high_ci_lo", "high_ci_hi",
                           "pattern"]].to_string(index=False, float_format=lambda v: f"{v:.3f}"))
     return res

@@ -142,7 +142,8 @@ def fig_accuracy(acc: pd.DataFrame, path: Path) -> None:
     plt.close(fig)
 
 
-KP_CONTRASTS = ("comparison_vs_C1", "belief_comparison_vs_C1", "C3_vs_C1", "C4_pull")
+KP_CONTRASTS = ("comparison_vs_C1", "comparison_vs_B", "comparison_vs_B2", "belief_comparison_vs_C1", "C3_vs_C1",
+                "C4_pull")
 
 
 def _kp(t):
@@ -186,16 +187,48 @@ def write_report(out: Path, df: pd.DataFrame, pe: pd.DataFrame, res: dict, meta:
                 fmt(_kp(res["known_partner"])[["kp_side"] + cols[:10]]), "", "By domain:", "",
                 fmt(_kp(res["known_partner_by_domain"])[["kp_side", "domain"] + cols[:10]]), ""]
                if "known_partner" in res else []),
+             *(["## Two partners: estimate after the taller partner minus after the shorter one", "",
+                "Each obscure item was compared once with a taller and once with a shorter famous item. "
+                "`taller_minus_shorter` > 0 means the estimate follows the partner (log1p units, over items); "
+                "`index` divides by the gap between the two partners (1 = the estimate moves as far as the "
+                "partners differ, 0 = not at all). Whatever a condition does by itself cancels in the difference. "
+                "`comparison` is the main test; `C4` is the same partners given as plain numbers.", "",
+                fmt(res["two_partner"]), ""] if "two_partner" in res else []),
+             "## The comparison against each control", "",
+             "Each control moves the estimates by itself, so the comparison effect is shown against the plain "
+             "baseline (B), the two-turn baseline (B2), the co-mention (C1) and the two-turn co-mention (C2: "
+             "both names, then a letter-count question). `robust` = the 95% interval is on the same side of zero "
+             "against every control that was run (+ = towards the partner).", "",
+             fmt(res["controls_side_by_side"]), "",
+             "## Turn 1: does the model pick the first word offered?", "",
+             "`correct_answer_offered` = whether the right answer was the first or the second word in \"MORE or "
+             "FEWER\" (or the reversed \"FEWER or MORE\"). Without a reflex `correct` is about the same in both "
+             "rows; a model that always takes the first word scores 100% and 0%. `picked_first` = share of answers "
+             "that took the first word; `reversed_share` = share of trials that offered the words reversed.", "",
+             fmt(res["option_order"]) if len(res.get("option_order", [])) else "(none)", "",
              "## By dataset", "", fmt(res["by_dataset"][["dataset"] + cols]) if len(res["by_dataset"]) else "(none)", "",
              "## Self-consistency: by the turn-1 answer", "", fmt(res["self_consistency"]), "",
              "## Without trials whose turn-1 reply contained numbers", "",
              fmt(res["without_contaminated"][cols]) if len(res["without_contaminated"]) else "(none)", "",
              "## Robustness: whole-tournament totals", "",
              fmt(res["robustness_tournament_totals"][cols]) if len(res["robustness_tournament_totals"]) else "(none)", "",
-             "## Mixed model (check)", "", fmt(res["mixed_model"]), "",
+             "## Mixed model with a comparison slope per pair", "",
+             "Trial level, comparison vs one control, each direction separately; every pair has its own level and "
+             "its own comparison effect (`slope_sd` = how much that effect varies between pairs). This matches the "
+             "pair bootstrap, which stays the primary test.", "",
+             fmt(res["mixed_slopes"]) if len(res.get("mixed_slopes", [])) else "(none)", "",
+             "## Mixed model, intercepts only (too confident; kept for comparison)", "",
+             "Here every pair shares one comparison effect, so its p values are too small. Read the model above.", "",
+             fmt(res["mixed_model"]), "",
              "## Accuracy", "", fmt(res["accuracy"]), "", "![](figures/accuracy.png)", "",
              "## Prior strength", "", fmt(res["uncertainty"]), "", "![](figures/uncertainty.png)", "",
-             "## Triplets", "", fmt(res["triplets"]), "",
+             "## Triplets", "",
+             "The middle item of each triplet is compared once with the lower and once with the higher item, "
+             "then estimated. `mid_high_minus_low` = its estimate after the higher partner minus after the lower "
+             "one (log1p units; > 0 = follows the partner). No control is needed. `index` divides by the gap "
+             "between the partners' true values.", "",
+             fmt(res["triplet_summary"]) if len(res.get("triplet_summary", [])) else "(none)", "",
+             "Per triplet (mean log1p estimate by role):", "", fmt(res["triplets"]), "",
              "## Replies without a number", "", fmt(res["exclusions"]), "",
              "![](figures/pairs_low_vs_high.png)", ""]
     (out / "report.md").write_text("\n".join(lines))

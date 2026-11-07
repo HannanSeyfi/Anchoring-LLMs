@@ -103,8 +103,9 @@ MAX_SPEND_USD = 3  #@param {{type:"number"}}
 WORKERS = 8  #@param {{type:"integer"}}
 SAVE_TO_GITHUB = True  #@param {{type:"boolean"}}
 # WORKERS = questions sent at the same time; lower it (4 or 2) if DeepInfra says "too many requests".
-CONFIG = "configs/bidirectional.yaml"  #@param ["configs/bidirectional.yaml", "configs/bidirectional_kp.yaml"]
-# configs/bidirectional_kp.yaml = the known-partner pairs (an obscure item vs a famous one).
+CONFIG = "configs/bidirectional.yaml"  #@param ["configs/bidirectional.yaml", "configs/bidirectional_v3.yaml", "configs/bidirectional_kp.yaml", "configs/bidirectional_kp2.yaml"]
+# configs/bidirectional_v3.yaml = the same pairs with the answer words offered both ways round;
+# configs/bidirectional_kp.yaml = known-partner pairs; configs/bidirectional_kp2.yaml = two partners per item.
 {SETTINGS_TAIL}'''),
         code(GET_CODE),
         code(INSTALL),
@@ -181,8 +182,9 @@ SMOKE_TEST = True  #@param {{type:"boolean"}}
 MAX_SPEND_USD = 3  #@param {{type:"number"}}
 WORKERS = 8  #@param {{type:"integer"}}
 SAVE_TO_GITHUB = True  #@param {{type:"boolean"}}
-CONFIG = "configs/bidirectional.yaml"  #@param ["configs/bidirectional.yaml", "configs/bidirectional_kp.yaml"]
-# configs/bidirectional_kp.yaml = the known-partner pairs (an obscure item vs a famous one).
+CONFIG = "configs/bidirectional.yaml"  #@param ["configs/bidirectional.yaml", "configs/bidirectional_v3.yaml", "configs/bidirectional_kp.yaml", "configs/bidirectional_kp2.yaml"]
+# configs/bidirectional_v3.yaml = the same pairs with the answer words offered both ways round;
+# configs/bidirectional_kp.yaml = known-partner pairs; configs/bidirectional_kp2.yaml = two partners per item.
 {SETTINGS_TAIL}'''),
         code(GET_CODE),
         code('''
@@ -238,8 +240,9 @@ SAVE_TO_GITHUB = True  #@param {{type:"boolean"}}
 BRANCH = "{BRANCH}"  #@param {{type:"string"}}
 REPO = "{REPO}"
 WORKDIR = "/content/Anchoring-LLMs"
-CONFIG = "configs/bidirectional.yaml"  #@param ["configs/bidirectional.yaml", "configs/bidirectional_kp.yaml", "configs/bidirectional_v1.yaml"]
-# configs/bidirectional_kp.yaml = the known-partner pairs; configs/bidirectional_v1.yaml = pilot run A (UNSURE allowed).
+CONFIG = "configs/bidirectional.yaml"  #@param ["configs/bidirectional.yaml", "configs/bidirectional_v3.yaml", "configs/bidirectional_kp.yaml", "configs/bidirectional_kp2.yaml", "configs/bidirectional_v1.yaml"]
+# configs/bidirectional_v3.yaml = answer words both ways round; configs/bidirectional_kp.yaml = the known-partner
+# pairs; configs/bidirectional_kp2.yaml = two partners per item; configs/bidirectional_v1.yaml = pilot run A (UNSURE allowed).
 '''),
         code(GET_CODE),
         code('''

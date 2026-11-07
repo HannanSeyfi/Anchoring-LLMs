@@ -98,8 +98,11 @@ def validate_trials(trials: list[dict], cfg: dict, entities: pd.DataFrame | None
         if cond in ("B", "B2"):
             # no other entity of the same statistic may be named
             pass
+    unknown_only = cfg.get("conditions", {}).get("targets") == "unknown_only"
     for pid, conds in by_pair.items():
-        missing = set(CORE) - conds
+        # bidir-kp2 estimates only the obscure item: one comparison side per pair (LT/LA or HT/HA)
+        need = [{"LT", "LA"}, {"HT", "HA"}] if unknown_only else [set(CORE)]
+        missing = set(CORE) - conds if not unknown_only else (set() if any(n <= conds for n in need) else {"LT/LA or HT/HA"})
         if missing:
             problems.append(f"pair {pid}: missing {sorted(missing)}")
     return problems

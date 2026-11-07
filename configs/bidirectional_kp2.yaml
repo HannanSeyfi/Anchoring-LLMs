@@ -1,0 +1,156 @@
+# Bidirectional item-based anchoring study. Every setting of the study is here.
+# Steps (docs/bidirectional/README.md):
+#   python -m anchoring_llms.bidirectional.sources                       # entities from the raw sources
+#   python -m anchoring_llms.bidirectional.pairs                         # pairs and triplets
+#   python -m anchoring_llms.bidirectional.trials --phase screen         # screening questions
+#   python -m anchoring_llms.bidirectional.run --phase screen --model qwen3-32b --sync
+#   python -m anchoring_llms.bidirectional.screen --model qwen3-32b      # pick and freeze the pairs
+#   python -m anchoring_llms.bidirectional.trials --phase core           # (and numeric, triplets)
+#   python -m anchoring_llms.bidirectional.run --phase core --model qwen3-32b --sync
+#   python -m anchoring_llms.bidirectional.analysis --model qwen3-32b
+
+name: bidirectional-kp2
+design_version: bidir-kp2     # two partners per obscure item (2026-11-06): one taller, one shorter famous item
+# Item effect = estimate after the taller partner minus after the shorter one (no neutral control needed).
+#   python -m anchoring_llms.bidirectional.known_partner --config configs/bidirectional_kp2.yaml   (already done)
+#   then the steps below with --config configs/bidirectional_kp2.yaml
+known_partner_design: two_sided
+
+paths:
+  entities: data/bidirectional/known_partner2/entities.csv
+  candidate_pairs: data/bidirectional/known_partner2/candidate_pairs.csv
+  verified_pairs: data/bidirectional/known_partner2/verified_pairs.csv
+  triplets: data/bidirectional/known_partner2/triplets.csv
+  trials_dir: data/bidirectional/known_partner2/generated_trials
+  frozen_dir: data/bidirectional/known_partner2/frozen_dataset
+  runs_dir: data/bidirectional/runs_kp2
+  screening_dir: data/bidirectional/known_partner2/screening_results
+  results_dir: results/bidirectional_kp2
+
+pairs:
+  seed: 20261106
+  rules: {}                     # pairs are built by known_partner.py, not pairs.py
+
+triplets:
+  rules: {}                     # no triplets in this extension
+
+# Screening: baseline questions only (no comparison), on every entity of verified_pairs.csv.
+screening:
+  model: qwen3-32b
+  samples: 20
+  min_parsed: 0.8            # share of replies with an "Estimate:" number
+  max_refusal: 0.2           # share of refusals
+  known_tolerance: 0.05      # a reply within 5% of the true value counts as "known"
+  max_known_share: 0.5       # post-cutoff pairs: drop a pair if either entity is known this often
+  # Uncertainty categories (spread = log10(q90 / q10) of the 20 answers); calibrated on the
+  # screening answers: the cut points are the tertiles of the spread among post-cutoff entities.
+  categories: tertiles
+  # How many frozen pairs go into the pilot (the rest are held out for the confirmatory run).
+  pilot_targets:                  # every eligible pair is run (no held-out set: this is a pilot extension)
+    "kp:*:fact": 999
+  robustness: {}
+  known_partner:
+    max_median_error: 0.10        # the famous item's baseline median must be within 10% of the truth
+  seed: 20261106
+
+conditions:
+  repetitions: 10               # independent conversations per cell
+  baseline_repetitions: 20      # B (single-turn baseline) per entity, fresh in the main run
+  system_prompt: "You are a helpful assistant."
+  forced_choice: true           # turn 1 offers only the two directions (no UNSURE); see CHANGELOG
+  targets: unknown_only         # bidir-kp2: only the obscure item is estimated after a comparison
+  option_order: balanced        # half the repetitions offer "SMALLER or GREATER" (first-option reflex cancels)
+  # Core: B, B2 (C5, two-turn neutral), LT, LA, HT, HA (comparison, then estimate).
+  # Controls: C1 co-mention, C2 letters comparison, C3 comparison shown but not answered.
+  controls: [C1, C3]            # C2 (letters) dropped: not needed for the two-partner difference
+  # Templates P1 / P2 alternate across repetitions and orders (balanced, fixed in advance).
+  templates: [P1, P2]
+
+numeric:                        # C4, secondary: the partner's true value as a number
+  repetitions: 10
+
+triplet_conditions:
+  repetitions: 10
+
+thinking_level: "off"           # the primary comparison: thinking off for every model
+thinking_levels:
+  "off": 0
+  "low": 512
+  "high": 2048
+
+models:
+  qwen3-32b:
+    hf_id: Qwen/Qwen3-32B
+    backend: deepinfra
+    api_model: Qwen/Qwen3-32B
+    price_per_million: {input: 0.08, output: 0.28}
+    release: 2025-04-29
+    cutoff: "not published (released April 2025); inferred"
+    provider: DeepInfra (raw completions, own chat template; no tools, no retrieval)
+  qwen3-14b:
+    hf_id: Qwen/Qwen3-14B
+    backend: deepinfra
+    api_model: Qwen/Qwen3-14B
+    price_per_million: {input: 0.12, output: 0.24}
+    release: 2025-04-29
+    cutoff: "not published (released April 2025); inferred"
+    provider: DeepInfra (raw completions, own chat template; no tools, no retrieval)
+  qwen3-8b:
+    hf_id: Qwen/Qwen3-8B
+    dtype: bfloat16
+    release: 2025-04-29
+    cutoff: "not published (released April 2025); inferred"
+    provider: Colab GPU (vLLM)
+  qwen3-4b:
+    hf_id: Qwen/Qwen3-4B
+    dtype: float16
+    release: 2025-04-29
+    cutoff: "not published (released April 2025); inferred"
+    provider: Colab GPU (vLLM, fits a free T4)
+  llama-3.3-70b:
+    backend: openai_chat
+    base_url: https://api.deepinfra.com/v1/openai
+    api_model: meta-llama/Llama-3.3-70B-Instruct-Turbo
+    api_key_env: DEEPINFRA_API_KEY
+    price_per_million: {input: 0.23, output: 0.40}   # check deepinfra.com/pricing; DeepInfra's own reported cost is used when given
+    release: 2024-12-06
+    cutoff: "December 2023 (official model card)"
+    provider: DeepInfra chat endpoint (provider's chat template; no tools)
+  llama-3.1-8b:
+    backend: openai_chat
+    base_url: https://api.deepinfra.com/v1/openai
+    api_model: meta-llama/Meta-Llama-3.1-8B-Instruct
+    api_key_env: DEEPINFRA_API_KEY
+    price_per_million: {input: 0.03, output: 0.05}   # check deepinfra.com/pricing
+    release: 2024-07-23
+    cutoff: "December 2023 (official model card)"
+    provider: DeepInfra chat endpoint (provider's chat template; no tools)
+
+sampling:
+  temperature: 0.7
+  top_p: 0.95
+  answer_max_tokens: 400        # thinking off: short replies; a cut-off reply counts as no answer
+  seed: 20261106
+
+engine:                         # vLLM on Colab
+  max_model_len: 4096
+  gpu_memory_utilization: 0.90
+
+api:
+  max_spend_usd: 5              # per run, counted across restarts; the run stops before passing it
+  workers: 8
+  timeout_seconds: 300
+  max_retries: 6
+  rate_limit_wait_seconds: 1800
+
+run:
+  trials_per_batch: 200         # saved after every batch
+sync:
+  min_interval_seconds: 600
+
+analysis:
+  bootstrap: 2000
+  seed: 20261106
+  sesoi: 0.05                   # smallest effect of interest, log1p units (about 5%), for equivalence
+  primary_control: C1           # comparison vs co-mention is the primary contrast
+  min_parsed_share: 0.5         # cells with fewer parsed replies are reported but flagged

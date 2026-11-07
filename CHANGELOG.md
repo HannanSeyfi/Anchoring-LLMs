@@ -4,6 +4,70 @@ What changed in the pilot design and code, and why. The first question set and i
 as they were (`configs/pilot.yaml`, `data/items/`, `data/pilot/`), so earlier runs can still be
 reproduced.
 
+## Bidirectional study: answer words both ways round (design bidir-v3) and analysis checks (2026-11-07)
+
+- **Why:** in runs A and B and the known-partner run, the turn-1 comparison was often a habit of
+  taking the first answer word offered. In run B, when the right answer was the first word
+  ("MORE" in "MORE or FEWER") the model was right 89-100% of the time on facts, Olympics, the 2022
+  World Cup and the products; when it was the second word, 27-56% (`option_order.csv`). With the
+  usual order fixed, that habit is mixed up with the comparison itself. An outside review of the
+  results (Codex, 2026-11-07) also pointed out that the intercept-only mixed model gave p = 0.006
+  for the low item while the pair bootstrap crossed zero, and that the power for "both
+  directions" was the one-direction power squared.
+- **What (design):** `conditions.option_order: balanced`. The second half of each cell's
+  repetitions names the two directions the other way round, in the question and in the answer
+  words ("did A record fewer or more goals than B? Answer with one word: FEWER or MORE."). Templates
+  P1/P2 still alternate, so template and word order are crossed. Trials record
+  `options_reversed`. New config `configs/bidirectional_v3.yaml` (design bidir-v3): the same frozen
+  pairs, triplets and screening as bidir-v2, with its own trials, runs and results folders
+  (`generated_trials_v3/`, `runs_v3/`, `results/bidirectional_v3/`). Use it for the triplets, the
+  confirmatory pairs and new models. bidir-v2 prompts are unchanged (the committed trial bank is
+  reproduced exactly). `configs/bidirectional_kp2.yaml` (not yet run) gets the same setting.
+- **Prediction, written before any v3 data:** with the word order balanced, turn-1 accuracy is
+  the same whichever word is right if the model compares; a gap between the two rows of
+  `option_order.csv` measures the habit. The item effect (comparison vs controls, triplets,
+  two-partner difference) is read over both word orders together and, as a check, within each.
+- **What (analysis, all configs):**
+  - `comparison_vs_C2` and `C2_vs_C1`: C2 (both names, then a letter-count question) is the
+    two-turn co-mention control, matched to the comparison in number of turns. It joins the
+    controls-side-by-side table.
+  - `mixed_slopes.csv`: the primary contrast at trial level with a random intercept and a random
+    comparison slope per pair, per direction, against C1 and C2. The intercept-only model stays in
+    the report, marked as too confident. Run B, low item vs C1: +0.054 [-0.010, +0.119], p = 0.10,
+    now in line with the bootstrap; the effect varies between pairs (slope sd 0.23).
+  - `option_order.csv`: turn-1 accuracy by whether the right answer was the first or the second
+    word offered.
+  - `power.py`: the low and high effects are simulated together, correlated as in the pilot
+    (run B: r = -0.45), plus a model-free version that resamples the pilot pairs. Run B: 114-120
+    pairs give about 25% power for both directions at 0.05 and about 97% at 0.10 (the squared
+    shortcut gave 27% and 97%).
+- The results of runs A, B and kp1 were re-analysed with this code (same data, same numbers
+  for every existing table; only new tables added).
+
+## Bidirectional study: two partners per item (design bidir-kp2, 2026-11-06)
+
+- **Why:** the known-partner run (bidir-kp1, Qwen3-32B, 54 pairs) found no pull of the obscure
+  item towards the famous one. It also showed that every control condition moves the estimates
+  by itself: "Qutani and K2 are both mountains" lifted Qutani from 3,750 m to 5,340 m; in run B
+  the co-mention made cheap products about 30% cheaper and raised World Cup estimates by about
+  0.68. So "comparison minus co-mention" partly measures the co-mention, and the main contrast
+  can flip with the control chosen.
+- **What:** `configs/bidirectional_kp2.yaml`. Each of 49 obscure items (28 mountains, 21
+  buildings) is compared once with a taller and once with a shorter famous item (98 pairs; the
+  same Wikidata items, ratio 1.3-3, a famous item used at most 8 times; Mount Olympus left out
+  because the model did not know it in the kp1 screening). The item effect is the estimate after
+  the taller partner minus after the shorter one, so whatever a condition does by itself cancels;
+  dividing by the partners' gap gives an anchoring index like Jacowitz and Kahneman's. Only the
+  obscure item is estimated after a pair condition (`conditions.targets: unknown_only`); C2 is
+  dropped. Built by `python -m anchoring_llms.bidirectional.known_partner --config
+  configs/bidirectional_kp2.yaml`; the same screening rules as kp1.
+- **Prediction, written before any kp2 data:** if the model uses the famous item's height, the
+  comparison difference is above zero (towards the partner); the same partners as plain numbers
+  (C4) give the size of a numeric pull for comparison.
+- **Analysis addition (all configs):** a table of the comparison effect against each control (B,
+  B2, C1) side by side; an effect is called robust only when its interval is on the same side of
+  zero against all three. The known-partner table also shows the comparison against B and B2.
+
 ## Bidirectional study: known-partner pairs (design bidir-kp1, 2026-11-06)
 
 - **Why:** in runs A and B (Qwen3-32B) two World Cup 2026 teams did not anchor each other: the

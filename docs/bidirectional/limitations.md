@@ -38,3 +38,11 @@ Stated before the data come in, so that none of them is discovered conveniently 
 13. **Known-partner pairs are built after seeing runs A and B.** The extension was designed to
     explain the null result on World Cup 2026, so it is exploratory. Its pairs were chosen from
     Wikidata values only, and screened on baselines only, as for the main set.
+14. **In v1, v2 and kp1 the "more" word always came first.** The model often took the first word
+    (run B: right 89-100% of the time when the right answer came first, 27-56% when it came
+    second, outside World Cup 2026), so in those runs the comparison is partly a habit. From v3
+    and kp2 on, half the trials name the directions the other way round (`CHANGELOG.md`).
+15. **Entities shared between pairs are not modelled.** The pair bootstrap and the mixed model
+    (with a comparison slope per pair) treat pairs as independent, but some teams and products
+    appear in several pairs, so the intervals are somewhat too narrow; the power estimates are
+    somewhat optimistic for the same reason.

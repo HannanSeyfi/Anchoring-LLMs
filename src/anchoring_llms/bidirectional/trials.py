@@ -41,6 +41,21 @@ def _forced(cfg: Mapping) -> bool:
     return bool(cfg.get("conditions", {}).get("forced_choice", False))
 
 
+def _reverse(cfg: Mapping, rep: int, reps: int) -> bool:
+    """`conditions.option_order: balanced` (bidir-v3, bidir-kp2): the second half of the repetitions
+    offers the answer words the other way round ("FEWER or MORE"). Templates still alternate within
+    each half, so template and option order are crossed."""
+    if cfg.get("conditions", {}).get("option_order") != "balanced":
+        return False
+    return 2 * rep >= reps
+
+
+def _options_extra(cfg: Mapping, rev: bool) -> dict | None:
+    if cfg.get("conditions", {}).get("option_order") != "balanced":
+        return None
+    return {"options_reversed": bool(rev)}
+
+
 PHASES = ["screen", "core", "confirmatory", "numeric", "triplets", "bank"]
 TWO_TURN = {"B2", "LT", "LA", "HT", "HA", "C2", "C4", "TRI"}
 
@@ -111,11 +126,12 @@ def pair_trials(cfg: dict, phase: str, pair: Mapping, ents: Mapping[str, Mapping
             first, second = (t, o) if t_first else (o, t)
             # LT and HA ask the very same comparison (low named first), as do LA and HT
             tpl = P.TEMPLATES[(r + (0 if first is lo else 1)) % 2]
-            turns = [P.comparison_prompt(first, second, tpl, _forced(cfg)), P.estimate_prompt(t)]
+            rev = _reverse(cfg, r, reps)
+            turns = [P.comparison_prompt(first, second, tpl, _forced(cfg), rev), P.estimate_prompt(t)]
             out.append(_trial(cfg, phase, cond, t, o, turns, r, pair_id=pid,
                               role="low" if t is lo else "high",
                               order="target_first" if t_first else "target_second",
-                              template=tpl, expected=exp, split=split))
+                              template=tpl, expected=exp, split=split, extra=_options_extra(cfg, rev)))
         for t, o, exp in ((lo, hi, +1), (hi, lo, -1)):
             role = "low" if t is lo else "high"
             for t_first in (True, False):
@@ -157,15 +173,26 @@ def triplet_trials(cfg: dict, tri: Mapping, ents: Mapping[str, Mapping], reps: i
             for t_first in (True, False):
                 first, second = (t, o) if t_first else (o, t)
                 tpl = P.TEMPLATES[(r + (0 if float(first["value"]) < float(second["value"]) else 1)) % 2]
-                turns = [P.comparison_prompt(first, second, tpl, _forced(cfg)), P.estimate_prompt(t)]
+                rev = _reverse(cfg, r, reps)
+                turns = [P.comparison_prompt(first, second, tpl, _forced(cfg), rev), P.estimate_prompt(t)]
                 out.append(_trial(cfg, "triplets", "TRI", t, o, turns, r, pair_id=tri["triplet_id"],
                                   role=role, order="target_first" if t_first else "target_second",
-                                  template=tpl, expected=exp))
+                                  template=tpl, expected=exp, extra=_options_extra(cfg, rev)))
     return out
 
 
 def frozen_path(cfg: dict) -> Path:
     return Path(cfg["paths"]["frozen_dir"]) / "pairs_frozen.csv"
+
+
+def _unknown_only(cfg: dict, trials: list[dict], pairs: pd.DataFrame) -> list[dict]:
+    """bidir-kp2 (`conditions.targets: unknown_only`): drop pair trials whose target is the famous item.
+
+    Baselines (B, B2) are kept for every entity."""
+    if cfg["conditions"].get("targets") != "unknown_only" or "known_entity_id" not in pairs:
+        return trials
+    known = dict(zip(pairs["pair_id"], pairs["known_entity_id"]))
+    return [t for t in trials if not (t.get("pair_id") and known.get(t["pair_id"]) == t["target_entity_id"])]
 
 
 def generate(cfg: dict, phase: str) -> list[dict]:
@@ -191,7 +218,7 @@ def generate(cfg: dict, phase: str) -> list[dict]:
             out += triplet_trials(cfg, t, ents, 1)
         for t in out:
             t["phase"] = "bank"
-        return out
+        return _unknown_only(cfg, out, pairs)
     fp = frozen_path(cfg)
     if not fp.exists():
         raise SystemExit(f"{fp} does not exist yet. Run the screening and "
@@ -212,12 +239,12 @@ def generate(cfg: dict, phase: str) -> list[dict]:
         for p in sel.to_dict("records"):
             if p["dataset"] != "young":       # no true value to use as an anchor
                 out += numeric_trials(cfg, p, ents, cfg["numeric"]["repetitions"], p["split"])
-        return out
+        return _unknown_only(cfg, out, sel)
     ids = list(sel["low_entity_id"]) + list(sel["high_entity_id"])
     out = entity_trials(cfg, phase, ents, ids, cond["baseline_repetitions"], cond["repetitions"])
     for p in sel.to_dict("records"):
         out += pair_trials(cfg, phase, p, ents, cond["repetitions"], controls, p["split"])
-    return out
+    return _unknown_only(cfg, out, sel)
 
 
 def write_trials(trials: list[dict], out_dir: Path, phase: str) -> Path:

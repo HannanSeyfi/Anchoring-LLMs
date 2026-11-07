@@ -114,6 +114,7 @@ def _simulate(cfg, tmp_path, pattern, **sim):
     df = trial_table(load_records(folder))
     pe = pair_effects(df)
     s = summarise(pe[pe["split"] == "pilot"], c).set_index("contrast")
+    c["_trials"] = df   # for tests that need the trial table
     return s, c
 
 
@@ -174,3 +175,73 @@ def test_log1p_handles_zero_and_invalid():
     assert df["z"].iloc[0] == 0.0
     assert df["z"].isna().iloc[1] and df["z"].isna().iloc[2]
     assert list(df["valid"]) == [True, False, False]
+
+
+# ----------------------------------------------------------------------------- 2026-11-07 additions
+
+def _simulate_v3(cfg, tmp_path, name, reflex):
+    c = copy.deepcopy(cfg)
+    c["conditions"]["option_order"] = "balanced"
+    c["design_version"] = "bidir-v3"
+    c["simulation"] = dict(first_word_reflex=reflex, noise=0.1, refusal_rate=0.0)
+    for k in ("frozen_dir", "screening_dir", "runs_dir", "results_dir"):
+        c["paths"][k] = str(tmp_path / name / k)
+    folder = run(c, "screen", "x", "simulated", trials=generate(c, "screen"))
+    freeze(c, "simulated", records=load_records(folder), force=True)
+    core = [t for t in generate(c, "core") if t["dataset"] in ("wc2026", "facts") or t["pair_id"] == ""]
+    folder = run(c, "core", "x", "simulated", trials=core, pattern="bidirectional")
+    return trial_table(load_records(folder)), c
+
+
+def test_option_order_table_finds_a_first_word_reflex(cfg, tmp_path):
+    from anchoring_llms.bidirectional.analysis import option_order
+    df, _ = _simulate_v3(cfg, tmp_path, "reflex", reflex=1.0)
+    t = option_order(df).groupby("correct_answer_offered")[["correct", "picked_first", "reversed_share"]].mean()
+    assert t.loc["first", "correct"] == 1.0 and t.loc["second", "correct"] == 0.0
+    assert (t["picked_first"] == 1.0).all()
+    assert 0.3 < t["reversed_share"].mean() < 0.7
+    df, _ = _simulate_v3(cfg, tmp_path, "noreflex", reflex=0.0)
+    t = option_order(df).groupby("correct_answer_offered")["picked_first"].mean()
+    assert t.loc["first"] > 0.7 and t.loc["second"] < 0.3   # follows its beliefs, not the word order
+
+
+def test_mixed_slopes_and_the_c2_control(cfg, tmp_path):
+    from anchoring_llms.bidirectional.analysis import mixed_slopes
+    s, c = _simulate(cfg, tmp_path, "low_only", noise=0.05, refusal_rate=0.0, comention=0.0)
+    assert "comparison_vs_C2" in s.index and "C2_vs_C1" in s.index
+    df = c.pop("_trials")
+    m = mixed_slopes(df[df["split"].isin(["pilot", ""])]).set_index(["role", "contrast"])
+    assert m.loc[("low", "comparison_vs_C1"), "ci_lo"] > 0
+    assert m.loc[("high", "comparison_vs_C1"), "ci_lo"] < 0 < m.loc[("high", "comparison_vs_C1"), "ci_hi"]
+    assert {"slope_sd", "p", "n_pairs"} <= set(m.columns)
+
+
+def test_joint_power():
+    from anchoring_llms.bidirectional.power import power_joint, power_one, power_resample
+    p = power_one(60, 10, 0.08, 0.3, 0.2, sims=3000, seed=1)
+    lo, hi, both = power_joint(60, 10, 0.08, 0.3, 0.2, rho=0.0, sims=3000, seed=1)
+    assert abs(lo - p) < 0.05 and abs(both - lo * hi) < 0.05     # independent: about the square
+    _, _, both_neg = power_joint(60, 10, 0.08, 0.3, 0.2, rho=-0.6, sims=3000, seed=1)
+    _, _, both_pos = power_joint(60, 10, 0.08, 0.3, 0.2, rho=0.6, sims=3000, seed=1)
+    assert both_neg < both < both_pos
+    wide = pd.DataFrame({"low": [0.1, -0.2, 0.3, 0.0, 0.05, -0.1], "high": [0.0, 0.1, -0.2, 0.2, 0.0, 0.1]})
+    a, b, ab = power_resample(wide, 40, 0.5, sims=500)
+    assert a == b == ab == 1.0
+
+
+def test_triplets_only_run_is_analysed(tmp_path):
+    # bidir-v3 starts with the triplets: the analysis must work with no pair trials at all.
+    c = load_config("configs/bidirectional_v3.yaml")
+    for k in ("runs_dir", "results_dir", "trials_dir"):
+        c["paths"][k] = str(tmp_path / k)
+    c["triplet_conditions"]["repetitions"] = 4
+    c["conditions"]["baseline_repetitions"] = 4
+    c["analysis"]["bootstrap"] = 300
+    run(c, "triplets", "x", "simulated", trials=generate(c, "triplets"), pattern="bidirectional")
+    res = analyse(c, "simulated", smoke=True)
+    t = res["triplet_summary"].set_index(["trials", "dataset"])
+    assert {("all", "all"), ("usual word order", "all"), ("reversed word order", "all")} <= set(t.index)
+    assert t.loc[("all", "all"), "mid_high_minus_low"] > 0 and t.loc[("all", "all"), "triplets"] == 9
+    assert res["overall"].empty
+    report = (tmp_path / "results_dir_smoke" / "simulated" / "off" / "report.md").read_text()
+    assert "SIMULATED DATA" in report and "mid_high_minus_low" in report
