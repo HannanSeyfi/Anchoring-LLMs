@@ -71,6 +71,27 @@ best guess."); in v1 it also offered UNSURE. Two comparison wordings (P1 "more /
 fewer", P2 "higher / lower") alternate over repetitions, and LT and HA (and LA and HT) share the
 same turn 1, so the two entities of a pair see exactly the same comparison.
 
+**Answer-word order (bidir-v3, `configs/bidirectional_v3.yaml`; also bidir-kp2).** In v1 and v2 the
+"more" word always came first, and the model often just took the first word: in run B it was
+right 89-100% of the time when the right answer came first and 27-56% when it came second
+(facts, Olympics, World Cup 2022, products). From v3 on, half of each cell's repetitions name
+the directions the other way round, in the question and in the answer words: "did Cabo Verde
+record fewer or more attempts at goal than Colombia? Answer with one word: FEWER or MORE."
+Templates and word order are crossed; each trial records `options_reversed`. The report's
+`option_order` table shows accuracy by whether the right word came first or second.
+
+**Controls matched in turns.** C1 has one turn and the comparison two, so the comparison is also
+compared with C2 (both names, then an unrelated letter-count question: two turns) and with B2
+(two turns, target only). Because every control shifts the estimates by itself, an effect is
+called robust only when it has the same sign against B, B2, C1 and C2. The two-partner difference
+(bidir-kp2) and the triplets need no control at all.
+
+**Statistics.** The primary test is the pair-level bootstrap. The trial-level mixed model gives
+each pair its own intercept and its own comparison effect (`mixed_slopes`); an intercept-only
+model treats the answers within a pair as independent evidence and is too confident. Entities
+that appear in several pairs are not modelled in either. Power (`power.py`) simulates the low and
+the high direction together with the correlation seen in the pilot.
+
 ## Datasets
 
 | Dataset | What | Why | Pairs |

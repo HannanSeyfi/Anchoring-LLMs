@@ -92,7 +92,8 @@ def run_batch(backend, trials: list[dict], budget: int, truths: dict) -> list[di
     """Turn 1 for every trial, then turn 2 for the two-turn trials, each with its own history."""
     def meta(t, turn):
         m = {k: t[k] for k in ("condition", "role", "order", "target_entity_id", "partner_entity_id", "n_turns")}
-        m.update(turn=turn, anchor_value=t.get("anchor_value"), truth_target=truths.get(t["target_entity_id"]),
+        m.update(turn=turn, anchor_value=t.get("anchor_value"), options_reversed=bool(t.get("options_reversed", False)),
+                 truth_target=truths.get(t["target_entity_id"]),
                  truth_partner=truths.get(t["partner_entity_id"]))
         return m
 

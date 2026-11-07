@@ -32,6 +32,7 @@ Every notebook needs the `GITHUB_TOKEN` Colab secret; the hosted models also nee
 | 8 | 06 then 07 | `PHASE = confirmatory`, only after the pilot has been looked at | CPU | about $2 per model |
 | kp | 05, then 06 (`core`, then `numeric`), then 07 | `CONFIG = configs/bidirectional_kp.yaml`, `qwen3-32b`: the known-partner pairs | CPU | about $0.05 + $0.45 + $0.05 |
 | kp2 | the same three steps | `CONFIG = configs/bidirectional_kp2.yaml`: each obscure item with a taller and a shorter famous partner | CPU | about $0.50 in all |
+| v3 | 06 (`triplets`, then `core`), then 07 | `CONFIG = configs/bidirectional_v3.yaml`, `qwen3-32b`: the same frozen pairs and triplets, with the answer words offered both ways round (MORE or FEWER / FEWER or MORE). No new screening. Use v3 for the confirmatory pairs and new models | CPU | about $0.05 (triplets) + $0.45 (core) |
 
 Costs are estimates from the token counts of the prompts and DeepInfra's listed prices; each run
 stops before passing `MAX_SPEND_USD`. Check the Llama prices on deepinfra.com/pricing before step 5.

@@ -40,6 +40,7 @@ class SimBackend:
     no_commitment: float = 0.10  # pull in C3
     numeric: float = 0.45        # pull in C4
     refusal_rate: float = 0.02
+    first_word_reflex: float = 0.0  # share of comparisons answered with whichever word is offered first
     seed: int = 0
     name: str = "simulated"
     hf_id: str = "simulated"
@@ -58,7 +59,7 @@ class SimBackend:
             comps = []
             for _ in range(r.n):
                 if m.get("turn") == 1 and m.get("n_turns") == 2:
-                    comps.append(Completion("", self._turn1(m), 0, 3, False, "stop"))
+                    comps.append(Completion("", self._turn1(m, rnd), 0, 3, False, "stop"))
                     continue
                 if rnd.random() < self.refusal_rate:
                     comps.append(Completion("", "I'm sorry, I don't have data on that event.", 0, 10, False, "stop"))
@@ -82,8 +83,11 @@ class SimBackend:
             return PATTERNS[self.pattern]["low" if lowish else "high"]
         return {"C1": self.comention, "C3": self.no_commitment, "C4": self.numeric}.get(c, 0.0)
 
-    def _turn1(self, m: dict) -> str:
+    def _turn1(self, m: dict, rnd: random.Random | None = None) -> str:
         c = m["condition"]
+        if c in ("LT", "LA", "HT", "HA", "TRI") and self.first_word_reflex and rnd is not None \
+                and rnd.random() < self.first_word_reflex:
+            return "FEWER" if m.get("options_reversed") else "MORE"
         if c == "B2":
             return "YES"
         if c == "C2":

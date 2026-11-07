@@ -59,6 +59,7 @@ conditions:
   system_prompt: "You are a helpful assistant."
   forced_choice: true           # turn 1 offers only the two directions (no UNSURE); see CHANGELOG
   targets: unknown_only         # bidir-kp2: only the obscure item is estimated after a comparison
+  option_order: balanced        # half the repetitions offer "SMALLER or GREATER" (first-option reflex cancels)
   # Core: B, B2 (C5, two-turn neutral), LT, LA, HT, HA (comparison, then estimate).
   # Controls: C1 co-mention, C2 letters comparison, C3 comparison shown but not answered.
   controls: [C1, C3]            # C2 (letters) dropped: not needed for the two-partner difference

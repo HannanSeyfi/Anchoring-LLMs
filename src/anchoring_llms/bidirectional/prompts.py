@@ -123,12 +123,42 @@ def comparison_question(t: Mapping, o: Mapping, template: str) -> str:
         f"Was {a}'s total number of {label} {scope_single(t)} higher or lower than {b}'s?"
 
 
-def comparison_prompt(t: Mapping, o: Mapping, template: str, forced: bool = False) -> str:
-    """Turn 1. forced=True: only the two directions may be chosen (design bidir-v2)."""
-    if forced:
-        return (f"{comparison_question(t, o, template)}\n\n"
-                f"{ONE_WORD.format(options=FORCED_OPTIONS[kind_of(t)][template])}{FORCED_NOTE}")
-    return f"{comparison_question(t, o, template)}\n\n{ONE_WORD.format(options=OPTIONS[kind_of(t)][template])}"
+def swap_options(options: str) -> str:
+    """'MORE or FEWER' -> 'FEWER or MORE'; 'MORE, FEWER, or UNSURE' -> 'FEWER, MORE, or UNSURE'."""
+    if ", or " in options:
+        a, rest = options.split(", ", 1)
+        b, tail = rest.split(", or ", 1)
+        return f"{b}, {a}, or {tail}"
+    a, b = options.split(" or ")
+    return f"{b} or {a}"
+
+
+# The direction words inside the question, and the same words the other way round.
+QUESTION_SWAPS = (("more or fewer", "fewer or more"), ("more or less", "less or more"),
+                  ("greater or smaller", "smaller or greater"), ("higher or lower", "lower or higher"))
+
+
+def swap_question(q: str) -> str:
+    """'did A record more or fewer goals than B?' -> 'did A record fewer or more goals than B?'"""
+    for a, b in QUESTION_SWAPS:
+        if a in q:
+            return q.replace(a, b, 1)
+    raise ValueError(f"no direction words to swap in: {q}")
+
+
+def comparison_prompt(t: Mapping, o: Mapping, template: str, forced: bool = False,
+                      reverse_options: bool = False) -> str:
+    """Turn 1. forced=True: only the two directions may be chosen (design bidir-v2).
+
+    reverse_options=True names the two directions the other way round, in the question ("fewer or
+    more") and in the answer words ("FEWER or MORE"), so that a habit of picking the first option
+    cancels out across trials (designs bidir-v3 and bidir-kp2)."""
+    q = comparison_question(t, o, template)
+    opts = (FORCED_OPTIONS if forced else OPTIONS)[kind_of(t)][template]
+    if reverse_options:
+        q, opts = swap_question(q), swap_options(opts)
+    note = FORCED_NOTE if forced else ""
+    return f"{q}\n\n{ONE_WORD.format(options=opts)}{note}"
 
 
 def neutral_turn(t: Mapping) -> str:

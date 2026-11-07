@@ -41,6 +41,21 @@ def _forced(cfg: Mapping) -> bool:
     return bool(cfg.get("conditions", {}).get("forced_choice", False))
 
 
+def _reverse(cfg: Mapping, rep: int, reps: int) -> bool:
+    """`conditions.option_order: balanced` (bidir-v3, bidir-kp2): the second half of the repetitions
+    offers the answer words the other way round ("FEWER or MORE"). Templates still alternate within
+    each half, so template and option order are crossed."""
+    if cfg.get("conditions", {}).get("option_order") != "balanced":
+        return False
+    return 2 * rep >= reps
+
+
+def _options_extra(cfg: Mapping, rev: bool) -> dict | None:
+    if cfg.get("conditions", {}).get("option_order") != "balanced":
+        return None
+    return {"options_reversed": bool(rev)}
+
+
 PHASES = ["screen", "core", "confirmatory", "numeric", "triplets", "bank"]
 TWO_TURN = {"B2", "LT", "LA", "HT", "HA", "C2", "C4", "TRI"}
 
@@ -111,11 +126,12 @@ def pair_trials(cfg: dict, phase: str, pair: Mapping, ents: Mapping[str, Mapping
             first, second = (t, o) if t_first else (o, t)
             # LT and HA ask the very same comparison (low named first), as do LA and HT
             tpl = P.TEMPLATES[(r + (0 if first is lo else 1)) % 2]
-            turns = [P.comparison_prompt(first, second, tpl, _forced(cfg)), P.estimate_prompt(t)]
+            rev = _reverse(cfg, r, reps)
+            turns = [P.comparison_prompt(first, second, tpl, _forced(cfg), rev), P.estimate_prompt(t)]
             out.append(_trial(cfg, phase, cond, t, o, turns, r, pair_id=pid,
                               role="low" if t is lo else "high",
                               order="target_first" if t_first else "target_second",
-                              template=tpl, expected=exp, split=split))
+                              template=tpl, expected=exp, split=split, extra=_options_extra(cfg, rev)))
         for t, o, exp in ((lo, hi, +1), (hi, lo, -1)):
             role = "low" if t is lo else "high"
             for t_first in (True, False):
@@ -157,10 +173,11 @@ def triplet_trials(cfg: dict, tri: Mapping, ents: Mapping[str, Mapping], reps: i
             for t_first in (True, False):
                 first, second = (t, o) if t_first else (o, t)
                 tpl = P.TEMPLATES[(r + (0 if float(first["value"]) < float(second["value"]) else 1)) % 2]
-                turns = [P.comparison_prompt(first, second, tpl, _forced(cfg)), P.estimate_prompt(t)]
+                rev = _reverse(cfg, r, reps)
+                turns = [P.comparison_prompt(first, second, tpl, _forced(cfg), rev), P.estimate_prompt(t)]
                 out.append(_trial(cfg, "triplets", "TRI", t, o, turns, r, pair_id=tri["triplet_id"],
                                   role=role, order="target_first" if t_first else "target_second",
-                                  template=tpl, expected=exp))
+                                  template=tpl, expected=exp, extra=_options_extra(cfg, rev)))
     return out
 
 
